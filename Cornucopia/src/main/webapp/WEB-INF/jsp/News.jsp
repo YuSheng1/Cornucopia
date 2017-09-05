@@ -43,8 +43,8 @@
                 <i class="am-icon-linkedin"></i>
                 <i class="am-icon-youtube-play"></i>
                 <i class="am-icon-rss"></i>
-                <a href="./login.html">登录</a>
-                <a href="./register.html">注册</a>
+                <a href="/Cornucopia/item/Login">登录</a>
+                <a href="/Cornucopia/item/Register">注册</a>
               </div>
             </div>
           </div>
@@ -87,7 +87,7 @@
   											</div>
   										</div>
                     </div>
-                    <a href="html/contact.html" class="contact-btn">
+                    <a href="/Cornucopia/item/Contact" class="contact-btn">
                       <button type="button" class="am-btn am-btn-secondary am-radius">联系我们</button>
                     </a>
                   </div>
@@ -102,32 +102,32 @@
         <div class="nav-contain">
           <div class="nav-inner">
             <ul class="am-nav am-nav-pills am-nav-justify">
-              <li class=""><a href="../index.html">首页</a></li>
+              <li class=""><a href="/Cornucopia/item/Index">首页</a></li>
               <li>
                 <a href="#">产品中心</a>
                 <!-- sub-menu start-->
                 <ul class="sub-menu">
-									<li class="menu-item"><a href="./product1.html">产品展示1</a></li>
-									<li class="menu-item"><a href="./product2.html">产品展示2</a></li>
-									<li class="menu-item"><a href="./product3.html">产品展示3</a></li>
+									<li class="menu-item"><a href="/Cornucopia/item/Product1">产品展示1</a></li>
+									<li class="menu-item"><a href="/Cornucopia/item/Product2">产品展示2</a></li>
+									<li class="menu-item"><a href="/Cornucopia/item/Product3">产品展示3</a></li>
 								</ul>
                 <!-- sub-menu end-->
               </li>
-              <li><a href="./example.html">客户案例</a></li>
-              <li><a href="./solution.html">解决方案</a></li>
+              <li><a href="/Cornucopia/item/Example">客户案例</a></li>
+              <li><a href="/Cornucopia/item/Solution">解决方案</a></li>
               <li>
-                <a href="./news.html">新闻中心</a>
+                <a href="/Cornucopia/item/News">新闻中心</a>
                 <!-- sub-menu start-->
                 <ul class="sub-menu">
-									<li class="menu-item"><a href="./news-content.html">公司动态</a></li>
+									<li class="menu-item"><a href="/Cornucopia/item/NewsC">公司动态</a></li>
 									<li class="menu-item"><a href="./404-dark.html">行业动态</a></li>
 									<li class="menu-item"><a href="./404-light.html">精彩专题</a></li>
 								</ul>
                 <!-- sub-menu end-->
               </li>
-              <li><a href="./about.html">关于我们</a></li>
-              <li><a href="./join.html">加入我们</a></li>
-              <li><a href="./contact.html">联系我们</a></li>
+              <li><a href="/Cornucopia/item/About">关于我们</a></li>
+              <li><a href="/Cornucopia/item/Join">加入我们</a></li>
+              <li><a href="/Cornucopia/item/Contact">联系我们</a></li>
             </ul>
           </div>
         </div>
@@ -148,28 +148,28 @@
               <div class="am-offcanvas" >
                 <div class="am-offcanvas-bar">
                   <ul class="am-menu-nav am-avg-sm-1">
-                    <li><a href="../index.html" class="" >首页</a></li>
+                    <li><a href="/Cornucopia/item/Index" class="" >首页</a></li>
                     <li class="am-parent">
                       <a href="#" class="" >产品中心</a>
                       <ul class="am-menu-sub am-collapse ">
                         <li class="">
-                          <a href="./product1.html" class="" >产品展示1</a>
+                          <a href="/Cornucopia/item/Product1" class="" >产品展示1</a>
                         </li>
                         <li class="">
-                          <a href="./product2.html" class="" >产品展示2</a>
+                          <a href="/Cornucopia/item/Product2" class="" >产品展示2</a>
                         </li>
                         <li class="">
-                          <a href="./product3.html" class="" >产品展示3</a>
+                          <a href="/Cornucopia/item/Product3" class="" >产品展示3</a>
                         </li>
                       </ul>
                     </li>
-                    <li class=""><a href="./example.html" class="" >客户案例</a></li>
-                    <li class=""><a href="./solution.html" class="" >解决方案</a></li>
+                    <li class=""><a href="/Cornucopia/item/Example" class="" >客户案例</a></li>
+                    <li class=""><a href="/Cornucopia/item/Solution" class="" >解决方案</a></li>
                     <li class="am-parent">
-                      <a href="./news.html" class="" >新闻中心</a>
+                      <a href="/Cornucopia/item/News" class="" >新闻中心</a>
                       <ul class="am-menu-sub am-collapse  ">
                         <li class="">
-                          <a href="./news-content.html" class="" >公司动态</a>
+                          <a href="/Cornucopia/item/NewsC" class="" >公司动态</a>
                         </li>
                         <li class="">
                           <a href="./404-dark.html" class="" >行业动态</a>
@@ -179,9 +179,9 @@
                         </li>
                       </ul>
                     </li>
-                    <li class=""><a href="./about.html" class="" >关于我们</a></li>
-                    <li class=""><a href="./join.html" class="" >加入我们</a></li>
-                    <li class=""><a href="./contact.html" class="" >联系我们</a></li>
+                    <li class=""><a href="/Cornucopia/item/About" class="" >关于我们</a></li>
+                    <li class=""><a href="/Cornucopia/item/Join" class="" >加入我们</a></li>
+                    <li class=""><a href="/Cornucopia/item/Contact" class="" >联系我们</a></li>
                     <li class="am-parent">
                       <a href="./news.html" class="nav-icon nav-icon-globe" >Language</a>
                       <ul class="am-menu-sub am-collapse  ">
@@ -205,8 +205,8 @@
                         <i class="am-icon-rss"></i>
                       </div>
                     </li>
-                    <li class=""><a href="./login.html" class="" >登录</a></li>
-                    <li class=""><a href="./register.html" class="" >注册</a></li>
+                    <li class=""><a href="/Cornucopia/item/Login" class="" >登录</a></li>
+                    <li class=""><a href="/Cornucopia/item/Register" class="" >注册</a></li>
                   </ul>
 
                 </div>
@@ -238,7 +238,7 @@
       <div class="breadcrumb-box">
         <div class="am-container">
           <ol class="am-breadcrumb">
-            <li><a href="../index.html">首页</a></li>
+            <li><a href="/Cornucopia/item/Index">首页</a></li>
             <li class="am-active">公司动态</li>
           </ol>
         </div>

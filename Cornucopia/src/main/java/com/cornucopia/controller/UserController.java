@@ -6,10 +6,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("item")
 public class UserController {
+	
+	//主页
 	@RequestMapping("Index")
 	public String Index(){
 		return "Index";
 	}
+	//关于我们
 	@RequestMapping("about")
 	public String about(){
 		return "About";

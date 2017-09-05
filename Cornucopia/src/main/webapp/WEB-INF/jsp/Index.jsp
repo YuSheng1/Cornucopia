@@ -149,7 +149,7 @@
             <div class="am-offcanvas" >
               <div class="am-offcanvas-bar">
               <ul class="am-menu-nav am-avg-sm-1">
-                  <li><a href="/Cornucopia/item/index" class="" >首页</a></li>
+                  <li><a href="/Cornucopia/item/index"  class="" >首页</a></li>
                   <li class="am-parent">
                     <a href="#" class="" >产品中心</a>
                       <ul class="am-menu-sub am-collapse ">
@@ -180,17 +180,17 @@
                           </li>
                       </ul>
                   </li>
-                  <li class=""><a href="html/about.html" class="" >关于我们</a></li>
-                  <li class=""><a href="html/join.html" class="" >加入我们</a></li>
-                  <li class=""><a href="html/contact.html" class="" >联系我们</a></li>
+                  <li class=""><a href="/Cornucopia/item/About" class="" >关于我们</a></li>
+                  <li class=""><a href="/Cornucopia/item/Join" class="" >加入我们</a></li>
+                  <li class=""><a href="/Cornucopia/item/Contact" class="" >联系我们</a></li>
                   <li class="am-parent">
-                    <a href="" class="nav-icon nav-icon-globe" >Language</a>
+                    <a href="" class="nav-icon nav-icon-globe" >语言</a>
                       <ul class="am-menu-sub am-collapse  ">
                           <li>
                             <a href="#" >English</a>
                           </li>
                           <li class="">
-                            <a href="#" >Chinese</a>
+                            <a href="#" >简体中文</a>
                           </li>
                       </ul>
                   </li>
@@ -206,8 +206,8 @@
                       <i class="am-icon-rss"></i>
                     </div>
                   </li>
-                  <li class=""><a href="html/login.html" class="" >登录</a></li>
-                  <li class=""><a href="html/register.html" class="" >注册</a></li>
+                  <li class=""><a href="/Cornucopia/item/Login" class="" >登录</a></li>
+                  <li class=""><a href="/Cornucopia/item/Register" class="" >注册</a></li>
               </ul>
 
               </div>
