@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="../assets/css/other.min.css" />
 </head>
 <body class="register-container">
-   <div class="layout">
+<div class="layout">
     <!--===========layout-header================-->
     <div class="layout-header am-hide-sm-only">
       <!--topbar start-->
@@ -60,7 +60,7 @@
               <div class="am-g">
                 <div class="am-u-lg-2 am-u-sm-12">
                   <div class="logo">
-                    <a href=""><img src="../assets/images/4.jpg" alt="" style="margin-top: -18px"/></a>
+                  <a href=""><img src="../assets/images/4.jpg" alt="" style="margin-top: -18px"/></a>
                   </div>
                 </div>
                 <div class="am-u-md-10">
@@ -96,101 +96,46 @@
               </div>
             </div>
           </div>
-      </div>
-    </div>
-    </div>
+        <!--header end-->
 
 
-
-    <!--mobile header start-->
-    <div class="m-header">
-      <div class="am-g am-show-sm-only">
-        <div class="am-u-sm-2">
-          <div class="menu-bars">
-            <a href="#doc-oc-demo1" data-am-offcanvas="{effect: 'push'}"><i class="am-menu-toggle-icon am-icon-bars"></i></a>
-            <!-- 侧边栏内容 -->
-            <nav data-am-widget="menu" class="am-menu  am-menu-offcanvas1" data-am-menu-offcanvas >
-              <a href="javascript: void(0)" class="am-menu-toggle"></a>
-
-              <div class="am-offcanvas" >
-                <div class="am-offcanvas-bar">
-                  <ul class="am-menu-nav am-avg-sm-1">
-                    <li><a href="../index.html" class="" >首页</a></li>
-                    <li class="am-parent">
-                      <a href="#" class="" >产品中心</a>
-                      <ul class="am-menu-sub am-collapse ">
-                        <li class="">
-                          <a href="/Cornucopia/item/Product1" class="" >产品展示1</a>
-                        </li>
-                        <li class="">
-                          <a href="/Cornucopia/item/Product2" class="" >产品展示2</a>
-                        </li>
-                        <li class="">
-                          <a href="/Cornucopia/item/Product3" class="" >产品展示3</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class=""><a href="/Cornucopia/item/Example" class="" >客户案例</a></li>
-                    <li class=""><a href="/Cornucopia/item/Solution" class="" >解决方案</a></li>
-                    <li class="am-parent">
-                      <a href="/Cornucopia/item/News" class="" >新闻中心</a>
-                      <ul class="am-menu-sub am-collapse  ">
-                        <li class="">
-                          <a href="/Cornucopia/item/NewsC" class="" >公司动态</a>
-                        </li>
-                        <li class="">
-                          <a href="./404-dark.html" class="" >行业动态</a>
-                        </li>
-                        <li class="">
-                          <a href="./404-light.html" class="" >精彩专题</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class=""><a href="/Cornucopia/item/About" class="" >关于我们</a></li>
-                    <li class=""><a href="/Cornucopia/item/Join" class="" >加入我们</a></li>
-                    <li class=""><a href="/Cornucopia/item/Contact" class="" >联系我们</a></li>
-                    <li class="am-parent">
-                      <a href="./news.html" class="nav-icon nav-icon-globe" >Language</a>
-                      <ul class="am-menu-sub am-collapse  ">
-                        <li>
-                          <a href="#" >English</a>
-                        </li>
-                        <li class="">
-                          <a href="#" >Chinese</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li class="nav-share-contain">
-                      <div class="nav-share-links">
-                        <i class="am-icon-facebook"></i>
-                        <i class="am-icon-twitter"></i>
-                        <i class="am-icon-google-plus"></i>
-                        <i class="am-icon-pinterest"></i>
-                        <i class="am-icon-instagram"></i>
-                        <i class="am-icon-linkedin"></i>
-                        <i class="am-icon-youtube-play"></i>
-                        <i class="am-icon-rss"></i>
-                      </div>
-                    </li>
-                    <li class=""><a href="/Cornucopia/item/Login" class="" >登录</a></li>
-                    <li class=""><a href="/Cornucopia/item/Register" class="" >注册</a></li>
-                  </ul>
-
-                </div>
-              </div>
-            </nav>
-
+        <!--nav start-->
+        <div class="nav-contain">
+          <div class="nav-inner">
+            <ul class="am-nav am-nav-pills am-nav-justify">
+              <li class=""><a href="/Cornucopia/item/Index">首页</a></li>
+              <li>
+                <a href="#">网上体验中心</a>
+                <!-- sub-menu start-->
+                <ul class="sub-menu">
+                  <li class="menu-item"><a href="/Cornucopia/item/Product1">产品展示1</a></li>
+                  <li class="menu-item"><a href="/Cornucopia/item/Product2">产品展示2</a></li>
+                  <li class="menu-item"><a href="/Cornucopia/item/Product3">产品展示3</a></li>
+                </ul>
+                <!-- sub-menu end-->
+              </li>
+              <li><a href="/Cornucopia/item/Example">产品中心</a></li>
+              <li><a href="/Cornucopia/item/Solution">下载中心</a></li>
+              <li>
+                <a href="/Cornucopia/item/News">新闻中心</a>
+                <!-- sub-menu start-->
+                <ul class="sub-menu">
+                  <li class="menu-item"><a href="/Cornucopia/item/NewsC">盈+商学院</a></li>
+                  <li class="menu-item"><a href="html/404-dark.html">行业动态</a></li>
+                  <li class="menu-item"><a href="html/404-light.html">精彩专题</a></li>
+                </ul>
+                <!-- sub-menu end-->
+              </li>
+              <li><a href="/Cornucopia/item/About">盈+商学院</a></li>
+              <li><a href="/Cornucopia/item/Join">投研中心</a></li>
+              <li><a href="/Cornucopia/item/Contact">我的加法库</a></li>
+            </ul>
           </div>
         </div>
-        <div class="am-u-sm-5 am-u-end">
-          <div class="m-logo">
-            <a href=""><img src="../assets/images/logo.png" alt=""></a>
-          </div>
-        </div>
+        <!--nav end-->
       </div>
-      <!--mobile header end-->
-    </div>
 
+    </div>
 
 
     <!--===========layout-container================-->

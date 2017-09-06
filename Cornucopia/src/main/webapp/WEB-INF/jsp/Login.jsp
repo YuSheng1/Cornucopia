@@ -148,7 +148,6 @@
    
       <!--mobile header end-->
     </div>
-    </div>
     <div class="section" style="margin-top: -151px;">
       <div class="container">
 
