@@ -147,11 +147,67 @@
           <div class="am-form-group">
             <div class="am-g">
               <div class="am-u-md-2 am-padding-0 am-text-right">
-                <label for="doc-vld-name-2" class="register-name">账号</label>
+                <label for="doc-vld-name-2" class="register-name">用户名</label>
               </div>
               <div class="am-u-md-10">
                 <input type="text" id="doc-vld-name-2" minlength="3"
-                       placeholder="输入用户名（至少 3 个字符）" required/>
+                       placeholder="请输入用户名" required/>
+              </div>(需要实名注册)
+            </div>
+          </div>
+          <div class="am-form-group">
+            <div class="am-g">
+              <div class="am-u-md-2 am-padding-0 am-text-right">
+                <label for="doc-vld-name-2" class="register-name">手机号</label>
+              </div>
+              <div class="am-u-md-10">
+                <input type="text" id="doc-vld-name-2" minlength="3"
+                       placeholder="请输入手机号" required/>
+              </div>
+            </div>
+          </div>
+          <div class="am-form-group">
+            <div class="am-g">
+              <div class="am-u-md-2 am-padding-0 am-text-right">
+                <label for="doc-vld-name-2" class="register-name">图形验证码</label>
+              </div>
+              <div class="am-u-md-10">
+                <input type="text" id="doc-vld-name-2" minlength="3"
+                       placeholder="图形验证码" required/>
+              </div>
+            </div>
+          </div>
+          <div class="am-form-group">
+            <div class="am-g">
+              <div class="am-u-md-2 am-padding-0 am-text-right">
+                <label for="doc-vld-name-2" class="register-name">验证码</label>
+              </div>
+              <div class="am-u-md-10">
+                <input type="text" id="doc-vld-name-2" minlength="3"
+                       placeholder="请输入验证码" required/>
+                 <input type="button" value="获取验证码">
+              </div>
+            </div>
+          </div>
+          <div class="am-form-group">
+            <div class="am-g">
+              <div class="am-u-md-2 am-padding-0 am-text-right">
+                <label for="doc-vld-name-2" class="register-name">登陆密码</label>
+              </div>
+              <div class="am-u-md-10">
+                <input type="password" id="doc-vld-name-2" minlength="3"
+                       placeholder="请输入密码" required/>
+              </div>（数字和字母组合，不少于6位）
+            </div>
+          </div>
+
+          <div class="am-form-group">
+            <div class="am-g">
+              <div class="am-u-md-2 am-padding-0 am-text-right">
+                <label for="doc-vld-pwd-1" class="register-pwd">确认密码</label>
+              </div>
+              <div class="am-u-md-10">
+                <input type="password" id="doc-vld-pwd-1" placeholder="请再输入密码" pattern="^\d{6}$" required/>
               </div>
             </div>
           </div>
@@ -159,28 +215,40 @@
           <div class="am-form-group">
             <div class="am-g">
               <div class="am-u-md-2 am-padding-0 am-text-right">
-                <label for="doc-vld-pwd-1" class="register-pwd">密码</label>
+                <label for="doc-vld-pwd-2">理财师邀请码</label>
               </div>
               <div class="am-u-md-10">
-                <input type="password" id="doc-vld-pwd-1" placeholder="6 位数字的银行卡密码" pattern="^\d{6}$" required/>
+                <input type="text" id="doc-vld-pwd-2" placeholder="选填" data-equal-to="#doc-vld-pwd-1"/>
+              </div>（填写理财师邀请码，将会有更多惊喜）
+            </div>
+          </div>
+          
+           <div class="am-form-group">
+            <div class="am-g">
+              <div class="am-u-md-2 am-padding-0 	">
+                <label for="doc-vld-pwd-2">QQ号码</label>
+              </div>
+              <div class="am-u-md-10">
+                <input type="text" id="doc-vld-pwd-2" placeholder="选填" data-equal-to="#doc-vld-pwd-1"/>
+                <p placeholder="请用户提供QQ号码，方便客服联系">
               </div>
             </div>
           </div>
-
-          <div class="am-form-group">
+				
+		<div class="am-form-group">
             <div class="am-g">
               <div class="am-u-md-2 am-padding-0 am-text-right">
-                <label for="doc-vld-pwd-2">确认密码</label>
+                <label for="doc-vld-pwd-2"></label>
               </div>
               <div class="am-u-md-10">
-                <input type="password" id="doc-vld-pwd-2" placeholder="请与上面输入的值一致" data-equal-to="#doc-vld-pwd-1" required/>
+               <input type="checkbox">          
+                我已阅读并同意《本网站服务协议》
               </div>
             </div>
           </div>
-
           <div class="am-g">
             <div class="am-u-md-10">
-              <button class="am-btn am-btn-secondary" type="submit">注册</button>
+              <button class="am-btn am-btn-secondary" type="submit">立即注册</button>
             </div>
           </div>
         </fieldset>
