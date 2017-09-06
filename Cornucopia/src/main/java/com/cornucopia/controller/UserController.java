@@ -65,5 +65,10 @@ public class UserController {
 	public String About(){
 		return "About";
 	}
-	
+
+	//注册
+	@RequestMapping("Register")
+	public String Register(){
+		return "Register";
+	}
 }
