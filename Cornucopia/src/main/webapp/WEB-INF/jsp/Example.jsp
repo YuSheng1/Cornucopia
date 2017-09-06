@@ -11,6 +11,13 @@
   <link rel="stylesheet" href="../assets/css/common.min.css" />
   <link rel="stylesheet" href="../assets/css/news.min.css" />
   <link rel="stylesheet" href="../assets/css/product.min.css" />
+  
+  
+<link href="../assets/css/iconfont.css" rel="stylesheet" type="text/css" />
+<link href="../assets/css/common1.css" rel="stylesheet">
+<link href="../assets/css/jw.css" rel="stylesheet">
+<script type="text/javascript" src="../assets/js/layer.js"></script>
+<script src="../assets/js/echarts.js"></script>
 </head>
 <body>
   <div class="layout">
@@ -180,15 +187,41 @@
         </div>
       </div>
 
-      <div class="breadcrumb-box">
-        <div class="am-container">
-          <ol class="am-breadcrumb">
-            <li><a href="/Cornucopia/item/Index">首页</a></li>
-            <li class="am-active">产品中心</li>
-          </ol>
+     <div class="sdShaix" style="width: 800px;margin-left: 500px">
+        	<ul>
+            	<li class="first">标的类型：</li>
+               		<li><a href="#" id="11">全部</a></li>
+               		<li><a href="#" id="12">固收类理财</a></li>
+               		<li><a href="#" id="13">车盈宝</a></li>
+            </ul>
+        	<ul>
+            	<li class="first">年化收益：</li>
+               		<li><a href="#" id="21">全部</a></li>
+               		<li><a href="#" id="22">6.0%</a></li>
+               		<li><a href="#" id="23">7.0%</a></li>
+               		<li><a href="#" id="24">7.5%</a></li>
+               		<li><a href="#" id="25">8.0%</a></li>
+               		<li><a href="#" id="25">8.0%以上</a></li>
+            </ul>
+        	<ul>
+            	<li class="first">项目期限：</li>
+               		<li><a href="#" id="31">全部</a></li>
+               		<li><a href="#" id="32">15天以下</a></li>
+               		<li><a href="#" id="33">15-30天</a></li>
+               		<li><a href="#" id="34">30-180天</a></li>
+               		<li><a href="#" id="35">180-365天</a></li>
+               		<li><a href="#" id="36">一年以上</a></li>
+            </ul>
+        	<ul>
+            	<li class="first">标的状态：</li>
+               		<li><a href="#" id="41">全部</a></li>
+               		<li><a href="#" id="42">投标中</a></li>
+               		<li><a href="#" id="43">还款中</a></li>
+               		<li><a href="#" id="44">已完成</a></li>
+            </ul>
         </div>
-      </div>
-    </div>
+     
+     
 
     <div class="section">
       <div class="container">
