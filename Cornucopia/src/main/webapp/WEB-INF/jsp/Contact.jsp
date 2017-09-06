@@ -10,6 +10,14 @@
   <link rel="stylesheet" href="../assets/css/amazeui.css" />
   <link rel="stylesheet" href="../assets/css/common.min.css" />
   <link rel="stylesheet" href="../assets/css/contact.min.css" />
+  <link href="/resources/web/font/iconfont.css" rel="stylesheet" type="text/css" />
+<link href="/resources/web/css/common.css" rel="stylesheet">
+<link href="/resources/web/css/jw.css" rel="stylesheet">
+
+<script src="/resources/web/js/jquery.js"></script>
+<script type="text/javascript" src="/resources/web/layer/layer.js"></script>
+<script src="/resources/web/echart/dist/echarts.js"></script></head>
+<body>
 
 </head>
 <body>
@@ -61,7 +69,7 @@
               <div class="am-g">
                 <div class="am-u-lg-2 am-u-sm-12">
                   <div class="logo">
-                   <a href=""><img src="../assets/images/4.jpg" alt="" style="margin-top: -18px"/></a>
+                    <a href=""><img src="../assets/images/4.jpg" alt="" /></a>
                   </div>
                 </div>
                 <div class="am-u-md-10">
@@ -106,7 +114,7 @@
             <ul class="am-nav am-nav-pills am-nav-justify">
               <li class=""><a href="/Cornucopia/item/Index">首页</a></li>
               <li>
-                <a href="#">产品中心</a>
+                <a href="#">网上体验中心</a>
                 <!-- sub-menu start-->
                 <ul class="sub-menu">
                   <li class="menu-item"><a href="/Cornucopia/item/Product1">产品展示1</a></li>
@@ -115,7 +123,7 @@
                 </ul>
                 <!-- sub-menu end-->
               </li>
-              <li><a href="/Cornucopia/item/Example">网上体验中心</a></li>
+              <li><a href="/Cornucopia/item/Example">产品中心</a></li>
               <li><a href="/Cornucopia/item/Solution">下载中心</a></li>
               <li>
                 <a href="/Cornucopia/item/News">新闻中心</a>
@@ -140,14 +148,7 @@
 
 
 
-    <!--===========layout-container================-->
-    <div class="layout-container">
-      <div class="page-header">
-        <div class="am-container">
-          <h1 class="page-header-title">Contact Us</h1>
-        </div>
-      </div>
-
+  
       <div class="breadcrumb-box">
         <div class="am-container">
           <ol class="am-breadcrumb">
@@ -157,7 +158,6 @@
         </div>
       </div>
     </div>
-
     <div class="section">
       <div class="container">
         <div class="section--header">

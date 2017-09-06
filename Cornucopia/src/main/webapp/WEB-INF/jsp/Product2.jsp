@@ -105,7 +105,7 @@
             <ul class="am-nav am-nav-pills am-nav-justify">
               <li class=""><a href="/Cornucopia/item/Index">首页</a></li>
               <li>
-                <a href="#">产品中心</a>
+                 <a href="#">网上体验中心</a>
                 <!-- sub-menu start-->
                 <ul class="sub-menu">
                   <li class="menu-item"><a href="/Cornucopia/item/Product1">产品展示1</a></li>
@@ -114,7 +114,7 @@
                 </ul>
                 <!-- sub-menu end-->
               </li>
-              <li><a href="/Cornucopia/item/Example">网上体验中心</a></li>
+              <li><a href="/Cornucopia/item/Example">产品中心</a></li>
               <li><a href="/Cornucopia/item/Solution">下载中心</a></li>
               <li>
                 <a href="/Cornucopia/item/News">新闻中心</a>
