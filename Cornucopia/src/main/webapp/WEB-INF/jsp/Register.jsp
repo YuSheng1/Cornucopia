@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="../assets/css/other.min.css" />
 </head>
 <body class="register-container">
-  <div class="layout">
+   <div class="layout">
     <!--===========layout-header================-->
     <div class="layout-header am-hide-sm-only">
       <!--topbar start-->
@@ -23,18 +23,18 @@
               <div class="topbar-left">
                 <i class="am-icon-globe"></i>
                 <div class="am-dropdown" data-am-dropdown>
-                  <button class="am-btn am-btn-primary am-dropdown-toggle" data-am-dropdown-toggle>Language <span class="am-icon-caret-down"></span></button>
+                  <button class="am-btn am-btn-primary am-dropdown-toggle" data-am-dropdown-toggle>Language<span class="am-icon-caret-down"></span></button>
                   <ul class="am-dropdown-content">
                     <li><a href="#">English</a></li>
                     <li class="am-divider"></li>
-                    <li><a href="#">Chinese</a></li>
+                    <li><a href="#">中文</a></li>
                   </ul>
                 </div>
               </div>
             </div>
             <div class="am-u-md-9">
               <div class="topbar-right am-text-right am-fr">
-                Follow us
+                加入我们
                 <i class="am-icon-facebook"></i>
                 <i class="am-icon-twitter"></i>
                 <i class="am-icon-google-plus"></i>
@@ -52,6 +52,7 @@
       </div>
       <!--topbar end-->
 
+
       <div class="header-box" data-am-sticky>
         <!--header start-->
           <div class="container">
@@ -59,7 +60,7 @@
               <div class="am-g">
                 <div class="am-u-lg-2 am-u-sm-12">
                   <div class="logo">
-                    <a href=""><img src="../assets/images/logo.png" alt="" /></a>
+                    <a href=""><img src="../assets/images/4.jpg" alt="" style="margin-top: -18px"/></a>
                   </div>
                 </div>
                 <div class="am-u-md-10">
@@ -68,22 +69,22 @@
                       <div class="header_contacts--item">
   											<div class="contact_mini">
   												<i style="color:#7c6aa6" class="contact-icon am-icon-phone"></i>
-  												<strong>0 (855) 233-5385</strong>
+  												<strong>0575-84085869</strong>
   												<span>周一~周五, 8:00 - 20:00</span>
   											</div>
   										</div>
                       <div class="header_contacts--item">
   											<div class="contact_mini">
   												<i style="color:#7c6aa6" class="contact-icon am-icon-envelope-o"></i>
-  												<strong>cn@yunshipei.com</strong>
+  												<strong>13197176376@163.com</strong>
   												<span>随时欢迎您的来信！</span>
   											</div>
   										</div>
                       <div class="header_contacts--item">
   											<div class="contact_mini">
   												<i style="color:#7c6aa6" class="contact-icon am-icon-map-marker"></i>
-  												<strong>天使大厦,</strong>
-  												<span>海淀区海淀大街27</span>
+  												<strong>汉水华城</strong>
+  												<span>樊城区长虹路27号</span>
   											</div>
   										</div>
                     </div>
@@ -95,46 +96,12 @@
               </div>
             </div>
           </div>
-        <!--header end-->
-
-
-        <!--nav start-->
-        <div class="nav-contain">
-          <div class="nav-inner">
-            <ul class="am-nav am-nav-pills am-nav-justify">
-              <li class=""><a href="/Cornucopia/item/Index">首页</a></li>
-              <li>
-                <a href="#">产品中心</a>
-                <!-- sub-menu start-->
-                <ul class="sub-menu">
-									<li class="menu-item"><a href="/Cornucopia/item/Product1">产品展示1</a></li>
-									<li class="menu-item"><a href="/Cornucopia/item/Product2">产品展示2</a></li>
-									<li class="menu-item"><a href="/Cornucopia/item/Product3">产品展示3</a></li>
-								</ul>
-                <!-- sub-menu end-->
-              </li>
-              <li><a href="./example.html">客户案例</a></li>
-              <li><a href="./solution.html">解决方案</a></li>
-              <li>
-                <a href="./news.html">新闻中心</a>
-                <!-- sub-menu start-->
-                <ul class="sub-menu">
-									<li class="menu-item"><a href="/Cornucopia/item/NewsC">公司动态</a></li>
-									<li class="menu-item"><a href="./404-dark.html">行业动态</a></li>
-									<li class="menu-item"><a href="./404-light.html">精彩专题</a></li>
-								</ul>
-                <!-- sub-menu end-->
-              </li>
-              <li><a href="/Cornucopia/item/About">关于我们</a></li>
-              <li><a href="/Cornucopia/item/Join">加入我们</a></li>
-              <li><a href="/Cornucopia/item/Contact">联系我们</a></li>
-            </ul>
-          </div>
-        </div>
-        <!--nav end-->
       </div>
-
     </div>
+    </div>
+
+
+
     <!--mobile header start-->
     <div class="m-header">
       <div class="am-g am-show-sm-only">
