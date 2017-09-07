@@ -17,8 +17,7 @@
 <script src="/resources/web/js/jquery.js"></script>
 <script type="text/javascript" src="/resources/web/layer/layer.js"></script>
 <script src="/resources/web/echart/dist/echarts.js"></script>
-<body>
-
+<script src="/resources/web/echart/dist/echarts.js"></script>
 </head>
 <body>
 <div class="layout">

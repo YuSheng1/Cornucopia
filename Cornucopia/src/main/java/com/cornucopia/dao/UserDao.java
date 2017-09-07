@@ -1,5 +1,5 @@
 package com.cornucopia.dao;
 
-public class UserDao {
+public interface UserDao {
 
 }
