@@ -141,8 +141,7 @@
     <div class="breadcrumb-box" style="margin-top: 10px;">
         <div class="am-container">
           <ol class="am-breadcrumb">
-            <li><a href="/Cornucopia/item/Index">首页</a></li>
-            <li class="/Cornucopia/item/News">新闻中心</li>
+           
           </ol>
         </div>
       </div>
@@ -156,14 +155,12 @@
               <div class="careers--articles">
 									<div class="careers_articles">
 										<div class="careers_article">
-											<i class="careers_article--icon am-icon-diamond"></i>
-											<h3 class="careers_article--title">我们的团队</h3>
+											<div>平台公告</div><br>
+											<div>市场动态</div><br>
+											<div>趣味理财</div><br>
+											<div>新闻头条</div>
 											<div class="careers_article--text">
-												<p>
-													成员既有超级学霸（来自Harvard、Google、香港科技大学、中国科技大学），也有来自行业的技术大拿。
-												</p>
 											</div>
-											<div class="careers_article--footer"><a href="#" class="link">Learn More</a></div>
 										</div>
 									</div>
 								</div>
@@ -176,7 +173,7 @@
                   <div class="am-panel am-panel-default">
                     <div class="am-panel-hd">
                       <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-1'}">
-                        高级产品经理
+                        平台公告
                       </h4>
                     </div>
                     <div id="do-not-say-1" class="am-panel-collapse am-collapse am-in">

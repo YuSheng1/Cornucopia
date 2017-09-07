@@ -135,19 +135,36 @@
         <!--nav end-->
       </div>
     </div>
-    </div>
+    </div><br>
 
 
 
 
     <!--===========layout-container================-->
     <div class="layout-container">
-      <div class="solution-page">
-        <div class="container">
-          <h2>自主创新跨平台企业级解决方案</h2>
-          <p>光明网曾考虑过通过原生App来实现移动化，但是由于无法复用原始业务流程和数据就放弃了，直到选用了云适配整体解决方案后，可以很方便的在Enterplorer上使用一个帐号登录我们的系统，通过VPN随时进入内网。</p>
-          <button type="button" class="am-btn am-btn-secondary am-round">了解更多</button>
+      <div>
+      <table>
+       <tr>
+        <td class="container">
+        <div style="margin-left: 200px">
+          <img alt="" src="../assets/images/solution/QQ截图20170907101215.png">
         </div>
+        </td>
+        <td class="container">
+        <div >
+          <img style="margin-left: 100px" alt="" src="../assets/images/solution/QQ截图20170907101300.png"><br>
+          <img alt="" src="../assets/images/solution/QQ截图20170907101357.png"><br>
+          <a href="#">
+          <img style="margin-left: 50px" alt="" src="../assets/images/solution/QQ截图20170907101434.png"><br>
+          </a>
+          <a href="#">
+          <img style="margin-left: 53px" alt="" src="../assets/images/solution/QQ截图20170907101454.png"><br>
+          </a>
+          </div>
+        </td>
+       </tr>
+      </table><br>
+          <img style="margin-left: 200px;width: 800;height: 150" alt="" src="../assets/images/solution/QQ截图20170907102122.png">
       </div>
     </div>
 
