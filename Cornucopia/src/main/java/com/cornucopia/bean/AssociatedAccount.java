@@ -1,18 +1,75 @@
 package com.cornucopia.bean;
 
-/***
- * å…³è”è´¦å·è¡¨-ç¬¬ä¸‰æ–¹ç™»é™†ä¿¡æ¯è¡¨
- * @author 2016
- *
- */
-public class AssociatedAccount {
+import java.util.Date;
 
-	private int id;//id
-	private int memberId;//ä¼šå‘˜ID
-	private String type;//è´¦å·ç±»å‹
-	private String name;//è´¦å·åç§°
-	private String identifying;//è´¦å·æ ‡è¯†
-	private int status;//çŠ¶å†µ
-	private String createDate;//åˆ›å»ºæ—¶é—´
-	private String updateDate;//ä¿®æ”¹æ—¶é—´
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name="Associated_account")//¹ØÁªÕËºÅ±í£¨µÚÈı·½µÇÂ¼ĞÅÏ¢±í£©
+@Entity
+public class AssociatedAccount {  
+
+	private int id;//Ö÷¼ü
+	private int member_id;//»áÔ±id
+	private String type;//ÕËºÅÀàĞÍ(Î¢ĞÅ£¬QQ)
+	private String name;//ÕËºÅÃû³Æ
+	private String identifying;//ÕËºÅ±êÊ¶
+	private int status;//Éí·İ(Ä¬ÈÏÎª0)
+	private Date create_date;//´´½¨Ê±¼ä
+	private Date update_date;//ĞŞ¸ÄÊ±¼ä
+	
+	@Id
+	@GeneratedValue
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public int getMember_id() {
+		return member_id;
+	}
+	public void setMember_id(int member_id) {
+		this.member_id = member_id;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getIdentifying() {
+		return identifying;
+	}
+	public void setIdentifying(String identifying) {
+		this.identifying = identifying;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	public Date getCreate_date() {
+		return create_date;
+	}
+	public void setCreate_date(Date create_date) {
+		this.create_date = create_date;
+	}
+	public Date getUpdate_date() {
+		return update_date;
+	}
+	public void setUpdate_date(Date update_date) {
+		this.update_date = update_date;
+	}
+	
+	
 }

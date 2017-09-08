@@ -1,22 +1,107 @@
 package com.cornucopia.bean;
+import java.util.Date;
 
-/*
- * æµ·å¤–é…ç½®è¡¨
- */
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name="oversea_config")  //º£ÍâÅäÖÃ±í
+@Entity
 public class OverseaConfig {
- 
-	private int id;//id
-	private String title;//æ ‡é¢˜
-	private String content;//å†…å®¹
-	private int sortColum;//æ’åºå€¼
-	private String childTitle;//å­æ ‡é¢˜
-	private String description;//æè¿°
-	private String userType;//ç”¨æˆ·ç¾¤ä½“
-	private String updTime;//ä¿®æ”¹æ—¶é—´
-	private String addTime;//åˆ›å»ºæ—¶é—´
-	private String overseaIcon;//å›¾æ ‡
-	private String startDate;//å¼€å§‹æ—¶é—´
-	private String endDate;//ç»“æŸæ—¶é—´
-	private int status;//çŠ¶æ€
-	
+
+	private int id;//Ö÷¼ü
+	private String title;//±êÌâ
+	private String content;//ÄÚÈİ
+	private int sortColum;//ÅÅĞòÖµ
+	private String child_title;//×Ó±êÌâ
+	private String description;//ÃèÊö
+	private String user_type;//ÓÃ»§ÈºÌå
+	private Date updTime;//ĞŞ¸ÄÊ±¼ä
+    private Date addTime;//´´½¨Ê±¼ä
+    private String oversea_icon;//Í¼±ê
+    private Date start_time;//¿ªÊ¼Ê±¼ä
+    private Date end_time;//½áÊøÊ±¼ä
+    private int status;//×´Ì¬
+    
+    @Id
+    @GeneratedValue
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public int getSortColum() {
+		return sortColum;
+	}
+	public void setSortColum(int sortColum) {
+		this.sortColum = sortColum;
+	}
+	public String getChild_title() {
+		return child_title;
+	}
+	public void setChild_title(String child_title) {
+		this.child_title = child_title;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public String getUser_type() {
+		return user_type;
+	}
+	public void setUser_type(String user_type) {
+		this.user_type = user_type;
+	}
+	public Date getUpdTime() {
+		return updTime;
+	}
+	public void setUpdTime(Date updTime) {
+		this.updTime = updTime;
+	}
+	public Date getAddTime() {
+		return addTime;
+	}
+	public void setAddTime(Date addTime) {
+		this.addTime = addTime;
+	}
+	public String getOversea_icon() {
+		return oversea_icon;
+	}
+	public void setOversea_icon(String oversea_icon) {
+		this.oversea_icon = oversea_icon;
+	}
+	public Date getStart_time() {
+		return start_time;
+	}
+	public void setStart_time(Date start_time) {
+		this.start_time = start_time;
+	}
+	public Date getEnd_time() {
+		return end_time;
+	}
+	public void setEnd_time(Date end_time) {
+		this.end_time = end_time;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
 }

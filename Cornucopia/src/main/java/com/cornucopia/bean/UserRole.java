@@ -1,18 +1,52 @@
 package com.cornucopia.bean;
-/*
- * è§’è‰²è¡¨
- */
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="User_role")//½ÇÉ«±í
 public class UserRole {
-    
-	private int id;//ä¸»é”®
-	private String cname;//ä¸­æ–‡å
-	private String ename;//è‹±æ–‡å
-	private int available;//æ˜¯å¦å¯ç”¨
-	private String remark;//å¤‡æ³¨
-	private String createDate;//åˆ›å»ºæ—¶é—´
-	private String updateDate;//ä¿®æ”¹æ—¶é—´
-	private String category;//åˆ†ç±»
-	private int sourceType;//æºå‹ç±»åˆ«
-	private int sourceId;//æºID
-	private int delFlag;//æ˜¯å¦åˆ é™¤
+              
+	         private int id;//Ö÷¼ü
+	         private String cname;//ÖĞÎÄÃû
+	         private String remark;//±¸×¢
+	         private Date create_date;//´´½¨Ê±¼ä
+	         private Date update_date;//ĞŞ¸ÄÊ±¼ä
+	        
+	         @Id
+	         @GeneratedValue
+			public int getId() {
+				return id;
+			}
+			public void setId(int id) {
+				this.id = id;
+			}
+			public String getCname() {
+				return cname;
+			}
+			public void setCname(String cname) {
+				this.cname = cname;
+			}
+			public String getRemark() {
+				return remark;
+			}
+			public void setRemark(String remark) {
+				this.remark = remark;
+			}
+			public Date getCreate_date() {
+				return create_date;
+			}
+			public void setCreate_date(Date create_date) {
+				this.create_date = create_date;
+			}
+			public Date getUpdate_date() {
+				return update_date;
+			}
+			public void setUpdate_date(Date update_date) {
+				this.update_date = update_date;
+			}
+			
 }

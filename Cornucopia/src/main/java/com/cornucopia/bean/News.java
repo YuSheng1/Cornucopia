@@ -1,33 +1,185 @@
 package com.cornucopia.bean;
+import java.util.Date;
 
-/*
- * æ–°é—»åˆ—è¡¨
- */
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name="news")  //ĞÂÎÅÁĞ±í
+@Entity
 public class News {
 
-	private int id;//ID
-	private int typeId;//æ‰€å±ç±»åˆ«
-	private String title;//æ ‡é¢˜
-	private String subTitle;//å‰¯æ ‡é¢˜
-	private int sort;//æ’åº
-	private String info;//ç®€ä»‹
-	private String cPhoto;//å°é¢å›¾ç‰‡
-	private String link;//é“¾æ¥åœ°å€
-	private String author;//ä½œè€…
-	private String source;//æ¥æº
-	private String label;//æ ‡ç­¾
-	private int clickNumber;//ç‚¹å‡»æ•°é‡
-	private String text;//å†…å®¹
-	private String filelink;//é™„ä»¶åœ°å€
-	private String seoTitle;//é¡µé¢seoæ ‡é¢˜
-	private String seoKey;//seoå…³é”®å­—
-	private String seoDes;//seoæè¿°
-	private int placTop;//æ˜¯å¦ç½®é¡¶ 0ï¼šä¸ºæ˜¯  1ä¸ºå¦
-	private int recommend;//æ˜¯å¦æ¨è
-	private int audit;//æ˜¯å¦å®¡æ ¸
-	private int addId;//æ·»åŠ äººID
-	private int updId;//ä¿®æ”¹äººID
-	private String updTime;//ä¿®æ”¹æ—¶é—´
-	private String addTime;//æ·»åŠ æ—¶é—´
+	private int id;//Ö÷¼ü
+	private int typeId;//ËùÊôÀàĞÍ
+	private String title;//±êÌâ
+	private String subTitle;//¸±±êÌâ
+	private int sort;//ÅÅĞò
+	private String info;//¼ò½é
+	private String cPhoto;//·âÃæÍ¼Æ¬
+	private String link;//Á´½ÓµØÖ·
+	private String author;//×÷Õß
+	private String source;//À´Ô´
+	private String lable;//±êÇ©
+	private int clickNumber;//µã»÷ÊıÁ¿
+	private String text;//ÄÚÈİ
+	private String filelink;//¸½¼şµØÖ·
+	private String seoTitle;//Ò³ÃæSEO±êÌâ
+	private String seoKey;//SEO¹Ø¼ü×Ö
+	private String seoDes;//SEOÃèÊö
+	private int placTop;//ÊÇ·ñÖÃ¶¥ 0£ºÎªÊÇ  1Îª·ñ
+	private int recommend;//ÊÇ·ñÍÆ¼ö
+	private int audit;//ÊÇ·ñÉóºË
+	private int addId;//Ìí¼ÓÈËID
+	private int updId;//ĞŞ¸ÄÈËID
+	private Date updTime;//ĞŞ¸ÄÊ±¼ä
+	private Date addTie;//Ìí¼ÓÊ±¼ä
+	
+	@Id
+	@GeneratedValue
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public int getTypeId() {
+		return typeId;
+	}
+	public void setTypeId(int typeId) {
+		this.typeId = typeId;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public String getSubTitle() {
+		return subTitle;
+	}
+	public void setSubTitle(String subTitle) {
+		this.subTitle = subTitle;
+	}
+	public int getSort() {
+		return sort;
+	}
+	public void setSort(int sort) {
+		this.sort = sort;
+	}
+	public String getInfo() {
+		return info;
+	}
+	public void setInfo(String info) {
+		this.info = info;
+	}
+	public String getcPhoto() {
+		return cPhoto;
+	}
+	public void setcPhoto(String cPhoto) {
+		this.cPhoto = cPhoto;
+	}
+	public String getLink() {
+		return link;
+	}
+	public void setLink(String link) {
+		this.link = link;
+	}
+	public String getAuthor() {
+		return author;
+	}
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+	public String getSource() {
+		return source;
+	}
+	public void setSource(String source) {
+		this.source = source;
+	}
+	public String getLable() {
+		return lable;
+	}
+	public void setLable(String lable) {
+		this.lable = lable;
+	}
+	public int getClickNumber() {
+		return clickNumber;
+	}
+	public void setClickNumber(int clickNumber) {
+		this.clickNumber = clickNumber;
+	}
+	public String getText() {
+		return text;
+	}
+	public void setText(String text) {
+		this.text = text;
+	}
+	public String getFilelink() {
+		return filelink;
+	}
+	public void setFilelink(String filelink) {
+		this.filelink = filelink;
+	}
+	public String getSeoTitle() {
+		return seoTitle;
+	}
+	public void setSeoTitle(String seoTitle) {
+		this.seoTitle = seoTitle;
+	}
+	public String getSeoKey() {
+		return seoKey;
+	}
+	public void setSeoKey(String seoKey) {
+		this.seoKey = seoKey;
+	}
+	public String getSeoDes() {
+		return seoDes;
+	}
+	public void setSeoDes(String seoDes) {
+		this.seoDes = seoDes;
+	}
+	public int getPlacTop() {
+		return placTop;
+	}
+	public void setPlacTop(int placTop) {
+		this.placTop = placTop;
+	}
+	public int getRecommend() {
+		return recommend;
+	}
+	public void setRecommend(int recommend) {
+		this.recommend = recommend;
+	}
+	public int getAudit() {
+		return audit;
+	}
+	public void setAudit(int audit) {
+		this.audit = audit;
+	}
+	public int getAddId() {
+		return addId;
+	}
+	public void setAddId(int addId) {
+		this.addId = addId;
+	}
+	public int getUpdId() {
+		return updId;
+	}
+	public void setUpdId(int updId) {
+		this.updId = updId;
+	}
+	public Date getUpdTime() {
+		return updTime;
+	}
+	public void setUpdTime(Date updTime) {
+		this.updTime = updTime;
+	}
+	public Date getAddTie() {
+		return addTie;
+	}
+	public void setAddTie(Date addTie) {
+		this.addTie = addTie;
+	}
 	
 }

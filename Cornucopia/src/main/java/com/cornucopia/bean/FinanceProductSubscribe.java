@@ -1,24 +1,131 @@
 package com.cornucopia.bean;
 
-/*
- * ç†è´¢ç±»åŸºé‡‘äº§å“é¢„çº¦è®°å½•è¡¨
- */
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name="Finance_product_subscribe")//Àí²ÆÀà»ù½ğ²úÆ·Ô¤Ô¼¼ÇÂ¼±í
+@Entity
 public class FinanceProductSubscribe {
 
-	private int id;//id
-	private String name;//åç§°
-	private int memberId;//ä¼šå‘˜ID
-	private String phone;//è”ç³»ç”µè¯
-	private int productId;//ç†è´¢äº§å“ID
-	private String addr;//æ‰€åœ¨åœ°åŒº
-	private int status;//æ˜¯å¦å¤„ç†(0:ç­¾ç½²æ‹ç…§|1:å·²ç­¾çº¦|2:å®¡æ ¸ä¸­|3:ç­¾ç½²å¤±è´¥)
-	private String comment;//ç”µå­ç­¾ç½²æ–‡æ¡£ä¿¡æ¯
-	private String riskReveal;//é£é™©æ­ç¤ºä¹¦
-	private String createDate;// æ·»åŠ æ—¶é—´
-	private String updateDate;// ä¿®æ”¹æ—¶é—´
-	private int amount;//ç§å‹Ÿè´­ä¹°é‡‘é¢
-	private int interest;//ç§å‹Ÿç»“ç®—æ”¶ç›Š
-	private String startDate;//å¼€å§‹æ—¶é—´
-	private String endDate;//ç»“æŸæ—¶é—´
-	private String signedPhotos;//ç­¾ç½²æ‹ç…§
+	private int id;//Ö÷¼ü
+	private String name;//Ãû³Æ
+	private int member_id;//»áÔ±id
+	private String phone;//ÁªÏµµç»°
+	private int product_id;//Àí²Æ²úÆ·id
+	private String addr;//ËùÔÚµØÇø
+	private int status;//ÊÇ·ñ´¦Àí(0:Ç©ÊğÅÄÕÕ|1:ÒÑÇ©Ô¼|2:ÉóºËÖĞ|3:Ç©ÊğÊ§°Ü)
+	private String comment;//µç×ÓÇ©ÊğÎÄµµĞÅÏ¢
+	private String risk_reveal;//·çÏÕ½ÒÊ¾Êé
+	private Date create_date;//´´½¨Ê±¼ä
+	private Date update_date;//ĞŞ¸ÄÊ±¼ä
+	private int amount;//Ë½Ä¼¹ºÂò½ğ¶î
+	private int interest;//Ë½Ä¼½áËãÊÕÒæ
+	private Date start_date;//¿ªÊ¼Ê±¼ä
+	private Date end_date;//½áÊøÊ±¼ä
+	private String signed_photos;//Ç©ÊğÅÄÕÕ
+	
+	@Id
+	@GeneratedValue
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getMember_id() {
+		return member_id;
+	}
+	public void setMember_id(int member_id) {
+		this.member_id = member_id;
+	}
+	public String getPhone() {
+		return phone;
+	}
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+	public int getProduct_id() {
+		return product_id;
+	}
+	public void setProduct_id(int product_id) {
+		this.product_id = product_id;
+	}
+	public String getAddr() {
+		return addr;
+	}
+	public void setAddr(String addr) {
+		this.addr = addr;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	public String getComment() {
+		return comment;
+	}
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+	public String getRisk_reveal() {
+		return risk_reveal;
+	}
+	public void setRisk_reveal(String risk_reveal) {
+		this.risk_reveal = risk_reveal;
+	}
+	public Date getCreate_date() {
+		return create_date;
+	}
+	public void setCreate_date(Date create_date) {
+		this.create_date = create_date;
+	}
+	public Date getUpdate_date() {
+		return update_date;
+	}
+	public void setUpdate_date(Date update_date) {
+		this.update_date = update_date;
+	}
+	public int getAmount() {
+		return amount;
+	}
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+	public int getInterest() {
+		return interest;
+	}
+	public void setInterest(int interest) {
+		this.interest = interest;
+	}
+	public Date getStart_date() {
+		return start_date;
+	}
+	public void setStart_date(Date start_date) {
+		this.start_date = start_date;
+	}
+	public Date getEnd_date() {
+		return end_date;
+	}
+	public void setEnd_date(Date end_date) {
+		this.end_date = end_date;
+	}
+	public String getSigned_photos() {
+		return signed_photos;
+	}
+	public void setSigned_photos(String signed_photos) {
+		this.signed_photos = signed_photos;
+	}
+	
+	
 }

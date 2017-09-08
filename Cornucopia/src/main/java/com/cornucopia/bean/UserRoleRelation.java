@@ -1,10 +1,39 @@
 package com.cornucopia.bean;
-/*
- * ç”¨æˆ·è§’è‰²å…³è”è¡¨
- */
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="User_role_relation")//ÓÃ»§½ÇÉ«¹ØÁª±í
 public class UserRoleRelation {
-    
-	private int userId;//ç”¨æˆ·id
-	private int roleId;//è§’è‰²id
-	private String createDate;//åˆ›å»ºæ—¶é—´
+           
+	         private int user_id;//ÓÃ»§id
+	         private int role_id;//½ÇÉ«id
+	         private Date create_date;//´´½¨Ê±¼ä
+	         
+	        @Id
+	        @GeneratedValue
+			public int getUser_id() {
+				return user_id;
+			}
+			public void setUser_id(int user_id) {
+				this.user_id = user_id;
+			}
+			public int getRole_id() {
+				return role_id;
+			}
+			public void setRole_id(int role_id) {
+				this.role_id = role_id;
+			}
+			public Date getCreate_date() {
+				return create_date;
+			}
+			public void setCreate_date(Date create_date) {
+				this.create_date = create_date;
+			}
+	         
+	         
 }

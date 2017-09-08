@@ -1,18 +1,93 @@
 package com.cornucopia.bean;
-/*
- * ç”¨æˆ·åŸºæœ¬è¡¨
- */
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="users")
 public class Users {
-	
-     private int id; //ç”¨æˆ·id'
-     private String userName;//ç”¨æˆ·å
-     private String name;//åç§°
-     private String password;//å¯†ç 
-     private String salt;//å¯†ç ç›
-     private String mobilePhone;//æ‰‹æœºå·
-     private int status;//è´¦å·çŠ¶æ€(æ­£å¸¸ï¼Œé”å®šï¼Œåˆ é™¤)
-     private int delFlag;//åˆ é™¤æ ‡å¿—
-     private int identity;//èº«ä»½
-     private String createDate;//åˆ›å»ºæ—¶é—´
-     private String updateDate;//ä¿®æ”¹æ—¶é—´
+              private int id;//ÓÃ»§id
+              private String user_name;//ÓÃ»§Ãû
+              private String name;//Ãû³Æ
+              private String password;//ÃÜÂë
+              private String salt;//ÃÜÂëÑÎ
+              private String mobile_Phone;//ÊÖ»úºÅ
+              private int status;//ÕËºÅ×´Ì¬£¨Õı³££¬Ëø¶¨£¬É¾³ı£©
+              private int del_flag;//É¾³ı±êÖ¾
+              private int identity;//Éí·İ
+              private Date create_date;//´´½¨Ê±¼ä
+	          private Date update_date;//ĞŞ¸ÄÊ±¼ä
+	        @Id
+	        @GeneratedValue
+			public int getId() {
+				return id;
+			}
+			public void setId(int id) {
+				this.id = id;
+			}
+			public String getUser_name() {
+				return user_name;
+			}
+			public void setUser_name(String user_name) {
+				this.user_name = user_name;
+			}
+			public String getName() {
+				return name;
+			}
+			public void setName(String name) {
+				this.name = name;
+			}
+			public String getPassword() {
+				return password;
+			}
+			public void setPassword(String password) {
+				this.password = password;
+			}
+			public String getSalt() {
+				return salt;
+			}
+			public void setSalt(String salt) {
+				this.salt = salt;
+			}
+			public String getMobile_Phone() {
+				return mobile_Phone;
+			}
+			public void setMobile_Phone(String mobile_Phone) {
+				this.mobile_Phone = mobile_Phone;
+			}
+			public int getStatus() {
+				return status;
+			}
+			public void setStatus(int status) {
+				this.status = status;
+			}
+			public int getDel_flag() {
+				return del_flag;
+			}
+			public void setDel_flag(int del_flag) {
+				this.del_flag = del_flag;
+			}
+			public int getIdentity() {
+				return identity;
+			}
+			public void setIdentity(int identity) {
+				this.identity = identity;
+			}
+			public Date getCreate_date() {
+				return create_date;
+			}
+			public void setCreate_date(Date create_date) {
+				this.create_date = create_date;
+			}
+			public Date getUpdate_date() {
+				return update_date;
+			}
+			public void setUpdate_date(Date update_date) {
+				this.update_date = update_date;
+			}
+	          
+	          
 }

@@ -1,4 +1,5 @@
 package com.cornucopia.bean;
+
 import java.util.Date;
 
 import javax.persistence.Entity;
@@ -6,16 +7,14 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Table(name="Member_puc_charge_home")//缴费家庭
+@Table(name="Feedback")//'意见反馈表'
 @Entity
-public class MemberPucChargeHome {
+public class FeedBack {
 
 	private int id;//主键
-	private int member_id;//用户id
-	private String name;//家庭名称
-	private int is_default;//是否默认(0:n1:y)
+	private int member_id;//会员id
+	private String content;//意见反馈内容
 	private Date create_date;//创建时间
-	private Date update_date;//修改时间
 	
 	@Id
 	@GeneratedValue
@@ -31,17 +30,11 @@ public class MemberPucChargeHome {
 	public void setMember_id(int member_id) {
 		this.member_id = member_id;
 	}
-	public String getName() {
-		return name;
+	public String getContent() {
+		return content;
 	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public int getIs_default() {
-		return is_default;
-	}
-	public void setIs_default(int is_default) {
-		this.is_default = is_default;
+	public void setContent(String content) {
+		this.content = content;
 	}
 	public Date getCreate_date() {
 		return create_date;
@@ -49,12 +42,5 @@ public class MemberPucChargeHome {
 	public void setCreate_date(Date create_date) {
 		this.create_date = create_date;
 	}
-	public Date getUpdate_date() {
-		return update_date;
-	}
-	public void setUpdate_date(Date update_date) {
-		this.update_date = update_date;
-	}
-	
 	
 }

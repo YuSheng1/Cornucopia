@@ -1,16 +1,73 @@
 package com.cornucopia.bean;
+import java.util.Date;
 
-/*
- * æˆå‘˜é“¶è”è¡¨
- */
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name="Member_bankcards")//»áÔ±ÒøĞĞ¿¨±í
+@Entity
 public class MemberBankcards {
 
-	private int id;//id
-	private String type;//é“¶è¡Œå¡ç±»å‹
-	private int member_id;//ç”¨æˆ·
-	private String card_no;//å¡å·
-	private int delflag;//æ˜¯å¦åˆ é™¤ï¼ˆ0ï¼šæ­£å¸¸ä½¿ç”¨ï¼Œ2ï¼šè¢«åˆ é™¤ï¼‰
-	private String create_date;//åˆ›å»ºæ—¶é—´
-	private String update_date;//ä¿®æ”¹æ—¶é—´
-	private String cardaddress;//å¼€æˆ·é“¶è¡Œæ‰€åœ¨åœ°
+	private int id;//Ö÷¼ü
+	private String type;//ÒøĞĞ¿¨ÀàĞÍ
+	private int member_id;//ÓÃ»§id
+	private String card_no;//¿¨ºÅ
+	private int delflag;//Ä¬ÈÏ¡®0¡¯ ÊÇ·ñÉ¾³ı(0£ºÕı³£Ê¹ÓÃ£¬2£º±»É¾³ı)
+	private Date create_date;//´´½¨Ê±¼ä
+	private Date update_date;//ĞŞ¸ÄÊ±¼ä
+	private String cardaddress;//¿ª»§ÒøĞĞËùÔÚµØ
+	
+	@Id
+	@GeneratedValue
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public int getMember_id() {
+		return member_id;
+	}
+	public void setMember_id(int member_id) {
+		this.member_id = member_id;
+	}
+	public String getCard_no() {
+		return card_no;
+	}
+	public void setCard_no(String card_no) {
+		this.card_no = card_no;
+	}
+	public int getDelflag() {
+		return delflag;
+	}
+	public void setDelflag(int delflag) {
+		this.delflag = delflag;
+	}
+	public Date getCreate_date() {
+		return create_date;
+	}
+	public void setCreate_date(Date create_date) {
+		this.create_date = create_date;
+	}
+	public Date getUpdate_date() {
+		return update_date;
+	}
+	public void setUpdate_date(Date update_date) {
+		this.update_date = update_date;
+	}
+	public String getCardaddress() {
+		return cardaddress;
+	}
+	public void setCardaddress(String cardaddress) {
+		this.cardaddress = cardaddress;
+	}
+	
 }

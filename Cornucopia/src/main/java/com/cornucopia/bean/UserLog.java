@@ -1,13 +1,59 @@
 package com.cornucopia.bean;
-/*
- * ç™»é™†æ—¥å¿—è¡¨
- */
-public class UserLog {
-     
-	private int id;//ID
-	private int userId;//ç”¨æˆ·id
-	private int action;//åŠ¨ä½œ
-	private String createDate;//åˆ›å»ºæ—¶é—´
-	private String updateDdate;//ä¿®æ”¹æ—¶é—´
-	private String loginIp;//ç™»é™†iP
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name="User_log")//µÇÂ¼ÈÕÖ¾±í
+@Entity
+
+public class UserLog {          
+	  private int id;//Ö÷¼ü
+	  private int user_id;//ÓÃ»§id
+	  private int action;//¶¯×÷
+	  private Date create_date;//´´½¨Ê±¼ä
+	  private Date update_date;//ÐÞ¸ÄÊ±¼ä
+	  private String login_iP;//µÇÂ¼ipµØÖ·
+	 
+	 @Id
+	 @GeneratedValue
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public int getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(int user_id) {
+		this.user_id = user_id;
+	}
+	public int getAction() {
+		return action;
+	}
+	public void setAction(int action) {
+		this.action = action;
+	}
+	public Date getCreate_date() {
+		return create_date;
+	}
+	public void setCreate_date(Date create_date) {
+		this.create_date = create_date;
+	}
+	public Date getUpdate_date() {
+		return update_date;
+	}
+	public void setUpdate_date(Date update_date) {
+		this.update_date = update_date;
+	}
+	public String getLogin_iP() {
+		return login_iP;
+	}
+	public void setLogin_iP(String login_iP) {
+		this.login_iP = login_iP;
+	}
+	  
 }
