@@ -1,6 +1,7 @@
 package com.cornucopia.controller;
-
 import java.util.List;
+
+import javax.annotation.Resource;
 
 import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,18 +9,18 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cornucopia.bean.UserRole;
+import com.cornucopia.bean.Users;
 import com.cornucopia.service.UserService;
-
-
-
+import com.cornucopia.serviceImpl.UserRoleServiceImpl;
+import com.cornucopia.serviceImpl.UserServiceImpl;
 @Controller
 @RequestMapping("BgItem")
 public class BKjumpController {
-		
-	@Autowired
-	private UserService userService;
 	
-	
+	@Resource(name="UserServiceImpl")
+	private UserService userServiceImpl;
+	@Resource(name="UserRoleServiceImpl")
+	private UserService userRoleServiceImpl;
 	// 后台主页
 	@RequestMapping("BgMain")
 	public String BgMain() {
@@ -104,13 +105,15 @@ public class BKjumpController {
 
 	// 后台用户权限管理
 	@RequestMapping("BgUserPermission")
-	public String BgUserPermission() {
-		return "BgUserPermission";
+	public String BgUserPermission(Model model) {
+		List<Users> Users=userServiceImpl.ListAll();
+		model.addAttribute("Users",Users);
+		return "Users";
 	}
 	// 后台用户权限管理
 	@RequestMapping("BgUserRoles")
-	public String BgUserRoles(Model model) {
-		List<UserRole> UserRoleList=userService.ListAll();
+	public String BgUserRoles(Model model,UserRole userRole) {
+		List<UserRole> UserRoleList=userRoleServiceImpl.ListAll(userRole);
 		model.addAttribute("UserRoleList",UserRoleList);
 		return "BgUserRoles";
 	}

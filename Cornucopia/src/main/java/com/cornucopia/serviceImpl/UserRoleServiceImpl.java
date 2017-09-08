@@ -4,32 +4,22 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import org.hibernate.Session;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import com.cornucopia.bean.UserRole;
-import com.cornucopia.bean.Users;
 import com.cornucopia.dao.UserDao;
-import com.cornucopia.daoImpl.UserDaoImpl;
 import com.cornucopia.service.UserService;
 
-@Component("UserServiceImpl")
-public class UserServiceImpl implements UserService {
-	
-	@Resource(name="UserDaoImpl")
+@Component("UserRoleServiceImpl")
+public class UserRoleServiceImpl implements UserService {
+	@Resource(name="UserRoleImpl")
 	private UserDao userDao;
-
-	// 查询用户基本信息
+	
 	@Override
-		public List<Users> ListAll(Object... objects) {
-	        List<Users> User = userDao.ListAll();
-			return User;
-		}
-
-
+	public List<UserRole> ListAll(Object...object) {
+		List<UserRole> UserRoleList=userDao.ListAll(object);
+		return UserRoleList;
+	}
 	@Override
 	public void save(Object object) {
 		// TODO Auto-generated method stub
@@ -52,4 +42,6 @@ public class UserServiceImpl implements UserService {
 	public <T> T getById(int id) {
 		// TODO Auto-generated method stub
 		return null;
-	}}
+	}
+
+}
