@@ -176,7 +176,7 @@
                   <div class="am-panel am-panel-default">
                     <div class="am-panel-hd">
                       <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-1'}">
-                        高级产品经理
+                        理财大讲堂
                       </h4>
                     </div>
                     <div id="do-not-say-1" class="am-panel-collapse am-collapse am-in">
@@ -213,7 +213,7 @@
                   <div class="am-panel am-panel-default">
                     <div class="am-panel-hd">
                       <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-2'}">
-                        高级前端开发工程师
+                        常见问题
                       </h4>
                     </div>
                     <div id="do-not-say-2" class="am-panel-collapse am-collapse">
@@ -250,7 +250,7 @@
                   <div class="am-panel am-panel-default">
                     <div class="am-panel-hd">
                       <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-3'}">
-                        iOS开发工程师
+                        帮助中心
                       </h4>
                     </div>
                     <div id="do-not-say-3" class="am-panel-collapse am-collapse">
@@ -278,6 +278,43 @@
                       </div>
 
                     </div>
+         <div class="am-panel am-panel-default">
+                    <div class="am-panel-hd">
+                      <h4 class="am-panel-title" data-am-collapse="{parent: '#accordion', target: '#do-not-say-2'}">
+                        操作指引
+                      </h4>
+                    </div>
+                    <div id="do-not-say-2" class="am-panel-collapse am-collapse">
+                      <div class="am-panel-bd">
+                        <h5>职位描述：</h5>
+                        <p>
+                          本科及以上，3-5年开发经验；
+                        </p>
+                        <p>
+                          熟练掌握JS原生代码开发，对原型编程有深入的理解；
+                        </p>
+                        <p>
+                          熟练使用过至少一种前端框架（如:Angularjs/reactjs/backbonejs/emberjs/knockoutjs）；
+                        </p>
+                        <p>
+                          熟悉模块化开发思路，实际使用过至少一种框架（如：requirejs/seajs）；
+                        </p>
+                        <h5>有下列经验者优先：</h5>
+                        <ul>
+                          <li>计算机相关专业统招本科以上学历；</li>
+                          <li>具有Reactjs实际开发经验；</li>
+                          <li>具有Nodejs后端开发经验；</li>
+                          <li>具有Nodejs后端开发经验；</li>
+                          <li>具有较好的UI设计能力；</li>
+                          <li>有个人作品可以演示；；</li>
+                        </ul>
+                        <p>
+                          面试时请带个人笔记本或硬盘，在面试过程中向产品负责人展示你的产品，或你写的代码。
+                        </p>
+                        <h5>请将您的简历发送至： <a href="mailto:jobs@yunshipei.com">jobs@yunshipei.com</a></h5>
+                      </div>
+                    </div>
+                  </div>
                   </div>
                 </div>
               </div>

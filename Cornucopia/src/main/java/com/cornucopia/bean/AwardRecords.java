@@ -1,14 +1,67 @@
 package com.cornucopia.bean;
-/*
- * å¥–åŠ±è®°å½•è¡¨
- */
+
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name="Award_records")//'½±Àø¼ÇÂ¼±í'
+@Entity
 public class AwardRecords {
 
-	private int id;//ID	
-	private int invitingid;//é‚€è¯·äººID
-	private int byinvitingid;//è¢«é‚€äººID 
-	private int type;//å¥–åŠ±ç±»å‹(0:æ³¨å†Œå¥–åŠ±,1:æŠ•èµ„å¥–åŠ±)
-	private int isAward;//å¥–åŠ±çŠ¶æ€(0:æœªå¥–åŠ± 1:å·²å¥–åŠ±)
-	private String addTime;//æ·»åŠ æ—¶é—´
+	private int id;//Ö÷¼ü
+	private int invitingid;//ÑûÇëÈËid
+	private int byinvitingid;//±»ÑûÇëÈËid
+	private int type;//½±ÀøÀàĞÍ£¨0£º×¢²á½±Àø£¬1£ºÍ¶×Ê½±Àø£©
+	private int amount;//½±Àø½ğ¶î
+	private int isAward;//0:Î´½±Àø  1£ºÒÑ½±Àø
+	private Date addTime;//Ìí¼ÓÊ±¼ä
+	
+	@Id
+	@GeneratedValue
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public int getInvitingid() {
+		return invitingid;
+	}
+	public void setInvitingid(int invitingid) {
+		this.invitingid = invitingid;
+	}
+	public int getByinvitingid() {
+		return byinvitingid;
+	}
+	public void setByinvitingid(int byinvitingid) {
+		this.byinvitingid = byinvitingid;
+	}
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
+	}
+	public int getAmount() {
+		return amount;
+	}
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+	public int getIsAward() {
+		return isAward;
+	}
+	public void setIsAward(int isAward) {
+		this.isAward = isAward;
+	}
+	public Date getAddTime() {
+		return addTime;
+	}
+	public void setAddTime(Date addTime) {
+		this.addTime = addTime;
+	}
 	
 }

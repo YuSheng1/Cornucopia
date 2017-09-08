@@ -1,15 +1,66 @@
 package com.cornucopia.bean;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-/*
- * å•†ä¸šæœºæ„è¡¨
- */
+@Table(name="Sys_biz_institution")//ÉÌÒµ»ú¹¹±í
+@Entity
+
 public class SysBizInstitution {
-    
-	private int id;//ID
-	private String province;//çœåˆ†
-	private String city;//åŸå¸‚
-	private String bizType;//æœºæ„ç±»åˆ«å¦‚ç¼´è´¹JF
-	private String bizSubType;//æœºæ„å­ç±»åˆ«å¦‚ç¼´è´¹æ°´è´¹WATER
-	private String institutionName;//æœºæ„åç§°
-	private String institutionCode;//æœºæ„ç¼–ç 
+                  
+	  private int id;//Ö÷¼ü
+	  private String province;//Ê¡
+	  private String city;//³ÇÊĞ
+	  private String biz_type;//»ú¹¹Àà±ğÈç½É·ÑJF
+	  private String biz_sub_type;//»ú¹¹×ÓÀà±ğÈç½É·ÑË®·ÑWATER
+	  private String institution_name;//»ú¹¹Ãû³Æ
+	  private String institution_code;//»ú¹¹±àÂë
+	  
+	  @Id
+	  @GeneratedValue
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getProvince() {
+		return province;
+	}
+	public void setProvince(String province) {
+		this.province = province;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getBiz_type() {
+		return biz_type;
+	}
+	public void setBiz_type(String biz_type) {
+		this.biz_type = biz_type;
+	}
+	public String getBiz_sub_type() {
+		return biz_sub_type;
+	}
+	public void setBiz_sub_type(String biz_sub_type) {
+		this.biz_sub_type = biz_sub_type;
+	}
+	public String getInstitution_name() {
+		return institution_name;
+	}
+	public void setInstitution_name(String institution_name) {
+		this.institution_name = institution_name;
+	}
+	public String getInstitution_code() {
+		return institution_code;
+	}
+	public void setInstitution_code(String institution_code) {
+		this.institution_code = institution_code;
+	}
+	  
+	   
 }

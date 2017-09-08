@@ -1,27 +1,150 @@
 package com.cornucopia.bean;
+import java.util.Date;
 
-/*
- * ç”¨æˆ·åŸºæœ¬è¡¨
- */
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name="Member")//ÓÃ»§»ù±¾±í
+@Entity
 public class Member {
 
-	private int id;//ç”¨æˆ·ID	
-	private String memberName;//çœŸå®å§“å
-	private String name;//ç”¨æˆ·å
-	private String password;//å¯†ç 
-	private String salt;//å¯†ç ç›
-	private String mobilePhone;//æ‰‹æœºå·
-	private int status;//è´¦å·çŠ¶æ€ï¼ˆæ­£å¸¸ï¼Œé”å®šï¼Œåˆ é™¤ï¼‰
-	private int delFlag;//åˆ é™¤æ ‡å¿—
-	private String identity;//èº«ä»½
-	private String createDate;//åˆ›å»ºæ—¶é—´
-	private String updateDate;//ä¿®æ”¹æ—¶é—´
-	private String weiBoAccount;//å¾®åšè´¦å·å…³è”
-	private String weixinAccount;//å¾®ä¿¡è´¦å·å…³è”
-	private int headid;//å¤´åƒå›¾ç‰‡ID
-	private String invitationCode;//é‚€è¯·ç 
-	private String withdrawPassword;//ææ¬¾å¯†ç 
-	private String qqAccount;//QQè´¦å·å…³è”
-	private String invitedCode;//è¢«é‚€è¯·ç 
-	private String qqNumber;//QQå·ç 
+	private int id;//ÓÃ»§id
+	private String member_name;//ÕæÊµĞÕÃû
+	private String name;//ÓÃ»§Ãû
+	private String password;//ÃÜÂë
+	private String salt;//ÃÜÂëÑÎ
+	private String mobile_Phone;//ÊÖ»úºÅ
+	private int status;//ÕËºÅ×´Ì¬£¨Õı³££¬Ëø¶¨£¬É¾³ı
+	private int del_flag;//É¾³ı±êÖ¾
+	private String identity;//Éí·İ
+	private Date create_date;//´´½¨Ê±¼ä
+	private Date update_date;//ĞŞ¸ÄÊ±¼ä
+	private String weiBoAccount;//Î¢²©ÕËºÅ¹ØÁª
+	private String weixinAccount;//Î¢ĞÅÕËºÅ¹ØÁª
+	private int headid;//Í·ÏñÍ¼Æ¬id
+	private String invitationCode;//ÑûÇëÂë
+	private String withdraw_password;//Ìá¿îÃÜÂë
+	private String qqAccount;//QQÕËºÅ¹ØÁª
+	private String invitedCode;//±»ÑûÇëÂë
+	private String qqNumber;//QQºÅÂë
+	
+	@Id
+	@GeneratedValue
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getMember_name() {
+		return member_name;
+	}
+	public void setMember_name(String member_name) {
+		this.member_name = member_name;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getSalt() {
+		return salt;
+	}
+	public void setSalt(String salt) {
+		this.salt = salt;
+	}
+	public String getMobile_Phone() {
+		return mobile_Phone;
+	}
+	public void setMobile_Phone(String mobile_Phone) {
+		this.mobile_Phone = mobile_Phone;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	public int getDel_flag() {
+		return del_flag;
+	}
+	public void setDel_flag(int del_flag) {
+		this.del_flag = del_flag;
+	}
+	public String getIdentity() {
+		return identity;
+	}
+	public void setIdentity(String identity) {
+		this.identity = identity;
+	}
+	public Date getCreate_date() {
+		return create_date;
+	}
+	public void setCreate_date(Date create_date) {
+		this.create_date = create_date;
+	}
+	public Date getUpdate_date() {
+		return update_date;
+	}
+	public void setUpdate_date(Date update_date) {
+		this.update_date = update_date;
+	}
+	public String getWeiBoAccount() {
+		return weiBoAccount;
+	}
+	public void setWeiBoAccount(String weiBoAccount) {
+		this.weiBoAccount = weiBoAccount;
+	}
+	public String getWeixinAccount() {
+		return weixinAccount;
+	}
+	public void setWeixinAccount(String weixinAccount) {
+		this.weixinAccount = weixinAccount;
+	}
+	public int getHeadid() {
+		return headid;
+	}
+	public void setHeadid(int headid) {
+		this.headid = headid;
+	}
+	public String getInvitationCode() {
+		return invitationCode;
+	}
+	public void setInvitationCode(String invitationCode) {
+		this.invitationCode = invitationCode;
+	}
+	public String getWithdraw_password() {
+		return withdraw_password;
+	}
+	public void setWithdraw_password(String withdraw_password) {
+		this.withdraw_password = withdraw_password;
+	}
+	public String getQqAccount() {
+		return qqAccount;
+	}
+	public void setQqAccount(String qqAccount) {
+		this.qqAccount = qqAccount;
+	}
+	public String getInvitedCode() {
+		return invitedCode;
+	}
+	public void setInvitedCode(String invitedCode) {
+		this.invitedCode = invitedCode;
+	}
+	public String getQqNumber() {
+		return qqNumber;
+	}
+	public void setQqNumber(String qqNumber) {
+		this.qqNumber = qqNumber;
+	}
+	
 }

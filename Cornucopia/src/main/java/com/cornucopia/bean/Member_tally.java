@@ -6,16 +6,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Table(name="Member_puc_charge_home")//缴费家庭
+@Table(name="Member_tally")//记账
 @Entity
-public class MemberPucChargeHome {
+public class Member_tally {
 
 	private int id;//主键
 	private int member_id;//用户id
-	private String name;//家庭名称
-	private int is_default;//是否默认(0:n1:y)
+	private int type_id;//消费类型id
+	private String type_name;//消费类型名称
+	private int amount;//金额
+	private Date pay_date;//付款时间
 	private Date create_date;//创建时间
-	private Date update_date;//修改时间
 	
 	@Id
 	@GeneratedValue
@@ -31,17 +32,29 @@ public class MemberPucChargeHome {
 	public void setMember_id(int member_id) {
 		this.member_id = member_id;
 	}
-	public String getName() {
-		return name;
+	public int getType_id() {
+		return type_id;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setType_id(int type_id) {
+		this.type_id = type_id;
 	}
-	public int getIs_default() {
-		return is_default;
+	public String getType_name() {
+		return type_name;
 	}
-	public void setIs_default(int is_default) {
-		this.is_default = is_default;
+	public void setType_name(String type_name) {
+		this.type_name = type_name;
+	}
+	public int getAmount() {
+		return amount;
+	}
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+	public Date getPay_date() {
+		return pay_date;
+	}
+	public void setPay_date(Date pay_date) {
+		this.pay_date = pay_date;
 	}
 	public Date getCreate_date() {
 		return create_date;
@@ -49,12 +62,7 @@ public class MemberPucChargeHome {
 	public void setCreate_date(Date create_date) {
 		this.create_date = create_date;
 	}
-	public Date getUpdate_date() {
-		return update_date;
-	}
-	public void setUpdate_date(Date update_date) {
-		this.update_date = update_date;
-	}
+	
 	
 	
 }

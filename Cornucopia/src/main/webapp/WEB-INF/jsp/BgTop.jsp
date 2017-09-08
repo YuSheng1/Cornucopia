@@ -26,7 +26,7 @@ $(function(){
     <a href="main.html" target="_parent"><img src="../BgAssets/images/logo.png" title="系统首页" /></a>
     </div>
      
-     <!-- 
+    
     <ul class="nav">
     <li><a href="/Cornucopia/BgItem/BgDefault" target="rightFrame" class="selected"><img src="../BgAssets/images/icon01.png" title="工作台" /><h2>工作台</h2></a></li>
     <li><a href="/Cornucopia/BgItem/BgImgTable" target="rightFrame"><img src="../BgAssets/images/icon02.png" title="模型管理" /><h2>模型管理</h2></a></li>
@@ -34,7 +34,7 @@ $(function(){
     <li><a href="/Cornucopia/BgItem/BgTools"  target="rightFrame"><img src="../BgAssets/images/icon04.png" title="常用工具" /><h2>常用工具</h2></a></li>
     <li><a href="/Cornucopia/BgItem/BgTab"  target="rightFrame"><img src="../BgAssets/images/icon06.png" title="系统设置" /><h2>系统设置</h2></a></li>
     </ul>
-     -->   
+ 
             
     <div class="topright">    
     <ul>

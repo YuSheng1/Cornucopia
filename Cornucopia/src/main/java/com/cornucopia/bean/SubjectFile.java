@@ -1,15 +1,66 @@
 package com.cornucopia.bean;
+import java.util.Date;
 
-/*
- * é™„ä»¶è¡¨
- */
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name="Subject_file")//¸½¼ş±í
+@Entity
+
 public class SubjectFile {
-
-	private int id;//ä¸»é”®
-	private String folderId;//é™„ä»¶ä¸»è¡¨id
-	private String path;//æ–‡ä»¶è·¯å¾„
-	private String fileName;//æ–‡ä»¶å
-	private String originalName;//åŸæ–‡ä»¶å
-	private String createDate;//åˆ›å»ºæ—¶é—´
-	private String updateDate;//ä¿®æ”¹æ—¶é—´
+               private int id;//Ö÷¼ü
+               private int folder_id;//¸½¼şÖ÷±íid
+               private String path;//ÎÄ¼şÂ·¾¶
+               private String file_name;//ÎÄ¼şÃû
+               private String original_name;//Ô­ÎÄ¼şÃû
+               private Date create_date;//´´½¨Ê±¼ä
+               private Date update_date;//ĞŞ¸ÄÊ±¼ä
+            @Id
+            @GeneratedValue
+			public int getId() {
+				return id;
+			}
+			public void setId(int id) {
+				this.id = id;
+			}
+			public int getFolder_id() {
+				return folder_id;
+			}
+			public void setFolder_id(int folder_id) {
+				this.folder_id = folder_id;
+			}
+			public String getPath() {
+				return path;
+			}
+			public void setPath(String path) {
+				this.path = path;
+			}
+			public String getFile_name() {
+				return file_name;
+			}
+			public void setFile_name(String file_name) {
+				this.file_name = file_name;
+			}
+			public String getOriginal_name() {
+				return original_name;
+			}
+			public void setOriginal_name(String original_name) {
+				this.original_name = original_name;
+			}
+			public Date getCreate_date() {
+				return create_date;
+			}
+			public void setCreate_date(Date create_date) {
+				this.create_date = create_date;
+			}
+			public Date getUpdate_date() {
+				return update_date;
+			}
+			public void setUpdate_date(Date update_date) {
+				this.update_date = update_date;
+			}
+               
+               
 }

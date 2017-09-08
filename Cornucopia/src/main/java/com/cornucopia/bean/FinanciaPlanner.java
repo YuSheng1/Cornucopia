@@ -6,14 +6,17 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Table(name="Member_puc_charge_home")//缴费家庭
+@Table(name="Financial_planner")//理财师表
 @Entity
-public class MemberPucChargeHome {
+public class FinanciaPlanner {
 
 	private int id;//主键
-	private int member_id;//用户id
-	private String name;//家庭名称
-	private int is_default;//是否默认(0:n1:y)
+	private int member_id;//会员id
+	private String name;//真实姓名
+	private String orgname;//机构名称
+	private String mycard;//我的名片
+	private String address;//邮寄地址
+	private int status;//状态
 	private Date create_date;//创建时间
 	private Date update_date;//修改时间
 	
@@ -37,11 +40,29 @@ public class MemberPucChargeHome {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getIs_default() {
-		return is_default;
+	public String getOrgname() {
+		return orgname;
 	}
-	public void setIs_default(int is_default) {
-		this.is_default = is_default;
+	public void setOrgname(String orgname) {
+		this.orgname = orgname;
+	}
+	public String getMycard() {
+		return mycard;
+	}
+	public void setMycard(String mycard) {
+		this.mycard = mycard;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
 	}
 	public Date getCreate_date() {
 		return create_date;
