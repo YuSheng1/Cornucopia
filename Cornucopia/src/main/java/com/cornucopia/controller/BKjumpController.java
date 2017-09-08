@@ -19,6 +19,7 @@ public class BKjumpController {
 	
 	@Resource(name="UserServiceImpl")
 	private UserService userServiceImpl;
+	
 	@Resource(name="UserRoleServiceImpl")
 	private UserService userRoleServiceImpl;
 	// 后台主页
@@ -106,14 +107,16 @@ public class BKjumpController {
 	// 后台用户权限管理
 	@RequestMapping("BgUserPermission")
 	public String BgUserPermission(Model model) {
-		List<Users> Users=userServiceImpl.ListAll();
-		model.addAttribute("Users",Users);
-		return "Users";
+		System.out.println("123");
+		List<Users> UsersList=userServiceImpl.ListAll();
+		model.addAttribute("UsersList",UsersList);
+		System.out.println(UsersList.size());
+		return "BgUserPermission";
 	}
 	// 后台用户权限管理
 	@RequestMapping("BgUserRoles")
-	public String BgUserRoles(Model model,UserRole userRole) {
-		List<UserRole> UserRoleList=userRoleServiceImpl.ListAll(userRole);
+	public String BgUserRoles(Model model) {
+		List<UserRole> UserRoleList=userRoleServiceImpl.ListAll();
 		model.addAttribute("UserRoleList",UserRoleList);
 		return "BgUserRoles";
 	}

@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="users")
+@Table(name="Users")
 public class Users {
               private int id;//用户id
               private String user_name;//用户名

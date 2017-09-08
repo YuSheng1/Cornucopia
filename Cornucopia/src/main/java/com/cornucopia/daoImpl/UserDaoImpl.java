@@ -9,7 +9,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.cornucopia.bean.UserRole;
 import com.cornucopia.bean.Users;
 import com.cornucopia.dao.UserDao;
 
@@ -23,9 +22,6 @@ public class UserDaoImpl implements UserDao {
 	public Session getSession() {
 		return sessionFactory.getCurrentSession();
 	}
-
-
-
 	// 查询用户基本信息
 	@Override
 	public List<Users> ListAll(Object... objects) {
