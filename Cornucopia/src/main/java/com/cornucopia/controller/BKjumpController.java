@@ -51,6 +51,19 @@ public class BKjumpController {
 	public String BgImgTable() {
 		return "BgImgTable";
 	}
+	
+	// 后台模块表单
+	@RequestMapping("Bgnotice")
+	public String Bgnotice() {
+		return "Bgnotice";
+		}
+	
+	// 后台模块表单
+	@RequestMapping("Bgfeedback")
+	public String Bgfeedback() {
+		return "Bgfeedback";
+		}
+
 
 	// 后台登陆
 	@RequestMapping("BgLogin")

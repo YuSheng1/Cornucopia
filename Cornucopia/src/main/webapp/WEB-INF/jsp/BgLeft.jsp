@@ -52,53 +52,53 @@ $(function(){
     <span><img src="../BgAssets/images/leftico02.png" /></span>钱包管理
     </div>
     <ul class="menuson">
-        <li><cite></cite><a href="#">钱包缴费记录</a><i></i></li>
+        <li><cite></cite><a href="#" target="rightFrame">钱包缴费记录</a><i></i></li>
         </ul>     
     </dd> 
     
     
     <dd><div class="title"><span><img src="../BgAssets/images/leftico03.png" /></span>学院管理</div>
     <ul class="menuson">
-        <li><cite></cite><a href="#">资讯分类</a><i></i></li>
-        <li><cite></cite><a href="#">咨询管理</a><i></i></li>
+        <li><cite></cite><a href="#" target="rightFrame">资讯分类</a><i></i></li>
+        <li><cite></cite><a href="#" target="rightFrame">咨询管理</a><i></i></li>
     </ul>    
     </dd>  
     
     
     <dd><div class="title"><span><img src="../BgAssets/images/leftico04.png" /></span>会员管理</div>
     <ul class="menuson">
-        <li><cite></cite><a href="#">账号管理</a><i></i></li>
-        <li><cite></cite><a href="#">理财师审核</a><i></i></li>
-        <li><cite></cite><a href="#">绑卡管理</a><i></i></li>
-        <li><cite></cite><a href="#">付息计划</a><i></i></li>
-        <li><cite></cite><a href="#">充值管理</a><i></i></li>
-        <li><cite></cite><a href="#">体现管理</a><i></i></li>
-        <li><cite></cite><a href="#">邀请奖励</a><i></i></li>
+        <li><cite></cite><a href="#" target="rightFrame">账号管理</a><i></i></li>
+        <li><cite></cite><a href="#" target="rightFrame">理财师审核</a><i></i></li>
+        <li><cite></cite><a href="#" target="rightFrame">绑卡管理</a><i></i></li>
+        <li><cite></cite><a href="#" target="rightFrame">付息计划</a><i></i></li>
+        <li><cite></cite><a href="#" target="rightFrame">充值管理</a><i></i></li>
+        <li><cite></cite><a href="#" target="rightFrame">体现管理</a><i></i></li>
+        <li><cite></cite><a href="#" target="rightFrame">邀请奖励</a><i></i></li>
     </ul>
     
     </dd>  
     
      <dd><div class="title"><span><img src="../BgAssets/images/leftico04.png" /></span>盈+统计</div>
     <ul class="menuson">
-        <li><cite></cite><a href="#">财务统计</a><i></i></li>
-        <li><cite></cite><a href="#">用户综合统计</a><i></i></li>
+        <li><cite></cite><a href="#" target="rightFrame">财务统计</a><i></i></li>
+        <li><cite></cite><a href="#" target="rightFrame">用户综合统计</a><i></i></li>
     </ul>
     
     </dd>  
     
     <dd><div class="title"><span><img src="../BgAssets/images/leftico04.png" /></span>盈+设置</div>
     <ul class="menuson">
-        <li><cite></cite><a href="#">公告管理</a><i></i></li>
-        <li><cite></cite><a href="#">意见反馈</a><i></i></li>
+        <li><cite></cite><a href="/Cornucopia/BgItem/Bgnotice" target="rightFrame">公告管理</a><i></i></li>
+        <li><cite></cite><a href="/Cornucopia/BgItem/Bgfeedback" target="rightFrame">意见反馈</a><i></i></li>
     </ul>
     
     </dd> 
     
     <dd><div class="title"><span><img src="../BgAssets/images/leftico04.png" /></span>系统设置</div>
     <ul class="menuson">
-        <li><cite></cite><a href="#">账户设置</a><i></i></li>
-        <li><cite></cite><a href="#">角色设置</a><i></i></li>
-        <li><cite></cite><a href="#">密码设置</a><i></i></li>
+        <li><cite></cite><a href="#" target="rightFrame">账户设置</a><i></i></li>
+        <li><cite></cite><a href="#" target="rightFrame">角色设置</a><i></i></li>
+        <li><cite></cite><a href="#" target="rightFrame">密码设置</a><i></i></li>
     </ul>
     
     </dd> 
