@@ -90,6 +90,7 @@ public class BKjumpController {
 		return "BgTools";
 	}
 	
+	//后台
 	@RequestMapping("BgConsultation")
 	public String BgConsultation() {
 		return "BgConsultation";
