@@ -7,68 +7,120 @@
 <title>无标题文档</title>
 <link href="../BgAssets/css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../BgAssets/js/jquery.js"></script>
-
 </head>
-
-
 <body>
-
-    <div class="mainindex">
-    
-    
-    <div class="welinfo">
-    <span><img src="../BgAssets/images/sun.png" alt="天气" /></span>
-    <b>Admin早上好，欢迎使用信息管理系统</b>
-    <a href="#">帐号设置</a>
-    </div>
-    
-    <div class="welinfo">
-    <span><img src="../BgAssets/images/time.png" alt="时间" /></span>
-    <i>您上次登录的时间：2013-10-09 15:22</i> （不是您登录的？<a href="#">请点这里</a>）
-    </div>
-    
-    <div class="xline"></div>
-    
-    <ul class="iconlist">
-    
-    <li><img src="../BgAssets/images/ico01.png" /><p><a href="#">管理设置</a></p></li>
-    <li><img src="../BgAssets/images/ico02.png" /><p><a href="#">发布文章</a></p></li>
-    <li><img src="../BgAssets/images/ico03.png" /><p><a href="#">数据统计</a></p></li>
-    <li><img src="../BgAssets/images/ico04.png" /><p><a href="#">文件上传</a></p></li>
-    <li><img src="../BgAssets/images/ico05.png" /><p><a href="#">目录管理</a></p></li>
-    <li><img src="../BgAssets/images/ico06.png" /><p><a href="#">查询</a></p></li> 
-            
+    <div class="place" style="color: blue;font-size: 20px">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li >固收类/P2P</li>
     </ul>
-    
-    <div class="ibox"><a class="ibtn"><img src="../BgAssets/images/iadd.png" />添加新的快捷功能</a></div>
-    
-    <div class="xline"></div>
-    <div class="box"></div>
-    
-    <div class="welinfo">
-    <span><img src="../BgAssets/images/dp.png" alt="提醒" /></span>
-    <b>信息管理系统使用指南</b>
     </div>
     
-    <ul class="infolist">
-    <li><span>您可以快速进行文章发布管理操作</span><a class="ibtn">发布或管理文章</a></li>
-    <li><span>您可以快速发布产品</span><a class="ibtn">发布或管理产品</a></li>
-    <li><span>您可以进行密码修改、账户设置等操作</span><a class="ibtn">账户管理</a></li>
-    </ul>
+   
+   
+    <div class="tools">
+  
+  <label style="font-size: 18px"> 名称：</label><input name="name" type="text" class="dfinput" />
+   
+  <label style="font-size: 18px"> 类型：</label><input name="name" type="text" class="dfinput" />
+          
+  <label style="font-size: 18px"> 状态：</label><input name="name" type="text" class="dfinput" />
+  
+  <ul class="toolbar1">
+        <li class="click"><span><img src="../BgAssets/images/t01.png" /></span>新增</li>
+        <li class="click"><span><img src="../BgAssets/images/t02.png" /></span>重置</li>
+        
+        <li><span><img src="../BgAssets/images/t04.png" /></span>查询</li>
+        
+  </ul>  
+     
+     <div class="xline"></div>
+  </div>
+ 
+    <table class="imgtable">
+    <thead>
+    <tr>
+    <th>序号</th>
+    <th>合同编号</th>
+    <th>类型</th>
+    <th>名称</th>
+    <th>标的总金额</th>
+    <th>已投总金额</th>
+    <th>投资期限</th>
+    <th>投资金额</th>
+    <th>年化收益</th>
+    <th>状态</th>
+    <th>可使用体检金</th>
+    <th>添加时间</th>
+    <th>操作</th>
+    </tr>
+    </thead>
     
-    <div class="xline"></div>
+    <tbody>
     
-    <div class="info"><b>查看网站使用指南，您可以了解到多种风格的B/S后台管理界面,软件界面设计，图标设计，手机界面等相关信息</b>(More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>)</div>
+    <tr>
+    <td class="imgtd"><img src="../BgAssets/images/img11.png" /></td>
+    <td><a href="#">非常不错的国外后台模板，支持HTML5</a><p>发布时间：2013-10-12 09:25:18</p></td>
+    <td>后台界面<p>ID: 82122</p></td>
+    <td>开放浏览</td>
+    <td>admin</td>
+    <td>已审核</td>
+    <td>128</td>
+     <td>128</td>
+      <td>128</td>
+       <td>128</td>
+        <td>128</td>
+         <td>128</td>
+          <td>
+          <input type="button" id="but" value="编辑">
+          <input type="button" id="but1" value="查看投资">
+          </td>
+    </tr>
     
-    <ul class="umlist">
-    <li><a href="#">如何发布文章</a></li>
-    <li><a href="#">如何访问网站</a></li>
-    <li><a href="#">如何管理广告</a></li>
-    <li><a href="#">后台用户设置(权限)</a></li>
-    <li><a href="#">系统设置</a></li>
-    </ul>
+    <tr>
+    <td class="imgtd"><img src="../BgAssets/images/img12.png" /></td>
+    <td><a href="#">一套简约形状图标UI下载</a><p>发布时间：2013-10-12 09:25:18</p></td>
+    <td>图标设计<p>ID: 82122</p></td>
+    <td>开放浏览</td>
+    <td></td>
+    <td><i>未审核</i></td>
+    <td>235</td>
+    </tr>
+    
+    <tr>
+    <td class="imgtd"><img src="../BgAssets/images/img13.png" /></td>
+    <td><a href="#">配色软件界面设计PSD下载</a><p>发布时间：2013-10-12 09:25:18</p></td>
+    <td>软件界面<p>ID: 82122</p></td>
+    <td>开放浏览</td>
+    <td>admin</td>
+    <td>已审核</td>
+    <td>100</td>
+    </tr>
+    
+    <tr>
+    <td class="imgtd"><img src="../BgAssets/images/img14.png" /></td>
+    <td><a href="#">.com分享-123张switch界面UI设计</a><p>发布时间：2013-10-12 09:25:18</p></td>
+    <td>图标设计<p>ID: 82122</p></td>
+    <td>开放浏览</td>
+    <td>user</td>
+    <td>已审核</td>
+    <td>96</td>
+    </tr>
+    
+    <tr>
+    <td class="imgtd"><img src="../BgAssets/images/img15.png" /></td>
+    <td><a href="#">章鱼图标PSD源文件下载</a><p>发布时间：2013-10-12 09:25:18</p></td>
+    <td>界面设计<p>ID: 82122</p></td>
+    <td>开放浏览</td>
+    <td>admin</td>
+    <td>已审核</td>
+    <td>45</td>
+    </tr>
+    
+    </tbody>
+    
+    </table>
     
     
-    </div>
 </body>
 </html>
