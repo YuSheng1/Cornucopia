@@ -17,7 +17,7 @@ public class UserRoleServiceImpl implements UserService {
 	
 	@Override
 	public List<UserRole> ListAll(Object...object) {
-		List<UserRole> UserRoleList=userDao.ListAll(object);
+		List<UserRole> UserRoleList=userDao.ListAll();
 		return UserRoleList;
 	}
 	@Override
