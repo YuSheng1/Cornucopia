@@ -1,18 +1,106 @@
 package com.cornucopia.bean;
+import java.util.Date;
 
-/*
- * çŸ­ä¿¡è®°å½•è¡¨
- */
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name="Sms_record")//¶ÌĞÅ¼ÇÂ¼±í
+@Entity
 public class SmsRecord {
 
-	private int id;//ID
-	private int type;//çŸ­ä¿¡ç±»å‹
-	private String phone;//æ‰‹æœºå·ç 
-	private String code;//éªŒè¯ç 
-	private String content;//çŸ­ä¿¡å†…å®¹
-	private String result;//è¿”å›ç»“æœ
-	private int status;//çŠ¶æ€
-	private String senddate;//å‘é€æ—¶é—´
-	private String createdate;//åˆ›å»ºæ—¶é—´
+	private int id;//Ö÷¼ü
+	
+	private int type;//¶ÌĞÅÀàĞÍ
+	
+	private String phone;//ÊÖ»úºÅÂë
+	
+	private String code;//ÑéÖ¤Âë
+	
+	private String content;//¶ÌĞÅÄÚÈİ
+	
+	private String resule;//·µ»Ø½á¹û
+	
+	private int status;//×´Ì¬
+	
+	private Date senddate;//·¢ËÍÊ±¼ä
+	
+	private Date createdate;//´´½¨Ê±¼ä
+
+	@Id
+	@GeneratedValue
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
+
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public String getResule() {
+		return resule;
+	}
+
+	public void setResule(String resule) {
+		this.resule = resule;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public Date getSenddate() {
+		return senddate;
+	}
+
+	public void setSenddate(Date senddate) {
+		this.senddate = senddate;
+	}
+
+	public Date getCreatedate() {
+		return createdate;
+	}
+
+	public void setCreatedate(Date createdate) {
+		this.createdate = createdate;
+	}
+	
 	
 }

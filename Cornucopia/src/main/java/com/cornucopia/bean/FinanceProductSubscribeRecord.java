@@ -1,19 +1,95 @@
 package com.cornucopia.bean;
 
-/*
- * é‡‘èäº§å“è®¢é˜…è®°å½•è¡¨
- */
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name="Finance_product_subscribe_record")//½ğÈÚ²úÆ·¶©ÔÄ¼ÇÂ¼±í
+@Entity
 public class FinanceProductSubscribeRecord {
 
-	private int id;//id
-	private int memberId;//ä¼šå‘˜ID
-	private int subscribeId;//ç§å‹Ÿé¢„çº¦è®°å½•ID
-	private String techUserId;//eç­¾å®ä¸ªäººè´¦å·
-	private String techUserSeal;//eç­¾å®ä¸ªäººå°ç« 
-	private String orgPath;//åŸç­¾ç½²æ–‡æ¡£è·¯å¾„ 
-	private String newPath;//æ–°ç­¾ç½²æ–‡æ¡£è·¯å¾„
-	private int status;//çŠ¶æ€	
-	private String createDate;//åˆ›å»ºæ—¶é—´	
-	private String updateDate;//ä¿®æ”¹æ—¶é—´
-	private String filedl;//å¤‡ç”¨å­—æ®µ
+	private int id;//Ö÷¼ü
+	private int member_id;//»áÔ±id
+	private int subscribe_id;//Ë½Ä¼Ô¤Ô¼¼ÇÂ¼id
+	private String tech_user_id;//eÇ©±¦¸öÈËÕËºÅ
+	private String tech_user_seal;//eÇ©±¦¸öÈËÓ¡ÕÂ
+	private String org_path;//Ô­Ç©ÊğÎÄµµÂ·¾¶
+	private String new_path;//ĞÂÇ©ÊğÎÄµµÂ·¾¶
+	private int status;//×´Ì¬ '0'
+	private Date create_date;//´´½¨Ê±¼ä
+	private Date update_date;//ĞŞ¸ÄÊ±¼ä
+	private String filed1;//±¸ÓÃ×Ö¶Î
+	
+	@Id
+	@GeneratedValue
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public int getMember_id() {
+		return member_id;
+	}
+	public void setMember_id(int member_id) {
+		this.member_id = member_id;
+	}
+	public int getSubscribe_id() {
+		return subscribe_id;
+	}
+	public void setSubscribe_id(int subscribe_id) {
+		this.subscribe_id = subscribe_id;
+	}
+	public String getTech_user_id() {
+		return tech_user_id;
+	}
+	public void setTech_user_id(String tech_user_id) {
+		this.tech_user_id = tech_user_id;
+	}
+	public String getTech_user_seal() {
+		return tech_user_seal;
+	}
+	public void setTech_user_seal(String tech_user_seal) {
+		this.tech_user_seal = tech_user_seal;
+	}
+	public String getOrg_path() {
+		return org_path;
+	}
+	public void setOrg_path(String org_path) {
+		this.org_path = org_path;
+	}
+	public String getNew_path() {
+		return new_path;
+	}
+	public void setNew_path(String new_path) {
+		this.new_path = new_path;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	public Date getCreate_date() {
+		return create_date;
+	}
+	public void setCreate_date(Date create_date) {
+		this.create_date = create_date;
+	}
+	public Date getUpdate_date() {
+		return update_date;
+	}
+	public void setUpdate_date(Date update_date) {
+		this.update_date = update_date;
+	}
+	public String getFiled1() {
+		return filed1;
+	}
+	public void setFiled1(String filed1) {
+		this.filed1 = filed1;
+	}
+	
 }

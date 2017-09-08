@@ -1,19 +1,88 @@
 package com.cornucopia.bean;
+import java.util.Date;
 
-/*
- * æ ‡çš„è®¢å•è¡¨
- */
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name="Subject_order_record")//±êµÄ¶©µ¥
+@Entity
+
 public class SubjectOrderRecord {
-     
-	private int id;//ID 
-	private String serialNumber;//æµæ°´å·
-	private int dealType;//äº¤æ˜“ç±»å‹
-	private int amount;// è®¢å•é‡‘é¢
-	private int status;//è®¢å•çŠ¶æ€
-	private int subjectId;//æ ‡çš„id
-	private int memberId;//ç”¨æˆ·id
-	private int delflag;//æ˜¯å¦åˆ é™¤
-	private String createDate;//åˆ›å»ºæ—¥æœŸ
-	private String updateDate;//æ›´æ–°æ—¥æœŸ
-	
+           private int id;//Ö÷¼ü
+           private String serial_number;//Á÷Ë®ºÅ
+           private int deal_type;//½»Ò×ÀàĞÍ
+           private int amout;//¶©µ¥½ğ¶î
+           private int status;//¶©µ¥×´Ì¬
+           private int subject_id;//±êµÄid
+           private int member_id;//ÓÃ»§id
+           private int delfalg;//ÊÇ·ñÉ¾³ı
+           private Date create_date;//´´½¨ÈÕÆÚ
+           private Date update_date;//¸üĞÂÈÕÆÚ
+           
+        @Id
+        @GeneratedValue
+		public int getId() {
+			return id;
+		}
+		public void setId(int id) {
+			this.id = id;
+		}
+		public String getSerial_number() {
+			return serial_number;
+		}
+		public void setSerial_number(String serial_number) {
+			this.serial_number = serial_number;
+		}
+		public int getDeal_type() {
+			return deal_type;
+		}
+		public void setDeal_type(int deal_type) {
+			this.deal_type = deal_type;
+		}
+		public int getAmout() {
+			return amout;
+		}
+		public void setAmout(int amout) {
+			this.amout = amout;
+		}
+		public int getStatus() {
+			return status;
+		}
+		public void setStatus(int status) {
+			this.status = status;
+		}
+		public int getSubject_id() {
+			return subject_id;
+		}
+		public void setSubject_id(int subject_id) {
+			this.subject_id = subject_id;
+		}
+		public int getMember_id() {
+			return member_id;
+		}
+		public void setMember_id(int member_id) {
+			this.member_id = member_id;
+		}
+		public int getDelfalg() {
+			return delfalg;
+		}
+		public void setDelfalg(int delfalg) {
+			this.delfalg = delfalg;
+		}
+		public Date getCreate_date() {
+			return create_date;
+		}
+		public void setCreate_date(Date create_date) {
+			this.create_date = create_date;
+		}
+		public Date getUpdate_date() {
+			return update_date;
+		}
+		public void setUpdate_date(Date update_date) {
+			this.update_date = update_date;
+		}
+           
+           
 }

@@ -1,35 +1,207 @@
 package com.cornucopia.bean;
 
-/*
- * ç†è´¢ç±»åŸºé‡‘äº§å“è¡¨
- */
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name="Finance_product_funds")//'Àí²ÆÀà»ù½ğ²úÆ·±í'
+@Entity
 public class FinanceProductFunds {
 
-	private int id;//id
-	private String type;//äº§å“ç±»å‹
-	private String name;//åç§°
-	private int status;//çŠ¶æ€(0:æœªå‘å¸ƒï¼Œ1:å‹Ÿé›†ä¸­ï¼Œ2:å·²ç»“æŸ)
-	private int period;//å‘¨æœŸ
-	private int floorAmount;//èµ·æŠ•é‡‘é¢
-	private int yearRate;//å¹´åŒ–ç‡
-	private int subscribeCount;//é¢„çº¦äººæ•°
-	private String productTopic;//åŸºé‡‘ä¸“é¢˜/å…³äºåŸºé‡‘
-	private String productFactor;//äº§å“è¦ç´ 
-	private String productStrategy;//äº§å“ç­–ç•¥
-	private String productManager;//åŸºé‡‘ç»ç†è¯¦ç»†
-	private String createDate;//æ·»åŠ æ—¶é—´
-	private String updateDate;//ä¿®æ”¹æ—¶é—´
-	private String productManagerName;//ç®¡ç†äººåç§°
-	private String productManagerPic;//ç®¡ç†äººå›¾ç‰‡
-	private String productManagerTitle;//ç®¡ç†äººå¤´è¡”
-	private String productManagerDesc;//äº§å“ç®¡ç†äººä»‹ç»
-	private String investPoints;//æŠ•èµ„æ–¹å‘
-	private int amount;//å‹Ÿé›†é‡‘é¢
-	private int soldAmount;//å·²å”®é‡‘é¢
-	private int buyerCount;//è´­ä¹°äººæ•°
-	private String startDate;//å¼€å§‹æ—¶é—´
-	private String endDate;//ç»“æŸæ—¶é—´
-	private String ratio;//è¿”ä½£æ¯”ä¾‹
-	private String contract;//ç§å‹ŸåˆåŒ
-	private String bankAccount;//é“¶è¡Œè´¦æˆ·ï¼ˆæ”¯è¡Œåç§°|é“¶è¡Œè´¦å·|æˆ·åï¼‰
+	private int id;//Ö÷¼ü
+	private String type;//²úÆ·ÀàĞÍ
+	private String name;//Ãû³Æ
+	private int status;//×´Ì¬(0:Î´·¢²¼£¬1:Ä¼¼¯ÖĞ£¬2:ÒÑ½áÊø)
+	private int period;//ÖÜÆÚ
+	private int floor_amount;//ÆğÍ¶½ğ¶î
+	private int year_rate;//Äê»¯ÂÊ
+	private int subscribe_count;//Ô¤Ô¼ÈËÊı
+	private String product_topic;//»ù½ğ×¨Ìâ/¹ØÓÚ»ù½ğ
+	private String product_factor;//²úÆ·ÒªËØ
+	private String product_strategy;//²úÆ·²ßÂÔ
+	private String product_manager;//»ù½ğ¾­ÀíÏêÏ¸
+	private Date create_date;//´´½¨Ê±¼ä
+	private Date update_date;//ĞŞ¸ÄÊ±¼ä
+	private String product_manager_name;//¹ÜÀíÈËÃû³Æ
+	private String product_manager_pic;//¹ÜÀíÈËÍ¼Æ¬
+	private String product_manager_title;//¹ÜÀíÈËÍ·ÏÎ
+	private String product_manager_desc;//²úÆ·¹ÜÀíÈË½éÉÜ
+	private String invest_points;//Í¶×Ê·½Ïò
+	private int amount;//Ä¼¼¯½ğ¶î
+	private int sold_amount;//ÒÑÊÛ½ğ¶î
+	private int buyer_count;//¹ºÂòÈËÊı
+	private Date start_date;//¿ªÊ¼Ê±¼ä
+	private Date end_date;//½áÊøÊ±¼ä
+	private String ratio;//·µÓ¶±ÈÀı
+	private String contract;//Ë½Ä¼ºÏÍ¬
+	private String bank_account;//ÒøĞĞÕË»§£¨Ö§ĞĞÃû³Æ|ÒøĞĞÕËºÅ|»§Ãû£©
+	
+	@Id
+	@GeneratedValue
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	public int getPeriod() {
+		return period;
+	}
+	public void setPeriod(int period) {
+		this.period = period;
+	}
+	public int getFloor_amount() {
+		return floor_amount;
+	}
+	public void setFloor_amount(int floor_amount) {
+		this.floor_amount = floor_amount;
+	}
+	public int getYear_rate() {
+		return year_rate;
+	}
+	public void setYear_rate(int year_rate) {
+		this.year_rate = year_rate;
+	}
+	public int getSubscribe_count() {
+		return subscribe_count;
+	}
+	public void setSubscribe_count(int subscribe_count) {
+		this.subscribe_count = subscribe_count;
+	}
+	public String getProduct_topic() {
+		return product_topic;
+	}
+	public void setProduct_topic(String product_topic) {
+		this.product_topic = product_topic;
+	}
+	public String getProduct_factor() {
+		return product_factor;
+	}
+	public void setProduct_factor(String product_factor) {
+		this.product_factor = product_factor;
+	}
+	public String getProduct_strategy() {
+		return product_strategy;
+	}
+	public void setProduct_strategy(String product_strategy) {
+		this.product_strategy = product_strategy;
+	}
+	public String getProduct_manager() {
+		return product_manager;
+	}
+	public void setProduct_manager(String product_manager) {
+		this.product_manager = product_manager;
+	}
+	public Date getCreate_date() {
+		return create_date;
+	}
+	public void setCreate_date(Date create_date) {
+		this.create_date = create_date;
+	}
+	public Date getUpdate_date() {
+		return update_date;
+	}
+	public void setUpdate_date(Date update_date) {
+		this.update_date = update_date;
+	}
+	public String getProduct_manager_name() {
+		return product_manager_name;
+	}
+	public void setProduct_manager_name(String product_manager_name) {
+		this.product_manager_name = product_manager_name;
+	}
+	public String getProduct_manager_pic() {
+		return product_manager_pic;
+	}
+	public void setProduct_manager_pic(String product_manager_pic) {
+		this.product_manager_pic = product_manager_pic;
+	}
+	public String getProduct_manager_title() {
+		return product_manager_title;
+	}
+	public void setProduct_manager_title(String product_manager_title) {
+		this.product_manager_title = product_manager_title;
+	}
+	public String getProduct_manager_desc() {
+		return product_manager_desc;
+	}
+	public void setProduct_manager_desc(String product_manager_desc) {
+		this.product_manager_desc = product_manager_desc;
+	}
+	public String getInvest_points() {
+		return invest_points;
+	}
+	public void setInvest_points(String invest_points) {
+		this.invest_points = invest_points;
+	}
+	public int getAmount() {
+		return amount;
+	}
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+	public int getSold_amount() {
+		return sold_amount;
+	}
+	public void setSold_amount(int sold_amount) {
+		this.sold_amount = sold_amount;
+	}
+	public int getBuyer_count() {
+		return buyer_count;
+	}
+	public void setBuyer_count(int buyer_count) {
+		this.buyer_count = buyer_count;
+	}
+	public Date getStart_date() {
+		return start_date;
+	}
+	public void setStart_date(Date start_date) {
+		this.start_date = start_date;
+	}
+	public Date getEnd_date() {
+		return end_date;
+	}
+	public void setEnd_date(Date end_date) {
+		this.end_date = end_date;
+	}
+	public String getRatio() {
+		return ratio;
+	}
+	public void setRatio(String ratio) {
+		this.ratio = ratio;
+	}
+	public String getContract() {
+		return contract;
+	}
+	public void setContract(String contract) {
+		this.contract = contract;
+	}
+	public String getBank_account() {
+		return bank_account;
+	}
+	public void setBank_account(String bank_account) {
+		this.bank_account = bank_account;
+	}
+	
 }

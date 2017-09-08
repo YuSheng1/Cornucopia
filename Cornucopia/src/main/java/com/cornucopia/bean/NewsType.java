@@ -1,25 +1,135 @@
 package com.cornucopia.bean;
+import java.util.Date;
 
-/*
- * æ–°é—»ç±»åˆ«åˆ—è¡¨
- */
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name="news_type")  //ĞÂÎÅÀà±ğ±í
+@Entity
 public class NewsType {
 
-	private int id;//id
-	private String name;//åç§°'
-	private String link;//é“¾æ¥
-	private String note;//å¤‡æ³¨
-	private int sort;//æ’åº
-	private String pageType;//é¡µé¢ç±»å‹
-	private int supType;//ä¸Šçº§ç±»åˆ«
-	private String info;//ç®€ä»‹
-	private String cPhoto;//å°é¢å›¾ç‰‡
-	private String text;//å†…å®¹
-	private String seoTitle;//é¡µé¢seoæ ‡é¢˜
-	private String seoKey;//seoå…³é”®å­—
-	private String seoDes;//seoæè¿°
-	private int addId;// æ·»åŠ äººID
-	private int updId;//ä¿®æ”¹äººID
-	private String updTime;//ä¿®æ”¹æ—¶é—´
-	private String addTime;//æ·»åŠ æ—¶é—´
+	private int id;//Ö÷¼ü
+	private String name;//Ãû³Æ
+	private String link;//Á´½Ó
+	private String note;//±¸×¢
+	private int sort;//ÅÅĞò
+	private String pageType;//Ò³ÃæÀàĞÍ
+	private int supType;//ÉÏ¼¶Àà±ğ
+	private int info;//¼ò½é
+	private String cPhoto;//·âÃæÍ¼Æ¬
+	private String text;//ÄÚÈİ
+	private String seoTiltle;//Ò³Ãæseo±êÌâ
+	private String seoKey;//seo¹Ø¼ü×Ö
+	private String seoDes;//seoÃèÊö
+	private int addId;//Ìí¼ÓÈËID
+	private int updId;//ĞŞ¸ÄÈËID
+	private Date updTime;//ĞŞ¸ÄÊ±¼ä
+	private Date addTime;//Ìí¼ÓÊ±¼ä
+	
+	@Id
+	@GeneratedValue
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getLink() {
+		return link;
+	}
+	public void setLink(String link) {
+		this.link = link;
+	}
+	public String getNote() {
+		return note;
+	}
+	public void setNote(String note) {
+		this.note = note;
+	}
+	public int getSort() {
+		return sort;
+	}
+	public void setSort(int sort) {
+		this.sort = sort;
+	}
+	public String getPageType() {
+		return pageType;
+	}
+	public void setPageType(String pageType) {
+		this.pageType = pageType;
+	}
+	public int getSupType() {
+		return supType;
+	}
+	public void setSupType(int supType) {
+		this.supType = supType;
+	}
+	public int getInfo() {
+		return info;
+	}
+	public void setInfo(int info) {
+		this.info = info;
+	}
+	public String getcPhoto() {
+		return cPhoto;
+	}
+	public void setcPhoto(String cPhoto) {
+		this.cPhoto = cPhoto;
+	}
+	public String getText() {
+		return text;
+	}
+	public void setText(String text) {
+		this.text = text;
+	}
+	public String getSeoTiltle() {
+		return seoTiltle;
+	}
+	public void setSeoTiltle(String seoTiltle) {
+		this.seoTiltle = seoTiltle;
+	}
+	public String getSeoKey() {
+		return seoKey;
+	}
+	public void setSeoKey(String seoKey) {
+		this.seoKey = seoKey;
+	}
+	public String getSeoDes() {
+		return seoDes;
+	}
+	public void setSeoDes(String seoDes) {
+		this.seoDes = seoDes;
+	}
+	public int getAddId() {
+		return addId;
+	}
+	public void setAddId(int addId) {
+		this.addId = addId;
+	}
+	public int getUpdId() {
+		return updId;
+	}
+	public void setUpdId(int updId) {
+		this.updId = updId;
+	}
+	public Date getUpdTime() {
+		return updTime;
+	}
+	public void setUpdTime(Date updTime) {
+		this.updTime = updTime;
+	}
+	public Date getAddTime() {
+		return addTime;
+	}
+	public void setAddTime(Date addTime) {
+		this.addTime = addTime;
+	}
 }
