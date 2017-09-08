@@ -6,7 +6,7 @@ package com.cornucopia.bean;
 public class SysBizInstitution {
     
 	private int id;//ID
-	private String province;//省
+	private String province;//省分
 	private String city;//城市
 	private String bizType;//机构类别如缴费JF
 	private String bizSubType;//机构子类别如缴费水费WATER
