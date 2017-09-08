@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 import com.cornucopia.bean.UserRole;
 import com.cornucopia.dao.UserDao;
-@Component("UserRoleImpl")
+@Component
 public class UserRoleImpl implements UserDao {
 	
 	@Autowired

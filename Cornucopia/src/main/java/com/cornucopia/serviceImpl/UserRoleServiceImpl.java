@@ -10,14 +10,14 @@ import com.cornucopia.bean.UserRole;
 import com.cornucopia.dao.UserDao;
 import com.cornucopia.service.UserService;
 
-@Component("UserRoleServiceImpl")
+@Component
 public class UserRoleServiceImpl implements UserService {
-	@Resource(name="UserRoleImpl")
-	private UserDao userDao;
+	@Resource
+	private UserDao userRoleImpl;
 	
 	@Override
 	public List<UserRole> ListAll(Object...object) {
-		List<UserRole> UserRoleList=userDao.ListAll();
+		List<UserRole> UserRoleList=userRoleImpl.ListAll();
 		return UserRoleList;
 	}
 	@Override

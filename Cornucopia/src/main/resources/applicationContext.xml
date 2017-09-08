@@ -88,7 +88,7 @@
 			<tx:method name="*" propagation="REQUIRED" />
 		</tx:attributes>
 	</tx:advice>
-	<aop:config>
+	<aop:config >
 		<aop:pointcut expression="execution(* com.cornucopia.serviceImpl.*.*(..))"
 			id="pointCut" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="pointCut" />

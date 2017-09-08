@@ -17,10 +17,10 @@ import com.cornucopia.serviceImpl.UserServiceImpl;
 @RequestMapping("BgItem")
 public class BKjumpController {
 	
-	@Resource(name="UserServiceImpl")
+	@Resource
 	private UserService userServiceImpl;
 	
-	@Resource(name="UserRoleServiceImpl")
+	@Resource
 	private UserService userRoleServiceImpl;
 	// 后台主页
 	@RequestMapping("BgMain")

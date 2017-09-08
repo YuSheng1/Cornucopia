@@ -13,7 +13,7 @@ import com.cornucopia.bean.Users;
 import com.cornucopia.dao.UserDao;
 
 
-@Component("UserDaoImpl")
+@Component
 public class UserDaoImpl implements UserDao {
 
 	@Autowired

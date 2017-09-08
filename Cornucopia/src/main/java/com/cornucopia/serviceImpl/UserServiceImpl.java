@@ -16,16 +16,16 @@ import com.cornucopia.dao.UserDao;
 import com.cornucopia.daoImpl.UserDaoImpl;
 import com.cornucopia.service.UserService;
 
-@Component("UserServiceImpl")
+@Component
 public class UserServiceImpl implements UserService {
 	
-	@Resource(name="UserDaoImpl")
-	private UserDao userDao;
+	@Resource
+	private UserDao userDaoImpl;
 
 	// 查询用户基本信息
 	@Override
 		public List<Users> ListAll(Object... objects) {
-	        List<Users> User = userDao.ListAll();
+	        List<Users> User = userDaoImpl.ListAll();
 			return User;
 		}
 
