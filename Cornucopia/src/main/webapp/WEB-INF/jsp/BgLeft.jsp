@@ -84,6 +84,14 @@ $(function(){
     
     </dd>   
     
+    <dd><div class="title"><span><img src="../BgAssets/images/leftico04.png" /></span>学院管理</div>
+    <ul class="menuson">
+        <li class="active"><cite></cite><a href="/Cornucopia/BgItem/BgConsultation" target="rightFrame">咨询分类</a><i></i></li>
+        <li><cite></cite><a href="/Cornucopia/BgItem/BgTration" target="rightFrame"">咨询管理</a><i></i></li>
+    </ul>
+    
+    </dd>  
+    
     </dl>
 </body>
 </html>

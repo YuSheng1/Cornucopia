@@ -75,4 +75,14 @@ public class BKjumpController {
 	public String BgTools() {
 		return "BgTools";
 	}
+	
+	@RequestMapping("BgConsultation")
+	public String BgConsultation() {
+		return "BgConsultation";
+	}
+	
+	@RequestMapping("BgTration")
+	public String BgTration(){
+		return "BgTration";
+	}
 }
