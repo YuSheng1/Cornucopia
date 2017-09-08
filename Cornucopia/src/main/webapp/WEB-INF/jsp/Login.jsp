@@ -231,8 +231,6 @@
           </div>
         </div>
       </div>
-    </div>
-  </div>
 
 
   <!--===========layout-container================-->
