@@ -89,7 +89,6 @@ public class BKjumpController {
 	public String BgTools() {
 		return "BgTools";
 	}
-<<<<<<< HEAD
 	
 	@RequestMapping("BgConsultation")
 	public String BgConsultation() {
@@ -99,7 +98,8 @@ public class BKjumpController {
 	@RequestMapping("BgTration")
 	public String BgTration(){
 		return "BgTration";
-=======
+	}
+
 	// 后台用户权限管理
 	@RequestMapping("BgUserPermission")
 	public String BgUserPermission() {
@@ -111,6 +111,5 @@ public class BKjumpController {
 		List<UserRole> UserRoleList=userService.ListAll();
 		model.addAttribute("UserRoleList",UserRoleList);
 		return "BgUserRoles";
->>>>>>> branch 'master' of https://github.com/YuSheng1/Cornucopia.git
 	}
 }
