@@ -90,12 +90,13 @@ public class BKjumpController {
 		return "BgTools";
 	}
 	
-	//后台
+	//后台学院管理
 	@RequestMapping("BgConsultation")
 	public String BgConsultation() {
 		return "BgConsultation";
 	}
 	
+	//后台学院管理
 	@RequestMapping("BgTration")
 	public String BgTration(){
 		return "BgTration";
