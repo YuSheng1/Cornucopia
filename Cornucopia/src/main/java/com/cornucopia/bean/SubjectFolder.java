@@ -1,11 +1,40 @@
 package com.cornucopia.bean;
+import java.util.Date;
 
-/*
- * é™„ä»¶å½’å±žè¡¨
- */
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name="Subject_folder")//¸½¼þ¹éÊô±í
+@Entity
+
 public class SubjectFolder {
-     
-	private int id;//ä¸»é”®
-	private String createDate;//åˆ›å»ºæ—¶é—´
-	private String updateDate;//ä¿®æ”¹æ—¶é—´
+          private int id;//Ö÷¼ü
+          private Date create_date;//´´½¨Ê±¼ä
+          private Date update_date;//ÐÞ¸ÄÊ±¼ä
+          
+         @Id
+         @GeneratedValue
+		public int getId() {
+			return id;
+		}
+		public void setId(int id) {
+			this.id = id;
+		}
+		public Date getCreate_date() {
+			return create_date;
+		}
+		public void setCreate_date(Date create_date) {
+			this.create_date = create_date;
+		}
+		public Date getUpdate_date() {
+			return update_date;
+		}
+		public void setUpdate_date(Date update_date) {
+			this.update_date = update_date;
+		}
+          
+          
+	   
 }

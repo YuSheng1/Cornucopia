@@ -1,11 +1,25 @@
 package com.cornucopia.controller;
 
+import java.util.List;
+
+import org.springframework.ui.Model;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.cornucopia.bean.UserRole;
+import com.cornucopia.service.UserService;
+
+
 
 @Controller
 @RequestMapping("BgItem")
 public class BKjumpController {
+		
+	@Autowired
+	private UserService userService;
+	
+	
 	// 后台主页
 	@RequestMapping("BgMain")
 	public String BgMain() {
@@ -87,5 +101,29 @@ public class BKjumpController {
 	@RequestMapping("BgTools")
 	public String BgTools() {
 		return "BgTools";
+	}
+	
+	//后台
+	@RequestMapping("BgConsultation")
+	public String BgConsultation() {
+		return "BgConsultation";
+	}
+	
+	@RequestMapping("BgTration")
+	public String BgTration(){
+		return "BgTration";
+	}
+
+	// 后台用户权限管理
+	@RequestMapping("BgUserPermission")
+	public String BgUserPermission() {
+		return "BgUserPermission";
+	}
+	// 后台用户权限管理
+	@RequestMapping("BgUserRoles")
+	public String BgUserRoles(Model model) {
+		List<UserRole> UserRoleList=userService.ListAll();
+		model.addAttribute("UserRoleList",UserRoleList);
+		return "BgUserRoles";
 	}
 }

@@ -1,15 +1,66 @@
 package com.cornucopia.bean;
+import java.util.Date;
 
-/*
- * ä¸»é¢˜è®°å½•è¡¨
- */
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity(name="Subject_field_record")//Ö÷Ìâ¼ÇÂ¼×Ö¶Î±í
+@Table
 public class SubjectFieldRecord {
-    
-	private int id;// ID
-	private int subjectId;//æ ‡çš„Id
-	private int fieldId;//å­—æ®µid
-	private String fieldValue;//å­—æ®µå€¼
-	private int delflag;//åˆ é™¤æ ‡è®°
-	private String createDate;//åˆ›å»ºæ—¥æœŸ
-	private String updateDate;//æ›´æ–°æ—¥æœŸ
+               private int id;//Ö÷¼ü
+               private int subject_id;//¹ºÂò±êµÄId
+               private int field_id;//×Ö¶Îid
+               private String field_value;//×Ö¶ÎÖµ
+               private int delflag;//É¾³ý±ê¼Ç
+               private Date create_date;//´´½¨ÈÕÆÚ
+               private Date update_date;//¸üÐÂÈÕÆÚ
+             @Id
+             @GeneratedValue
+			public int getId() {
+				return id;
+			}
+			public void setId(int id) {
+				this.id = id;
+			}
+			public int getSubject_id() {
+				return subject_id;
+			}
+			public void setSubject_id(int subject_id) {
+				this.subject_id = subject_id;
+			}
+			public int getField_id() {
+				return field_id;
+			}
+			public void setField_id(int field_id) {
+				this.field_id = field_id;
+			}
+			public String getField_value() {
+				return field_value;
+			}
+			public void setField_value(String field_value) {
+				this.field_value = field_value;
+			}
+			public int getDelflag() {
+				return delflag;
+			}
+			public void setDelflag(int delflag) {
+				this.delflag = delflag;
+			}
+			public Date getCreate_date() {
+				return create_date;
+			}
+			public void setCreate_date(Date create_date) {
+				this.create_date = create_date;
+			}
+			public Date getUpdate_date() {
+				return update_date;
+			}
+			public void setUpdate_date(Date update_date) {
+				this.update_date = update_date;
+			}
+               
+               
+               
 }

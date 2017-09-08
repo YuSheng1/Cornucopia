@@ -1,12 +1,46 @@
 package com.cornucopia.bean;
+import java.util.Date;
 
-/*
- * è§’è‰²æƒé™è¡¨
- */
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name="Role_permission_relation")//½ÇÉ«È¨ÏŞ±í
+@Entity
 public class RolePermissionRelation {
 
-	private int roleId;//è§’è‰²id
-	private String permissionEname;// æƒé™åç§°
-	private String createDate;//åˆ›å»ºæ—¶é—´
+	private int role_id;//½ÇÉ«id
+	
+	private String permission_ename;//È¨ÏŞÃû³Æ
+	
+	private Date create_date;//´´½¨Ê±¼ä
+
+	@Id
+	@GeneratedValue
+	public int getRole_id() {
+		return role_id;
+	}
+
+	public void setRole_id(int role_id) {
+		this.role_id = role_id;
+	}
+
+	public String getPermission_ename() {
+		return permission_ename;
+	}
+
+	public void setPermission_ename(String permission_ename) {
+		this.permission_ename = permission_ename;
+	}
+
+	public Date getCreate_date() {
+		return create_date;
+	}
+
+	public void setCreate_date(Date create_date) {
+		this.create_date = create_date;
+	}
+	
 	
 }

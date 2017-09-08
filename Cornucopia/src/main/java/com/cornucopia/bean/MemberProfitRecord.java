@@ -1,21 +1,109 @@
 package com.cornucopia.bean;
+import java.util.Date;
 
-/*
- * æˆå‘˜åˆ©æ¶¦è®°å½•è¡¨
- */
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name="Member_profit_record")//»áÔ±ÊÕÒæ¼ÇÂ¼±í
+@Entity
 public class MemberProfitRecord {
 
-	private int id;//id
-	private String serialNumber;//æµæ°´å·
-	private int type;//ç±»å‹
-	private int amount;//é‡‘é¢
-	private int memberId;//ç”¨æˆ·id
-	private int delflag;//(æ²¡å†™..)
-	private String createDate;//åˆ›å»ºæ—¶é—´
-	private String updateDate;//ä¿®æ”¹æ—¶é—´
-	private String comment;//å¤‡æ³¨
-	private int purchaseId;//æ ‡çš„id
-	private int profitYear;//è®¡æ¯å¹´
-	private int profitMonth;//è®¡æ¯æœˆ
-	private int profitDay;//è®¡æ¯æ—¥	
+	private int id;//Ö÷¼ü
+	private String serial_number;//Á÷Ë®ºÅ
+	private int type;//ÀàĞÍ
+	private int amount;//½ğ¶î
+	private  int member_id;//ÓÃ»§id
+	private int delflag;//±êÖ¾
+	private Date create_date;//´´½¨Ê±¼ä
+	private Date update_date;//ĞŞ¸ÄÊ±¼ä
+	private String comment;//±¸×¢
+	private int purchase_id;//±êµÄid£¨ÂòµÄ¶«Î÷µÄid£©
+	private int profit_year;//Ä¬ÈÏ¡®0¡¯ ¼ÆÏ¢Äê
+	private int profit_month;//Ä¬ÈÏ¡®0¡¯ ¼ÆÏ¢ÔÂ
+	private int profit_day;//Ä¬ÈÏ¡®0¡¯ ¼ÆÏ¢ÈÕ
+	
+	@Id
+	@GeneratedValue
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public String getSerial_number() {
+		return serial_number;
+	}
+	public void setSerial_number(String serial_number) {
+		this.serial_number = serial_number;
+	}
+	public int getType() {
+		return type;
+	}
+	public void setType(int type) {
+		this.type = type;
+	}
+	public int getAmount() {
+		return amount;
+	}
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+	public int getMember_id() {
+		return member_id;
+	}
+	public void setMember_id(int member_id) {
+		this.member_id = member_id;
+	}
+	public int getDelflag() {
+		return delflag;
+	}
+	public void setDelflag(int delflag) {
+		this.delflag = delflag;
+	}
+	public Date getCreate_date() {
+		return create_date;
+	}
+	public void setCreate_date(Date create_date) {
+		this.create_date = create_date;
+	}
+	public Date getUpdate_date() {
+		return update_date;
+	}
+	public void setUpdate_date(Date update_date) {
+		this.update_date = update_date;
+	}
+	public String getComment() {
+		return comment;
+	}
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+	public int getPurchase_id() {
+		return purchase_id;
+	}
+	public void setPurchase_id(int purchase_id) {
+		this.purchase_id = purchase_id;
+	}
+	public int getProfit_year() {
+		return profit_year;
+	}
+	public void setProfit_year(int profit_year) {
+		this.profit_year = profit_year;
+	}
+	public int getProfit_month() {
+		return profit_month;
+	}
+	public void setProfit_month(int profit_month) {
+		this.profit_month = profit_month;
+	}
+	public int getProfit_day() {
+		return profit_day;
+	}
+	public void setProfit_day(int profit_day) {
+		this.profit_day = profit_day;
+	}
+	
 }
+

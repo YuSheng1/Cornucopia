@@ -1,14 +1,86 @@
 package com.cornucopia.bean;
-/*
- * çŸ­ä¿¡æ¥å£æ¨¡æ¿è¡¨
- */
+import java.util.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Table(name="Sms_interface")//¶ÌĞÅ½Ó¿ÚÄ£°å
+@Entity
 public class SmsInterface {
 
-	private int id;//ID
-	private String name;//çŸ­ä¿¡æ¨¡æ¿åç§°
-	private int type;//çŸ­ä¿¡æ¨¡æ¿ç±»å‹
-	private String address;//çŸ­ä¿¡æ¨¡æ¿åœ°å€
-	private String param;//çŸ­ä¿¡æ¨¡æ¿å‚æ•°
-	private String content;//çŸ­ä¿¡æ¨¡æ¿å†…å®¹
-	private String createdate;//æ·»åŠ æ—¶é—´
+	private int id;//Ö÷¼ü
+	
+	private String name;//¶ÌĞÅÄ£°åÃû³Æ
+	
+	private int type;//¶ÌĞÅÄ£°åÀàĞÍ
+	
+	private String address;//¶ÌĞÅÄ£°åµØÖ·
+	
+	private String param;//¶ÌĞÅÄ£°å²ÎÊı
+	
+	private String content;//¶ÌĞÅÄ£°åÄÚÈİ
+	
+	private Date createdate;//Ìí¼ÓÊ±¼ä
+
+	@Id
+	@GeneratedValue
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getParam() {
+		return param;
+	}
+
+	public void setParam(String param) {
+		this.param = param;
+	}
+
+	public String getContent() {
+		return content;
+	}
+
+	public void setContent(String content) {
+		this.content = content;
+	}
+
+	public Date getCreatedate() {
+		return createdate;
+	}
+
+	public void setCreatedate(Date createdate) {
+		this.createdate = createdate;
+	}
+	
+	
 }
