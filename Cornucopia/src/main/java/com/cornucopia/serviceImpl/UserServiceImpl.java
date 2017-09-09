@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
+import com.cornucopia.bean.Resources;
 import com.cornucopia.bean.UserRole;
 import com.cornucopia.bean.Users;
 import com.cornucopia.dao.UserDao;
@@ -50,6 +51,20 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public <T> T getById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public List<Resources> ListAllRole() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public List ListAlltrue(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}}

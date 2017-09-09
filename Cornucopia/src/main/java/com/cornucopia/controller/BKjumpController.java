@@ -7,7 +7,10 @@ import org.springframework.ui.Model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.cornucopia.bean.Resources;
+import com.cornucopia.bean.Role_res;
 import com.cornucopia.bean.UserRole;
 import com.cornucopia.bean.Users;
 import com.cornucopia.service.UserService;
@@ -107,10 +110,8 @@ public class BKjumpController {
 	// 后台用户权限管理
 	@RequestMapping("BgUserPermission")
 	public String BgUserPermission(Model model) {
-		System.out.println("123");
 		List<Users> UsersList=userServiceImpl.ListAll();
 		model.addAttribute("UsersList",UsersList);
-		System.out.println(UsersList.size());
 		return "BgUserPermission";
 	}
 	// 后台用户权限管理
@@ -120,4 +121,38 @@ public class BKjumpController {
 		model.addAttribute("UserRoleList",UserRoleList);
 		return "BgUserRoles";
 	}
+	
+	// 后台用户权限管理
+	@ResponseBody
+		@RequestMapping("Ztree")
+		public String Ztree(Model model,int id) {
+			 List<Resources> list=userRoleServiceImpl.ListAllRole(); 
+			List<Integer> bool=userRoleServiceImpl.ListAlltrue(id);
+			
+		        StringBuffer json=new StringBuffer("[");  
+		        String data="";  
+		        for (int i = 0; i < list.size(); i++) {  
+		            json.append("{id:"+list.get(i).getResources_id()+",");  
+		            json.append("pId:"+list.get(i).getResources_higher()+",");  
+		            json.append("name:\""+list.get(i).getResources_name()+"\",");  
+		            if (list.get(i).getIsParent() !=0) {  
+		                json.append("isParent:"+list.get(i).getIsParent()+",");  
+		            }  
+		            for (int y = 0; y < bool.size(); y++) {  
+		            if (list.get(i).getResources_id() ==bool.get(y)) {  
+		            	//默认勾选
+		                json.append("checked:true,");  
+		                //勾选后默认打开
+		                json.append("open:"+list.get(i).getResources_id()+",");  
+		            }  
+		            }
+		            data=json.substring(0,json.lastIndexOf(","))+"},";  
+		            json=new StringBuffer(data);  
+		        }  
+		        data=json.substring(0, json.length()-1)+"]";  
+		        System.out.println(data);  
+		        return data;  
+		}
+	
 }
+	

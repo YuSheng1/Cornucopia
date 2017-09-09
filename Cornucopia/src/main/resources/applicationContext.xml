@@ -10,7 +10,8 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
-	<context:annotation-config></context:annotation-config>
+	<context:annotation-config>
+	</context:annotation-config>
 	<context:component-scan base-package="com"></context:component-scan>
 	<aop:aspectj-autoproxy />
 	<bean id="dataSource"
@@ -59,6 +60,7 @@
 				/Contact=anon
 				/admin*=authc
 				/student=roles[teacher]
+				<!-- 访问历经要有那个权限id -->
 				/teacher=perms["user:create"]
 			</value>
 		</property>

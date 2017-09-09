@@ -7,6 +7,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.cornucopia.bean.Resources;
+import com.cornucopia.bean.Role_res;
 import com.cornucopia.bean.UserRole;
 import com.cornucopia.dao.UserDao;
 @Component
@@ -26,7 +28,21 @@ public class UserRoleImpl implements UserDao {
 		List<UserRole> UserRoleList = session.createQuery("from UserRole").list();
 		return UserRoleList;
 	}
-
+	//查询板块信息
+	@Override
+	public List<Resources> ListAllRole() {
+		Session session = getSession();
+		List<Resources> UserRoleList = session.createQuery("from Resources ").list();
+		return UserRoleList;
+	}
+	//查询是否勾选
+	@Override
+		public List ListAlltrue(int id) {
+		System.out.println(id);
+		String sql="select pid from role_res where rid="+id;
+		List UserRoleList=sessionFactory.getCurrentSession().createSQLQuery(sql).list();
+			return UserRoleList;
+		}
 	@Override
 	public void save(Object object) {
 		// TODO Auto-generated method stub

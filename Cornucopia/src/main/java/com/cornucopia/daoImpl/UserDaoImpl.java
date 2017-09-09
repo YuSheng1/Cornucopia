@@ -9,6 +9,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.cornucopia.bean.Resources;
 import com.cornucopia.bean.Users;
 import com.cornucopia.dao.UserDao;
 
@@ -50,6 +51,16 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public Object getById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public List<Resources> ListAllRole() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public List ListAlltrue(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
