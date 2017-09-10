@@ -31,7 +31,6 @@ public class MyRealm extends AuthorizingRealm{
 		SimpleAuthorizationInfo authorizationInfo=new SimpleAuthorizationInfo();
 		authorizationInfo.setRoles((Set<String>)userRoleServiceImpl.ListAllByName(userName));
 		authorizationInfo.setStringPermissions((Set<String>)userRoleServiceImpl.ListResourcesByName(userName));
-		System.out.println("12312");
 		return authorizationInfo;
 	}
 

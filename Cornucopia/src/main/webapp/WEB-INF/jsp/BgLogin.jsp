@@ -47,15 +47,16 @@
     <li><input name="password" type="text" class="loginpwd" value="密码"   /></li>
     <li><input type="submit" class="loginbtn" value="登录"    />
     <label><input name="" type="checkbox" value="" checked="checked" />记住密码</label>
-    <label><a href="#">忘记密码？</a></label></li>
+    
+    <label><a href="#">忘记密码？</a></label></li>  <font color="red" style="font-size: 15px">${message }</font>
+  
     </ul>
-    <font color="red">${errorInfo }</font>
+   
     </form>
     </div>
-    
     </div>
     
-    
+     
     
     <div class="loginbm">版权所有  2013  .com 仅供学习交流，勿用于任何商业用途</div>
 </body>

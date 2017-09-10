@@ -59,6 +59,7 @@
 			<value>
 				 /BgItem/BgUserPermission=perms[用户管理] 
 				/BgItem/BgIndex= perms[固收类]
+				
 			</value>
 		</property>
 	</bean>
@@ -99,7 +100,6 @@
 		<property name="databaseSchemaUpdate" value="true" />
 		<property name="jobExecutorActivate" value="false" />
 	</bean>
-
 	<!-- 流程引擎实例 -->
 	<bean id="processEngine" class="org.activiti.spring.ProcessEngineFactoryBean">
 		<property name="processEngineConfiguration" ref="processEngineConfiguration" />

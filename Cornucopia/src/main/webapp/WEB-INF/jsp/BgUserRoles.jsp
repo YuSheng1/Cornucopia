@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -34,7 +35,7 @@
 
 	});
 </script>
- <SCRIPT type="text/javascript">
+<SCRIPT type="text/javascript">
  var cid=0;
  function cc(id) {  
 	 cid=id;
@@ -90,7 +91,7 @@
      window.close();     
       
  }    
-</SCRIPT>  
+</SCRIPT>
 </head>
 
 
@@ -109,12 +110,18 @@
 		<div class="tools">
 
 			<ul class="toolbar">
-				<li class="click"><span><img
-						src="../BgAssets/images/t01.png" /></span>添加</li>
-				<li class="click"><span><img
-						src="../BgAssets/images/t02.png" /></span>修改</li>
-				<li><span><img src="../BgAssets/images/t03.png" /></span>删除</li>
-				<li><span><img src="../BgAssets/images/t04.png" /></span>统计</li>
+				<shiro:hasPermission name="添加角色">
+					<li class="click"><span><img
+							src="../BgAssets/images/t01.png" /></span><a class="tablelink"
+						data-toggle="modal" data-target="#myModal1">添加</a></li>
+				</shiro:hasPermission>
+				<shiro:hasPermission name="修改角色权限">
+					<li class="click"><span><img
+							src="../BgAssets/images/t02.png" /></span>修改</li>
+				</shiro:hasPermission>
+				<shiro:hasPermission name="删除角色">
+					<li><span><img src="../BgAssets/images/t03.png" /></span>删除</li>
+				</shiro:hasPermission>
 			</ul>
 
 
@@ -144,7 +151,7 @@
 						<td>${e.create_date }</td>
 						<td>${e.update_date }</td>
 						<td><a class="tablelink" data-toggle="modal"
-							data-target="#myModal" onclick="cc(${e.id })" >编辑信息</a></td>
+							data-target="#myModal" onclick="cc(${e.id })">编辑信息</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -170,8 +177,9 @@
 			</ul>
 		</div>
 	</div>
+	<!-- 树插件 -->
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel" aria-hidden="true"  >
+		aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
@@ -180,21 +188,58 @@
 					<h4 class="modal-title" id="myModalLabel">角色权限管理</h4>
 				</div>
 				<div class="modal-body">
-				 <ul id="treeDemo" class="ztree"></ul> 
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
-					</button>
-					<button type="button" class="btn btn-primary"  data-dismiss="modal" onclick="GetCheckedAll()">提交更改</button>
+					<ul id="treeDemo" class="ztree"></ul>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+						</button>
+						<button type="button" class="btn btn-primary" data-dismiss="modal"
+							onclick="GetCheckedAll()">提交更改</button>
+					</div>
 				</div>
-				</div>
-				
+
 			</div>
 			<!-- /.modal-content -->
 		</div>
 		<!-- /.modal -->
 	</div>
-					
-				
+
+	<!-- 添加-->
+	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-hidden="true">&times;</button>
+					<h4 class="modal-title" id="myModalLabel">添加角色</h4>
+				</div>
+				<div class="modal-body">
+					<div class="input-group">
+						<span class="input-group-addon">角色名</span> <input type="text"
+							class="form-control" placeholder="请输入角色名称"><br>
+
+					</div>
+					<br>
+					<div class="input-group">
+						<span class="input-group-addon">备 &nbsp 注</span> <input
+							type="text" class="form-control" placeholder="备注信息"><br>
+
+					</div>
+					<br>
+
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">关闭
+						</button>
+						<button type="button" class="btn btn-primary" data-dismiss="modal"">提交更改</button>
+					</div>
+				</div>
+
+			</div>
+			<!-- /.modal-content -->
+		</div>
+		<!-- /.modal -->
+	</div>
+
 	<script type="text/javascript">
 		$('.tablelist tbody tr:odd').addClass('odd');
 	</script>
