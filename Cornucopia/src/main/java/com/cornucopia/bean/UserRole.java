@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
@@ -24,8 +25,16 @@ public class UserRole {
 	         private Date create_date;//创建时间
 	         private Date update_date;//修改时间
 	         private Set<Resources> resour=new HashSet<Resources>();
-
-	         @Id
+	         private Set<Users> users=new HashSet<Users>();
+             //关联用户表
+	     	@OneToMany(cascade=CascadeType.ALL,mappedBy="userrole")
+	         public Set<Users> getUsers() {
+				return users;
+			}
+			public void setUsers(Set<Users> users) {
+				this.users = users;
+			}
+			@Id
 	         @GeneratedValue
 			public int getId() {
 				return id;

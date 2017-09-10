@@ -1,5 +1,6 @@
 package com.cornucopia.controller;
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.Resource;
 
@@ -25,6 +26,9 @@ public class BKjumpController {
 	
 	@Resource
 	private UserService userRoleServiceImpl;
+	
+	@Resource
+	private UserService userRolesResources;
 	// 后台主页
 	@RequestMapping("BgMain")
 	public String BgMain() {
@@ -110,7 +114,7 @@ public class BKjumpController {
 	// 后台用户权限管理
 	@RequestMapping("BgUserPermission")
 	public String BgUserPermission(Model model) {
-		List<Users> UsersList=userServiceImpl.ListAll();
+		List UsersList=userServiceImpl.ListAll();
 		model.addAttribute("UsersList",UsersList);
 		return "BgUserPermission";
 	}
@@ -126,9 +130,8 @@ public class BKjumpController {
 	@ResponseBody
 		@RequestMapping("Ztree")
 		public String Ztree(Model model,int id) {
-			 List<Resources> list=userRoleServiceImpl.ListAllRole(); 
+			 List<Resources> list=userRolesResources.ListAll(); 
 			List<Integer> bool=userRoleServiceImpl.ListAlltrue(id);
-			
 		        StringBuffer json=new StringBuffer("[");  
 		        String data="";  
 		        for (int i = 0; i < list.size(); i++) {  
@@ -140,12 +143,18 @@ public class BKjumpController {
 		            }  
 		            for (int y = 0; y < bool.size(); y++) {  
 		            if (list.get(i).getResources_id() ==bool.get(y)) {  
+		            	
+		            	System.out.println(bool.get(y));
 		            	//默认勾选
 		                json.append("checked:true,");  
 		                //勾选后默认打开
 		                json.append("open:"+list.get(i).getResources_id()+",");  
 		            }  
 		            }
+		            if (list.get(i).getChkDisabled()==1) { 
+		            	 json.append("checked:true,");  
+		                json.append("chkDisabled:true,");  
+		            }  
 		            data=json.substring(0,json.lastIndexOf(","))+"},";  
 		            json=new StringBuffer(data);  
 		        }  

@@ -1,6 +1,7 @@
 package com.cornucopia.serviceImpl;
 
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.Resource;
 
@@ -21,18 +22,14 @@ public class UserRoleServiceImpl implements UserService {
 		List<UserRole> UserRoleList=userRoleImpl.ListAll();
 		return UserRoleList;
 	}
-	@Override
-	public List<Resources> ListAllRole() {
-		List<Resources> UserRoleList=userRoleImpl.ListAllRole();
-		return UserRoleList;
-	}
+	
 	@Override
 	public List ListAlltrue(int id) {
 		List UserRoleList=userRoleImpl.ListAlltrue(id);
 		return UserRoleList;
 	}
 	@Override
-	public void save(Object object) {
+	public void save(Object...object) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -51,6 +48,24 @@ public class UserRoleServiceImpl implements UserService {
 
 	@Override
 	public <T> T getById(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public  Set<String> ListAllByName(Object object) {
+		Set<String> set=userRoleImpl.ListAllByName(object);
+		return set;
+	}
+
+	@Override
+	public <T> Set<String> ListResourcesByName(String name) {
+		Set<String> set=userRoleImpl.ListResourcesByName(name);
+		return set;
+	}
+
+	@Override
+	public <T> T getByName(String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}

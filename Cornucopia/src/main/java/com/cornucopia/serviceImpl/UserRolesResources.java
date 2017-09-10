@@ -5,35 +5,27 @@ import java.util.Set;
 
 import javax.annotation.Resource;
 
-import org.hibernate.Session;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 import com.cornucopia.bean.Resources;
 import com.cornucopia.bean.UserRole;
-import com.cornucopia.bean.Users;
 import com.cornucopia.dao.UserDao;
-import com.cornucopia.daoImpl.UserDaoImpl;
 import com.cornucopia.service.UserService;
-
 @Component
-public class UserServiceImpl implements UserService {
-	
+public class UserRolesResources implements UserService {
+
 	@Resource
-	private UserDao userDaoImpl;
-
-	// 查询用户基本信息
+	private UserDao userRolesResourcesDaoImpl;
+	
+	@SuppressWarnings("unchecked")
 	@Override
-		public List<Users> ListAll(Object... objects) {
-	        List<Users> User = userDaoImpl.ListAll();
-			return User;
-		}
-
-
+	public List<Resources> ListAll(Object...object) {
+		List<Resources> UserResources=userRolesResourcesDaoImpl.ListAll();
+		return UserResources;
+	}
 	@Override
 	public void save(Object...object) {
+		userRolesResourcesDaoImpl.save(object);
 		// TODO Auto-generated method stub
 		
 	}
@@ -50,39 +42,31 @@ public class UserServiceImpl implements UserService {
 		
 	}
 
-
 	@Override
 	public <T> T getById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
 	@Override
 	public <T> List<T> ListAlltrue(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 	@Override
 	public <T> Set<String> ListAllByName(Object object) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 	@Override
 	public <T> Set<String> ListResourcesByName(String name) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
 	@Override
-	public  Users getByName(String name) {
-        Users users=userDaoImpl.getByName(name);
-		return users;
+	public <T> T getByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

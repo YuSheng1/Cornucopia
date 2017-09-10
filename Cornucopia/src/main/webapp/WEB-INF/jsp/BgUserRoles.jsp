@@ -42,7 +42,7 @@
         check: {  
             enable: true,  
             chkStyle: "checkbox",  
-            chkboxType : { "Y" : "s", "N" : "p" }  
+            chkboxType : { "Y" : "ps", "N" : "ps" }  
         },  
         //获取json数据  
         async : {    
@@ -66,7 +66,6 @@
             //捕获异步加载出现异常错误的事件回调函数 和 成功的回调函数    
             onAsyncSuccess : function(event, treeId, treeNode, msg){    
             },  
-            beforeClick: beforeClick,  
         }   
             
     };  
@@ -76,9 +75,9 @@
  function GetCheckedAll() {
      var treeObj = $.fn.zTree.getZTreeObj("treeDemo");
      var nodes = treeObj.getCheckedNodes(true);
-     var msg = "name--id--pid\n";
+     var msg = "";
      for (var i = 0; i < nodes.length; i++) {
-         msg += nodes[i].name+"--"+nodes[i].id+"--"+nodes[i].pId+"\n";
+         msg += nodes[i].id+",";
      }
      $.ajax({
          async : false,
@@ -91,54 +90,6 @@
      window.close();     
       
  }    
-    function beforeClick(treeId, treeNode) {  
-        var zTree = $.fn.zTree.getZTreeObj("treeDemo");  
-        zTree.checkNode(treeNode, treeNode.checked, null, true);  
-        return false;  
-    }  
-    var code;  
-      
-    function showCode(str) {  
-        if (!code) code = $("#code");  
-        code.empty();  
-        code.append("<li>"+str+"</li>");  
-    }  
-      
-  
-     //确定按钮
-   function getSelectedNodes()  
-   {  
-        var zTree = $.fn.zTree.getZTreeObj("treeDemo"),  
-        nodes = zTree.getCheckedNodes(true),
-        deletenodes = zTree.getCheckedNodes(false); 
-        codes = "";
-        names = "";  
-        var ids="";  
-        for (var i=0, l=nodes.length; i<l; i++) {  
-        	codes += nodes[i].code + ",";  
-            names += nodes[i].name + ",";  
-            ids+=nodes[i].id+",";  
-        }  
-        //删除的元素  
-        deleteids="";  
-        for (var i=0, l=deletenodes.length; i<l; i++) {  
-        	deleteids+=deletenodes[i].id+",";  
-        }  
-        if (deleteids.length > 0 ) deleteids = deleteids.substring(0, deleteids.length-1);  
-        
-        //给父窗体中所属分类赋值  
-         $("#addDeptIds",parent.document).val(ids);
-         $("#deleteDeptIds",parent.document).val(deleteids);
-         $("#deptName",parent.document).val(names);
-         winClose();
-   }  
-   	//关闭按钮
-   function  winClose()  
-	{  
-		var parentBody = $(window.parent.document);
-		parentBody.find('#prepay_cav_popup_userpopbox').hide();
-		parentBody.find('#prepay_cav_popup_userframe').hide();
-	}
 </SCRIPT>  
 </head>
 
@@ -233,7 +184,7 @@
 				<div class="modal-footer">
 					<button type="button" class="btn btn-default" data-dismiss="modal">关闭
 					</button>
-					<button type="button" class="btn btn-primary" onclick="GetCheckedAll()">提交更改</button>
+					<button type="button" class="btn btn-primary"  data-dismiss="modal" onclick="GetCheckedAll()">提交更改</button>
 				</div>
 				</div>
 				

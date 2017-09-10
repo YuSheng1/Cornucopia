@@ -21,8 +21,16 @@ public class Resources {
 	  private int Resources_higher;
 	 //是否是父节点
 	  private int IsParent;
-	  //是否是父节点
+	  //是否打开状态
 	  private int Open;
+	  //是否可以选择
+	  private int chkDisabled;
+	public int getChkDisabled() {
+		return chkDisabled;
+	}
+	public void setChkDisabled(int chkDisabled) {
+		this.chkDisabled = chkDisabled;
+	}
 	public int getOpen() {
 		return Open;
 	}

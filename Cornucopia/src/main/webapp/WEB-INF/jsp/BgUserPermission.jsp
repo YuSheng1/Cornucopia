@@ -58,6 +58,7 @@ $(document).ready(function(){
         <th>身份</th>
         <th>创建时间</th>
          <th>修改时间</th>
+          <th>角色</th>
         </tr>
         </thead>
         <tbody>
@@ -73,6 +74,7 @@ $(document).ready(function(){
         <td>${e.identity}</td>
         <td>${e.create_date}</td>
         <td>${e.update_date}</td>
+        <td>${e.userrole.cname}</td>
         </tr> 
         </c:forEach>
         </tbody>

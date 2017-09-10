@@ -51,17 +51,14 @@
 		<!-- Shiro的核心安全接口,这个属性是必须的 -->
 		<property name="securityManager" ref="securityManager" />
 		<!-- 身份认证失败，则跳转到登录页面的配置 -->
-		<property name="loginUrl" value="/index.jsp" />
+		<property name="loginUrl" value="/BgLogin.jsp" />
 		<!-- 权限认证失败，则跳转到指定页面 -->
-		<property name="unauthorizedUrl" value="/" />
+		<property name="unauthorizedUrl" value="/BgItem/BgLogin" />
 		<!-- Shiro连接约束配置,即过滤链的定义 -->
 		<property name="filterChainDefinitions">
 			<value>
-				/Contact=anon
-				/admin*=authc
-				/student=roles[teacher]
-				<!-- 访问历经要有那个权限id -->
-				/teacher=perms["user:create"]
+				 /BgItem/BgUserPermission=perms[用户管理] 
+				/BgItem/BgIndex= perms[固收类]
 			</value>
 		</property>
 	</bean>
