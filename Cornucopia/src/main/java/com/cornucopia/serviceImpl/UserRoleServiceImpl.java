@@ -5,17 +5,18 @@ import java.util.Set;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.cornucopia.bean.Resources;
 import com.cornucopia.bean.UserRole;
-import com.cornucopia.dao.UserDao;
+import com.cornucopia.dao.UserRoleImpl;
 import com.cornucopia.service.UserService;
 
 @Component
 public class UserRoleServiceImpl implements UserService {
-	@Resource
-	private UserDao userRoleImpl;
+	@Autowired
+	private UserRoleImpl userRoleImpl;
 	
 	@Override
 	public List<UserRole> ListAll(Object...object) {

@@ -11,12 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cornucopia.bean.Resources;
-import com.cornucopia.bean.Role_res;
 import com.cornucopia.bean.UserRole;
-import com.cornucopia.bean.Users;
 import com.cornucopia.service.UserService;
-import com.cornucopia.serviceImpl.UserRoleServiceImpl;
-import com.cornucopia.serviceImpl.UserServiceImpl;
+
 @Controller
 @RequestMapping("BgItem")
 public class BKjumpController {
@@ -130,6 +127,7 @@ public class BKjumpController {
 	@ResponseBody
 		@RequestMapping("Ztree")
 		public String Ztree(Model model,int id) {
+		System.out.println("初始化");
 			 List<Resources> list=userRolesResources.ListAll(); 
 			List<Integer> bool=userRoleServiceImpl.ListAlltrue(id);
 		        StringBuffer json=new StringBuffer("[");  

@@ -1,4 +1,4 @@
-package com.cornucopia.daoImpl;
+package com.cornucopia.dao;
 
 import java.util.List;
 import java.util.Set;
@@ -13,11 +13,10 @@ import org.springframework.stereotype.Component;
 
 import com.cornucopia.bean.Resources;
 import com.cornucopia.bean.Users;
-import com.cornucopia.dao.UserDao;
 
 
 @Component
-public class UserDaoImpl implements UserDao {
+public class UserDaoImpl  {
 
 	@Autowired
 	public SessionFactory sessionFactory;
@@ -26,8 +25,7 @@ public class UserDaoImpl implements UserDao {
 		return sessionFactory.getCurrentSession();
 	}
 	// 查询用户基本信息
-	@Override
-	public List ListAll(Object... objects) {
+	public List ListAll() {
 		Session session = getSession();
 		 StringBuffer buffer = new StringBuffer();
          buffer.append( " from  Users  u  inner  join fetch u.userrole ");
@@ -38,46 +36,8 @@ public class UserDaoImpl implements UserDao {
 		
 	}
 
-	@Override
-	public void save(Object...object) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void delete(Object object) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void update(Object object) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public Object getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public List ListAlltrue(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public <T> Set<T> ListAllByName(Object object) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	@Override
-	public <T> Set<String> ListResourcesByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 	//根据用户名查询信息
-	@Override
 	public  Users getByName(String name) {
 		Session session=getSession();
 		String hql="from Users u where u.user_name='"+name+"'";

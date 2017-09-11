@@ -3,26 +3,18 @@ package com.cornucopia.serviceImpl;
 import java.util.List;
 import java.util.Set;
 
-import javax.annotation.Resource;
-
-import org.hibernate.Session;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
-import com.cornucopia.bean.Resources;
-import com.cornucopia.bean.UserRole;
 import com.cornucopia.bean.Users;
-import com.cornucopia.dao.UserDao;
-import com.cornucopia.daoImpl.UserDaoImpl;
+import com.cornucopia.dao.UserDaoImpl;
 import com.cornucopia.service.UserService;
 
 @Component
 public class UserServiceImpl implements UserService {
 	
-	@Resource
-	private UserDao userDaoImpl;
+	@Autowired
+	private UserDaoImpl userDaoImpl;
 
 	// 查询用户基本信息
 	@Override
