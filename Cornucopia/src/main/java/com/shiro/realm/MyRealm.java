@@ -39,7 +39,7 @@ public class MyRealm extends AuthorizingRealm{
 		String userName=(String) token.getPrincipal();
 		Users user=userServiceImpl.getByName(userName);
 		if(user!=null){
-			AuthenticationInfo authcInfo=new SimpleAuthenticationInfo(user.getName(), user.getPassword(), "xx");
+			AuthenticationInfo authcInfo=new SimpleAuthenticationInfo(user.getUser_name(), user.getPassword(), "xx");
 			return authcInfo;
 		}else{
 			return null;

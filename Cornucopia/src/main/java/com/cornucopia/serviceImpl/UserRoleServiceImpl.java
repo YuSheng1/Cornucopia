@@ -31,7 +31,7 @@ public class UserRoleServiceImpl implements UserService {
 	}
 	@Override
 	public void save(Object...object) {
-		// TODO Auto-generated method stub
+		userRoleImpl.SaveRole(object[0]);
 		
 	}
 
@@ -66,9 +66,9 @@ public class UserRoleServiceImpl implements UserService {
 	}
 
 	@Override
-	public <T> T getByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+	public  Boolean getByName(String name) {
+		boolean boo=userRoleImpl.getByName(name);
+		return boo;
 	}
 
 }

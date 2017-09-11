@@ -115,7 +115,8 @@ public class BKjumpController {
 		model.addAttribute("UsersList",UsersList);
 		return "BgUserPermission";
 	}
-	// 后台用户权限管理
+	// 后台查询角色
+	//
 	@RequestMapping("BgUserRoles")
 	public String BgUserRoles(Model model) {
 		List<UserRole> UserRoleList=userRoleServiceImpl.ListAll();

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+            <%@taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>  
+    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -44,7 +46,7 @@ $(function(){
     </ul>
      
     <div class="user">
-    <span>admin</span>
+    <span>欢迎你${string}<shiro:principal type="java.lang.String"/></span>
     <i>消息</i>
     <b>5</b>
     </div>    

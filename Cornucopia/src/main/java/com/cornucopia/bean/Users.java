@@ -9,8 +9,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import org.activiti.engine.identity.User;
-
 @Entity
 @Table(name = "Users")
 public class Users {

@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 import com.cornucopia.bean.Resources;
 import com.cornucopia.bean.Role_res;
 import com.cornucopia.bean.UserRole;
+import com.cornucopia.bean.Users;
 @Component
 public class UserRoleImpl {
 	
@@ -22,22 +23,27 @@ public class UserRoleImpl {
 		return sessionFactory.getCurrentSession();
 	}
 	
-	 //查询角色信息
+	 //查询角色
 	public List<UserRole> ListAll() {
 		Session session = getSession();
 		List<UserRole> UserRoleList = session.createQuery("from UserRole").list();
 		return UserRoleList;
 	}
-	//查询是否勾选
+	//根据id查询权限
 		public List ListAlltrue(int id) {
 		System.out.println(id);
 		String sql="select pid from role_res where rid="+id;
 		List UserRoleList=sessionFactory.getCurrentSession().createSQLQuery(sql).list();
 			return UserRoleList;
 		}
+		public void SaveRole(Object...objects) {
+			UserRole userRole=(UserRole) objects[0];
+			Session session = getSession();
+				session.save(userRole);
+			}
 
          //根据用户名查询角色
-
+		  //根据用户名查角色
 	     public  Set<String> ListAllByName(Object object) {
 		
 			Session session=getSession();
@@ -46,10 +52,10 @@ public class UserRoleImpl {
 			List<String> rnameList=session.createSQLQuery(sql).list();
 			session.flush();
 			Set< String > set=new HashSet<String>(rnameList);
-			System.out.println(set.size()+"用户角色");
+			System.out.println(set.size()+"角色");
 			return set;
 		}
-
+         //根据用户名查询权限
 	public Set<String> ListResourcesByName(String userName) {
 		Session session=getSession();
 		String sql="select res.resources_name from role_res re,user_role r,users u,resources res where u.rid=r.id and r.id=re.rid and res.resources_id=re.pid "
@@ -59,7 +65,16 @@ public class UserRoleImpl {
 		System.out.println(pnameList.size()+"权限");
 		return set;
 	}
-
+	//查询是否有该用户
+	public  boolean getByName(String name) {
+		Session session=getSession();
+		String hql="from Users u where u.user_name='"+name+"'";
+		List<Users> list=session.createQuery(hql).list();
+		if(list.size()>0){
+			return false;
+		}
+		return true;
+	}
 
 
 }

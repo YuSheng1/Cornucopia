@@ -2,6 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
+<%@ page import="java.util.*"%>
+<!-- //获取系统时间必须导入的 -->
+<%@ page import="java.text.*"%>
+<!--  获取系统时间必须导入的 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -13,9 +17,42 @@
 <script src="../assets/js/jquery.min.js"></script>
 <script src="../assets/js/bootstrap.min.js"></script>
 <script src="../assets/js/jquery.ztree.all-3.5.js"></script>
+<script src="../BgAssets/js/bootstrapValidator.min.js"></script>
 <link href="../assets/css/metroStyle.css" rel="stylesheet" />
+<link href="../BgAssets/css/bootstrapValidator.min.css" rel="stylesheet" />
 
 <script type="text/javascript">
+
+$(function () {
+    $('form').bootstrapValidator({message: 'This value is not valid',feedbackIcons: {valid: 'glyphicon glyphicon-ok',invalid: 'glyphicon glyphicon-remove',validating: 'glyphicon glyphicon-refresh' },
+        fields: {
+            cname: {
+                message: '用户名验证失败',
+                validators: {
+                    notEmpty: {
+                        message: '用户名不能为空'
+                    },
+                    threshold :  3 ,
+                remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}  
+                    url: '/Cornucopia/PM_RolesItem/boo',
+                    message: '用户已存在',//提示消息
+                    delay :  2000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
+                    type: 'POST',//请求方式
+                     
+                },
+            }
+            },
+            remark: {
+                 validators: {
+                     notEmpty: {
+                         message: '备注不能为空'
+                     }
+                 }
+             }
+            
+        }
+    });
+});
 	$(document).ready(function() {
 		$(".click").click(function() {
 			$(".tip1").show();
@@ -36,6 +73,7 @@
 	});
 </script>
 <SCRIPT type="text/javascript">
+<%String datetime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(Calendar.getInstance().getTime()); //获取系统时间%>
  var cid=0;
  function cc(id) {  
 	 cid=id;
@@ -202,44 +240,42 @@
 		</div>
 		<!-- /.modal -->
 	</div>
-
 	<!-- 添加-->
 	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"
-						aria-hidden="true">&times;</button>
-					<h4 class="modal-title" id="myModalLabel">添加角色</h4>
-				</div>
-				<div class="modal-body">
-					<div class="input-group">
-						<span class="input-group-addon">角色名</span> <input type="text"
-							class="form-control" placeholder="请输入角色名称"><br>
+    <div class="container" style="margin-top: 50px;">
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">添加角色</h3>
+                    </div>
 
-					</div>
-					<br>
-					<div class="input-group">
-						<span class="input-group-addon">备 &nbsp 注</span> <input
-							type="text" class="form-control" placeholder="备注信息"><br>
+                    <div class="panel-body">
+                       	<form id="form" method="post"  action="/Cornucopia/PM_RolesItem/add">
+                            <div class="form-group">
+                                <label>用户名:</label>
+                                 <input type="text" class="form-control" placeholder="请输入角色名称" name="cname">
+                            </div>
+                            <div class="form-group">
+                                <label>角色备注:</label>
+                               <input  type="text" class="form-control" placeholder="备注" name="remark" />
+                            </div>
+	<input style="display: none;" name="createdate"
+									value="<%=datetime%>"> <input style="display: none;"
+									name="updatedate" value="<%=datetime%>">
 
-					</div>
-					<br>
-
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">关闭
-						</button>
-						<button type="button" class="btn btn-primary" data-dismiss="modal"">提交更改</button>
-					</div>
-				</div>
-
-			</div>
-			<!-- /.modal-content -->
-		</div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">立即添加</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 		<!-- /.modal -->
 	</div>
-
 	<script type="text/javascript">
 		$('.tablelist tbody tr:odd').addClass('odd');
 	</script>

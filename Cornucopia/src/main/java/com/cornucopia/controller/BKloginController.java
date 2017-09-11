@@ -55,8 +55,6 @@ public class BKloginController {
 				}
 			}
 			if(url!=null){
-				//查询用户角色
-				 model.addAttribute("string", url); 
 				 return "BgMain";
 			}
 		} catch (IncorrectCredentialsException e) {  

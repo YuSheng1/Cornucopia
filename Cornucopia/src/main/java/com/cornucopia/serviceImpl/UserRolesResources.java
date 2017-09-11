@@ -26,7 +26,6 @@ public class UserRolesResources implements UserService{
 	//中间表添加权限
 	public void save(Object...objects) {
 		userRolesResourcesDaoImpl.save(objects);
-		// TODO Auto-generated method stub
 		
 	}
 	
@@ -65,7 +64,4 @@ public class UserRolesResources implements UserService{
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-
-
 }

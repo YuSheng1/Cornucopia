@@ -35,7 +35,6 @@ public class UserDaoImpl  {
 		return list;
 		
 	}
-
 	
 	//根据用户名查询信息
 	public  Users getByName(String name) {

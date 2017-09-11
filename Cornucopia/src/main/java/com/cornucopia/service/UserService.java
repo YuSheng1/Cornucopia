@@ -16,5 +16,6 @@ public interface UserService {
 	public <T>List<T> ListAlltrue(int id);
 	public <T>Set<String> ListAllByName(Object object);
 	public <T>Set<String> ListResourcesByName(String name);
+
 }
  
