@@ -6,26 +6,25 @@ import java.util.Set;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.cornucopia.bean.Users;
-import com.cornucopia.dao.UserDaoImpl;
+import com.cornucopia.bean.NewsType;
+import com.cornucopia.dao.NewsTypeDao;
 import com.cornucopia.service.UserService;
 
 @Component
-public class UserServiceImpl implements UserService {
-	
+public class NewsTypeServiceImpl implements  UserService{
+
 	@Autowired
-	private UserDaoImpl userDaoImpl;
-
-	// 查询用户基本信息
-	@Override
-		public List<Users> ListAll(Object... objects) {
-	        List<Users> User = userDaoImpl.ListAll();
-			return User;
-		}
+	private NewsTypeDao newsTypeDao;
 
 
 	@Override
-	public void save(Object...object) {
+	public  List<NewsType> ListAll(Object... objects) {
+		List<NewsType> tlist=newsTypeDao.ListAll();
+		return tlist;
+	}
+
+	@Override
+	public void save(Object... objects) {
 		// TODO Auto-generated method stub
 		
 	}
@@ -42,13 +41,17 @@ public class UserServiceImpl implements UserService {
 		
 	}
 
-
 	@Override
 	public <T> T getById(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Override
+	public <T> T getByName(String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 
 	@Override
 	public <T> List<T> ListAlltrue(int id) {
@@ -56,25 +59,16 @@ public class UserServiceImpl implements UserService {
 		return null;
 	}
 
-
 	@Override
 	public <T> Set<String> ListAllByName(Object object) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
 	@Override
 	public <T> Set<String> ListResourcesByName(String name) {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-
-	@Override
-	public  Users getByName(String name) {
-        Users users=userDaoImpl.getByName(name);
-		return users;
 	}
 
 }

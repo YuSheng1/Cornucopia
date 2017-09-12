@@ -62,7 +62,7 @@ $(document).ready(function(){
     <table class="tablelist">
     	<thead>
     	<tr>
-        <th><input name="" type="checkbox" value="" checked="checked"/></th>
+        <th></th>
         <th>序号<i class="sort"><img src="../BgAssets/images/px.gif" /></i></th>
         <th>名称</th>
         <th>上级类别</th>
@@ -73,16 +73,18 @@ $(document).ready(function(){
         </tr>
         </thead>
         <tbody>
+        <c:forEach items="${tlist }" var="list" varStatus="stat">
         <tr>
-        <td><input name="" type="checkbox" value="" /></td>
         <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
+        <td>${stat.index+1}</td>
+        <td>${list.name}</td>
+        <td>${list.supType}</td>
+        <td>${list.info}</td>
+        <td>${list.sort}</td>
+        <td>${list.addTime}</td>
         <td></td>
         </tr>
+        </c:forEach>
         </tbody>
     </table>
     

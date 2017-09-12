@@ -1,25 +1,33 @@
 package com.cornucopia.controller;
-
 import java.util.List;
 
-import org.springframework.ui.Model;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import javax.annotation.Resource;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.cornucopia.bean.NewsType;
+import com.cornucopia.bean.Resources;
 import com.cornucopia.bean.UserRole;
 import com.cornucopia.service.UserService;
-
-
 
 @Controller
 @RequestMapping("BgItem")
 public class BKjumpController {
-		
-	@Autowired
-	private UserService userService;
 	
+	@Resource
+	private UserService userServiceImpl;
 	
+	@Resource
+	private UserService userRoleServiceImpl;
+	
+	@Resource
+	private UserService userRolesResources;
+	
+	@Resource
+	private UserService newsTypeServiceImpl;
 	// 后台主页
 	@RequestMapping("BgMain")
 	public String BgMain() {
@@ -105,7 +113,9 @@ public class BKjumpController {
 	
 	//后台学院管理
 	@RequestMapping("BgConsultation")
-	public String BgConsultation() {
+	public String BgConsultation(Model model) {
+		List<NewsType> tlist=newsTypeServiceImpl.ListAll();
+		model.addAttribute("tlist",tlist);
 		return "BgConsultation";
 	}
 	
@@ -117,14 +127,57 @@ public class BKjumpController {
 
 	// 后台用户权限管理
 	@RequestMapping("BgUserPermission")
-	public String BgUserPermission() {
+	public String BgUserPermission(Model model) {
+		List UsersList=userServiceImpl.ListAll();
+		model.addAttribute("UsersList",UsersList);
 		return "BgUserPermission";
 	}
-	// 后台用户权限管理
+	// 后台查询角色
+	//
 	@RequestMapping("BgUserRoles")
 	public String BgUserRoles(Model model) {
-		List<UserRole> UserRoleList=userService.ListAll();
+		List<UserRole> UserRoleList=userRoleServiceImpl.ListAll();
 		model.addAttribute("UserRoleList",UserRoleList);
 		return "BgUserRoles";
 	}
+	
+	// 后台用户权限管理
+	@ResponseBody
+		@RequestMapping("Ztree")
+		public String Ztree(Model model,int id) {
+		System.out.println("初始化");
+			 List<Resources> list=userRolesResources.ListAll(); 
+			List<Integer> bool=userRoleServiceImpl.ListAlltrue(id);
+		        StringBuffer json=new StringBuffer("[");  
+		        String data="";  
+		        for (int i = 0; i < list.size(); i++) {  
+		            json.append("{id:"+list.get(i).getResources_id()+",");  
+		            json.append("pId:"+list.get(i).getResources_higher()+",");  
+		            json.append("name:\""+list.get(i).getResources_name()+"\",");  
+		            if (list.get(i).getIsParent() !=0) {  
+		                json.append("isParent:"+list.get(i).getIsParent()+",");  
+		            }  
+		            for (int y = 0; y < bool.size(); y++) {  
+		            if (list.get(i).getResources_id() ==bool.get(y)) {  
+		            	
+		            	System.out.println(bool.get(y));
+		            	//默认勾选
+		                json.append("checked:true,");  
+		                //勾选后默认打开
+		                json.append("open:"+list.get(i).getResources_id()+",");  
+		            }  
+		            }
+		            if (list.get(i).getChkDisabled()==1) { 
+		            	 json.append("checked:true,");  
+		                json.append("chkDisabled:true,");  
+		            }  
+		            data=json.substring(0,json.lastIndexOf(","))+"},";  
+		            json=new StringBuffer(data);  
+		        }  
+		        data=json.substring(0, json.length()-1)+"]";  
+		        System.out.println(data);  
+		        return data;  
+		}
+	
 }
+	

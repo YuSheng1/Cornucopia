@@ -16,8 +16,8 @@ public class NewsType {
 	private String note;//备注
 	private int sort;//排序
 	private String pageType;//页面类型
-	private int supType;//上级类别
-	private int info;//简介
+	private String supType;//上级类别
+	private String info;//简介
 	private String cPhoto;//封面图片
 	private String text;//内容
 	private String seoTiltle;//页面seo标题
@@ -66,16 +66,16 @@ public class NewsType {
 	public void setPageType(String pageType) {
 		this.pageType = pageType;
 	}
-	public int getSupType() {
+	public String getSupType() {
 		return supType;
 	}
-	public void setSupType(int supType) {
+	public void setSupType(String supType) {
 		this.supType = supType;
 	}
-	public int getInfo() {
+	public String getInfo() {
 		return info;
 	}
-	public void setInfo(int info) {
+	public void setInfo(String info) {
 		this.info = info;
 	}
 	public String getcPhoto() {

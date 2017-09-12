@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -47,23 +48,35 @@ $(document).ready(function(){
     <table class="tablelist">
     	<thead>
     	<tr>
-        <th>编号<i class="sort"><img src="../BgAssets/images/px.gif" /></i></th>
         <th>用户名</th>
-        <th>角色</th>
-        <th>权限</th>
+         <th>昵称</th>
+          <th>密码</th>
+           <th>密码盐</th>
+           <th>电话</th>
+           <th>状态</th>
+        <th>是否删除</th>
+        <th>身份</th>
         <th>创建时间</th>
-        <th>操作</th>
+         <th>修改时间</th>
+          <th>角色</th>
         </tr>
         </thead>
         <tbody>
+        <c:forEach items="${UsersList}" var="e" >
         <tr>
-        <td>20130908</td>
-        <td>王金平</td>
-        <td>admin</td>
-        <td>江苏南京</td>
-        <td>2013-09-09 15:05</td>
-        <td><a href="#" class="tablelink">编辑信息</a></td>
+        <td>${e.user_name }</td>
+        <td>${e.name}</td>
+        <td>${e.password }</td>
+        <td>${e.salt }</td>
+        <td>${e.mobile_Phone}</td>
+        <td>${e.status }</td>
+        <td>${e.del_flag}</td>
+        <td>${e.identity}</td>
+        <td>${e.create_date}</td>
+        <td>${e.update_date}</td>
+        <td>${e.userrole.cname}</td>
         </tr> 
+        </c:forEach>
         </tbody>
     </table>
     
