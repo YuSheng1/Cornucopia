@@ -7,11 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.cornucopia.bean.NewsType;
+import com.cornucopia.bean.Resources;
+import com.cornucopia.bean.Users;
 import com.cornucopia.dao.NewsTypeDao;
+import com.cornucopia.service.NewsService;
 import com.cornucopia.service.UserService;
 
 @Component
-public class NewsTypeServiceImpl implements  UserService{
+public class NewsTypeServiceImpl implements  NewsService{
 
 	@Autowired
 	private NewsTypeDao newsTypeDao;
@@ -25,50 +28,29 @@ public class NewsTypeServiceImpl implements  UserService{
 
 	@Override
 	public void save(Object... objects) {
-		// TODO Auto-generated method stub
-		
+		newsTypeDao.save(objects);
 	}
 
 	@Override
 	public void delete(Object object) {
-		// TODO Auto-generated method stub
-		
+		newsTypeDao.delete(object);
 	}
 
 	@Override
 	public void update(Object object) {
-		// TODO Auto-generated method stub
-		
+		newsTypeDao.update(object);
 	}
 
 	@Override
-	public <T> T getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public NewsType getById(int id) {
+		NewsType newsType=newsTypeDao.getById(id);
+		return newsType;
 	}
 
 	@Override
-	public <T> T getByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <T> List<T> ListAlltrue(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <T> Set<String> ListAllByName(Object object) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <T> Set<String> ListResourcesByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+	public  Boolean getByName(String name) {
+		boolean newsType=newsTypeDao.getByName(name);
+		return newsType;
 	}
 
 }

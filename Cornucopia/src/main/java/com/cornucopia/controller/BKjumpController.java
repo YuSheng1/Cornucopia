@@ -11,11 +11,15 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.cornucopia.bean.NewsType;
 import com.cornucopia.bean.Resources;
 import com.cornucopia.bean.UserRole;
+import com.cornucopia.service.NewsService;
 import com.cornucopia.service.UserService;
 
 @Controller
 @RequestMapping("BgItem")
 public class BKjumpController {
+	
+	@Resource
+	private NewsService newsTypeServiceImpl;
 	
 	@Resource
 	private UserService userServiceImpl;
@@ -26,8 +30,6 @@ public class BKjumpController {
 	@Resource
 	private UserService userRolesResources;
 	
-	@Resource
-	private UserService newsTypeServiceImpl;
 	// 后台主页
 	@RequestMapping("BgMain")
 	public String BgMain() {
@@ -92,19 +94,6 @@ public class BKjumpController {
 		return "BgTools";
 	}
 	
-	//后台学院管理
-	@RequestMapping("BgConsultation")
-	public String BgConsultation(Model model) {
-		List<NewsType> tlist=newsTypeServiceImpl.ListAll();
-		model.addAttribute("tlist",tlist);
-		return "BgConsultation";
-	}
-	
-	//后台学院管理
-	@RequestMapping("BgTration")
-	public String BgTration(){
-		return "BgTration";
-	}
 
 	// 后台用户权限管理
 	@RequestMapping("BgUserPermission")
