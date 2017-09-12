@@ -58,12 +58,6 @@ public class BKjumpController {
 		return "BgDefault";
 	}
 
-	// 后台表单
-	@RequestMapping("Bgform")
-	public String Bgform() {
-		return "Bgform";
-	}
-
 	// 后台模块编辑
 	@RequestMapping("BgImgList")
 	public String BgImgList() {
@@ -75,6 +69,19 @@ public class BKjumpController {
 	public String BgImgTable() {
 		return "BgImgTable";
 	}
+	
+	// 后台模块表单
+	@RequestMapping("Bgnotice")
+	public String Bgnotice() {
+		return "Bgnotice";
+		}
+	
+	// 后台模块表单
+	@RequestMapping("Bgfeedback")
+	public String Bgfeedback() {
+		return "Bgfeedback";
+		}
+
 
 	// 后台登陆
 	@RequestMapping("BgLogin")
