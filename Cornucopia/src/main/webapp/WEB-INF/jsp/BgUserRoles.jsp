@@ -85,7 +85,7 @@ $(function () {
 	});
 </script>
 <SCRIPT type="text/javascript">
-<%String datetime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(Calendar.getInstance().getTime()); //获取系统时间%>
+<%String datetime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()); //获取系统时间%>
  var cid=0;
  function cc(id) {  
 	 cid=id;
@@ -122,22 +122,25 @@ $(function () {
  $.fn.zTree.init($("#treeDemo"), setting); 
  }
  //获取所有选中节点的值
- function GetCheckedAll() {
+ function GetCheckedAll(dat) {
+	 
      var treeObj = $.fn.zTree.getZTreeObj("treeDemo");
      var nodes = treeObj.getCheckedNodes(true);
      var msg = "";
      for (var i = 0; i < nodes.length; i++) {
          msg += nodes[i].id+",";
      }
+     
      $.ajax({
          async : false,
          cache : false,
          timeout: 1000,
          url: '/Cornucopia/PM_RolesItem/PM_RolesAdd?id='+cid,
          type: "post",
-         data:{"msg":msg,"id":cid}
+         data:{"msg":msg,"id":cid,"data":dat}
      });
-     window.close();     
+     location.replace("/Cornucopia/BgItem/BgUserRoles"); 
+     
       
  }    
 </SCRIPT>
@@ -265,7 +268,7 @@ $(function () {
 						<button type="button" class="btn btn-default" data-dismiss="modal">关闭
 						</button>
 						<button type="button" class="btn btn-primary" data-dismiss="modal"
-							onclick="GetCheckedAll()">提交更改</button>
+							onclick="GetCheckedAll('<%=datetime%>')">提交更改</button>
 					</div>
 				</div>
 

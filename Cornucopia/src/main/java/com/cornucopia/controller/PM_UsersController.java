@@ -7,25 +7,30 @@ import java.util.Set;
 
 import javax.annotation.Resource;
 
+import org.activiti.engine.identity.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cornucopia.bean.Resources;
 import com.cornucopia.bean.UserRole;
+import com.cornucopia.bean.Users;
 import com.cornucopia.service.UserService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
-@RequestMapping("PM_RolesItem")
-public class PM_RolesController {
-	//角色权限相关操作
+@RequestMapping("PM_UsersItem")
+public class PM_UsersController {
+	//用户权限相关操作
 	@Resource
 	private UserService userRolesResources;
-	//角色相关操作
+	//用户相角色操作
 	@Resource
 	private UserService userRoleServiceImpl;
+	//用户相角色操作
+		@Resource
+		private UserService userServiceImpl;
 	// 添加用户权限
 	@RequestMapping("PM_RolesAdd")
 	public String BgRight(String msg, int id,String data) {
@@ -37,7 +42,7 @@ public class PM_RolesController {
 		userRolesResources.save(msg,id);
 		return "BgUserRoles";
 	}
-	//添加角色
+	//添加用户
 	@RequestMapping("add")
 	public String add(UserRole user,String createdate,String updatedate,String cname) {
 		user.setCname(cname);
@@ -47,17 +52,17 @@ public class PM_RolesController {
 	
 		return "redirect:/BgItem/BgUserRoles";
 	}
-	//修改角色
+	//修改用户角色
 	@RequestMapping("update")
-	public String  update(UserRole user,String createdate1,String cname1) {
-		   List list=userRoleServiceImpl.ListAlltrue(user.getId());
-		           user.setCname(cname1);
-			 user.setCreate_date(createdate1);
-			 userRoleServiceImpl.update(user);
-			   userRolesResources.saveaa(user.getId(),list);
-		return "redirect:/BgItem/BgUserRoles";
+	public String  update(String name,String update_date,int error) {
+		  Users user=userServiceImpl.getByName(name);
+		  UserRole userrole=userRoleServiceImpl.getById(error);
+		          user.setUserrole(userrole);
+		          user.setUpdate_date(update_date);
+			userServiceImpl.save(user);
+		return "redirect:/BgItem/BgUserPermission";
 	}
-	//删除角色
+	//删除用户
 		@RequestMapping("del")
 		public String  del(int delid) {
 			  UserRole user=userRoleServiceImpl.getById(delid);
@@ -65,12 +70,12 @@ public class PM_RolesController {
 			return "redirect:/BgItem/BgUserRoles";
 		}
 		
-	//查询是否有该角色
+	//查询是否有该用户
 	@ResponseBody
 	@RequestMapping("boo")
-	public String boo(String cname) {
-		System.out.println(cname+"name");
-		 boolean boo=userRoleServiceImpl.getByName(cname);
+	public String boo(String user_name) {
+		System.out.println(user_name+"name");
+		boolean boo=userRolesResources.getByName(user_name);
 		 Map<String, Boolean> map = new HashMap<>();
 	        map.put("valid", boo);
 	        System.out.println(boo);

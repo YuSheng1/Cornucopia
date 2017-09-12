@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.cornucopia.bean.Resources;
+import com.cornucopia.dao.UserDaoImpl;
 import com.cornucopia.dao.UserRolesResourcesDaoImpl;
 import com.cornucopia.service.UserService;
 @Component
@@ -16,6 +17,8 @@ public class UserRolesResources implements UserService{
 
 	@Autowired
 	private UserRolesResourcesDaoImpl userRolesResourcesDaoImpl;
+	@Autowired
+	private UserDaoImpl userDaoImpl;
 	//²éÑ¯ËùÓÐÊ÷
 	@Override
 	public List<Resources> ListAll(Object...objects) {
@@ -51,9 +54,9 @@ public class UserRolesResources implements UserService{
 		return resources;
 	}
 	@Override
-	public <T> T getByName(String name) {
-		
-		return null;
+	public  Boolean getByName(String name) {
+		boolean bo=userDaoImpl.getByNameOrTrue(name);
+		return bo;
 	}
 	@Override
 	public <T> List<T> ListAlltrue(int id) {

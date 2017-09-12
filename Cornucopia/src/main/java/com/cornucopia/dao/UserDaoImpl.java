@@ -5,6 +5,7 @@ import java.util.Set;
 
 import javax.annotation.Resource;
 
+import org.activiti.engine.identity.User;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -38,14 +39,32 @@ public class UserDaoImpl  {
 	
 	//根据用户名查询信息
 	public  Users getByName(String name) {
+		Users users=new Users();
 		Session session=getSession();
 		String hql="from Users u where u.user_name='"+name+"'";
 		List<Users> list=session.createQuery(hql).list();
 		if(list.size()>0){
 			return list.get(0);
 		}
-		return null;
+		return users;
 	}
+	//根据用户名查询信息
+		public  Boolean getByNameOrTrue(String name) {
+			Session session=getSession();
+			String hql="from Users u where u.user_name='"+name+"'";
+			List<Users> list=session.createQuery(hql).list();
+			if(list.size()>0){
+				return false;
+			}
+			return true;
+		}
+
+	
+	//根据用户名查询信息
+		public  void  SaveOrUpdate(Object object) {
+			Session session=getSession();
+			session.saveOrUpdate(object);
+		}
 
 
 }

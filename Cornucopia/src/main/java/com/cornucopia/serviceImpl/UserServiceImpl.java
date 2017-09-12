@@ -26,7 +26,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void save(Object...object) {
-		// TODO Auto-generated method stub
+		userDaoImpl.SaveOrUpdate(object[0]);
 		
 	}
 
@@ -66,11 +66,11 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public <T> Set<String> ListResourcesByName(String name) {
-		// TODO Auto-generated method stub
+	
 		return null;
 	}
 
-
+  //根据名称查询是否有该用户
 	@Override
 	public  Users getByName(String name) {
         Users users=userDaoImpl.getByName(name);
