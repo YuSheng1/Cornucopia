@@ -1,15 +1,14 @@
 package com.cornucopia.controller;
 import java.util.List;
-import java.util.Set;
 
 import javax.annotation.Resource;
 
-import org.springframework.ui.Model;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.cornucopia.bean.NewsType;
 import com.cornucopia.bean.Resources;
 import com.cornucopia.bean.UserRole;
 import com.cornucopia.service.UserService;
@@ -26,6 +25,9 @@ public class BKjumpController {
 	
 	@Resource
 	private UserService userRolesResources;
+	
+	@Resource
+	private UserService newsTypeServiceImpl;
 	// 后台主页
 	@RequestMapping("BgMain")
 	public String BgMain() {
@@ -98,7 +100,9 @@ public class BKjumpController {
 	
 	//后台学院管理
 	@RequestMapping("BgConsultation")
-	public String BgConsultation() {
+	public String BgConsultation(Model model) {
+		List<NewsType> tlist=newsTypeServiceImpl.ListAll();
+		model.addAttribute("tlist",tlist);
 		return "BgConsultation";
 	}
 	
