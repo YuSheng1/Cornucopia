@@ -57,15 +57,14 @@ $(function(){
     </dd> 
     
     
-    <dd><div class="title"><span><img src="../BgAssets/images/leftico03.png" /></span>学院管理</div>
+      <dd><div class="title"><span><img src="../BgAssets/images/leftico04.png" /></span>学院管理</div>
     <ul class="menuson">
-        <li><cite></cite><a href="#">资讯分类</a><i></i></li>
-        <li><cite></cite><a href="#">咨询管理</a><i></i></li>
-    </ul>    
+        <li class="active"><cite></cite><a href="/Cornucopia/BgType/BgConsultation" target="rightFrame">咨询分类</a><i></i></li>
+        <li><cite></cite><a href="/Cornucopia/BgType/BgTration" target="rightFrame"">咨询管理</a><i></i></li>
+    </ul>
+    
     </dd>  
     
-    
-
     <dd><div class="title"><span><img src="../BgAssets/images/leftico04.png" /></span>权限管理</div>
         <ul class="menuson">
         <li><cite></cite><a href="/Cornucopia/BgItem/BgUserPermission" target="rightFrame">用户管理</a><i></i></li>
@@ -110,14 +109,6 @@ $(function(){
     </ul>
     
     </dd> 
-    
-    <dd><div class="title"><span><img src="../BgAssets/images/leftico04.png" /></span>学院管理</div>
-    <ul class="menuson">
-        <li class="active"><cite></cite><a href="/Cornucopia/BgItem/BgConsultation" target="rightFrame">咨询分类</a><i></i></li>
-        <li><cite></cite><a href="/Cornucopia/BgItem/BgTration" target="rightFrame"">咨询管理</a><i></i></li>
-    </ul>
-    
-    </dd>  
     
     </dl>
 </body>

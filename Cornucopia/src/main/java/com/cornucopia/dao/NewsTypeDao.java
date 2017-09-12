@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.cornucopia.bean.NewsType;
+import com.cornucopia.bean.UserRole;
+import com.cornucopia.bean.Users;
 
 @Component
 public class NewsTypeDao {
@@ -20,9 +22,44 @@ public class NewsTypeDao {
 	}
 	
 
+	//查询分类
 	public List<NewsType>  ListAll(){
 		Session session=getSession();
 		List<NewsType> list=session.createQuery("from NewsType").list();
 		return list;
 	}
+	
+	//添加
+	public void save (Object...objects){
+		Session session =getSession();
+		session.save(objects[0]);
+	}
+	
+	//删除
+	public void delete(Object object){
+		Session session =getSession();
+		session.delete(object);
+	}
+	//修改
+	public void update(Object object){
+		Session session =getSession();
+		session.update(object);
+	}
+	//根据ID
+	public  NewsType getById(int id){
+		Session session = getSession();
+		NewsType newsType = (NewsType) session.get(NewsType.class,id);
+		return newsType;
+	}
+	
+	//查询是否有该类别
+		public  boolean getByName(String name) {
+			Session session=getSession();
+			String hql="from NewsType u where u.name='"+name+"'";
+			List<Users> list=session.createQuery(hql).list();
+			if(list.size()>0){
+				return false;
+			}
+			return true;
+		}
 }

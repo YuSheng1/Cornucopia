@@ -64,9 +64,8 @@ $(document).ready(function(){
     	<tr>
         <th><input name="" type="checkbox" value="" checked="checked"/></th>
         <th>序号<i class="sort"><img src="../BgAssets/images/px.gif" /></i></th>
-        <th>名称</th>
-        <th>上级类别</th>
-        <th>简介</th>
+        <th>标题</th>
+        <th>所属类别</th>
         <th>排序</th>
         <th>添加时间</th>
         <th>操作</th>
