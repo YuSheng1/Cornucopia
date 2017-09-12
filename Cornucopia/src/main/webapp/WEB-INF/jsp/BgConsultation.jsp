@@ -103,7 +103,7 @@ $(function () {
 	});
 </script>
 <SCRIPT type="text/javascript">
-<%String datetime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(Calendar.getInstance().getTime()); //获取系统时间%>
+<%String datetime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()); //获取系统时间%>
  var cid=0;
  function cc(id) {  
 	 cid=id;
@@ -142,11 +142,13 @@ $(function () {
  } 
 </SCRIPT>
 <script type="text/javascript">
-    function update(name,info,id){
+    function update(name,info,id,updTime){
     	$("#name").val(name);
     	$("#info").val(info);
     	$("#id").val(id);
     	<!--用于验证有没有这个角色-->
+    	$("#updTime").val(updTime);
+    	
     }
 
 
@@ -197,14 +199,14 @@ $(function () {
         <tbody>
         <c:forEach items="${tlist }" var="list" varStatus="stat">
         <tr>
-        <td>${stat.index+1}</td>
+        <td>${list.id}</td>
         <td>${list.name}</td>
         <td>根类别</td>
         <td>${list.info}</td>
         <td>${list.id}</td>
         <td>${list.addTime}</td>
         <td>
-		<h6   onclick="update('${list.name}','${list.info }')" class="tablelink" data-toggle="modal" data-target="#myModal2"  > 
+		<h6   onclick="update('${list.name}','${list.info }','${list.id}','${list.updTime}')" class="tablelink" data-toggle="modal" data-target="#myModal2"  > 
 		       <img src="../BgAssets/images/t02.png" />修改类别信息</h6>
 					<li> <span><img src="../BgAssets/images/t03.png" /></span>删除</li>
 			</td>
@@ -295,7 +297,8 @@ $(function () {
                                 <label>简介:</label>
                                <input  type="text" class="form-control" placeholder="简介" name="info" id="info"/>
                             </div>
-					<input style="display: none;" name="addTime" value="<%=datetime%>"> 
+                            <input style="display: none;"name="id"   id="id">
+	<input style="display: none;" name="addTime" value="<%=datetime%>">
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">立即修改</button>
                             </div>

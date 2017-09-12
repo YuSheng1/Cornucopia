@@ -48,6 +48,7 @@ public class NewsCotroller {
 		//修改
 		@RequestMapping("update")
 		public String update(NewsType newsType) {
+			System.out.println(newsType.getId());
 			newsTypeServiceImpl.update(newsType);
 			return "redirect:/BgType/BgConsultation";
 		}
