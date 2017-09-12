@@ -37,7 +37,7 @@ public class UserRoleServiceImpl implements UserService {
 
 	@Override
 	public void delete(Object object) {
-		// TODO Auto-generated method stub
+		userRoleImpl.DelRole(object);
 		
 	}
 

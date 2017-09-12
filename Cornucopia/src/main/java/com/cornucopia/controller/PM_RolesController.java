@@ -29,6 +29,7 @@ public class PM_RolesController {
 	// 添加用户权限
 	@RequestMapping("PM_RolesAdd")
 	public String BgRight(String msg, int id) {
+		msg+="8,29,30,31,";
 		userRolesResources.save(msg,id);
 		return "BgUserRoles";
 	}
@@ -42,7 +43,7 @@ public class PM_RolesController {
 	
 		return "redirect:/BgItem/BgUserRoles";
 	}
-	//修改用户
+	//修改角色
 	@RequestMapping("update")
 	public String  update(UserRole user,String createdate1,String cname1) {
 		   List list=userRoleServiceImpl.ListAlltrue(user.getId());
@@ -52,7 +53,14 @@ public class PM_RolesController {
 			   userRolesResources.saveaa(user.getId(),list);
 		return "redirect:/BgItem/BgUserRoles";
 	}
-	
+	//删除角色
+		@RequestMapping("del")
+		public String  del(int delid) {
+			  UserRole user=userRoleServiceImpl.getById(delid);
+				 userRoleServiceImpl.delete(user);
+			return "redirect:/BgItem/BgUserRoles";
+		}
+		
 	//查询是否有该角色
 	@ResponseBody
 	@RequestMapping("boo")

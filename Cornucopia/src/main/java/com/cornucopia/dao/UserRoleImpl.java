@@ -28,6 +28,7 @@ public class UserRoleImpl {
 		List<UserRole> UserRoleList = session.createQuery("from UserRole").list();
 		return UserRoleList;
 	}
+	
 	public UserRole ListAllById(int id) {
 		Session session = getSession();
 		UserRole UserRoleList = (UserRole) session.get(UserRole.class,id);
@@ -42,15 +43,21 @@ public class UserRoleImpl {
 			return UserRoleList;
 		}
 		
-		
+		//保存角色
 		public void SaveRole(Object...objects) {
 			Session session = getSession();
 			UserRole userRole=(UserRole) objects[0];
 				session.save(userRole);
 	}
+		//修改角色
 		public void UpdateRole( Object objects) {
 			Session session = getSession();
 				session.update(objects);
+	}
+		//删除角色
+		public void DelRole( Object objects) {
+			Session session = getSession();
+				session.delete(objects);
 	}
          //根据用户名查询角色
 		  //根据用户名查角色

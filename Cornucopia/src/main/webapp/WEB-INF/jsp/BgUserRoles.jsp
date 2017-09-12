@@ -118,7 +118,6 @@ $(function () {
             onAsyncSuccess : function(event, treeId, treeNode, msg){    
             },  
         }   
-            
     };  
  $.fn.zTree.init($("#treeDemo"), setting); 
  }
@@ -151,6 +150,9 @@ $(function () {
     	$("#createdate1").val(createdate);
     	
     }
+    function del(id){
+    	$("#delid").val(id);
+    }
 
 
 
@@ -178,17 +180,7 @@ $(function () {
 							src="../BgAssets/images/t01.png" /></span><a class="tablelink"
 						data-toggle="modal" data-target="#myModal1">添加</a></li>
 				</shiro:hasPermission>
-				
-				<shiro:hasPermission name="删除角色">
-					<li><span><img src="../BgAssets/images/t03.png" /></span>删除</li>
-				</shiro:hasPermission>
 			</ul>
-
-
-			<ul class="toolbar1">
-				<li><span><img src="../BgAssets/images/t05.png" /></span>设置</li>
-			</ul>
-
 		</div>
 
 		<table class="tablelist">
@@ -202,7 +194,13 @@ $(function () {
 					<shiro:hasPermission name="修改角色权限">
 					<th>修改权限</th>
 					</shiro:hasPermission>
+					<shiro:hasPermission name="修改角色信息">
 					<th>修改角色信息</th>
+					</shiro:hasPermission>
+					<shiro:hasPermission name="删除角色">
+					<th>删除角色</th>
+					</shiro:hasPermission>
+				
 				</tr>
 			</thead>
 			<tbody>
@@ -215,27 +213,30 @@ $(function () {
 						<td>${e.update_date }</td>
 						<shiro:hasPermission name="修改角色权限">
 						<td>
-						<h6 class="tablelink" data-toggle="modal" data-target="#myModal" onclick="cc(${e.id })"> <img src="../BgAssets/images/t04.png" />修改权限</h6>
+						<h6 class="tablelink" data-toggle="modal" data-target="#myModal" onclick="cc(${e.id })"> <img src="../BgAssets/images/t05.png" />修改权限</h6>
 							</td>
 							</shiro:hasPermission>
 							<shiro:hasPermission name="修改角色信息">
 						<td>
-						<h6   onclick="update('${e.cname}','${e.remark }',${e.id },'${e.create_date }')" class="tablelink" data-toggle="modal" data-target="#myModal2"  > <img src="../BgAssets/images/t02.png" />修改角色信息</h6>
+						<h6 onclick="update('${e.cname}','${e.remark }',${e.id },'${e.create_date }')" class="tablelink" data-toggle="modal" data-target="#myModal2" > <img src="../BgAssets/images/t02.png" />修改角色信息</h6>
 							</td>
+						</shiro:hasPermission>
+						<shiro:hasPermission name="删除角色">
+						<td>
+						<h6 class="tablelink" data-toggle="modal" data-target="#myModal3" onclick="del(${e.id })"> <img src="../BgAssets/images/t03.png" />删除角色</h6>
+						</td>
 							</shiro:hasPermission>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-
-
-		<div class="pagin">
+	   <div class="pagin">
 			<div class="message">
 				共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页
 			</div>
 			<ul class="paginList">
 				<li class="paginItem"><a href="javascript:;"><span
-						class="pagepre"></span></a></li>
+				class="pagepre"></span></a></li>
 				<li class="paginItem"><a href="javascript:;">1</a></li>
 				<li class="paginItem current"><a href="javascript:;">2</a></li>
 				<li class="paginItem"><a href="javascript:;">3</a></li>
@@ -343,7 +344,7 @@ $(function () {
             <input style="display: none;" name="createdate1"   id="createdate1" value="">
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary">立即修改</button>
+                                <button type="submit" class="btn btn-primary" >立即修改</button>
                             </div>
                         </form>
                     </div>
@@ -352,6 +353,33 @@ $(function () {
         </div>
     </div>
 		<!-- /.modal -->
+	</div>
+		<!-- 删除-->
+		<div class="modal fade" id="myModal3" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="container" style="margin-top: 50px;">
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">删除角色<button type="button" class="close" 
+               data-dismiss="modal" aria-hidden="true">
+                  &times;            </button></h3>
+                    </div>
+
+                    <div class="panel-body">
+                       	<form id="form" method="post"  action="/Cornucopia/PM_RolesItem/del">
+                       	<h4 align="center"   style="font-style: normal;">是否要删除该角色</h4></br></br>
+                       	 <input style="display: none;"name="delid"   id="delid">
+                                 <button type="button" class="btn btn-default" data-dismiss="modal">取消操作</button>
+                                <button type="submit" class="btn btn-primary" style="margin-left: 50px;">立即删除</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
 	</div>
 	<script type="text/javascript">
 		$('.tablelist tbody tr:odd').addClass('odd');
