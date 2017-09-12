@@ -42,11 +42,9 @@ $(function(){
     	<ul class="menuson">
         <li><cite></cite><a href="/Cornucopia/BgItem/BgIndex" target="rightFrame">固收类</a><i></i></li>
         <li><cite></cite><a href="/Cornucopia/BgItem/BgImgTable" target="rightFrame">私募/股权类</a><i></i></li>
-        <li><cite></cite><a href="/Cornucopia/BgItem/Bgform" target="rightFrame">海外配置</a><i></i></li>
-        </ul>    
+        <li><cite></cite><a href="/Cornucopia/BgOver/list" target="rightFrame">海外配置</a><i></i></li>
+      </ul>    
     </dd>
-        
-    
     <dd>
     <div class="title">
     <span><img src="../BgAssets/images/leftico02.png" /></span>钱包管理
