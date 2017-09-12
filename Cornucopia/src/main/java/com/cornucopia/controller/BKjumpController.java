@@ -1,22 +1,25 @@
 package com.cornucopia.controller;
 import java.util.List;
-import java.util.Set;
 
 import javax.annotation.Resource;
 
-import org.springframework.ui.Model;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.cornucopia.bean.NewsType;
 import com.cornucopia.bean.Resources;
 import com.cornucopia.bean.UserRole;
+import com.cornucopia.service.NewsService;
 import com.cornucopia.service.UserService;
 
 @Controller
 @RequestMapping("BgItem")
 public class BKjumpController {
+	
+	@Resource
+	private NewsService newsTypeServiceImpl;
 	
 	@Resource
 	private UserService userServiceImpl;
@@ -26,6 +29,7 @@ public class BKjumpController {
 	
 	@Resource
 	private UserService userRolesResources;
+	
 	// 后台主页
 	@RequestMapping("BgMain")
 	public String BgMain() {
@@ -54,12 +58,6 @@ public class BKjumpController {
 		return "BgDefault";
 	}
 
-	// 后台表单
-	@RequestMapping("Bgform")
-	public String Bgform() {
-		return "Bgform";
-	}
-
 	// 后台模块编辑
 	@RequestMapping("BgImgList")
 	public String BgImgList() {
@@ -71,6 +69,19 @@ public class BKjumpController {
 	public String BgImgTable() {
 		return "BgImgTable";
 	}
+	
+	// 后台模块表单
+	@RequestMapping("Bgnotice")
+	public String Bgnotice() {
+		return "Bgnotice";
+		}
+	
+	// 后台模块表单
+	@RequestMapping("Bgfeedback")
+	public String Bgfeedback() {
+		return "Bgfeedback";
+		}
+
 
 	// 后台登陆
 	@RequestMapping("BgLogin")
@@ -96,17 +107,6 @@ public class BKjumpController {
 		return "BgTools";
 	}
 	
-	//后台学院管理
-	@RequestMapping("BgConsultation")
-	public String BgConsultation() {
-		return "BgConsultation";
-	}
-	
-	//后台学院管理
-	@RequestMapping("BgTration")
-	public String BgTration(){
-		return "BgTration";
-	}
 
 	// 后台用户权限管理
 	@RequestMapping("BgUserPermission")

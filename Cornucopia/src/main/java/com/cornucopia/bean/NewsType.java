@@ -16,8 +16,8 @@ public class NewsType {
 	private String note;//备注
 	private int sort;//排序
 	private String pageType;//页面类型
-	private int supType;//上级类别
-	private int info;//简介
+	private String supType;//上级类别
+	private String info;//简介
 	private String cPhoto;//封面图片
 	private String text;//内容
 	private String seoTiltle;//页面seo标题
@@ -25,8 +25,8 @@ public class NewsType {
 	private String seoDes;//seo描述
 	private int addId;//添加人ID
 	private int updId;//修改人ID
-	private Date updTime;//修改时间
-	private Date addTime;//添加时间
+	private String  updTime;//修改时间
+	private String  addTime;//添加时间
 	
 	@Id
 	@GeneratedValue
@@ -66,16 +66,16 @@ public class NewsType {
 	public void setPageType(String pageType) {
 		this.pageType = pageType;
 	}
-	public int getSupType() {
+	public String getSupType() {
 		return supType;
 	}
-	public void setSupType(int supType) {
+	public void setSupType(String supType) {
 		this.supType = supType;
 	}
-	public int getInfo() {
+	public String getInfo() {
 		return info;
 	}
-	public void setInfo(int info) {
+	public void setInfo(String info) {
 		this.info = info;
 	}
 	public String getcPhoto() {
@@ -120,16 +120,16 @@ public class NewsType {
 	public void setUpdId(int updId) {
 		this.updId = updId;
 	}
-	public Date getUpdTime() {
+	public String getUpdTime() {
 		return updTime;
 	}
-	public void setUpdTime(Date updTime) {
+	public void setUpdTime(String updTime) {
 		this.updTime = updTime;
 	}
-	public Date getAddTime() {
+	public String getAddTime() {
 		return addTime;
 	}
-	public void setAddTime(Date addTime) {
+	public void setAddTime(String addTime) {
 		this.addTime = addTime;
 	}
 }
