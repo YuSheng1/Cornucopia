@@ -25,8 +25,8 @@ public class NewsType {
 	private String seoDes;//seo描述
 	private int addId;//添加人ID
 	private int updId;//修改人ID
-	private Date updTime;//修改时间
-	private Date addTime;//添加时间
+	private String  updTime;//修改时间
+	private String  addTime;//添加时间
 	
 	@Id
 	@GeneratedValue
@@ -120,16 +120,16 @@ public class NewsType {
 	public void setUpdId(int updId) {
 		this.updId = updId;
 	}
-	public Date getUpdTime() {
+	public String getUpdTime() {
 		return updTime;
 	}
-	public void setUpdTime(Date updTime) {
+	public void setUpdTime(String updTime) {
 		this.updTime = updTime;
 	}
-	public Date getAddTime() {
+	public String getAddTime() {
 		return addTime;
 	}
-	public void setAddTime(Date addTime) {
+	public void setAddTime(String addTime) {
 		this.addTime = addTime;
 	}
 }

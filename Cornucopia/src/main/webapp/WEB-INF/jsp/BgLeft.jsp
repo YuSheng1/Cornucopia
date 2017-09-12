@@ -42,11 +42,9 @@ $(function(){
     	<ul class="menuson">
         <li><cite></cite><a href="/Cornucopia/BgItem/BgIndex" target="rightFrame">固收类</a><i></i></li>
         <li><cite></cite><a href="/Cornucopia/BgItem/BgImgTable" target="rightFrame">私募/股权类</a><i></i></li>
-        <li><cite></cite><a href="/Cornucopia/BgItem/Bgform" target="rightFrame">海外配置</a><i></i></li>
-        </ul>    
+        <li><cite></cite><a href="/Cornucopia/BgOver/list" target="rightFrame">海外配置</a><i></i></li>
+      </ul>    
     </dd>
-        
-    
     <dd>
     <div class="title">
     <span><img src="../BgAssets/images/leftico02.png" /></span>钱包管理
@@ -57,15 +55,14 @@ $(function(){
     </dd> 
     
     
-    <dd><div class="title"><span><img src="../BgAssets/images/leftico03.png" /></span>学院管理</div>
+      <dd><div class="title"><span><img src="../BgAssets/images/leftico04.png" /></span>学院管理</div>
     <ul class="menuson">
-        <li><cite></cite><a href="#" target="rightFrame">资讯分类</a><i></i></li>
-        <li><cite></cite><a href="#" target="rightFrame">咨询管理</a><i></i></li>
-    </ul>    
+        <li class="active"><cite></cite><a href="/Cornucopia/BgType/BgConsultation" target="rightFrame">咨询分类</a><i></i></li>
+        <li><cite></cite><a href="/Cornucopia/BgType/BgTration" target="rightFrame"">咨询管理</a><i></i></li>
+    </ul>
+    
     </dd>  
     
-    
-
     <dd><div class="title"><span><img src="../BgAssets/images/leftico04.png" /></span>权限管理</div>
         <ul class="menuson">
         <li><cite></cite><a href="/Cornucopia/BgItem/BgUserPermission" target="rightFrame">用户管理</a><i></i></li>
@@ -110,14 +107,6 @@ $(function(){
     </ul>
     
     </dd> 
-    
-    <dd><div class="title"><span><img src="../BgAssets/images/leftico04.png" /></span>学院管理</div>
-    <ul class="menuson">
-        <li class="active"><cite></cite><a href="/Cornucopia/BgItem/BgConsultation" target="rightFrame">咨询分类</a><i></i></li>
-        <li><cite></cite><a href="/Cornucopia/BgItem/BgTration" target="rightFrame"">咨询管理</a><i></i></li>
-    </ul>
-    
-    </dd>  
     
     </dl>
 </body>
