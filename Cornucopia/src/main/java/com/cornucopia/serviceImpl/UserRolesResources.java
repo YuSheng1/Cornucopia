@@ -28,6 +28,12 @@ public class UserRolesResources implements UserService{
 		userRolesResourcesDaoImpl.save(objects);
 		
 	}
+	@Override
+	//中间表添加权限
+	public void saveaa(int id,List list) {
+		userRolesResourcesDaoImpl.saveaa(id,list);
+		
+	}
 	
 	@Override
 	public void delete(Object object) {
@@ -64,4 +70,5 @@ public class UserRolesResources implements UserService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 }

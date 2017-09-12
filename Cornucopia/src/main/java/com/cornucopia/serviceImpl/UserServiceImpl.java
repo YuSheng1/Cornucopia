@@ -77,4 +77,11 @@ public class UserServiceImpl implements UserService {
 		return users;
 	}
 
+
+	@Override
+	public void saveaa(int id, List list) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

@@ -71,4 +71,10 @@ public class UserRoleServiceImpl implements UserService {
 		return boo;
 	}
 
+	@Override
+	public void saveaa(int id, List list) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

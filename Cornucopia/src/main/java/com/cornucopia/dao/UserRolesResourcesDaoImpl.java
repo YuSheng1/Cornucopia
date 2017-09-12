@@ -51,6 +51,18 @@ public class UserRolesResourcesDaoImpl {
 			}
 		}
 		
+		public void saveaa(int rid,List list) {
+			Session session = getSession();
+			int id=rid;
+			delete(id);
+			for (int i = 0; i < list.size(); i++) {
+				int i1=(int) list.get(i);
+				String sql="insert into role_res values ("+id+","+i1+") ";
+				session.createSQLQuery(sql).executeUpdate();
+//				
+			}
+		}
+		
 		public void delete(int id) {
 			Session session = getSession();
 			String sql="delete  from role_res where rid="+id;

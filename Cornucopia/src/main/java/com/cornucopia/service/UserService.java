@@ -9,6 +9,7 @@ public interface UserService {
 	
 	public <T>List<T> ListAll(Object...objects) ;
 	public void save (Object...objects);
+	public void saveaa (int id,List list);
 	public void delete(Object object);
 	public void update(Object object);
 	public <T> T getById(int id);

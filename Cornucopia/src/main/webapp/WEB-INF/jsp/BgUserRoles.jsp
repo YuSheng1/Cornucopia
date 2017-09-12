@@ -24,7 +24,7 @@
 <script type="text/javascript">
 
 $(function () {
-    $('form').bootstrapValidator({message: 'This value is not valid',feedbackIcons: {valid: 'glyphicon glyphicon-ok',invalid: 'glyphicon glyphicon-remove',validating: 'glyphicon glyphicon-refresh' },
+    $('#form').bootstrapValidator({feedbackIcons: {valid: 'glyphicon glyphicon-ok',invalid: 'glyphicon glyphicon-remove',validating: 'glyphicon glyphicon-refresh' },
         fields: {
             cname: {
                 message: '用户名验证失败',
@@ -42,6 +42,18 @@ $(function () {
                 },
             }
             },
+            remark: {
+                 validators: {
+                     notEmpty: {
+                         message: '备注不能为空'
+                     }
+                 }
+             }
+            
+        }
+    });
+    $('#formupdate').bootstrapValidator({feedbackIcons: {valid: 'glyphicon glyphicon-ok',invalid: 'glyphicon glyphicon-remove',validating: 'glyphicon glyphicon-refresh' },
+        fields: {
             remark: {
                  validators: {
                      notEmpty: {
@@ -132,7 +144,7 @@ $(function () {
 </SCRIPT>
 <script type="text/javascript">
     function update(cname,remake,id,createdate){
-    	$("#cname").val(cname);
+    	$("#cname1").val(cname);
     	$("#remark").val(remake);
     	$("#id").val(id);
     	<!--用于验证有没有这个角色-->
@@ -317,10 +329,10 @@ $(function () {
                     </div>
 
                     <div class="panel-body">
-                       	<form id="form" method="post"  action="/Cornucopia/PM_RolesItem/update">
+                       	<form  id="formupdate" method="post"  action="/Cornucopia/PM_RolesItem/update">
                             <div class="form-group">
                                 <label>用户名:</label>
-                                 <input type="text" class="form-control" placeholder="请输入角色名称" name="cname" id="cname">
+                                 <input type="text" class="form-control" placeholder="请输入角色名称" readonly name="cname1" id="cname1"  >
                             </div>
                             <div class="form-group">
                                 <label>角色备注:</label>

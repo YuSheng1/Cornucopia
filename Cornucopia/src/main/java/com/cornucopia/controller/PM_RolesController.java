@@ -34,7 +34,8 @@ public class PM_RolesController {
 	}
 	//添加用户
 	@RequestMapping("add")
-	public String add(UserRole user,String createdate,String updatedate) {
+	public String add(UserRole user,String createdate,String updatedate,String cname) {
+		user.setCname(cname);
 			 user.setCreate_date(createdate);
 			 user.setUpdate_date(updatedate);
 			userRoleServiceImpl.save(user);
@@ -43,9 +44,12 @@ public class PM_RolesController {
 	}
 	//修改用户
 	@RequestMapping("update")
-	public String  update(UserRole user,String createdate1) {
+	public String  update(UserRole user,String createdate1,String cname1) {
+		   List list=userRoleServiceImpl.ListAlltrue(user.getId());
+		           user.setCname(cname1);
 			 user.setCreate_date(createdate1);
 			 userRoleServiceImpl.update(user);
+			   userRolesResources.saveaa(user.getId(),list);
 		return "redirect:/BgItem/BgUserRoles";
 	}
 	
