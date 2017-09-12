@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
+<%@ page import="java.util.*"%>
+<!-- //获取系统时间必须导入的 -->
+<%@ page import="java.text.*"%>
+<!--  获取系统时间必须导入的 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,7 +13,15 @@
 <title>Insert title here</title>
 <link href="../BgAssets/css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../BgAssets/js/jquery.js"></script>
+<link href="../assets/css/bootstrap.css" rel="stylesheet">
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/jquery.ztree.all-3.5.js"></script>
+<script src="../BgAssets/js/bootstrapValidator.min.js"></script>
+<link href="../assets/css/metroStyle.css" rel="stylesheet" />
+<link href="../BgAssets/css/bootstrapValidator.min.css" rel="stylesheet" />
 <script language="javascript">
+<%String datetime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(Calendar.getInstance().getTime()); //获取系统时间%>
 $(function(){	
 	//导航切换
 	$(".imglist li").click(function(){
@@ -37,6 +50,56 @@ $(document).ready(function(){
 
 });
 </script>
+<script type="text/javascript">
+$(function () {
+    $('form').bootstrapValidator({message: 'This value is not valid',feedbackIcons: {valid: 'glyphicon glyphicon-ok',invalid: 'glyphicon glyphicon-remove',validating: 'glyphicon glyphicon-refresh' },
+        fields: {
+            title: {
+                message: '用户名验证失败',
+                validators: {
+                    notEmpty: {
+                        message: '用户名不能为空'
+                    },
+                    threshold :  3 ,
+                remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}  
+                    url: '/Cornucopia/PM_RolesItem/boo',
+                    message: '用户已存在',//提示消息
+                    delay :  2000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
+                    type: 'POST',//请求方式
+                     
+                },
+            }
+            },
+            content: {
+                 validators: {
+                     notEmpty: {
+                         message: '备注不能为空'
+                     }
+                 }
+             }
+            
+        }
+    });
+});
+
+$(document).ready(function() {
+	$(".click").click(function() {
+		$(".tip1").show();
+	});
+
+	$(".tiptop a").click(function() {
+		$(".tip").fadeOut(200);
+	});
+
+	$(".sure").click(function() {
+		$(".tip").fadeOut(100);
+	});
+
+	$(".cancel").click(function() {
+		$(".tip").fadeOut(100);
+	});
+});
+</script>
 </head>
 <body>
 
@@ -54,10 +117,14 @@ $(document).ready(function(){
     </ul>
     </td>
     <td>
-    <ul class="toolbar1">
-        <li><input type="button" value="搜索"></li>
-        <li><span></span>新增</li>
-     </ul>
+    <div class="tools">
+    <ul class="toolbar">
+					<li class="click"><span><img
+							src="../BgAssets/images/t01.png" /></span><a class="tablelink"
+						data-toggle="modal" data-target="#myModal1">添加</a></li>
+					<li><span><img src="../BgAssets/images/t03.png" /></span>搜索</li>
+			</ul>
+	</div>
      </td>
      </tr>
     </table>
@@ -92,58 +159,57 @@ $(document).ready(function(){
     </thead>
     
     <tbody>
-    <c:forEach items="${list }" var="e" varStatus="stat">
+    <c:forEach items="${plist }" var="e" varStatus="stat">
 		<tr>
-		<td>1</td><td>2</td><td>3</td><td>4</td>
-		<td><a href="/springmvc6/emp/initData/${e.id }">编辑</a>
-		<a href="/springmvc6/emp/delete/${e.id }">删除</a></td>
+		<td>${e.id }</td><td>公告</td><td>${e.title }</td><td>${e.create_date }</td>
+		<td><a href="">查看</a>
+		<li><span><img src="../BgAssets/images/t03.png" /></span><a href="/Cornucopia/push/delete&id=${e.id }">删除</a></li>
+		</td>
 		</tr>
 	</c:forEach>
-	
-    <tr>
-    <td class="imgtd"><img src="../BgAssets/images/img11.png" /></td>
-    <td><a href="#">非常不错的国外后台模板，支持HTML5</a><p>发布时间：2013-10-12 09:25:18</p></td>
-    <td>后台界面<p>ID: 82122</p></td>
-    <td>开放浏览</td>
-    <td>admin</td>
-    </tr>
-    
-    <tr>
-    <td class="imgtd"><img src="../BgAssets/images/img12.png" /></td>
-    <td><a href="#">一套简约形状图标UI下载</a><p>发布时间：2013-10-12 09:25:18</p></td>
-    <td>图标设计<p>ID: 82122</p></td>
-    <td>开放浏览</td>
-    <td></td>
-    </tr>
-    
-    <tr>
-    <td class="imgtd"><img src="../BgAssets/images/img13.png" /></td>
-    <td><a href="#">配色软件界面设计PSD下载</a><p>发布时间：2013-10-12 09:25:18</p></td>
-    <td>软件界面<p>ID: 82122</p></td>
-    <td>开放浏览</td>
-    <td>admin</td>
-    </tr>
-    
-    <tr>
-    <td class="imgtd"><img src="../BgAssets/images/img14.png" /></td>
-    <td><a href="#">.com分享-123张switch界面UI设计</a><p>发布时间：2013-10-12 09:25:18</p></td>
-    <td>图标设计<p>ID: 82122</p></td>
-    <td>开放浏览</td>
-    <td>user</td>
-    </tr>
-    
-    <tr>
-    <td class="imgtd"><img src="../BgAssets/images/img15.png" /></td>
-    <td><a href="#">章鱼图标PSD源文件下载</a><p>发布时间：2013-10-12 09:25:18</p></td>
-    <td>界面设计<p>ID: 82122</p></td>
-    <td>开放浏览</td>
-    <td>admin</td>
-    </tr>
     
     </tbody>
     
     </table>
    
+   <!-- 添加-->
+	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="container" style="margin-top: 50px;">
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">添加公告<button type="button" class="close" 
+               data-dismiss="modal" aria-hidden="true">
+                  &times;            </button></h3>
+                    </div>
+
+                    <div class="panel-body">
+                       	<form id="form" method="post"  action="/Cornucopia/push/save">
+                            <div class="form-group">
+                                <label>公告标题:</label>
+                                 <input type="text" class="form-control" placeholder="请输入公告标题" name="title">
+                            </div>
+                            <div class="form-group">
+                                <label>公告内容:</label>
+                               <input  type="text" class="form-control" placeholder="内容" name="content" />
+                            </div>
+	<input style="display: none;" name="create_date"
+									value="<%=datetime%>">
+
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">立即添加</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+		<!-- /.modal -->
+	</div>
+	
     <div class="pagin">
     	<div class="message">共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
         <ul class="paginList">
@@ -158,48 +224,11 @@ $(document).ready(function(){
         <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
         </ul>
     </div>
-    
-    
-    <div class="tip">
-    	<div class="tiptop"><span>提示信息</span><a></a></div>
-        
-      <div class="tipinfo">
-        <span><img src="../BgAssets/images/ticon.png" /></span>
-        <div class="tipright">
-        <p>是否确认对信息的修改 ？</p>
-        <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
-        </div>
-        </div>
-        
-        <div class="tipbtn">
-        <input name="" type="button"  class="sure" value="确定" />&nbsp;
-        <input name="" type="button"  class="cancel" value="取消" />
-        </div>
+
     
     </div>
-    
-    
-    
-    
-    </div>
-    
-    <div class="tip">
-    	<div class="tiptop"><span>提示信息</span><a></a></div>
-        
-      <div class="tipinfo">
-        <span><img src="../BgAssets/images/ticon.png" /></span>
-        <div class="tipright">
-        <p>是否确认对信息的修改 ？</p>
-        <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
-        </div>
-        </div>
-        
-        <div class="tipbtn">
-        <input name="" type="button"  class="sure" value="确定" />&nbsp;
-        <input name="" type="button"  class="cancel" value="取消" />
-        </div>
-    
-    </div>
+
+   
     
 <script type="text/javascript">
 	$('.imgtable tbody tr:odd').addClass('odd');
