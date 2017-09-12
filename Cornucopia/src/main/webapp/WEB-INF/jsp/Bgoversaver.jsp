@@ -25,7 +25,7 @@
   
   <label style="font-size: 18px"> 用户群体：</label><input name="name" type="text" class="dfinput" />
   
-  <label style="font-size: 18px"> 排序值：</label><input name="name" type="text" class="dfinput" />
+  <label style="font-size: 18px"> 排序值1：</label><input name="name" type="text" class="dfinput" />
   
   <label style="font-size: 18px"> 状态：</label>
   <select id="sel" name="sel">
