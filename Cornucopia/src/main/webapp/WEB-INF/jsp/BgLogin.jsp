@@ -43,8 +43,8 @@
     <div class="loginbox" >
     <ul>
     <form action="${pageContext.request.contextPath}/BgLogin/toMain" method="post">
-    <li><input name="user_name" type="text" class="loginuser" value="baolei" /></li>
-    <li><input name="password" type="text" class="loginpwd" value="aqq12138"   /></li>
+    <li><input name="user_name" type="text" class="loginuser" value="宝磊" /></li>
+    <li><input name="password" type="text" class="loginpwd" value="aqq12138."   /></li>
     <li><input type="submit" class="loginbtn" value="登录"    />
     <label><input name="" type="checkbox" value="" checked="checked" />记住密码</label>
     

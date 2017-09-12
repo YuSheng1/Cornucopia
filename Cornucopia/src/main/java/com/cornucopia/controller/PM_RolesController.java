@@ -57,14 +57,15 @@ public class PM_RolesController {
 			   userRolesResources.saveaa(user.getId(),list);
 		return "redirect:/BgItem/BgUserRoles";
 	}
-	//删除角色
-		@RequestMapping("del")
-		public String  del(int delid) {
-			  UserRole user=userRoleServiceImpl.getById(delid);
-				 userRoleServiceImpl.delete(user);
-			return "redirect:/BgItem/BgUserRoles";
-		}
-		
+
+	// 删除角色
+	@RequestMapping("del")
+	public String del(int delid) {
+		UserRole user = userRoleServiceImpl.getById(delid);
+		userRoleServiceImpl.delete(user);
+		return "redirect:/BgItem/BgUserRoles";
+	}
+
 	//查询是否有该角色
 	@ResponseBody
 	@RequestMapping("boo")

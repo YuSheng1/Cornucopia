@@ -1,7 +1,6 @@
 package com.cornucopia.dao;
 
 import java.util.List;
-import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.cornucopia.bean.Resources;
-import com.cornucopia.bean.UserRole;
 @Component
 public class UserRolesResourcesDaoImpl {
 	

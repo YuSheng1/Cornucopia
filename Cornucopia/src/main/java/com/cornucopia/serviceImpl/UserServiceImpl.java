@@ -12,36 +12,34 @@ import com.cornucopia.service.UserService;
 
 @Component
 public class UserServiceImpl implements UserService {
-	
+
 	@Autowired
 	private UserDaoImpl userDaoImpl;
 
 	// 查询用户基本信息
 	@Override
-		public List<Users> ListAll(Object... objects) {
-	        List<Users> User = userDaoImpl.ListAll();
-			return User;
-		}
-
+	public List<Users> ListAll(Object... objects) {
+		List<Users> User = userDaoImpl.ListAll();
+		return User;
+	}
 
 	@Override
-	public void save(Object...object) {
+	public void save(Object... object) {
 		userDaoImpl.SaveOrUpdate(object[0]);
-		
+
 	}
 
 	@Override
 	public void delete(Object object) {
-		// TODO Auto-generated method stub
+		userDaoImpl.DelUsers(object);
 		
 	}
 
 	@Override
 	public void update(Object object) {
 		// TODO Auto-generated method stub
-		
-	}
 
+	}
 
 	@Override
 	public <T> T getById(int id) {
@@ -49,13 +47,11 @@ public class UserServiceImpl implements UserService {
 		return null;
 	}
 
-
 	@Override
 	public <T> List<T> ListAlltrue(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 	@Override
 	public <T> Set<String> ListAllByName(Object object) {
@@ -63,25 +59,23 @@ public class UserServiceImpl implements UserService {
 		return null;
 	}
 
-
 	@Override
 	public <T> Set<String> ListResourcesByName(String name) {
-	
+
 		return null;
 	}
 
-  //根据名称查询是否有该用户
+	// 根据名称查询是否有该用户
 	@Override
-	public  Users getByName(String name) {
-        Users users=userDaoImpl.getByName(name);
+	public Users getByName(String name) {
+		Users users = userDaoImpl.getByName(name);
 		return users;
 	}
-
 
 	@Override
 	public void saveaa(int id, List list) {
 		// TODO Auto-generated method stub
-		
+
 	}
 
 }

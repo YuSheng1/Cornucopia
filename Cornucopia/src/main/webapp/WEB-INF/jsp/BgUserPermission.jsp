@@ -92,7 +92,15 @@ $(function () {
                      regexp: {
                          regexp: /^1[3|5|8]{1}[0-9]{9}$/,
                          message: '请输入正确的手机号码'
-                     }
+                     },
+                     threshold :  11 ,
+                     remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}  
+                         url: '/Cornucopia/PM_UsersItem/booPhone',
+                         message: '手机号已经被注册',//提示消息
+                         delay :  5000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
+                         type: 'POST',//请求方式
+                          
+                     },
                  }
              },
              password: {
@@ -116,7 +124,7 @@ $(function () {
                      },
                      regexp: {//匹配规则
                          regexp: /^[a-zA-Z0-9_\.]+$/,
-                         message: 'The username can only consist of alphabetical, number, dot and underscore'
+                         message: '用户名不能为中文'
                      }
                  }
              },
@@ -141,7 +149,7 @@ $(function () {
                      },
                      regexp: {//匹配规则
                          regexp: /^[a-zA-Z0-9_\.]+$/,
-                         message: 'The username can only consist of alphabetical, number, dot and underscore'
+                         message: '密码不能为中文'
                      }
                  }
              }
@@ -168,7 +176,7 @@ $(function () {
     <div class="rightinfo">
      <div class="tools">
 			<ul class="toolbar">
-				<shiro:hasPermission name="添加角色">
+				<shiro:hasPermission name="添加管理用户">
 					<li class="click"><span><img
 							src="../BgAssets/images/t01.png" /></span><a class="tablelink"
 						data-toggle="modal" data-target="#myModal1">添加</a></li>
@@ -189,7 +197,12 @@ $(function () {
         <th>创建时间</th>
          <th>修改时间</th>
           <th>角色</th>
+              <shiro:hasPermission name="修改管理用户角色">
           <th>更改用户角色</th>
+                 </shiro:hasPermission>
+                   <shiro:hasPermission name="删除管理用户">
+          <th>删除管理用户</th>
+                 </shiro:hasPermission>
         </tr>
         </thead>
         <tbody>
@@ -206,7 +219,12 @@ $(function () {
         <td>${e.create_date}</td>
         <td>${e.update_date}</td>
         <td>${e.userrole.cname}</td>
+        <shiro:hasPermission name="修改管理用户角色">
        <td> <h6 class="tablelink" data-toggle="modal" data-target="#myModal2" onclick="add('${e.user_name }',${e.id },'${e.userrole.id}')"> <img src="../BgAssets/images/t05.png" />修改用户角色</h6></td>
+       </shiro:hasPermission>
+       <shiro:hasPermission name="删除管理用户">
+     <td> <h6 class="tablelink" data-toggle="modal" data-target="#myModal3" onclick="del(${e.id},'${e.user_name }')"> <img src="../BgAssets/images/t03.png" />删除角色</h6>
+      </td> </shiro:hasPermission>
         </tr> 
         </c:forEach>
         </tbody>
@@ -286,7 +304,7 @@ $(function () {
                     </div>
 
                     <div class="panel-body">
-                       	<form id="form" method="post"  action="/Cornucopia/PM_RolesItem/add">
+                       	<form id="form" method="post"  action="/Cornucopia/PM_UsersItem/add">
                             <div class="form-group">
                                 <label>用户名:</label>
                                  <input type="text" class="form-control" placeholder="请输入角色名称" name="user_name">
@@ -301,15 +319,22 @@ $(function () {
                             </div>
                              <div class="form-group">
                                 <label>确认密码:</label>
-                               <input  type="text" class="form-control" placeholder="请输入密码" name="repassword" />
+                               <input  type="text" class="form-control" placeholder="确认密码" name="repassword" />
                             </div>
                             <div class="form-group">
                                 <label>手机号码:</label>
                                <input  type="text" class="form-control" placeholder="请输入手机号码" name="mobile_Phone" />
                             </div>
-	                               <input style="display: none;" name="createdate"
-									value="<%=datetime%>"> <input style="display: none;"
-									name="updatedate" value="<%=datetime%>">
+                             <div class="form-group">
+                              <label>角&nbsp;色:</label>
+                              <select id="error" name="error" class="form-control" >
+                              <c:forEach items="${UserRole}" var="u" >
+          <option class="form-control" id="oid" value="${u.id}"  selected="selected"  >${u.cname}</option>
+          	</c:forEach>
+        </select>
+                            </div>
+	                      <input style="display: none;" name="create_date" value="<%=datetime%>">
+	                       <input style="display: none;"name="update_date" value="<%=datetime%>">
 
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">立即添加</button>
@@ -322,8 +347,41 @@ $(function () {
     </div>
 		<!-- /.modal -->
 	</div>
+	
+			<!-- 删除-->
+		<div class="modal fade" id="myModal3" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="container" style="margin-top: 50px;">
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">删除角色<button type="button" class="close" 
+               data-dismiss="modal" aria-hidden="true">
+                  &times;            </button></h3>
+                    </div>
+
+                    <div class="panel-body">
+                       	<form id="form" method="post"  action="/Cornucopia/PM_UsersItem/del">
+                       	<h4 align="center"   style="font-style: normal;">是否要删除该角色</h4></br></br>
+                       	 <input style="display: none;"name="delid"   id="delid">
+                       	  <input style="display: none;"name="delname"   id="delname">
+                                 <button type="button" class="btn btn-default" data-dismiss="modal">取消操作</button>
+                                <button type="submit" class="btn btn-primary" style="margin-left: 50px;">立即删除</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
+	</div>
     
     <script type="text/javascript">
+    function del(id,delname){
+    	$("#delid").val(id);
+    	$("#delname").val(delname);
+    }
   
 	$('.tablelist tbody tr:odd').addClass('odd');
 	$(window).on('load', function () {
