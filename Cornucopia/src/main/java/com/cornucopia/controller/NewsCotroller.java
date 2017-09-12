@@ -53,7 +53,7 @@ public class NewsCotroller {
 		}
 		
 		
-		//查询是否有该角色
+		//查询是否有该类别
 		@ResponseBody
 		@RequestMapping("boo")
 		public String boo(String name) {

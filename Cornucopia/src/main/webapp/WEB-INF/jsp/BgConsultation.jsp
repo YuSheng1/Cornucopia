@@ -53,6 +53,36 @@ $(function () {
         }
     });
 });
+$(function () {
+    $('#form1').bootstrapValidator({message: 'This value is not valid',feedbackIcons: {valid: 'glyphicon glyphicon-ok',invalid: 'glyphicon glyphicon-remove',validating: 'glyphicon glyphicon-refresh' },
+        fields: {
+            name: {
+                message: '类别名验证失败',
+                validators: {
+                    notEmpty: {
+                        message: '类别名不能为空'
+                    },
+                    threshold : 1 ,
+                remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}  
+                    url: '/Cornucopia/BgType/boo',
+                    message: '类别已存在',//提示消息
+                    delay :  2000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
+                    type: 'POST',//请求方式
+                     
+                },
+            }
+            },
+            info: {
+                 validators: {
+                     notEmpty: {
+                         message: '简介不能为空'
+                     }
+                 }
+             }
+            
+        }
+    });
+});
 	$(document).ready(function() {
 		$(".click").click(function() {
 			$(".tip1").show();
@@ -112,13 +142,11 @@ $(function () {
  } 
 </SCRIPT>
 <script type="text/javascript">
-    function update(cname,remake,id,createdate){
+    function update(name,info,id){
     	$("#name").val(name);
     	$("#info").val(info);
     	$("#id").val(id);
     	<!--用于验证有没有这个角色-->
-    	$("#updTime").val(updTime);
-    	
     }
 
 
@@ -173,10 +201,10 @@ $(function () {
         <td>${list.name}</td>
         <td>根类别</td>
         <td>${list.info}</td>
-        <td>${stat.index+1}</td>
+        <td>${list.id}</td>
         <td>${list.addTime}</td>
         <td>
-		<h6   onclick="update('${list.name}','${list.info }','${list.updTime }')" class="tablelink" data-toggle="modal" data-target="#myModal2"  > 
+		<h6   onclick="update('${list.name}','${list.info }')" class="tablelink" data-toggle="modal" data-target="#myModal2"  > 
 		       <img src="../BgAssets/images/t02.png" />修改类别信息</h6>
 					<li> <span><img src="../BgAssets/images/t03.png" /></span>删除</li>
 			</td>
@@ -258,14 +286,17 @@ $(function () {
                     </div>
 
                     <div class="panel-body">
-                       	<form id="form" method="post"  action="/Cornucopia/BgType/update">
+                       	<form id="form1" method="post"  action="/Cornucopia/BgType/update">
                             <div class="form-group">
                                 <label>类别名称:</label>
                                  <input type="text" class="form-control" placeholder="请输入类别名称" name="name" id="name">
                             </div>
                             <div class="form-group">
                                 <label>简介:</label>
-                               <input  type="text" class="form-control" placeholder="简介" name="info"  id="info"/>
+                               <input  type="text" class="form-control" placeholder="简介" name="info" id="info"/>
+                            </div>
+					<input style="display: none;" name="addTime" value="<%=datetime%>"> 
+                            <div class="form-group">
                                 <button type="submit" class="btn btn-primary">立即修改</button>
                             </div>
                         </form>
