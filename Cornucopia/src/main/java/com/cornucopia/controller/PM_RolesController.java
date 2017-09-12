@@ -1,7 +1,9 @@
 package com.cornucopia.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.annotation.Resource;
 
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.cornucopia.bean.Resources;
 import com.cornucopia.bean.UserRole;
 import com.cornucopia.service.UserService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -32,13 +35,21 @@ public class PM_RolesController {
 	//添加用户
 	@RequestMapping("add")
 	public String add(UserRole user,String createdate,String updatedate) {
-		user.setCreate_date(createdate);
-		user.setUpdate_date(updatedate);
-		userRoleServiceImpl.save(user);
+			 user.setCreate_date(createdate);
+			 user.setUpdate_date(updatedate);
+			userRoleServiceImpl.save(user);
+	
+		return "redirect:/BgItem/BgUserRoles";
+	}
+	//修改用户
+	@RequestMapping("update")
+	public String  update(UserRole user,String createdate1) {
+			 user.setCreate_date(createdate1);
+			 userRoleServiceImpl.update(user);
 		return "redirect:/BgItem/BgUserRoles";
 	}
 	
-	//查询是否有该用户
+	//查询是否有该角色
 	@ResponseBody
 	@RequestMapping("boo")
 	public String boo(String cname) {
@@ -46,6 +57,7 @@ public class PM_RolesController {
 		 boolean boo=userRoleServiceImpl.getByName(cname);
 		 Map<String, Boolean> map = new HashMap<>();
 	        map.put("valid", boo);
+	        System.out.println(boo);
 	        ObjectMapper mapper = new ObjectMapper();
 	        String resultString = "";
 	        try {

@@ -9,8 +9,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.cornucopia.bean.Resources;
-import com.cornucopia.bean.Role_res;
+
 import com.cornucopia.bean.UserRole;
 import com.cornucopia.bean.Users;
 @Component
@@ -29,6 +28,12 @@ public class UserRoleImpl {
 		List<UserRole> UserRoleList = session.createQuery("from UserRole").list();
 		return UserRoleList;
 	}
+	public UserRole ListAllById(int id) {
+		Session session = getSession();
+		UserRole UserRoleList = (UserRole) session.get(UserRole.class,id);
+		return UserRoleList;
+	}
+	
 	//根据id查询权限
 		public List ListAlltrue(int id) {
 		System.out.println(id);
@@ -36,12 +41,17 @@ public class UserRoleImpl {
 		List UserRoleList=sessionFactory.getCurrentSession().createSQLQuery(sql).list();
 			return UserRoleList;
 		}
+		
+		
 		public void SaveRole(Object...objects) {
-			UserRole userRole=(UserRole) objects[0];
 			Session session = getSession();
+			UserRole userRole=(UserRole) objects[0];
 				session.save(userRole);
-			}
-
+	}
+		public void UpdateRole( Object objects) {
+			Session session = getSession();
+				session.update(objects);
+	}
          //根据用户名查询角色
 		  //根据用户名查角色
 	     public  Set<String> ListAllByName(Object object) {
@@ -65,10 +75,10 @@ public class UserRoleImpl {
 		System.out.println(pnameList.size()+"权限");
 		return set;
 	}
-	//查询是否有该用户
+	//查询是否有该角色
 	public  boolean getByName(String name) {
 		Session session=getSession();
-		String hql="from Users u where u.user_name='"+name+"'";
+		String hql="from UserRole u where u.cname='"+name+"'";
 		List<Users> list=session.createQuery(hql).list();
 		if(list.size()>0){
 			return false;

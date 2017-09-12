@@ -28,6 +28,13 @@ public class UserRolesResourcesDaoImpl {
 			System.out.println(UserRoleList.size()+"aaa");
 			return UserRoleList;
 		}
+		
+		public  List<Resources> ListById(int id) {
+			Session session = getSession();
+			List<Resources> UserRoleList = session.createQuery("from Resources where resources_id="+id).list();
+			return UserRoleList;
+		}
+		
 		public void save(Object...objects) {
 			Session session = getSession();
 			int id=(int) objects[1];
@@ -35,10 +42,12 @@ public class UserRolesResourcesDaoImpl {
 			String[] sourceStrArray = ((String)objects[0]).split(",");
 			for (int i = 0; i < sourceStrArray.length; i++) {
 				int i1=(Integer.parseInt(sourceStrArray[i]));
-				UserRole userRole=(UserRole)session.get(UserRole.class, id);  
-				Resources resources=(Resources)session.get(Resources.class,i1);
-				userRole.getResour().add(resources);  
-				resources.getResour().add(userRole);
+				String sql="insert into role_res values ("+id+","+i1+") ";
+				session.createSQLQuery(sql).executeUpdate();
+//				UserRole userRole=(UserRole)session.get(UserRole.class, id);  
+//				Resources resources=(Resources)session.get(Resources.class,i1);
+//				userRole.getResour().add(resources);  
+//				resources.getResour().add(userRole);
 			}
 		}
 		

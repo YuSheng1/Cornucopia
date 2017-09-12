@@ -31,7 +31,7 @@ public class UserRoleServiceImpl implements UserService {
 	}
 	@Override
 	public void save(Object...object) {
-		userRoleImpl.SaveRole(object[0]);
+		userRoleImpl.SaveRole(object);
 		
 	}
 
@@ -43,14 +43,14 @@ public class UserRoleServiceImpl implements UserService {
 
 	@Override
 	public void update(Object object) {
-		// TODO Auto-generated method stub
+		userRoleImpl.UpdateRole(object);
 		
 	}
 
 	@Override
-	public <T> T getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public  UserRole getById(int id) {
+		UserRole userRole=userRoleImpl.ListAllById(id);
+		return userRole;
 	}
 
 	@Override

@@ -40,13 +40,13 @@ public class UserRolesResources implements UserService{
 		
 	}
 	@Override
-	public <T> T getById(int id) {
-		// TODO Auto-generated method stub
-		return null;
+	public  List<Resources> getById(int id) {
+		List<Resources> resources=userRolesResourcesDaoImpl.ListById(id);
+		return resources;
 	}
 	@Override
 	public <T> T getByName(String name) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 	@Override
