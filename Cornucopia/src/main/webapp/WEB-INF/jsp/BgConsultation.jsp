@@ -208,7 +208,7 @@ $(function () {
         <td>
 		<h6   onclick="update('${list.name}','${list.info }','${list.id}','${list.updTime}')" class="tablelink" data-toggle="modal" data-target="#myModal2"  > 
 		       <img src="../BgAssets/images/t02.png" />修改类别信息</h6>
-					<li> <span><img src="../BgAssets/images/t03.png" /></span>删除</li>
+			 <a href="/Cornucopia/BgType/delete"><img src="../BgAssets/images/t03.png" />删除</a>
 			</td>
 					</tr>
 				</c:forEach>

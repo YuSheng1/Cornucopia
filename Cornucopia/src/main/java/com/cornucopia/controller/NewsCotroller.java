@@ -8,6 +8,7 @@ import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -50,6 +51,14 @@ public class NewsCotroller {
 		public String update(NewsType newsType) {
 			System.out.println(newsType.getId());
 			newsTypeServiceImpl.update(newsType);
+			return "redirect:/BgType/BgConsultation";
+		}
+		
+		//删除
+		@RequestMapping("/delete")
+		public String delete(int id ) {
+			System.out.println(123);
+			newsTypeServiceImpl.delete(id);
 			return "redirect:/BgType/BgConsultation";
 		}
 		
