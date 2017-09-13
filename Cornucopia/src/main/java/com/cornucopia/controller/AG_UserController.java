@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cornucopia.bean.MemberAccount;
+import com.cornucopia.bean.MemberBankcards;
 import com.cornucopia.bean.Subject;
 import com.cornucopia.service.AG_ProductService;
 import com.cornucopia.service.ValidateService;
@@ -36,9 +37,14 @@ public class AG_UserController {
 	@RequestMapping("/Purchased")
 	public String Purchased(int id, Model model,int mid) {
 		System.out.println(id+"---"+mid);
+		//现在是死值
 		id=1628;
+		//根据登陆人id查询可用金额
 		MemberAccount memberAccount=validateImpl.MemberAccount(mid);
+		//根据登录人id查询是否绑定银行卡
+		List<MemberBankcards> memberBankcards=validateImpl.MemberBankcards(mid);
 		Subject subject = AG_ProductServiceImpl.getById(id);
+		model.addAttribute("memberBankcards", memberBankcards);
 		model.addAttribute("memberAccount", memberAccount);
 		model.addAttribute("subject", subject);
 		return "Purchased";

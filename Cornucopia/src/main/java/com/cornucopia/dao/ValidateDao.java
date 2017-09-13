@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 
 import com.cornucopia.bean.Member;
 import com.cornucopia.bean.MemberAccount;
+import com.cornucopia.bean.MemberBankcards;
 
 @Component
 public class ValidateDao {
@@ -45,7 +46,17 @@ public class ValidateDao {
 		Session session = getSession();
 		String hql = "from MemberAccount  where member_id=" + id;
 		List<MemberAccount> list = session.createQuery(hql).list();
+		if(list.size()>0){
 		return list.get(0);
 	}
+		return null;
+	}
+	// 根据id获取MemberBankcards对象银行卡绑定表表
+		public List<MemberBankcards> getMemberBankcards(int id) {
+			Session session = getSession();
+			String hql = "from MemberBankcards  where member_id=" + id;
+			List<MemberBankcards> list = session.createQuery(hql).list();
+			return list;
+		}
 
 }

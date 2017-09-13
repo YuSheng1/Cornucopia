@@ -1,5 +1,7 @@
 package com.cornucopia.serviceImpl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -7,6 +9,7 @@ import com.cornucopia.bean.Member;
 import com.cornucopia.dao.PM_UserDaoImpl;
 import com.cornucopia.dao.ValidateDao;
 import com.cornucopia.service.ValidateService;
+
 @Component
 public class ValidateImpl implements ValidateService {
 	
@@ -36,6 +39,12 @@ public class ValidateImpl implements ValidateService {
 	@Override
 	public com.cornucopia.bean.MemberAccount MemberAccount(int id) {
 		com.cornucopia.bean.MemberAccount memberAccount=validateDao.getMemberAccount(id);
+		return memberAccount;
+	}
+	//根据用户id查询银行卡
+	@Override
+	public List<com.cornucopia.bean.MemberBankcards> MemberBankcards(int id) {
+		List<com.cornucopia.bean.MemberBankcards> memberAccount=validateDao.getMemberBankcards(id);
 		return memberAccount;
 	}
 	
