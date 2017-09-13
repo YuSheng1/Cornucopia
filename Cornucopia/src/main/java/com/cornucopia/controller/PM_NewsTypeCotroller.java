@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cornucopia.bean.NewsType;
+import com.cornucopia.bean.UserRole;
 import com.cornucopia.service.PM_NewsService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -49,10 +50,12 @@ public class PM_NewsTypeCotroller {
 		}
 		
 		//删除
-		@RequestMapping("/delete")
-		public String delete(int id ) {
-			System.out.println(123);
-			pm_NewsTypeServiceImpl.delete(id);
+		@RequestMapping("/del")
+		public String del(int delid) {
+			System.out.println(delid+00000123456);
+			NewsType news = pm_NewsTypeServiceImpl.getById(delid);
+			//这里有个问题，不会删除用户表
+			pm_NewsTypeServiceImpl.delete(news);
 			return "redirect:/BgType/BgConsultation";
 		}
 		

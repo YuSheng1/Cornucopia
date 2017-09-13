@@ -51,14 +51,14 @@ public class PM_NewsController {
 			return "redirect:/BgNews/BgTration";
 		}
 		
-		// 修改用户角色
+		// 修改标题
 		@RequestMapping("update")
-		public String update(String name, String updTime, int error) {
-			News news = newsServiceImpl.getByName(name);
+		public String update(String title, int error, String updTime) {
+			News news = newsServiceImpl.getByName(title);
 			NewsType newsType = newsTypeServiceImpl.getById(error);
 			news.setNewsType(newsType);
 			news.setUpdTime(updTime);
-			newsServiceImpl.save(news);
+			newsTypeServiceImpl.save(news);
 			return "redirect:/BgNews/BgTration";
 		}
 		

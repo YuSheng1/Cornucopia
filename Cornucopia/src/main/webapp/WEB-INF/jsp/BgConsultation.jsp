@@ -150,6 +150,10 @@ $(function () {
     	$("#updTime").val(updTime);
     	
     }
+    
+    function del(id){
+    	$("#delid").val(id);
+    }
 
 
 
@@ -208,7 +212,7 @@ $(function () {
         <td>
 		<h6   onclick="update('${list.name}','${list.info }','${list.tid}','${list.updTime}')" class="tablelink" data-toggle="modal" data-target="#myModal2"  > 
 		       <img src="../BgAssets/images/t02.png" />修改类别信息</h6>
-			 <a href="/Cornucopia/BgType/delete"><img src="../BgAssets/images/t03.png" />删除</a>
+			 <h6 class="tablelink" data-toggle="modal" data-target="#myModal3" onclick="del(${list.tid })"> <img src="../BgAssets/images/t03.png" />删除类别</h6>
 			</td>
 					</tr>
 				</c:forEach>
@@ -318,16 +322,15 @@ $(function () {
             <div class="col-lg-4 col-lg-offset-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">删除角色<button type="button" class="close" 
+                        <h3 class="panel-title">删除类别<button type="button" class="close" 
                data-dismiss="modal" aria-hidden="true">
                   &times;            </button></h3>
                     </div>
 
                     <div class="panel-body">
-                       	<form id="form" method="post"  action="/Cornucopia/PM_UsersItem/del">
-                       	<h4 align="center"   style="font-style: normal;">是否要删除该角色</h4></br></br>
+                       	<form id="form" method="post"  action="/Cornucopia/BgType/del">
+                       	<h4 align="center"   style="font-style: normal;">是否要删除该类别</h4></br></br>
                        	 <input style="display: none;"name="delid"   id="delid">
-                       	  <input style="display: none;"name="delname"   id="delname">
                                  <button type="button" class="btn btn-default" data-dismiss="modal">取消操作</button>
                                 <button type="submit" class="btn btn-primary" style="margin-left: 50px;">立即删除</button>
                         </form>

@@ -43,10 +43,9 @@ $(document).ready(function(){
 
 });
 
-function add(name,id,tid){
-	$("#name").val(name);
-	$("#name").val(name);
-	 $("#id").val(id);
+function update(name,id,tid){
+	$("#title").val(name);
+	 $("#error").val(id);
 	
 }
 	
@@ -141,7 +140,7 @@ $(function () {
         <td>${list.id}</td>
         <td>${list.addTime}</td>
         <td>
-		<h6   onclick="update('${list.title}','${list.newsType.name}','${list.id}','${list.updTime}')" class="tablelink" data-toggle="modal" data-target="#myModal2"  > 
+		<h6   onclick="update('${list.title}','${list.newsType.tid}','${list.id}')" class="tablelink" data-toggle="modal" data-target="#myModal2"  > 
 		       <img src="../BgAssets/images/t02.png" />修改类别信息</h6>
 			</td>
 					</tr>
@@ -182,7 +181,7 @@ $(function () {
                     </div>
 
                     <div class="panel-body">
-                       	<form  id="formupdate" method="post"  action="/Cornucopia/BgType/update">
+                       	<form  id="formupdate" method="post"  action="/Cornucopia/BgNews/update">
                             <div class="form-group">
                                 <label>标题:</label>
                                  <input type="text" class="form-control" placeholder="请输入标题名称"  name="title" id="title"  >
@@ -198,7 +197,7 @@ $(function () {
                             </div>
 	<input style="display: none;"name="updTime" value="<%=datetime%>">
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary" >立即修改</button>
+                                <button type="submit" class="btn btn-primary"  onclick="">立即修改</button>
                             </div>
                         </form>
                     </div>
