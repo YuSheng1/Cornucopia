@@ -4,6 +4,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -15,7 +17,6 @@ public class SubjectBbinPurchassRecord {
 	              private int amount;//购买金额
 	              private String deal_ip;//交易ip
 	              private int subject_id;//标的ip
-	              private int member_id;//
 	              private int delflag;
 	              private Date create_date;
 	              private Date update_date;
@@ -23,6 +24,16 @@ public class SubjectBbinPurchassRecord {
 	              private int ispayment;//是否还款
 	              private int pay_interest_times;
 	              private int last_profit_day;//最后计息日
+	              private Member member;
+
+	          	@ManyToOne
+	          	@JoinColumn(name = "member_id")
+	          	public Member getMember() {
+	          		return member;
+	          	}
+	          	public void setMember(Member member) {
+	        		this.member = member;
+	        	}
 	              
 	              public int getPay_interest_times() {
 					return pay_interest_times;
@@ -67,12 +78,6 @@ public class SubjectBbinPurchassRecord {
 				}
 				public void setSubject_id(int subject_id) {
 					this.subject_id = subject_id;
-				}
-				public int getMember_id() {
-					return member_id;
-				}
-				public void setMember_id(int member_id) {
-					this.member_id = member_id;
 				}
 				public int getDelflag() {
 					return delflag;

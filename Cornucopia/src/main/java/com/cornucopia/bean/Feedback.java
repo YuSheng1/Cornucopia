@@ -12,14 +12,13 @@ import javax.persistence.Table;
 public class Feedback {
 
 	private int id;//ID
-	private int member_id;//会员ID
 	private String content;//意见反馈内容
 	private String create_date;//创建时间
 	private Member member;//用户基本表
 	
 	//关联用户基本表
 	@ManyToOne
-	@JoinColumn(name="mid")
+	@JoinColumn(name="member_id")
 	public Member getMember() {
 		return member;
 	}
@@ -33,12 +32,6 @@ public class Feedback {
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public int getMember_id() {
-		return member_id;
-	}
-	public void setMember_id(int member_id) {
-		this.member_id = member_id;
 	}
 	public String getContent() {
 		return content;

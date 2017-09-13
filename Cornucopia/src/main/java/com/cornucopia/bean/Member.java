@@ -33,15 +33,15 @@ public class Member {
 	private String qqAccount;//QQ账号关联
 	private String invitedCode;//被邀请码
 	private String qqNumber;//QQ号码
-	 private Set<Feedback> feedback=new HashSet<Feedback>();
-     //关联用户表
- 	@OneToMany(cascade=CascadeType.ALL,mappedBy="member")
-     public Set<Feedback> getFeedback() {
-		return feedback;
-	}
-	public void setFeedback(Set<Feedback> feedback) {
-		this.feedback = feedback;
-	}
+//	 private Set<Feedback> feedback=new HashSet<Feedback>();
+//     //关联用户表
+// 	@OneToMany(cascade=CascadeType.ALL,mappedBy="member")
+//     public Set<Feedback> getFeedback() {
+//		return feedback;
+//	}
+//	public void setFeedback(Set<Feedback> feedback) {
+//		this.feedback = feedback;
+//	}
 	@Id
 	@GeneratedValue
 	public int getId() {

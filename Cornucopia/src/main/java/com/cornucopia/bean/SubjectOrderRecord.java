@@ -4,6 +4,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Table(name="Subject_order_record")//标的订单
@@ -16,11 +18,20 @@ public class SubjectOrderRecord {
            private int amout;//订单金额
            private int status;//订单状态
            private int subject_id;//标的id
-           private int member_id;//用户id
            private int delfalg;//是否删除
            private Date create_date;//创建日期
            private Date update_date;//更新日期
-           
+       	private Member member;// 会员表
+
+    	@ManyToOne
+    	@JoinColumn(name = "member_id", unique = true)
+    	public Member getMember() {
+    		return member;
+    	}
+
+    	public void setMember(Member member) {
+    		this.member = member;
+    	}
         @Id
         @GeneratedValue
 		public int getId() {
@@ -58,12 +69,6 @@ public class SubjectOrderRecord {
 		}
 		public void setSubject_id(int subject_id) {
 			this.subject_id = subject_id;
-		}
-		public int getMember_id() {
-			return member_id;
-		}
-		public void setMember_id(int member_id) {
-			this.member_id = member_id;
 		}
 		public int getDelfalg() {
 			return delfalg;

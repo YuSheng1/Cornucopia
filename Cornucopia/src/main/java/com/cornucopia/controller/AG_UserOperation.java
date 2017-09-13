@@ -20,6 +20,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.cornucopia.bean.Member;
 import com.cornucopia.bean.Users;
 import com.cornucopia.service.ValidateService;
 import com.passwordauthentification.MD5Aauthentification;
@@ -41,11 +42,14 @@ public class AG_UserOperation {
 		System.out.println(name+"----"+password);
 //			password=mD5Aauthentification.MD5Chains(name,password);
 				boolean boo=validateImpl.UserLogin(name, password);
+				
 				System.out.println(boo);
 				if(boo==true){
 					Subject subject=SecurityUtils.getSubject();
+					Member member=validateImpl.member(Lname);
 					Session session=subject.getSession();
 					session.setAttribute("Lname", Lname);
+					session.setAttribute("member", member);
 					 return "redirect:/item/Index";
 				}
 				else{

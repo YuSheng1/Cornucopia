@@ -1,19 +1,47 @@
 package com.cornucopia.controller;
 
+import java.util.List;
+
+import javax.annotation.Resource;
+
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
-import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.cornucopia.bean.MemberAccount;
+import com.cornucopia.bean.Subject;
+import com.cornucopia.service.AG_ProductService;
+import com.cornucopia.service.ValidateService;
+
+import org.springframework.ui.Model;
+
 @Controller
-@RequestMapping("item")
-public class UserController {
+@RequestMapping("/item")
+public class AG_UserController {
+	//产品炒作类
+	@Resource
+	private AG_ProductService AG_ProductServiceImpl;
+	//杂查询类
+	@Resource
+	private ValidateService validateImpl;
 
 	// 主页
 	@RequestMapping("Index")
 	public String Index() {
 		return "Index";
+	}
+
+	// 购买产品
+	@RequestMapping("/Purchased")
+	public String Purchased(int id, Model model,int mid) {
+		System.out.println(id+"---"+mid);
+		id=1628;
+		MemberAccount memberAccount=validateImpl.MemberAccount(mid);
+		Subject subject = AG_ProductServiceImpl.getById(id);
+		model.addAttribute("memberAccount", memberAccount);
+		model.addAttribute("subject", subject);
+		return "Purchased";
 	}
 
 	// 关于我们
@@ -49,8 +77,8 @@ public class UserController {
 
 	@RequestMapping("Login")
 	public String Login() {
-		Subject subject=SecurityUtils.getSubject();
-		Session session=subject.getSession();
+		org.apache.shiro.subject.Subject subject = SecurityUtils.getSubject();
+		Session session = subject.getSession();
 		session.setAttribute("Lname", null);
 		return "Login";
 	}
