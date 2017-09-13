@@ -23,7 +23,7 @@
 <script language="javascript">
 <%String datetime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(Calendar.getInstance().getTime()); //获取系统时间%>
 $(function(){	
-	//导航切换
+	//导航切换z
 	$(".imglist li").click(function(){
 		$(".imglist li.selected").removeClass("selected")
 		$(this).addClass("selected");
