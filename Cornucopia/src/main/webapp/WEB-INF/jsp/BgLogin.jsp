@@ -47,11 +47,8 @@
     <li><input name="password" type="text" class="loginpwd" value="aqq12138."   /></li>
     <li><input type="submit" class="loginbtn" value="登录"    />
     <label><input name="" type="checkbox" value="" checked="checked" />记住密码</label>
-    
     <label><a href="#">忘记密码？</a></label></li>  <font color="red" style="font-size: 15px">${message }</font>
-  
     </ul>
-   
     </form>
     </div>
     </div>

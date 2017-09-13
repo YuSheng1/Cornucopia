@@ -28,7 +28,7 @@ import com.passwordauthentification.MD5Aauthentification;
 @Controller
 @RequestMapping("BgLogin")
 public class BKloginController {
-	 
+	 //shiro验证类
 	@Resource
 	private UserService userRoleServiceImpl;
 	

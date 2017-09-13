@@ -17,6 +17,7 @@ import com.cornucopia.service.UserService;
 @Controller
 @RequestMapping("BgItem")
 public class BKjumpController {
+	//后台跳转类
 	
 	@Resource
 	private NewsService newsTypeServiceImpl;

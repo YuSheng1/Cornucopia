@@ -44,14 +44,7 @@
 					validators : {
 						notEmpty : {
 							message : '备注不能为空'
-						},       threshold :  11 ,
-	                remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}  
-	                         url: '/Cornucopia/PM_UsersItem/booPhone',
-	                         message: '手机号已经被注册',//提示消息
-	                         delay :  5000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
-	                         type: 'POST',//请求方式
-	                          
-	                     },
+						}
 					}
 				}
 
@@ -230,11 +223,11 @@
             <div class="col-lg-4 col-lg-offset-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">添加角色
+                        <h3 class="panel-title">用户登录
           </h3>
                     </div>
                     <div class="panel-body">
-                       	<form id="formupdate" method="post"  action="/login">
+                       	<form id="formupdate" method="post"  action="/Cornucopia/AgUserItem/toMain">
                             <div class="form-group">
                                 <label>用户名:</label>
                                  <input type="text" class="form-control"  name="Lname" id="Lname">
@@ -243,17 +236,17 @@
                                 <label>角色备注:</label>
                                <input  type="text" class="form-control"  name="Lpassworld" id="Lpassworld"/>
                             </div>
-
+<font color="red" style="font-size: 15px">${message}</font>
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">立即添加</button>
                             </div>
+                            
                         </form>
                     </div>
                 </div>
             </div>
     </div>
 					
-
 	<!--===========layout-container================-->
 	<div class="layout-footer">
 		<div class="footer">
