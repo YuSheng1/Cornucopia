@@ -24,7 +24,7 @@
 <script type="text/javascript">
 
 $(function () {
-    $('form').bootstrapValidator({message: 'This value is not valid',feedbackIcons: {valid: 'glyphicon glyphicon-ok',invalid: 'glyphicon glyphicon-remove',validating: 'glyphicon glyphicon-refresh' },
+    $('#form').bootstrapValidator({feedbackIcons: {valid: 'glyphicon glyphicon-ok',invalid: 'glyphicon glyphicon-remove',validating: 'glyphicon glyphicon-refresh' },
         fields: {
             cname: {
                 message: '用户名验证失败',
@@ -42,6 +42,18 @@ $(function () {
                 },
             }
             },
+            remark: {
+                 validators: {
+                     notEmpty: {
+                         message: '备注不能为空'
+                     }
+                 }
+             }
+            
+        }
+    });
+    $('#formupdate').bootstrapValidator({feedbackIcons: {valid: 'glyphicon glyphicon-ok',invalid: 'glyphicon glyphicon-remove',validating: 'glyphicon glyphicon-refresh' },
+        fields: {
             remark: {
                  validators: {
                      notEmpty: {
@@ -73,7 +85,7 @@ $(function () {
 	});
 </script>
 <SCRIPT type="text/javascript">
-<%String datetime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(Calendar.getInstance().getTime()); //获取系统时间%>
+<%String datetime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()); //获取系统时间%>
  var cid=0;
  function cc(id) {  
 	 cid=id;
@@ -106,38 +118,43 @@ $(function () {
             onAsyncSuccess : function(event, treeId, treeNode, msg){    
             },  
         }   
-            
     };  
  $.fn.zTree.init($("#treeDemo"), setting); 
  }
  //获取所有选中节点的值
- function GetCheckedAll() {
+ function GetCheckedAll(dat) {
+	 
      var treeObj = $.fn.zTree.getZTreeObj("treeDemo");
      var nodes = treeObj.getCheckedNodes(true);
      var msg = "";
      for (var i = 0; i < nodes.length; i++) {
          msg += nodes[i].id+",";
      }
+     
      $.ajax({
          async : false,
          cache : false,
          timeout: 1000,
          url: '/Cornucopia/PM_RolesItem/PM_RolesAdd?id='+cid,
          type: "post",
-         data:{"msg":msg,"id":cid}
+         data:{"msg":msg,"id":cid,"data":dat}
      });
-     window.close();     
+     location.replace("/Cornucopia/BgItem/BgUserRoles"); 
+     
       
  }    
 </SCRIPT>
 <script type="text/javascript">
     function update(cname,remake,id,createdate){
-    	$("#cname").val(cname);
+    	$("#cname1").val(cname);
     	$("#remark").val(remake);
     	$("#id").val(id);
     	<!--用于验证有没有这个角色-->
     	$("#createdate1").val(createdate);
     	
+    }
+    function del(id){
+    	$("#delid").val(id);
     }
 
 
@@ -166,17 +183,7 @@ $(function () {
 							src="../BgAssets/images/t01.png" /></span><a class="tablelink"
 						data-toggle="modal" data-target="#myModal1">添加</a></li>
 				</shiro:hasPermission>
-				
-				<shiro:hasPermission name="删除角色">
-					<li><span><img src="../BgAssets/images/t03.png" /></span>删除</li>
-				</shiro:hasPermission>
 			</ul>
-
-
-			<ul class="toolbar1">
-				<li><span><img src="../BgAssets/images/t05.png" /></span>设置</li>
-			</ul>
-
 		</div>
 
 		<table class="tablelist">
@@ -190,7 +197,13 @@ $(function () {
 					<shiro:hasPermission name="修改角色权限">
 					<th>修改权限</th>
 					</shiro:hasPermission>
+					<shiro:hasPermission name="修改角色信息">
 					<th>修改角色信息</th>
+					</shiro:hasPermission>
+					<shiro:hasPermission name="删除角色">
+					<th>删除角色</th>
+					</shiro:hasPermission>
+				
 				</tr>
 			</thead>
 			<tbody>
@@ -203,27 +216,30 @@ $(function () {
 						<td>${e.update_date }</td>
 						<shiro:hasPermission name="修改角色权限">
 						<td>
-						<h6 class="tablelink" data-toggle="modal" data-target="#myModal" onclick="cc(${e.id })"> <img src="../BgAssets/images/t04.png" />修改权限</h6>
+						<h6 class="tablelink" data-toggle="modal" data-target="#myModal" onclick="cc(${e.id })"> <img src="../BgAssets/images/t05.png" />修改权限</h6>
 							</td>
 							</shiro:hasPermission>
 							<shiro:hasPermission name="修改角色信息">
 						<td>
-						<h6   onclick="update('${e.cname}','${e.remark }',${e.id },'${e.create_date }')" class="tablelink" data-toggle="modal" data-target="#myModal2"  > <img src="../BgAssets/images/t02.png" />修改角色信息</h6>
+						<h6 onclick="update('${e.cname}','${e.remark }',${e.id },'${e.create_date }')" class="tablelink" data-toggle="modal" data-target="#myModal2" > <img src="../BgAssets/images/t02.png" />修改角色信息</h6>
 							</td>
+						</shiro:hasPermission>
+						<shiro:hasPermission name="删除角色">
+						<td>
+						<h6 class="tablelink" data-toggle="modal" data-target="#myModal3" onclick="del(${e.id })"> <img src="../BgAssets/images/t03.png" />删除角色</h6>
+						</td>
 							</shiro:hasPermission>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
-
-
-		<div class="pagin">
+	   <div class="pagin">
 			<div class="message">
 				共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页
 			</div>
 			<ul class="paginList">
 				<li class="paginItem"><a href="javascript:;"><span
-						class="pagepre"></span></a></li>
+				class="pagepre"></span></a></li>
 				<li class="paginItem"><a href="javascript:;">1</a></li>
 				<li class="paginItem current"><a href="javascript:;">2</a></li>
 				<li class="paginItem"><a href="javascript:;">3</a></li>
@@ -252,7 +268,7 @@ $(function () {
 						<button type="button" class="btn btn-default" data-dismiss="modal">关闭
 						</button>
 						<button type="button" class="btn btn-primary" data-dismiss="modal"
-							onclick="GetCheckedAll()">提交更改</button>
+							onclick="GetCheckedAll('<%=datetime%>')">提交更改</button>
 					</div>
 				</div>
 
@@ -317,10 +333,10 @@ $(function () {
                     </div>
 
                     <div class="panel-body">
-                       	<form id="form" method="post"  action="/Cornucopia/PM_RolesItem/update">
+                       	<form  id="formupdate" method="post"  action="/Cornucopia/PM_RolesItem/update">
                             <div class="form-group">
                                 <label>用户名:</label>
-                                 <input type="text" class="form-control" placeholder="请输入角色名称" name="cname" id="cname">
+                                 <input type="text" class="form-control" placeholder="请输入角色名称" readonly name="cname1" id="cname1"  >
                             </div>
                             <div class="form-group">
                                 <label>角色备注:</label>
@@ -331,7 +347,7 @@ $(function () {
             <input style="display: none;" name="createdate1"   id="createdate1" value="">
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary">立即修改</button>
+                                <button type="submit" class="btn btn-primary" >立即修改</button>
                             </div>
                         </form>
                     </div>
@@ -340,6 +356,33 @@ $(function () {
         </div>
     </div>
 		<!-- /.modal -->
+	</div>
+		<!-- 删除-->
+		<div class="modal fade" id="myModal3" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="container" style="margin-top: 50px;">
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">删除角色<button type="button" class="close" 
+               data-dismiss="modal" aria-hidden="true">
+                  &times;            </button></h3>
+                    </div>
+
+                    <div class="panel-body">
+                       	<form id="form" method="post"  action="/Cornucopia/PM_RolesItem/del">
+                       	<h4 align="center"   style="font-style: normal;">是否要删除该角色</h4></br></br>
+                       	 <input style="display: none;"name="delid"   id="delid">
+                                 <button type="button" class="btn btn-default" data-dismiss="modal">取消操作</button>
+                                <button type="submit" class="btn btn-primary" style="margin-left: 50px;">立即删除</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+	
 	</div>
 	<script type="text/javascript">
 		$('.tablelist tbody tr:odd').addClass('odd');

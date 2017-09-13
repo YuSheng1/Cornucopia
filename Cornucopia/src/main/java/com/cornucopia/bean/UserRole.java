@@ -68,7 +68,7 @@ public class UserRole {
 				this.update_date = update_date;
 			}
 	         //多对多权限
-	     	@ManyToMany(cascade=CascadeType.ALL)
+	     	@ManyToMany()
 	     	//中间表名称
 	    	@JoinTable(name="role_Res",joinColumns=@JoinColumn(name="rid"),
 	    		inverseJoinColumns=@JoinColumn(name="pid"))

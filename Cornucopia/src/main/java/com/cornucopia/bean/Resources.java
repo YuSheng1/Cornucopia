@@ -43,14 +43,14 @@ public class Resources {
 	public void setIsParent(int isParent) {
 		IsParent = isParent;
 	}
-//	private Set<UserRole> resour=new HashSet<UserRole>();
-//	@ManyToMany(mappedBy="resour")
-//	 public Set<UserRole> getResour() {
-//			return resour;
-//		}
-//		public void setResour(Set<UserRole> resour) {
-//			this.resour = resour;
-//		}
+	private Set<UserRole> resour=new HashSet<UserRole>();
+	@ManyToMany(mappedBy="resour")
+	 public Set<UserRole> getResour() {
+			return resour;
+		}
+		public void setResour(Set<UserRole> resour) {
+			this.resour = resour;
+		}
 	  @Id
 	  @GeneratedValue
 	  public int getResources_id() {

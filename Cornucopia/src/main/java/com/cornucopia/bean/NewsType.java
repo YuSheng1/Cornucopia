@@ -1,5 +1,4 @@
 package com.cornucopia.bean;
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,7 +9,7 @@ import javax.persistence.Table;
 @Entity
 public class NewsType {
 
-	private int id;//主键
+	private int tid;//主键
 	private String name;//名称
 	private String link;//链接
 	private String note;//备注
@@ -30,11 +29,11 @@ public class NewsType {
 	
 	@Id
 	@GeneratedValue
-	public int getId() {
-		return id;
+	public int getTid() {
+		return tid;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setTid(int tid) {
+		this.tid = tid;
 	}
 	public String getName() {
 		return name;

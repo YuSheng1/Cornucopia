@@ -1,7 +1,6 @@
 package com.cornucopia.dao;
 
 import java.util.List;
-import java.util.Set;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,9 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.cornucopia.bean.Resources;
-import com.cornucopia.bean.UserRole;
 @Component
-public class UserRolesResourcesDaoImpl {
+public class PM_UserRolesResourcesDaoImpl {
 	
 	@Autowired
 	public SessionFactory sessionFactory;
@@ -48,6 +46,18 @@ public class UserRolesResourcesDaoImpl {
 //				Resources resources=(Resources)session.get(Resources.class,i1);
 //				userRole.getResour().add(resources);  
 //				resources.getResour().add(userRole);
+			}
+		}
+		
+		public void saveaa(int rid,List list) {
+			Session session = getSession();
+			int id=rid;
+			delete(id);
+			for (int i = 0; i < list.size(); i++) {
+				int i1=(int) list.get(i);
+				String sql="insert into role_res values ("+id+","+i1+") ";
+				session.createSQLQuery(sql).executeUpdate();
+//				
 			}
 		}
 		

@@ -9,23 +9,32 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.cornucopia.bean.Resources;
-import com.cornucopia.dao.UserRolesResourcesDaoImpl;
-import com.cornucopia.service.UserService;
+import com.cornucopia.dao.PM_UserDaoImpl;
+import com.cornucopia.dao.PM_UserRolesResourcesDaoImpl;
+import com.cornucopia.service.PM_UserService;
 @Component
-public class UserRolesResources implements UserService{
+public class PM_UserRolesResources implements PM_UserService{
 
 	@Autowired
-	private UserRolesResourcesDaoImpl userRolesResourcesDaoImpl;
+	private PM_UserRolesResourcesDaoImpl pM_UserRolesResourcesDaoImpl;
+	@Autowired
+	private PM_UserDaoImpl pM_UserDaoImpl;
 	//查询所有树
 	@Override
 	public List<Resources> ListAll(Object...objects) {
-		List<Resources> UserResources=userRolesResourcesDaoImpl.ListAll();
+		List<Resources> UserResources=pM_UserRolesResourcesDaoImpl.ListAll();
 		return UserResources;
 	}
 	@Override
 	//中间表添加权限
 	public void save(Object...objects) {
-		userRolesResourcesDaoImpl.save(objects);
+		pM_UserRolesResourcesDaoImpl.save(objects);
+		
+	}
+	@Override
+	//中间表添加权限
+	public void saveaa(int id,List list) {
+		pM_UserRolesResourcesDaoImpl.saveaa(id,list);
 		
 	}
 	
@@ -41,13 +50,13 @@ public class UserRolesResources implements UserService{
 	}
 	@Override
 	public  List<Resources> getById(int id) {
-		List<Resources> resources=userRolesResourcesDaoImpl.ListById(id);
+		List<Resources> resources=pM_UserRolesResourcesDaoImpl.ListById(id);
 		return resources;
 	}
 	@Override
-	public <T> T getByName(String name) {
-		
-		return null;
+	public  Boolean getByName(String name) {
+		boolean bo=pM_UserDaoImpl.getByNameOrTrue(name);
+		return bo;
 	}
 	@Override
 	public <T> List<T> ListAlltrue(int id) {
@@ -64,4 +73,5 @@ public class UserRolesResources implements UserService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
 }

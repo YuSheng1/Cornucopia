@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -43,8 +44,12 @@
                 <i class="am-icon-linkedin"></i>
                 <i class="am-icon-youtube-play"></i>
                 <i class="am-icon-rss"></i>
-                <a href="/Cornucopia/item/Login">登录</a>
-                <a href="/Cornucopia/item/Register">注册</a>
+                	<c:if test="${empty Lname}">  <a href="/Cornucopia/item/Login">登录</a> <a
+									href="/Cornucopia/item/Register">注册</a></c:if>	
+									<c:if test="${not empty Lname}"> 欢迎您: ${Lname}
+ <a
+									href="/Cornucopia/item/Login">退出登陆</a>
+</c:if>
               </div>
             </div>
           </div>

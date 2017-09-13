@@ -58,7 +58,7 @@ $(function(){
       <dd><div class="title"><span><img src="../BgAssets/images/leftico04.png" /></span>学院管理</div>
     <ul class="menuson">
         <li class="active"><cite></cite><a href="/Cornucopia/BgType/BgConsultation" target="rightFrame">咨询分类</a><i></i></li>
-        <li><cite></cite><a href="/Cornucopia/BgType/BgTration" target="rightFrame"">咨询管理</a><i></i></li>
+        <li><cite></cite><a href="/Cornucopia/BgNews/BgTration" target="rightFrame"">咨询管理</a><i></i></li>
     </ul>
     
     </dd>  
