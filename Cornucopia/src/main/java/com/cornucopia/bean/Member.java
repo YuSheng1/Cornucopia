@@ -1,9 +1,13 @@
 package com.cornucopia.bean;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Table(name="Member")//用户基本表
@@ -29,7 +33,15 @@ public class Member {
 	private String qqAccount;//QQ账号关联
 	private String invitedCode;//被邀请码
 	private String qqNumber;//QQ号码
-	
+	 private Set<Feedback> feedback=new HashSet<Feedback>();
+     //关联用户表
+ 	@OneToMany(cascade=CascadeType.ALL,mappedBy="member")
+     public Set<Feedback> getFeedback() {
+		return feedback;
+	}
+	public void setFeedback(Set<Feedback> feedback) {
+		this.feedback = feedback;
+	}
 	@Id
 	@GeneratedValue
 	public int getId() {

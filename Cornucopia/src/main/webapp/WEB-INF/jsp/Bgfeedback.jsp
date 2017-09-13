@@ -8,6 +8,13 @@
 <title>Insert title here</title>
 <link href="../BgAssets/css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../BgAssets/js/jquery.js"></script>
+<link href="../assets/css/bootstrap.css" rel="stylesheet">
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/jquery.ztree.all-3.5.js"></script>
+<script src="../BgAssets/js/bootstrapValidator.min.js"></script>
+<link href="../assets/css/metroStyle.css" rel="stylesheet" />
+<link href="../BgAssets/css/bootstrapValidator.min.css" rel="stylesheet" />
 <script language="javascript">
 $(function(){	
 	//导航切换
@@ -39,6 +46,7 @@ $(document).ready(function(){
 </script>
 </head>
 <body>
+<div class="rightinfo">
 	<div class="place">
     	<span>意见反馈</span>
     </div>
@@ -52,12 +60,17 @@ $(document).ready(function(){
     </tr>
     </thead>
     <tbody>
-	    <c:forEach items="${list }" var="e" varStatus="stat">
+	    <c:forEach items="${flist }" var="e" varStatus="stat">
 			<tr>
-			<td>1</td><td>2</td><td>3</td><td>4</td>
+			<td>${stat.index+1 }</td><td>${e.member.name }</td><td>${e.content }</td><td>${e.create_date }</td>
 			</tr>
 		</c:forEach>
 	</tbody>
   </table>
+  </div>
+  <script type="text/javascript">
+	$('.imgtable tbody tr:odd').addClass('odd');
+	</script>
 </body>
+
 </html>

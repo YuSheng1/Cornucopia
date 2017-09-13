@@ -55,15 +55,15 @@ $(function () {
     $('form').bootstrapValidator({message: 'This value is not valid',feedbackIcons: {valid: 'glyphicon glyphicon-ok',invalid: 'glyphicon glyphicon-remove',validating: 'glyphicon glyphicon-refresh' },
         fields: {
             title: {
-                message: '用户名验证失败',
+                message: '标题验证失败',
                 validators: {
                     notEmpty: {
-                        message: '用户名不能为空'
+                        message: '标题不能为空'
                     },
                     threshold :  3 ,
                 remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}  
-                    url: '/Cornucopia/PM_RolesItem/boo',
-                    message: '用户已存在',//提示消息
+                    url: '/Cornucopia/push/boo',
+                    message: '标题已存在',//提示消息
                     delay :  2000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
                     type: 'POST',//请求方式
                      
@@ -73,7 +73,7 @@ $(function () {
             content: {
                  validators: {
                      notEmpty: {
-                         message: '备注不能为空'
+                         message: '内容不能为空'
                      }
                  }
              }
@@ -112,17 +112,18 @@ $(document).ready(function() {
     <table>
     <tr>
     <td>
-    <ul class="forminfo">
-   	 <li><label>标题:</label><input name="" type="text" class="dfinput" placeholder="公告标题"/></li>
-    </ul>
-    </td>
-    <td>
     <div class="tools">
-    <ul class="toolbar">
+   
+	<ul class="toolbar">
+    <form  id="form1" method="post"  action="/Cornucopia/push/list">
+   	 <label>标题:</label><input name="title1" type="text" class="dfinput" placeholder="公告标题"/>	 	
+            <button type="submit" class="btn btn-primary">搜索</button>  
+	</form>
+    </ul>
+     <ul class="toolbar1">
 					<li class="click"><span><img
 							src="../BgAssets/images/t01.png" /></span><a class="tablelink"
 						data-toggle="modal" data-target="#myModal1">添加</a></li>
-					<li><span><img src="../BgAssets/images/t03.png" /></span>搜索</li>
 			</ul>
 	</div>
      </td>
@@ -163,7 +164,7 @@ $(document).ready(function() {
 		<tr>
 		<td>${e.id }</td><td>公告</td><td>${e.title }</td><td>${e.create_date }</td>
 		<td><a href="">查看</a>
-		<li><span><img src="../BgAssets/images/t03.png" /></span><a href="/Cornucopia/push/delete&id=${e.id }">删除</a></li>
+		<li><span></span><a href="">编辑</a></li>
 		</td>
 		</tr>
 	</c:forEach>
@@ -196,6 +197,8 @@ $(document).ready(function() {
                                <input  type="text" class="form-control" placeholder="内容" name="content" />
                             </div>
 	<input style="display: none;" name="create_date"
+									value="<%=datetime%>">
+										<input style="display: none;" name="create_date1"
 									value="<%=datetime%>">
 
                             <div class="form-group">

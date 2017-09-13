@@ -1,5 +1,4 @@
 package com.cornucopia.bean;
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,9 +17,9 @@ public class PushNotice {
 	
 	private int status;
 	
-	private Date create_date;
+	private String create_date;
 	
-	private Date update_date;
+	private String update_date;
 
 	@Id
 	@GeneratedValue
@@ -56,19 +55,19 @@ public class PushNotice {
 		this.status = status;
 	}
 
-	public Date getCreate_date() {
+	public String getCreate_date() {
 		return create_date;
 	}
 
-	public void setCreate_date(Date create_date) {
+	public void setCreate_date(String create_date) {
 		this.create_date = create_date;
 	}
 
-	public Date getUpdate_date() {
+	public String getUpdate_date() {
 		return update_date;
 	}
 
-	public void setUpdate_date(Date update_date) {
+	public void setUpdate_date(String update_date) {
 		this.update_date = update_date;
 	}
 	

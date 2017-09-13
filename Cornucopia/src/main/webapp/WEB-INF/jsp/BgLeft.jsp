@@ -94,7 +94,7 @@ $(function(){
     <dd><div class="title"><span><img src="../BgAssets/images/leftico04.png" /></span>盈+设置</div>
     <ul class="menuson">
         <li><cite></cite><a href="/Cornucopia/push/list" target="rightFrame">公告管理</a><i></i></li>
-        <li><cite></cite><a href="/Cornucopia/BgItem/Bgfeedback" target="rightFrame">意见反馈</a><i></i></li>
+        <li><cite></cite><a href="/Cornucopia/feed/list" target="rightFrame">意见反馈</a><i></i></li>
     </ul>
     
     </dd> 
