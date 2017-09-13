@@ -8,18 +8,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.cornucopia.bean.NewsType;
 import com.cornucopia.bean.Resources;
 import com.cornucopia.bean.UserRole;
-import com.cornucopia.service.PM_NewsService;
 import com.cornucopia.service.UserService;
 
 @Controller
 @RequestMapping("BgItem")
 public class BKjumpController {
-	
-	@Resource
-	private PM_NewsService newsTypeServiceImpl;
 	
 	@Resource
 	private UserService userServiceImpl;

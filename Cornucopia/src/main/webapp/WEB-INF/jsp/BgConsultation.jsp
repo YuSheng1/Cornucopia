@@ -142,10 +142,10 @@ $(function () {
  } 
 </SCRIPT>
 <script type="text/javascript">
-    function update(name,info,id,updTime){
+    function update(name,info,tid,updTime){
     	$("#name").val(name);
     	$("#info").val(info);
-    	$("#id").val(id);
+    	$("#tid").val(tid);
     	<!--用于验证有没有这个角色-->
     	$("#updTime").val(updTime);
     	
@@ -203,10 +203,10 @@ $(function () {
         <td>${list.name}</td>
         <td>根类别</td>
         <td>${list.info}</td>
-        <td>${list.id}</td>
+        <td>${list.tid}</td>
         <td>${list.addTime}</td>
         <td>
-		<h6   onclick="update('${list.name}','${list.info }','${list.id}','${list.updTime}')" class="tablelink" data-toggle="modal" data-target="#myModal2"  > 
+		<h6   onclick="update('${list.name}','${list.info }','${list.tid}','${list.updTime}')" class="tablelink" data-toggle="modal" data-target="#myModal2"  > 
 		       <img src="../BgAssets/images/t02.png" />修改类别信息</h6>
 			 <a href="/Cornucopia/BgType/delete"><img src="../BgAssets/images/t03.png" />删除</a>
 			</td>
@@ -297,7 +297,7 @@ $(function () {
                                 <label>简介:</label>
                                <input  type="text" class="form-control" placeholder="简介" name="info" id="info"/>
                             </div>
-                            <input style="display: none;"name="id"   id="id">
+                            <input style="display: none;"name="tid"   id="tid">
 	<input style="display: none;" name="addTime" value="<%=datetime%>">
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">立即修改</button>
