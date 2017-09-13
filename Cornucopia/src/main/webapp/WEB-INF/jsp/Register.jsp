@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import="java.util.*"%>
+<!-- //获取系统时间必须导入的 -->
+<%@ page import="java.text.*"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
   <head>
@@ -10,7 +13,122 @@
   <link rel="stylesheet" href="../assets/css/amazeui.css" />
   <link rel="stylesheet" href="../assets/css/common.min.css" />
   <link rel="stylesheet" href="../assets/css/other.min.css" />
+  <script src="../BgAssets/js/bootstrapValidator.min.js"></script>
+<link href="../assets/css/metroStyle.css" rel="stylesheet" />
+<link href="../BgAssets/css/bootstrapValidator.min.css" rel="stylesheet" />
+<link href="../assets/css/bootstrap-select.css" rel="stylesheet" />
 </head>
+<script type="text/javascript">
+<%String datetime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()); //获取系统时间%>
+$(function () {
+    $('#form').bootstrapValidator({feedbackIcons: {valid: 'glyphicon glyphicon-ok',invalid: 'glyphicon glyphicon-remove',validating: 'glyphicon glyphicon-refresh' },
+        fields: {
+        	user_name: {
+                message: '用户名验证失败',
+                validators: {
+                    notEmpty: {
+                        message: '用户名不能为空'
+                    },
+                    threshold :  3 ,
+                remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}  
+                    url: '/Cornucopia/PM_UsersItem/boo',
+                    message: '用户已存在',//提示消息
+                    delay :  2000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
+                    type: 'POST',//请求方式
+                     
+                },
+            }
+            },
+            name: {
+                 validators: {
+                     notEmpty: {
+                         message: '昵称不能为空'
+                     }
+                 }
+             },
+             mobile_Phone: {
+                 message: 'The phone is not valid',
+                 validators: {
+                     notEmpty: {
+                         message: '手机号码不能为空'
+                     },
+                     stringLength: {
+                         min: 11,
+                         max: 11,
+                         message: '请输入11位手机号码'
+                     },
+                     regexp: {
+                         regexp: /^1[3|5|8]{1}[0-9]{9}$/,
+                         message: '请输入正确的手机号码'
+                     },
+                     threshold :  11 ,
+                     remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}  
+                         url: '/Cornucopia/PM_UsersItem/booPhone',
+                         message: '手机号已经被注册',//提示消息
+                         delay :  5000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
+                         type: 'POST',//请求方式
+                          
+                     },
+                 }
+             },
+             password: {
+                 message: '密码无效',
+                 validators: {
+                     notEmpty: {
+                         message: '密码名不能为空'
+                     },
+                     stringLength: {
+                         min: 4,
+                         max: 30,
+                         message: '密码长度必须在4到30之间'
+                     },
+                     identical: {//相同
+                         field: 'repassword',
+                         message: '两次密码不一致'
+                     },
+                     different: {//不能和用户名相同
+                         field: 'user_name',
+                         message: '不能和用户名相同'
+                     },
+                     regexp: {//匹配规则
+                         regexp: /^[a-zA-Z0-9_\.]+$/,
+                         message: '用户名不能为中文'
+                     }
+                 }
+             },
+             repassword: {
+                 message: '密码无效',
+                 validators: {
+                     notEmpty: {
+                         message: '密码名不能为空'
+                     },
+                     stringLength: {
+                         min: 4,
+                         max: 30,
+                         message: '密码长度必须在4到30之间'
+                     },
+                     identical: {//相同
+                         field: 'password',
+                         message: '两次密码不一致'
+                     },
+                     different: {//不能和用户名相同
+                         field: 'user_name',
+                         message: '不能和用户名相同'
+                     },
+                     regexp: {//匹配规则
+                         regexp: /^[a-zA-Z0-9_\.]+$/,
+                         message: '密码不能为中文'
+                     }
+                 }
+             }
+            
+        }
+    });
+});
+
+
+
+</script>
 <body class="register-container">
 <div class="layout">
     <!--===========layout-header================-->
