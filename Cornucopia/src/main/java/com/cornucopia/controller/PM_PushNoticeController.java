@@ -18,6 +18,7 @@ import com.cornucopia.service.PM_PushNoticeService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+//公告管理controller
 @Controller
 @RequestMapping("push")
 public class PM_PushNoticeController {
@@ -39,6 +40,7 @@ public class PM_PushNoticeController {
 		 return "Bgnotice";
 	}
 	
+	//添加
 	@RequestMapping("save")
 	public String save(PushNotice pushNotice,String create_date1){
 		pushNotice.setUpdate_date(create_date1);
@@ -46,7 +48,7 @@ public class PM_PushNoticeController {
 		return "redirect:/push/list";
 	}
 	
-	//查询是否有该角色
+	//查询是否有该标题
 		@ResponseBody
 		@RequestMapping("boo")
 		public String boo(String title) {

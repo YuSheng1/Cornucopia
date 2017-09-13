@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import com.cornucopia.bean.PushNotice;
 import com.cornucopia.bean.Users;
 
+//公告管理dao
 @Component
 public class PM_PushNoticeDao {
 
@@ -20,6 +21,7 @@ public class PM_PushNoticeDao {
 		return sf.getCurrentSession();
 	}
 	
+	//查询所有
 	public List<PushNotice>  ListAll(Object...object){
 		String hql="from PushNotice where 0=0";
 		Map map= (Map)object[0];
@@ -29,7 +31,7 @@ public class PM_PushNoticeDao {
 		List<PushNotice> list=session.createQuery(hql).list();
 		return list;
 	}
-	
+	//模糊查询
 	public String listDataHql(String hql,Map map){
 		String title1 = (String)map.get("title1");
 		if(title1!=null&&!title1.equals("")){
@@ -38,7 +40,7 @@ public class PM_PushNoticeDao {
 		System.out.println(hql);
 		return hql;
 	}
-	
+	//添加
 	public void save(Object...objects){
 		Session session=getSession();
 		session.save(objects[0]);

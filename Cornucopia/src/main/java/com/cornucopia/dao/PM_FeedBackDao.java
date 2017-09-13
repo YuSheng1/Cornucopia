@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import com.cornucopia.bean.Feedback;
 
+//意见反馈dao
 @Component
 public class PM_FeedBackDao {
 
@@ -20,7 +21,7 @@ public class PM_FeedBackDao {
 	public Session getSession(){
 		return sf.getCurrentSession();
 	}
-	
+	//查询所有新闻
 	public List<Feedback>  ListAll(Object...objects){
 		Session session = getSession();
 		 StringBuffer buffer = new StringBuffer();

@@ -12,23 +12,27 @@ import com.cornucopia.bean.Users;
 import com.cornucopia.dao.PM_PushNoticeDao;
 import com.cornucopia.service.PM_PushNoticeService;
 
+//公告管理service
 @Component
 public class PM_PushNoticeServiceImpl<T> implements PM_PushNoticeService{
 
 	@Autowired
 	private PM_PushNoticeDao pushNoticeDao;
 
+	//添加
 	@Override
 	public void save(Object... objects) {
 		pushNoticeDao.save(objects);
 	}
 
+	//查询是否有该标题
 	@Override
 	public Boolean getByTitle(String title) {
 		boolean boo=pushNoticeDao.getByTitle(title);
 		return boo;
 	}
 
+	//查询
 	@Override
 	public List<PushNotice> ListAll(Object...objects) {
 		List<PushNotice> plist=pushNoticeDao.ListAll(objects);

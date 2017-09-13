@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.cornucopia.bean.Feedback;
 import com.cornucopia.service.PM_PushNoticeService;
 
+//意见反馈controller
 @Controller
 @RequestMapping("feed")
 public class PM_FeedBackController {
