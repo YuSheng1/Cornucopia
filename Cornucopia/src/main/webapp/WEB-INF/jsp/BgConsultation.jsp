@@ -199,7 +199,7 @@ $(function () {
         <tbody>
         <c:forEach items="${tlist }" var="list" varStatus="stat">
         <tr>
-        <td>${list.id}</td>
+        <td>${stat.index+1}</td>
         <td>${list.name}</td>
         <td>根类别</td>
         <td>${list.info}</td>
