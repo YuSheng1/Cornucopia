@@ -16,7 +16,7 @@ import com.cornucopia.bean.Resources;
 import com.cornucopia.bean.Users;
 
 @Component
-public class UserDaoImpl {
+public class PM_UserDaoImpl {
 
 	@Autowired
 	public SessionFactory sessionFactory;

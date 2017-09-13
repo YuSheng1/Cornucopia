@@ -10,20 +10,20 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cornucopia.bean.Resources;
 import com.cornucopia.bean.UserRole;
-import com.cornucopia.service.UserService;
+import com.cornucopia.service.PM_UserService;
 
 @Controller
 @RequestMapping("BgItem")
 public class BKjumpController {
 
 	@Resource
-	private UserService userServiceImpl;
+	private PM_UserService PM_UserServiceImpl;
 	
 	@Resource
-	private UserService userRoleServiceImpl;
+	private PM_UserService PM_UserRoleServiceImpl;
 	
 	@Resource
-	private UserService userRolesResources;
+	private PM_UserService PM_UserRolesResources;
 	
 	// 后台主页
 	@RequestMapping("BgMain")
@@ -106,8 +106,8 @@ public class BKjumpController {
 	// 后台用户权限管理
 	@RequestMapping("BgUserPermission")
 	public String BgUserPermission(Model model) {
-		List<UserRole> UserRoleList=userRoleServiceImpl.ListAll();
-		List UsersList=userServiceImpl.ListAll();
+		List<UserRole> UserRoleList=PM_UserRoleServiceImpl.ListAll();
+		List UsersList=PM_UserServiceImpl.ListAll();
 		model.addAttribute("UsersList",UsersList);
 		model.addAttribute("UserRole",UserRoleList);
 		return "BgUserPermission";
@@ -116,7 +116,7 @@ public class BKjumpController {
 	//
 	@RequestMapping("BgUserRoles")
 	public String BgUserRoles(Model model) {
-		List<UserRole> UserRoleList=userRoleServiceImpl.ListAll();
+		List<UserRole> UserRoleList=PM_UserRoleServiceImpl.ListAll();
 		model.addAttribute("UserRoleList",UserRoleList);
 		return "BgUserRoles";
 	}
@@ -126,8 +126,8 @@ public class BKjumpController {
 		@RequestMapping("Ztree")
 		public String Ztree(Model model,int id) {
 		System.out.println("初始化");
-			 List<Resources> list=userRolesResources.ListAll(); 
-			List<Integer> bool=userRoleServiceImpl.ListAlltrue(id);
+			 List<Resources> list=PM_UserRolesResources.ListAll(); 
+			List<Integer> bool=PM_UserRoleServiceImpl.ListAlltrue(id);
 		        StringBuffer json=new StringBuffer("[");  
 		        String data="";  
 		        for (int i = 0; i < list.size(); i++) {  

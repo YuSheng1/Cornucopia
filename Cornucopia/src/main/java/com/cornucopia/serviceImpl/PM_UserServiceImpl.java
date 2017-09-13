@@ -7,31 +7,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.cornucopia.bean.Users;
-import com.cornucopia.dao.UserDaoImpl;
-import com.cornucopia.service.UserService;
+import com.cornucopia.dao.PM_UserDaoImpl;
+import com.cornucopia.service.PM_UserService;
 
 @Component
-public class UserServiceImpl implements UserService {
+public class PM_UserServiceImpl implements PM_UserService {
 
 	@Autowired
-	private UserDaoImpl userDaoImpl;
+	private PM_UserDaoImpl pM_UserDaoImpl;
 
 	// 查询用户基本信息
 	@Override
 	public List<Users> ListAll(Object... objects) {
-		List<Users> User = userDaoImpl.ListAll();
+		List<Users> User = pM_UserDaoImpl.ListAll();
 		return User;
 	}
 
 	@Override
 	public void save(Object... object) {
-		userDaoImpl.SaveOrUpdate(object[0]);
+		pM_UserDaoImpl.SaveOrUpdate(object[0]);
 
 	}
 
 	@Override
 	public void delete(Object object) {
-		userDaoImpl.DelUsers(object);
+		pM_UserDaoImpl.DelUsers(object);
 		
 	}
 
@@ -68,7 +68,7 @@ public class UserServiceImpl implements UserService {
 	// 根据名称查询是否有该用户
 	@Override
 	public Users getByName(String name) {
-		Users users = userDaoImpl.getByName(name);
+		Users users = pM_UserDaoImpl.getByName(name);
 		return users;
 	}
 

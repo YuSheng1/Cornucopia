@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 import com.cornucopia.bean.Resources;
 @Component
-public class UserRolesResourcesDaoImpl {
+public class PM_UserRolesResourcesDaoImpl {
 	
 	@Autowired
 	public SessionFactory sessionFactory;

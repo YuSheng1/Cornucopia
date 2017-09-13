@@ -11,7 +11,7 @@ import com.cornucopia.bean.Resources;
 import com.cornucopia.bean.Users;
 import com.cornucopia.dao.PM_NewsTypeDao;
 import com.cornucopia.service.PM_NewsService;
-import com.cornucopia.service.UserService;
+import com.cornucopia.service.PM_UserService;
 
 @Component
 public class PM_NewsTypeServiceImpl implements  PM_NewsService{

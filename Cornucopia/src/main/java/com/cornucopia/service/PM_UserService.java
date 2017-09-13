@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Set;
 
 
-public interface UserService {
+public interface PM_UserService {
 	
 	public <T>List<T> ListAll(Object...objects) ;
 	public void save (Object...objects);

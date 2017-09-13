@@ -14,30 +14,30 @@ import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 
 import com.cornucopia.bean.Users;
-import com.cornucopia.service.UserService;
+import com.cornucopia.service.PM_UserService;
 
 
 public class MyRealm extends AuthorizingRealm{
 	
 	@Resource
-	private UserService userRoleServiceImpl;
+	private PM_UserService PM_UserRoleServiceImpl;
 	@Resource
-	private UserService userServiceImpl;
+	private PM_UserService PM_UserServiceImpl;
 
 	@Override
 	protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
 		String userName=(String) principals.getPrimaryPrincipal();
 		System.out.println(userName+"genju");
 		SimpleAuthorizationInfo authorizationInfo=new SimpleAuthorizationInfo();
-		authorizationInfo.setRoles((Set<String>)userRoleServiceImpl.ListAllByName(userName));
-		authorizationInfo.setStringPermissions((Set<String>)userRoleServiceImpl.ListResourcesByName(userName));
+		authorizationInfo.setRoles((Set<String>)PM_UserRoleServiceImpl.ListAllByName(userName));
+		authorizationInfo.setStringPermissions((Set<String>)PM_UserRoleServiceImpl.ListResourcesByName(userName));
 		return authorizationInfo;
 	}
 
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
 		String userName=(String) token.getPrincipal();
-		Users user=userServiceImpl.getByName(userName);
+		Users user=PM_UserServiceImpl.getByName(userName);
 		if(user.getUser_name()!=null){
 			AuthenticationInfo authcInfo=new SimpleAuthenticationInfo(user.getUser_name(), user.getPassword(), "xx");
 			return authcInfo;

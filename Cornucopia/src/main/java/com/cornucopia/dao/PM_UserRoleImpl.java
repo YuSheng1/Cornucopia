@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 import com.cornucopia.bean.UserRole;
 import com.cornucopia.bean.Users;
 @Component
-public class UserRoleImpl {
+public class PM_UserRoleImpl {
 	
 	@Autowired
 	public SessionFactory sessionFactory;

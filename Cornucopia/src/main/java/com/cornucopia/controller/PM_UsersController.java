@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cornucopia.bean.UserRole;
 import com.cornucopia.bean.Users;
-import com.cornucopia.service.UserService;
+import com.cornucopia.service.PM_UserService;
 import com.cornucopia.service.ValidateService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -22,40 +22,41 @@ import com.passwordauthentification.MD5Aauthentification;
 public class PM_UsersController {
 	// 用户权限相关操作
 	@Resource
-	private UserService userRolesResources;
+	private PM_UserService PM_UserRolesResources;
 	// 用户相角色操作
 	@Resource
-	private UserService userRoleServiceImpl;
+	private PM_UserService PM_UserRoleServiceImpl;
 	@Resource
 	private ValidateService validateImpl;
 
 	// 用户相角色操作
 	@Resource
-	private UserService userServiceImpl;
+	private PM_UserService PM_UserServiceImpl;
+	
 	MD5Aauthentification mD5Aauthentification = new MD5Aauthentification();
 
 	// 添加用户权限
 	@RequestMapping("PM_RolesAdd")
 	public String BgRight(String msg, int id, String data) {
-		UserRole user = userRoleServiceImpl.getById(id);
+		UserRole user = PM_UserRoleServiceImpl.getById(id);
 		System.out.println(data);
 		user.setUpdate_date(data);
-		userRoleServiceImpl.update(user);
+		PM_UserRoleServiceImpl.update(user);
 		msg += "8,29,30,31,";
-		userRolesResources.save(msg, id);
+		PM_UserRolesResources.save(msg, id);
 		return "BgUserRoles";
 	}
 
 	// 添加用户
 	@RequestMapping("add")
 	public String add(Users user, int error) {
-		UserRole userrole = userRoleServiceImpl.getById(error);
+		UserRole userrole = PM_UserRoleServiceImpl.getById(error);
 		user.setSalt(user.getUser_name());
 		// 通过用户名加密
 		String password = mD5Aauthentification.MD5Chains(user.getUser_name(), user.getPassword());
 		user.setPassword(password);
 		user.setUserrole(userrole);
-		userServiceImpl.save(user);
+		PM_UserServiceImpl.save(user);
 
 		return "redirect:/BgItem/BgUserPermission";
 	}
@@ -63,11 +64,11 @@ public class PM_UsersController {
 	// 修改用户角色
 	@RequestMapping("update")
 	public String update(String name, String update_date, int error) {
-		Users user = userServiceImpl.getByName(name);
-		UserRole userrole = userRoleServiceImpl.getById(error);
+		Users user = PM_UserServiceImpl.getByName(name);
+		UserRole userrole = PM_UserRoleServiceImpl.getById(error);
 		user.setUserrole(userrole);
 		user.setUpdate_date(update_date);
-		userServiceImpl.save(user);
+		PM_UserServiceImpl.save(user);
 		return "redirect:/BgItem/BgUserPermission";
 	}
 
@@ -76,10 +77,10 @@ public class PM_UsersController {
 	public String del(int delid, String delname) {
 		System.out.println(delid);
 		System.out.println(delname+"*******");
-//		UserRole userRole = userRoleServiceImpl.getById(delid);
-		Users user = userServiceImpl.getByName(delname);
+//		UserRole userRole = PM_UserRoleServiceImpl.getById(delid);
+		Users user = PM_UserServiceImpl.getByName(delname);
 //		user.setUserrole(userRole);
-		userServiceImpl.delete(user);
+		PM_UserServiceImpl.delete(user);
 		return "redirect:/BgItem/BgUserPermission";
 	}
 
@@ -88,7 +89,7 @@ public class PM_UsersController {
 	@RequestMapping("boo")
 	public String boo(String user_name) {
 		System.out.println(user_name + "name");
-		boolean boo = userRolesResources.getByName(user_name);
+		boolean boo = PM_UserRolesResources.getByName(user_name);
 		Map<String, Boolean> map = new HashMap<>();
 		map.put("valid", boo);
 		System.out.println(boo);

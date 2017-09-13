@@ -21,7 +21,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cornucopia.bean.Users;
-import com.cornucopia.service.UserService;
+import com.cornucopia.service.PM_UserService;
 import com.passwordauthentification.MD5Aauthentification;
 
 
@@ -30,10 +30,11 @@ import com.passwordauthentification.MD5Aauthentification;
 public class BKloginController {
 	 //shiro验证类
 	@Resource
-	private UserService userRoleServiceImpl;
+	private PM_UserService PM_UserRoleServiceImpl;
 	
 	@Resource
-	private UserService userServiceImpl;
+	private PM_UserService PM_UserServiceImpl;
+	
 	MD5Aauthentification mD5Aauthentification=new MD5Aauthentification();
 	
 	
@@ -56,7 +57,7 @@ public class BKloginController {
 				Session session=subject.getSession();
 				session.setAttribute("user_name", user.getUser_name());
 				System.out.println(user.getUser_name()+"mingz");
-				Set<String> set=userRoleServiceImpl.ListAllByName(name);
+				Set<String> set=PM_UserRoleServiceImpl.ListAllByName(name);
 				String url=null;
 				for (String string : set) {
 					url=string;
