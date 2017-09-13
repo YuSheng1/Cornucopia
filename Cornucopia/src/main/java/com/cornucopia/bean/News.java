@@ -7,12 +7,13 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.Cascade;
+
 @Table(name="news")  //新闻列表
 @Entity
 public class News {
 
 	private int id;//主键
-	private int typeId;//所属类型
 	private String title;//标题
 	private String subTitle;//副标题
 	private int sort;//排序
@@ -38,8 +39,8 @@ public class News {
 	
 	private NewsType newsType;
 	
-	@ManyToOne
-	@JoinColumn(name="tid")
+	@ManyToOne()
+	@JoinColumn(name="typeId")
 	public NewsType getNewsType() {
 		return newsType;
 	}
@@ -53,12 +54,6 @@ public class News {
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public int getTypeId() {
-		return typeId;
-	}
-	public void setTypeId(int typeId) {
-		this.typeId = typeId;
 	}
 	public String getTitle() {
 		return title;
