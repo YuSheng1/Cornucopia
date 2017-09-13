@@ -1,5 +1,4 @@
 package com.cornucopia.bean;
-import java.util.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,7 +34,7 @@ public class News {
 	private int addId;//添加人ID
 	private int updId;//修改人ID
 	private String  updTime;//修改时间
-	private String addTie;//添加时间
+	private String addTime;//添加时间
 	
 	private NewsType newsType;
 	
@@ -187,11 +186,11 @@ public class News {
 	public void setUpdTime(String updTime) {
 		this.updTime = updTime;
 	}
-	public String getAddTie() {
-		return addTie;
+	public String getAddTime() {
+		return addTime;
 	}
-	public void setAddTie(String addTie) {
-		this.addTie = addTie;
+	public void setAddTime(String addTime) {
+		this.addTime = addTime;
 	}
 	
 }

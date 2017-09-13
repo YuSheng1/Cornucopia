@@ -21,13 +21,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 @RequestMapping("BgType")
 public class PM_NewsTypeCotroller {
 
-	@Resource
-	private PM_NewsService newsTypeServiceImpl;
+	@Resource(name="PM_NewsTypeServiceImpl")
+	private PM_NewsService pm_NewsTypeServiceImpl;
 	
 	//后台学院管理咨询分类
 		@RequestMapping("BgConsultation")
 		public String BgConsultation(Model model) {
-			List<NewsType> tlist=newsTypeServiceImpl.ListAll();
+			List<NewsType> tlist=pm_NewsTypeServiceImpl.ListAll();
 			model.addAttribute("tlist",tlist);
 			return "BgConsultation";
 		}
@@ -36,15 +36,15 @@ public class PM_NewsTypeCotroller {
 		@RequestMapping("add")
 		public String add(NewsType newsType,String addTime) {
 			newsType.setAddTime(addTime);
-			newsTypeServiceImpl.save(newsType);
+			pm_NewsTypeServiceImpl.save(newsType);
 			return "redirect:/BgType/BgConsultation";
 		}
 		
 		//修改
 		@RequestMapping("update")
 		public String update(NewsType newsType) {
-			System.out.println(newsType.getId());
-			newsTypeServiceImpl.update(newsType);
+			System.out.println(newsType.getTid());
+			pm_NewsTypeServiceImpl.update(newsType);
 			return "redirect:/BgType/BgConsultation";
 		}
 		
@@ -52,7 +52,7 @@ public class PM_NewsTypeCotroller {
 		@RequestMapping("/delete")
 		public String delete(int id ) {
 			System.out.println(123);
-			newsTypeServiceImpl.delete(id);
+			pm_NewsTypeServiceImpl.delete(id);
 			return "redirect:/BgType/BgConsultation";
 		}
 		
@@ -62,7 +62,7 @@ public class PM_NewsTypeCotroller {
 		@RequestMapping("boo")
 		public String boo(String name) {
 			System.out.println(name+"name");
-			 boolean boo=newsTypeServiceImpl.getByName(name);
+			 boolean boo=pm_NewsTypeServiceImpl.getByName(name);
 			 Map<String, Boolean> map = new HashMap<>();
 		        map.put("valid", boo);
 		        System.out.println(boo);

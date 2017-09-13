@@ -26,7 +26,7 @@
 $(function () {
     $('#form').bootstrapValidator({message: 'This value is not valid',feedbackIcons: {valid: 'glyphicon glyphicon-ok',invalid: 'glyphicon glyphicon-remove',validating: 'glyphicon glyphicon-refresh' },
         fields: {
-            name: {
+            title: {
                 message: '类别名验证失败',
                 validators: {
                     notEmpty: {
@@ -56,7 +56,7 @@ $(function () {
 $(function () {
     $('#form1').bootstrapValidator({message: 'This value is not valid',feedbackIcons: {valid: 'glyphicon glyphicon-ok',invalid: 'glyphicon glyphicon-remove',validating: 'glyphicon glyphicon-refresh' },
         fields: {
-            name: {
+            title: {
                 message: '类别名验证失败',
                 validators: {
                     notEmpty: {
@@ -142,8 +142,8 @@ $(function () {
  } 
 </SCRIPT>
 <script type="text/javascript">
-    function update(name,info,id,updTime){
-    	$("#name").val(name);
+    function update(title,info,id,updTime){
+    	$("#title").val(name);
     	$("#info").val(info);
     	$("#id").val(id);
     	<!--用于验证有没有这个角色-->
@@ -200,11 +200,11 @@ $(function () {
         <tr>
         <td>${stat.index+1}</td>
         <td>${list.title}</td>
-        <td>${list.newsType.id}</td>
-        <td>${list.sort}</td>
+        <td>${list.newsType.name}</td>
+        <td>${list.id}</td>
         <td>${list.addTime}</td>
         <td>
-		<h6   onclick="update('${list.title}','${list.info }','${list.id}','${list.updTime}')" class="tablelink" data-toggle="modal" data-target="#myModal2"  > 
+		<h6   onclick="update('${list.title}','${list.newsType.name}','${list.id}','${list.updTime}')" class="tablelink" data-toggle="modal" data-target="#myModal2"  > 
 		       <img src="../BgAssets/images/t02.png" />修改类别信息</h6>
 			</td>
 					</tr>
@@ -240,7 +240,7 @@ $(function () {
             <div class="col-lg-4 col-lg-offset-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">添加类别<button type="button" class="close" 
+                        <h3 class="panel-title">添加标题<button type="button" class="close" 
                data-dismiss="modal" aria-hidden="true">
                   &times;            </button></h3>
                     </div>
@@ -248,8 +248,8 @@ $(function () {
                     <div class="panel-body">
                        	<form id="form" method="post"  action="/Cornucopia/BgType/add">
                             <div class="form-group">
-                                <label>类别名称:</label>
-                                 <input type="text" class="form-control" placeholder="请输入类别名称" name="name">
+                                <label>标题名称:</label>
+                                 <input type="text" class="form-control" placeholder="请输入标题名称" name="title">
                             </div>
                             <div class="form-group">
                                 <label>简介:</label>
@@ -278,7 +278,7 @@ $(function () {
                 <div class="panel panel-default">
                 
                     <div class="panel-heading">
-                        <h3 class="panel-title">修改类别信息<button type="button" class="close" 
+                        <h3 class="panel-title">修改标题信息<button type="button" class="close" 
                data-dismiss="modal" aria-hidden="true">
                   &times;            </button></h3>
                             
@@ -287,8 +287,8 @@ $(function () {
                     <div class="panel-body">
                        	<form id="form1" method="post"  action="/Cornucopia/BgType/update">
                             <div class="form-group">
-                                <label>类别名称:</label>
-                                 <input type="text" class="form-control" placeholder="请输入类别名称" name="name" id="name">
+                                <label>标题名称:</label>
+                                 <input type="text" class="form-control" placeholder="请输入标题名称" name="title" id="title">
                             </div>
                             <div class="form-group">
                                 <label>简介:</label>
