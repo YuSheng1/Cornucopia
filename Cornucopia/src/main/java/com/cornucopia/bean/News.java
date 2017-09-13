@@ -4,6 +4,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Table(name="news")  //新闻列表
@@ -32,9 +34,19 @@ public class News {
 	private int audit;//是否审核
 	private int addId;//添加人ID
 	private int updId;//修改人ID
-	private Date updTime;//修改时间
-	private Date addTie;//添加时间
+	private String  updTime;//修改时间
+	private String addTie;//添加时间
 	
+	private NewsType newsType;
+	
+	@ManyToOne
+	@JoinColumn(name="tid")
+	public NewsType getNewsType() {
+		return newsType;
+	}
+	public void setNewsType(NewsType newsType) {
+		this.newsType = newsType;
+	}
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -169,16 +181,16 @@ public class News {
 	public void setUpdId(int updId) {
 		this.updId = updId;
 	}
-	public Date getUpdTime() {
+	public String getUpdTime() {
 		return updTime;
 	}
-	public void setUpdTime(Date updTime) {
+	public void setUpdTime(String updTime) {
 		this.updTime = updTime;
 	}
-	public Date getAddTie() {
+	public String getAddTie() {
 		return addTie;
 	}
-	public void setAddTie(Date addTie) {
+	public void setAddTie(String addTie) {
 		this.addTie = addTie;
 	}
 	

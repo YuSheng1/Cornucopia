@@ -12,7 +12,7 @@ import com.cornucopia.bean.UserRole;
 import com.cornucopia.bean.Users;
 
 @Component
-public class NewsTypeDao {
+public class PM_NewsTypeDao {
 
 	@Autowired
 	private SessionFactory sf;

@@ -13,16 +13,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cornucopia.bean.NewsType;
-import com.cornucopia.service.NewsService;
+import com.cornucopia.service.PM_NewsService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Controller
 @RequestMapping("BgType")
-public class NewsCotroller {
+public class PM_NewsTypeCotroller {
 
 	@Resource
-	private NewsService newsTypeServiceImpl;
+	private PM_NewsService newsTypeServiceImpl;
 	
 	//后台学院管理咨询分类
 		@RequestMapping("BgConsultation")
@@ -32,12 +32,6 @@ public class NewsCotroller {
 			return "BgConsultation";
 		}
 		
-		//后台学院管理咨询管理
-		@RequestMapping("BgTration")
-		public String BgTration(){
-			return "BgTration";
-		}
-	
 	//添加分类
 		@RequestMapping("add")
 		public String add(NewsType newsType,String addTime) {

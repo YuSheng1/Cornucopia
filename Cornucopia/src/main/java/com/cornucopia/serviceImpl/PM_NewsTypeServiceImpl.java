@@ -9,15 +9,15 @@ import org.springframework.stereotype.Component;
 import com.cornucopia.bean.NewsType;
 import com.cornucopia.bean.Resources;
 import com.cornucopia.bean.Users;
-import com.cornucopia.dao.NewsTypeDao;
-import com.cornucopia.service.NewsService;
+import com.cornucopia.dao.PM_NewsTypeDao;
+import com.cornucopia.service.PM_NewsService;
 import com.cornucopia.service.UserService;
 
 @Component
-public class NewsTypeServiceImpl implements  NewsService{
+public class PM_NewsTypeServiceImpl implements  PM_NewsService{
 
 	@Autowired
-	private NewsTypeDao newsTypeDao;
+	private PM_NewsTypeDao newsTypeDao;
 
 
 	@Override

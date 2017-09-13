@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.cornucopia.bean.NewsType;
 import com.cornucopia.bean.Resources;
 import com.cornucopia.bean.UserRole;
-import com.cornucopia.service.NewsService;
+import com.cornucopia.service.PM_NewsService;
 import com.cornucopia.service.UserService;
 
 @Controller
@@ -20,7 +20,7 @@ public class BKjumpController {
 	//后台跳转类
 	
 	@Resource
-	private NewsService newsTypeServiceImpl;
+	private PM_NewsService newsTypeServiceImpl;
 	
 	@Resource
 	private UserService userServiceImpl;
