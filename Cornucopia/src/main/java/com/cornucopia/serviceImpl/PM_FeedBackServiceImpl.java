@@ -40,4 +40,10 @@ public class PM_FeedBackServiceImpl implements PM_PushNoticeService{
 		return null;
 	}
 
+	@Override
+	public <T> T chakan(int id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
