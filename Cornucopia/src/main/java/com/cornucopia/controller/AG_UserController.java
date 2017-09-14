@@ -43,7 +43,7 @@ public class AG_UserController {
 		MemberAccount memberAccount=validateImpl.MemberAccount(mid);
 		//根据登录人id查询是否绑定银行卡
 		List<MemberBankcards> memberBankcards=validateImpl.MemberBankcards(mid);
-		Subject subject = AG_ProductServiceImpl.getById(id);
+		Subject subject = AG_ProductServiceImpl.getBySubjectId(id);
 		model.addAttribute("memberBankcards", memberBankcards);
 		model.addAttribute("memberAccount", memberAccount);
 		model.addAttribute("subject", subject);

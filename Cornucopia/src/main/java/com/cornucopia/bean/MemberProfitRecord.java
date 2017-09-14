@@ -18,15 +18,14 @@ public class MemberProfitRecord {
 	private int type;// 类型
 	private int amount;// 金额
 	private int delflag;// 标志
-	private Date create_date;// 创建时间
-	private Date update_date;// 修改时间
+	private String create_date;// 创建时间
+	private String update_date;// 修改时间
 	private String comment;// 备注
-	private int purchase_id;// 标的id（买的东西的id）
 	private int profit_year;// 默认‘0’ 计息年
 	private int profit_month;// 默认‘0’ 计息月
 	private int profit_day;// 默认‘0’ 计息日
 	private Member member;
-
+	private Subject subject;
 	@ManyToOne
 	@JoinColumn(name = "member_id")
 	public Member getMember() {
@@ -35,6 +34,15 @@ public class MemberProfitRecord {
 
 	public void setMember(Member member) {
 		this.member = member;
+	}
+	@ManyToOne
+	@JoinColumn(name = "subject_id")
+	public Subject getsubject() {
+		return subject;
+	}
+
+	public void setSubject(Subject subject) {
+		this.subject = subject;
 	}
 
 	@Id
@@ -79,19 +87,19 @@ public class MemberProfitRecord {
 		this.delflag = delflag;
 	}
 
-	public Date getCreate_date() {
+	public String getCreate_date() {
 		return create_date;
 	}
 
-	public void setCreate_date(Date create_date) {
+	public void setCreate_date(String create_date) {
 		this.create_date = create_date;
 	}
 
-	public Date getUpdate_date() {
+	public String getUpdate_date() {
 		return update_date;
 	}
 
-	public void setUpdate_date(Date update_date) {
+	public void setUpdate_date(String update_date) {
 		this.update_date = update_date;
 	}
 
@@ -101,14 +109,6 @@ public class MemberProfitRecord {
 
 	public void setComment(String comment) {
 		this.comment = comment;
-	}
-
-	public int getPurchase_id() {
-		return purchase_id;
-	}
-
-	public void setPurchase_id(int purchase_id) {
-		this.purchase_id = purchase_id;
 	}
 
 	public int getProfit_year() {

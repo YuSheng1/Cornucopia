@@ -21,11 +21,8 @@ public class MemberTradeRecord {
 	private String trade_type;// 交易分类
 	private int fund_flow;// 资金流向（0：流出，1：流入）
 	private int trade_status;// 交易状态
-	private String ext_field_1;// 扩展1
-	private String ext_field_2;// 扩展2
-	private String ext_field_3;// 扩展3
-	private Date create_date;// 创建时间
-	private Date update_date;// 修改时间
+	private String create_date;// 创建时间
+	private String update_date;// 修改时间
 	private Member member;
 
 	@ManyToOne
@@ -104,43 +101,19 @@ public class MemberTradeRecord {
 		this.trade_status = trade_status;
 	}
 
-	public String getExt_field_1() {
-		return ext_field_1;
-	}
-
-	public void setExt_field_1(String ext_field_1) {
-		this.ext_field_1 = ext_field_1;
-	}
-
-	public String getExt_field_2() {
-		return ext_field_2;
-	}
-
-	public void setExt_field_2(String ext_field_2) {
-		this.ext_field_2 = ext_field_2;
-	}
-
-	public String getExt_field_3() {
-		return ext_field_3;
-	}
-
-	public void setExt_field_3(String ext_field_3) {
-		this.ext_field_3 = ext_field_3;
-	}
-
-	public Date getCreate_date() {
+	public String getCreate_date() {
 		return create_date;
 	}
 
-	public void setCreate_date(Date create_date) {
+	public void setCreate_date(String create_date) {
 		this.create_date = create_date;
 	}
 
-	public Date getUpdate_date() {
+	public String getUpdate_date() {
 		return update_date;
 	}
 
-	public void setUpdate_date(Date update_date) {
+	public void setUpdate_date(String update_date) {
 		this.update_date = update_date;
 	}
 

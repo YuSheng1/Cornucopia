@@ -17,8 +17,8 @@ public class Member_tally {
 	private int type_id;// 消费类型id
 	private String type_name;// 消费类型名称
 	private int amount;// 金额
-	private Date pay_date;// 付款时间
-	private Date create_date;// 创建时间
+	private String pay_date;// 付款时间
+	private String create_date;// 创建时间
 	private Member member;
 
 	@ManyToOne
@@ -65,19 +65,19 @@ public class Member_tally {
 		this.amount = amount;
 	}
 
-	public Date getPay_date() {
+	public String getPay_date() {
 		return pay_date;
 	}
 
-	public void setPay_date(Date pay_date) {
+	public void setPay_date(String pay_date) {
 		this.pay_date = pay_date;
 	}
 
-	public Date getCreate_date() {
+	public String getCreate_date() {
 		return create_date;
 	}
 
-	public void setCreate_date(Date create_date) {
+	public void setCreate_date(String create_date) {
 		this.create_date = create_date;
 	}
 

@@ -36,9 +36,12 @@ public class ValidateDao {
 	// 根据昵称获取对象
 	public Member memberLogin(String name) {
 		Session session = getSession();
-		String hql = "from Member  where name=" + name;
+		String hql = "from Member  where name='"+name.trim()+"'";
 		List<Member> list = session.createQuery(hql).list();
-		return list.get(0);
+		if(list.size()>0){
+			return list.get(0);
+		}
+		return null;
 	}
 
 	// 根据id获取MemberAccount对象金额表

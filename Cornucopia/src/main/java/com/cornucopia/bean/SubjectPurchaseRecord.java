@@ -18,16 +18,16 @@ public class SubjectPurchaseRecord {
 	private String serial_number;// 流水号
 	private int amount;// 购买金额
 	private String deal_id;// 交易IP
-	private int subject_id;// 标的id
 	private int delflag;// 是否删除
-	private Date create_date;// 创建时间
-	private Date update_date;// 修改时间
-	private int interset;// 结算利息
+	private String  create_date;// 创建时间
+	private String update_date;// 修改时间
+	private float interset;// 结算利息
 	private int ispayment;// 是否还款
 	private int pay_interest_times;// 购买次数
 	private int last_profit_day;// 最后计息日
 	private String bonus_info;// 红包金额信息（app端实际投资额度+红包额度)
 	private Member member;// 会员表
+	private Subject subject;//标的标
 
 	@ManyToOne
 	@JoinColumn(name = "member_id", unique = true)
@@ -37,6 +37,15 @@ public class SubjectPurchaseRecord {
 
 	public void setMember(Member member) {
 		this.member = member;
+	}
+	@ManyToOne
+	@JoinColumn(name = "subject_id", unique = true)
+	public Subject getSubject() {
+		return subject;
+	}
+
+	public void setSubject(Subject subject) {
+		this.subject = subject;
 	}
 
 	@Id
@@ -73,14 +82,6 @@ public class SubjectPurchaseRecord {
 		this.deal_id = deal_id;
 	}
 
-	public int getSubject_id() {
-		return subject_id;
-	}
-
-	public void setSubject_id(int subject_id) {
-		this.subject_id = subject_id;
-	}
-
 	public int getDelflag() {
 		return delflag;
 	}
@@ -89,27 +90,27 @@ public class SubjectPurchaseRecord {
 		this.delflag = delflag;
 	}
 
-	public Date getCreate_date() {
+	public String getCreate_date() {
 		return create_date;
 	}
 
-	public void setCreate_date(Date create_date) {
+	public void setCreate_date(String create_date) {
 		this.create_date = create_date;
 	}
 
-	public Date getUpdate_date() {
+	public String getUpdate_date() {
 		return update_date;
 	}
 
-	public void setUpdate_date(Date update_date) {
+	public void setUpdate_date(String update_date) {
 		this.update_date = update_date;
 	}
 
-	public int getInterset() {
+	public float getInterset() {
 		return interset;
 	}
 
-	public void setInterset(int interset) {
+	public void setInterset(float interset) {
 		this.interset = interset;
 	}
 

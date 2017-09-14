@@ -26,7 +26,7 @@
 
 <script>
 	
-<%String datetime = new SimpleDateFormat("yyyy-MM-dd ").format(Calendar.getInstance().getTime()); //获取系统时间%>
+<%String datetime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()); //获取系统时间%>
 	$(
 			function() {
 				$(".picList a").fancybox(
@@ -107,6 +107,8 @@
 		}else if(id<1 ){
 			document.getElementById("li4").style.display="";
 		
+		}else{
+			document.getElementById("formid").submit();
 		}
 	}
 </script>
@@ -231,11 +233,20 @@
 			</div>
 		</div>
 	</div>
+	<form action="/Cornucopia/AG_UserPlay/GoPlay" method="post">
 	<div class="proMain">
 		<div class="conTit">
 			<span><a style="color: #9d8440;" href="/subject">其他标的</a></span>
 			<h2>
-				<em>￥</em>稳盈宝新手标
+				<em>￥</em>${subject.name}
+				<!-- 交易流水号 --><input type="hidden" name="subject_id" value="${subject.id}">
+				<!-- 购买人id --><input type="hidden" name="memberName" value=" ${Lname}">
+					<!-- 购买标的类别 --><input type="hidden" name="trade_type" value="${subject.type}">
+					<!-- 交易流水号 --><input type="hidden" name="Trade_no" value="<%=datetime%>">
+					<!-- 交易流水号 --><input type="hidden" name="create_date" value="<%=datetime%>">
+					<!-- 交易流水号 --><input type="hidden" name="update_date" value="<%=datetime%>">
+					
+			
 			</h2>
 		</div>
 		<table class="conTable" width="100%" border="0" cellspacing="0"
@@ -279,10 +290,11 @@
 							</c:if>
 							<c:if test="${not empty Lname}">
 								<a style="color: #2695d5" class="unlogin" href="/web/login">账户可用余额</a> ${memberAccount.useable_balance}
+                              
 </c:if>
 
 						</div>
-						<input id="mytext" class="txt" name="totalFee" type="text"
+						<input id="mytext" class="txt" name="amount" type="text"
 							placeholder="起投金额100元以上"> <span
 							style="float: right; margin-top: -40px; position: relative; line-height: 40px; padding: 0 10px; color: #f00;"
 							id="addMoney"></span>
@@ -290,6 +302,7 @@
 							<input type="checkbox" id="registerRule" class="registerRule"
 								checked="checked"><span class="fl">同意<a
 								href="/web/syxy" target="_black">《产品协议》</a></span>
+								
 						</p>
 						<button class="submit" onclick="fun('${memberBankcards[0].id}','${ Lname}')">确认抢购</button>
 					</div>
@@ -349,92 +362,6 @@
 					</table>
 					<div
 						style="border: solid 1px #e9e9e9; padding: 15px; margin-top: 5px;">
-						<style>
-.fl {
-	float: left
-}
-
-.fr {
-	float: right
-}
-
-.productDetailCnt {
-	padding: 0 40px;
-	width: 800px;
-	margin: 0 auto
-}
-
-.productDetailCnt .listItem {
-	padding: 25px 0 30px;
-	border-bottom: 1px solid #e7e7e7
-}
-
-.productDetailCnt h3 {
-	font-size: 20px;
-	font-weight: 400;
-	margin-bottom: 12px;
-	line-height: 32px
-}
-
-.productDetailCnt .listItem .detailIcon {
-	display: inline-block;
-	width: 120px;
-	height: 120px;
-	background-image:
-		url(http://wacai-file.b0.upaiyun.com/finance/image/web/licai/wm/detailIcon.png);
-	background-repeat: no-repeat
-}
-
-.productDetailCnt .listItem .fl {
-	margin-right: 42px;
-	margin-left: 12px
-}
-
-.productDetailCnt .listItem .fr {
-	margin-right: 12px;
-	margin-left: 42px
-}
-
-.productDetailCnt .row_1 .detailIcon {
-	background-position: 0 0
-}
-
-.productDetailCnt .row_2 .detailIcon {
-	background-position: -120px 0
-}
-
-.productDetailCnt .row_3 .detailIcon {
-	background-position: -240px 0
-}
-
-.productDetailCnt .row_4 .detailIcon {
-	background-position: -360px 0
-}
-
-.productDetailCnt .row_5 .detailIcon {
-	background-position: -480px 0
-}
-
-.productDetailCnt .row_1 .media-body, .productDetailCnt .row_3 .media-body,
-	.productDetailCnt .row_5 .media-body {
-	margin-right: 12px
-}
-
-.productDetailCnt .row_2 .media-body, .productDetailCnt .row_4 .media-body
-	{
-	margin-left: 12px
-}
-
-.productDetailCnt .listItem p {
-	font-size: 14px;
-	color: #999;
-	line-height: 1.5
-}
-
-.productDetailCnt .tipRow, .projectDetailBox .tipRow {
-	padding: 20px 0
-}
-</style>
 						<div class="productDetailCnt">
 							<div class="pDetailList">
 								<div class="listItem row_1">
@@ -590,7 +517,7 @@
 		</div>
 
 	</div>
-
+</form>
 
 
 	<!--===========layout-footer================-->
@@ -677,6 +604,92 @@
 
 	<script src="../assets/js/jquery-2.1.0.js" charset="utf-8"></script>
 	<script src="../assets/js/amazeui.js" charset="utf-8"></script>
+	<style>
+.fl {
+	float: left
+}
+
+.fr {
+	float: right
+}
+
+.productDetailCnt {
+	padding: 0 40px;
+	width: 800px;
+	margin: 0 auto
+}
+
+.productDetailCnt .listItem {
+	padding: 25px 0 30px;
+	border-bottom: 1px solid #e7e7e7
+}
+
+.productDetailCnt h3 {
+	font-size: 20px;
+	font-weight: 400;
+	margin-bottom: 12px;
+	line-height: 32px
+}
+
+.productDetailCnt .listItem .detailIcon {
+	display: inline-block;
+	width: 120px;
+	height: 120px;
+	background-image:
+		url(http://wacai-file.b0.upaiyun.com/finance/image/web/licai/wm/detailIcon.png);
+	background-repeat: no-repeat
+}
+
+.productDetailCnt .listItem .fl {
+	margin-right: 42px;
+	margin-left: 12px
+}
+
+.productDetailCnt .listItem .fr {
+	margin-right: 12px;
+	margin-left: 42px
+}
+
+.productDetailCnt .row_1 .detailIcon {
+	background-position: 0 0
+}
+
+.productDetailCnt .row_2 .detailIcon {
+	background-position: -120px 0
+}
+
+.productDetailCnt .row_3 .detailIcon {
+	background-position: -240px 0
+}
+
+.productDetailCnt .row_4 .detailIcon {
+	background-position: -360px 0
+}
+
+.productDetailCnt .row_5 .detailIcon {
+	background-position: -480px 0
+}
+
+.productDetailCnt .row_1 .media-body, .productDetailCnt .row_3 .media-body,
+	.productDetailCnt .row_5 .media-body {
+	margin-right: 12px
+}
+
+.productDetailCnt .row_2 .media-body, .productDetailCnt .row_4 .media-body
+	{
+	margin-left: 12px
+}
+
+.productDetailCnt .listItem p {
+	font-size: 14px;
+	color: #999;
+	line-height: 1.5
+}
+
+.productDetailCnt .tipRow, .projectDetailBox .tipRow {
+	padding: 20px 0
+}
+</style>
 </body>
 
 </html>
