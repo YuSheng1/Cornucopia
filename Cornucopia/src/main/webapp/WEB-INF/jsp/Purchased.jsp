@@ -23,93 +23,38 @@
 <script src="../assets/js/echarts.js"></script>
 <link href="../assets/css/jj/jw.css" rel="stylesheet">
 <script type="text/javascript" src="../assets/js/hm.js"></script>
+<script type="text/javascript" src="../BgAssets/js/jquery.js"></script>
+<link href="../assets/css/bootstrap.css" rel="stylesheet">
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/jquery.ztree.all-3.5.js"></script>
+<script src="../BgAssets/js/bootstrapValidator.min.js"></script>
+<link href="../assets/css/metroStyle.css" rel="stylesheet" />
+<link href="../BgAssets/css/bootstrapValidator.min.css" rel="stylesheet" />
 
 <script>
 	
 <%String datetime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()); //获取系统时间%>
-	$(
-			function() {
-				$(".picList a").fancybox(
-						{
-							'transitionIn' : 'none',
-							'transitionOut' : 'none',
-							'titlePosition' : 'over',
-							'titleFormat' : function(title, currentArray,
-									currentIndex, currentOpts) {
-								return '<span id="fancybox-title-over">Image '
-										+ (currentIndex + 1)
-										+ ' / '
-										+ currentArray.length
-										+ (title.length ? ' &nbsp; ' + title
-												: '') + '</span>';
-							}
-						});
-				$("#mytext").keyup(function() {
-					var txt = parseInt($(this).val());
-					if (txt >= 10) {
-						$("#count").show(100);
-						var lx = $("#num").attr("data-num");
-						var lr = txt * lx;
-						$("#num").text(lr.toFixed(2));
-					} else {
-						$("#count").hide(100);
-					}
-				})
-				$("#mytext").focus(function() {
-					$("#count").hide(100);
-				})
-			})
-			
-			 $(".submit").click(function () {
-                 if (exists == false) {
-                     $("#checkmoney").html("请先登陆!");
-                     $(".li4").show(100);
-                     return false;
-                 }
-                 if(authBankCard==false){
-                 	$("#checkmoney").html("请先绑定银行卡，<a href='/account/security/memberBankcardView'>绑卡</a>");
-                     $(".li4").show(100);
-                 	return false;
-                 }
-                 var value = $(":input[name=totalFee]").val();
-                 if (value == null || value == '') {
-                     $("#checkmoney").html("金额不能为空");
-                     $(".li4").show(100);
-                     return false;
-                 }
-                 value = parseInt(value);
-                 if (value
-                         <100) {
-                     $("#checkmoney").html("起投金额在100以上");
-                     $(".li4").show(100);
-                     return false;
-                 }
-                 var bonusFee = 0;
-                 var bbinStatus = 0;
-                 if (!(bbinAll.hasClass("active"))) {//未选中体验金
-                     var acountval = $("#account").val();
-                     if (acountval != -1) {
-                         if ((acountval - value) < 0) {
-                             $("#checkmoney").html("账号余额不足，请充值");
-                             $(".li4").show(100);
-                             return false;
-                         }
-                     }
-                     if (redPacket.hasClass("active")) {//选中红包
-                         bonusFee =0;
-                     }
-                 } else {
-                     bbinStatus = 1;
-                 }});
-	function fun(id,name){
+	function fun(id,name,qian){
+		var qc=	$("#mytext").val();
+		var yue=qian;
+		alert(qc+"--"+qian)
+		if(qc>yue){
+			document.getElementById("li6").style.display="";
+			return false;
+		}
 		if(name==null||name==""){
 			document.getElementById("li5").style.display="";
-		}else if(id<1 ){
+			return false;
+		} if(id<1){
 			document.getElementById("li4").style.display="";
-		
+			return false;
 		}else{
-			document.getElementById("formid").submit();
+			return true;
 		}
+		 
+		
+		
 	}
 </script>
 </head>
@@ -233,7 +178,7 @@
 			</div>
 		</div>
 	</div>
-	<form action="/Cornucopia/AG_UserPlay/GoPlay" method="post">
+	<form action="/Cornucopia/AG_UserPlay/GoPlay"  method="post" id="formid"   onsubmit="return fun('${memberBankcards[0].id}','${ Lname}',${memberAccount.useable_balance})">
 	<div class="proMain">
 		<div class="conTit">
 			<span><a style="color: #9d8440;" href="/subject">其他标的</a></span>
@@ -274,11 +219,17 @@
 						<p>已投金额(元)</p>
 						<div class="li4" id="li4" style="display: none;" >
 						<c:if test="${ empty memberBankcards}">
-						<span id="checkmoney" style="color: red;">请先绑定银行卡</span>
+						<span id="checkmoney" style="color: red;">请先绑定银行卡
+						:<a style="color: #2695d5"
+									class="unlogin" href="/web/login">立即绑定</a></span>
 </c:if>
 						</div>
 						<div class="li4" id="li5" style="display: none;" >
 						<span id="checkmoney" style="color: red;">请先登陆</span>
+						</div>
+						<div class="li4" id="li6" style="display: none;" >
+						<span id="checkmoney" style="color: red;"><a style="color: #2695d5"
+									class="unlogin" href="/Cornucopia/AG_UserPlay/GoRecharge">请先充值</a></span>
 						</div>
 						
 						<div class="tit">
@@ -304,7 +255,7 @@
 								href="/web/syxy" target="_black">《产品协议》</a></span>
 								
 						</p>
-						<button class="submit" onclick="fun('${memberBankcards[0].id}','${ Lname}')">确认抢购</button>
+						<button class="submit" >确认抢购</button>
 					</div>
 				</td>
 			</tr>

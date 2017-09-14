@@ -154,6 +154,12 @@ public class AG_UserPlay {
 
 		return "Login";
 	}
+	
+	@RequestMapping("GoRecharge")
+	public String GoRecharge() {
+		return "ZhifuLogin";
+	}
+	
 	@RequestMapping("AlipayTradePagePay")
 	public String AlipayTradePagePay(MemberTradeRecord memberTradeRecord,
 	MemberDepositRecord memberDepositRecord,String name, String WIDout_trade_no, String WIDsubject, int WIDtotal_amount,
@@ -200,4 +206,32 @@ public class AG_UserPlay {
 		AG_ProductServiceImpl.saveMemberTradeRecord(memberTradeRecord);
 		return "alipay.trade.page.pay";
 	}
+
+//	// 支付成功
+//	@RequestMapping("AlipayTradePagePaySuccessful")
+//	public String AlipayTradePagePaySuccessful(Member_tally member_tally) {
+//		// 支付成功
+//		// 交易状态成功
+//		memberDepositRecord.setStatus(1);
+//		AG_ProductServiceImpl.saveAlipayTradePagePay(memberDepositRecord);
+//		memberTradeRecord.setTrade_status(1);
+//		AG_ProductServiceImpl.saveMemberTradeRecord(memberTradeRecord);
+//		// 查询这个用户MemberAccount表
+//		MemberAccount MAccount = AG_ProductServiceImpl.UpdateMemberAccount(member.getId());
+//		// 修改这个用户MemberAccount的可用金额
+//		MAccount.setMember(member);
+//		MAccount.setUseable_balance(MAccount.getUseable_balance() + number);
+//		MAccount.setUpdate_date(memberTradeRecord.getCreate_date());
+//		AG_ProductServiceImpl.saveMemberAccount(MAccount);
+//		// 保存MemberAccount表数据
+//		AG_ProductServiceImpl.saveMemberAccount(MAccount);
+//		member_tally.setAmount(number);
+//		member_tally.setCreate_date(shijian);
+//		member_tally.setMember(member);
+//		member_tally.setPay_date(shijian);
+//		member_tally.setType_id(1);
+//		member_tally.setType_name("支付宝充值");
+//		AG_ProductServiceImpl.saveMembertally(member_tally);
+//		return "Login";
+//	}
 }

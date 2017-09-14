@@ -27,10 +27,10 @@ public class AlipayConfig {
     public static String alipay_public_key = "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnhO9txIdTD9vglXukVLXxFzzk9XfJRGxn4JbzxZdpS3Sr6/ahKXFZoD3jmt+RTBiAbSjAVXOsc/jStlwBT7Zl2k7h0WvM/qMyJY/QZV+pcTii7CuEYtQG8PAaDWe6TSSpXvVvcOOAwqO2Ohv76f2jTAMcgbinQRo9KLSfE5kjti/+buXNGxL7MCJhZsNpl16f2RWfI/SwFF4U3CtyPk91io4HIOcRNMt4oZTs8VAdu8GUpsTb2bm91fb4N/l5iAD53YcyKxlkITb3sx/AC9OCpv1IO/wE7abX3nQfcQ5tBSK5Ge8zVUax8EYgdvnbVhGYYWh9omdk0DdnzstVVSBjwIDAQAB";
 
 	// 服务器异步通知页面路径  需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-	public static String notify_url = "http://localhost:8080/alipay.trade.page.pay-JAVA-UTF-8/notify_url.jsp";
+	public static String notify_url = "/Cornucopia/AG_UserPlay/AlipayTradePagePaySuccessful";
 
 	// 页面跳转同步通知页面路径 需http://格式的完整路径，不能加?id=123这类自定义参数，必须外网可以正常访问
-	public static String return_url = "http://localhost:8080/alipay.trade.page.pay-JAVA-UTF-8/return_url.jsp";
+	public static String return_url = "/Cornucopia/AG_UserPlay/AlipayTradePagePaySuccessful";
 
 	// 签名方式
 	public static String sign_type = "RSA2";

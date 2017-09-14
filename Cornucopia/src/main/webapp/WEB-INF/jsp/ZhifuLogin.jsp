@@ -196,6 +196,9 @@ h2 {
 }
 </style>
 </head>
+<script type="text/javascript">
+<%String datetime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()); //获取系统时间%>
+</script>
 <body text=#000000 bgColor="#ffffff" leftMargin=0 topMargin=4>
 	<header class="am-header">
 	<h1>支付宝电脑网站支付体验入口页</h1>
@@ -208,12 +211,13 @@ h2 {
 			<h2 id="tab4" name="tab">退 款 查 询</h2>
 			<h2 id="tab5" name="tab">交 易 关 闭</h2>
 		</div>memberTradeRecord
-		<form name=alipayment action=alipay.trade.page.pay.jsp method=post
+		<form name=alipayment action="/Cornucopia/AG_UserPlay/AlipayTradePagePay?name=${Lname}" method=post
 			target="_blank">
 			<div id="body1" class="show" name="divcontent">
 				<dl class="content">
 					<dt>商户订单号 ：</dt>
 					<dd>
+							<input type="hidden" name="date" value="<%=datetime%>">
 						<input id="WIDout_trade_no" name="WIDout_trade_no" />
 					</dd>
 					<hr class="one_line">
@@ -341,6 +345,7 @@ h2 {
 				<dl class="content">
 					<dt>商户订单号 ：</dt>
 					<dd>
+			
 						<input id="WIDTCout_trade_no" name="WIDTCout_trade_no" />
 					</dd>
 					<hr class="one_line">
@@ -367,6 +372,7 @@ h2 {
 	</div>
 </body>
 <script language="javascript">
+
 	var tabs = document.getElementsByName('tab');
 	var contents = document.getElementsByName('divcontent');
 	
@@ -399,8 +405,10 @@ h2 {
 		sNow += String(vNow.getSeconds());
 		sNow += String(vNow.getMilliseconds());
 		document.getElementById("WIDout_trade_no").value =  sNow;
-		document.getElementById("WIDsubject").value = "杜蕾斯";
-		document.getElementById("WIDtotal_amount").value = "1";
+		document.getElementById("WIDsubject").value = "梵雅金融充值";
+		document.getElementById("WIDtotal_amount").value = "100";
+		document.getElementById("WIDbody").value = "梵雅金融充值";
+		
 	}
 	GetDateNow();
 </script>
