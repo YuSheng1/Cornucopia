@@ -45,7 +45,7 @@ public class AG_ProductServiceImpl implements AG_ProductService {
 		MemberAccount memberAccount=ag_ProductDao.GetMemberAccount(objects);
 		return memberAccount;
 	}
-
+	
 	// 向交易记录表添加数据
 	@Override
 	public void saveMemberTradeRecord(Object... object) {
@@ -66,7 +66,12 @@ public class AG_ProductServiceImpl implements AG_ProductService {
 		ag_ProductDao.saveSubjectPurchaseRecord(object);
 
 	}
+	@Override
+	public void saveAlipayTradePagePay(Object... object) {
+		ag_ProductDao.saveSubjectPurchaseRecord(object);
 
+	}
+	
 	@Override
 	public void saveMemberAccount(Object... object) {
 		ag_ProductDao.saveMemberAccount(object);

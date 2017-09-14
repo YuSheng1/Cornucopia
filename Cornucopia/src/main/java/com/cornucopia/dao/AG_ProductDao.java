@@ -81,15 +81,20 @@ public class AG_ProductDao {
 	// 向交易记录表添加数据
 	public void saveMemberTradeRecord(Object... object) {
 		Session session = getsession();
-		session.save(object[0]);
+		session.saveOrUpdate(object[0]);
 
 	}
 
 	// 往及账表添加数据
 	public void saveMembertally(Object... object) {
 		Session session = getsession();
-		session.save(object[0]);
+		session.saveOrUpdate(object[0]);
 	}
+	// 往充值表添加数据
+		public void saveAlipayTradePagePay(Object... object) {
+			Session session = getsession();
+			session.saveOrUpdate(object[0]);
+		}
 
 	// 修改成员表金额
 	public void saveMemberAccount(Object... object) {

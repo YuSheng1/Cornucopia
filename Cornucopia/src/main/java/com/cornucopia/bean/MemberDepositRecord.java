@@ -19,8 +19,8 @@ public class MemberDepositRecord {
 	private String pay_channel_name;//充值渠道名称
 	private String pay_channel_order_no;//充值渠道订单号
 	private int delFlag;//标志
-	private Date create_date;//创建时间
-	private Date update_date;//修改时间
+	private String create_date;//创建时间
+	private String update_date;//修改时间
 	private Member member;
 	@ManyToOne
 	@JoinColumn(name="member_id")
@@ -74,16 +74,16 @@ public class MemberDepositRecord {
 	public void setDelFlag(int delFlag) {
 		this.delFlag = delFlag;
 	}
-	public Date getCreate_date() {
+	public String getCreate_date() {
 		return create_date;
 	}
-	public void setCreate_date(Date create_date) {
+	public void setCreate_date(String create_date) {
 		this.create_date = create_date;
 	}
-	public Date getUpdate_date() {
+	public String getUpdate_date() {
 		return update_date;
 	}
-	public void setUpdate_date(Date update_date) {
+	public void setUpdate_date(String update_date) {
 		this.update_date = update_date;
 	}
 	

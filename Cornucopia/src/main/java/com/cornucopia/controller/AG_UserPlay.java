@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.cornucopia.bean.Member;
 import com.cornucopia.bean.MemberAccount;
+import com.cornucopia.bean.MemberDepositRecord;
 import com.cornucopia.bean.MemberProfitRecord;
 import com.cornucopia.bean.MemberTradeRecord;
 import com.cornucopia.bean.Member_tally;
@@ -153,5 +154,50 @@ public class AG_UserPlay {
 
 		return "Login";
 	}
-
+	@RequestMapping("AlipayTradePagePay")
+	public String AlipayTradePagePay(MemberTradeRecord memberTradeRecord,
+	MemberDepositRecord memberDepositRecord,String name, String WIDout_trade_no, String WIDsubject, int WIDtotal_amount,
+			String WIDbody, String date) {
+		// WIDout_trade_no订单标号
+		// WIDsubject
+		// WIDtotal_amount订单金额
+		// WIDbody商品描述
+		// date系统时间
+		// 获取用户表
+		Member member = validateImpl.member(name);
+		// 添加充值流水表
+		memberDepositRecord.setAmount(WIDtotal_amount);
+		// 添加创建日期
+		memberDepositRecord.setCreate_date(date);
+		// 添加修改日期
+		memberDepositRecord.setUpdate_date(date);
+		// 交易是否可用
+		memberDepositRecord.setDelFlag(0);
+		// 添加充值方
+		memberDepositRecord.setPay_channel_name("支付宝充值");
+		// 添加充值方订单号
+		memberDepositRecord.setPay_channel_order_no(WIDout_trade_no);
+		// 添加流水号
+		memberDepositRecord.setSerial_number(WIDout_trade_no);
+		// 添加充值状态
+		memberDepositRecord.setStatus(0);
+		// memberTradeRecord
+		memberTradeRecord.setAmount(WIDtotal_amount);
+		memberTradeRecord.setCounterpart("梵雅金融");
+		memberTradeRecord.setCreate_date(date);
+		memberTradeRecord.setFund_flow(1);
+		memberTradeRecord.setTrade_name("支付宝充值" + WIDtotal_amount + "元");
+		memberTradeRecord.setTrade_no(WIDout_trade_no);
+		// 状态写0了 注意这里
+		memberTradeRecord.setTrade_status(0);
+		memberTradeRecord.setTrade_type("支付宝充值");
+		memberTradeRecord.setUpdate_date(date);
+		memberTradeRecord.setMember(member);
+		// 保存member对象
+		memberDepositRecord.setMember(member);
+		// 充值表添加信息
+		AG_ProductServiceImpl.saveAlipayTradePagePay(memberDepositRecord);
+		AG_ProductServiceImpl.saveMemberTradeRecord(memberTradeRecord);
+		return "alipay.trade.page.pay";
+	}
 }
