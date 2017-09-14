@@ -50,14 +50,14 @@ public class PM_NewsDao {
 			return News;
 		}
 		
-		//查询是否有该类别
-			public  boolean getByName(String name) {
-				Session session=getSession();
-				String hql="from NewsType u where u.name='"+name+"'";
-				List<Users> list=session.createQuery(hql).list();
-				if(list.size()>0){
-					return false;
-				}
-				return true;
+		//查询是否有该标题
+		public  Boolean getByName(String tname) {
+			Session session=getSession();
+			String hql="from News u where u.title='"+tname+"'";
+			List<News> list=session.createQuery(hql).list();
+			if(list.size()>0){
+				return false;
 			}
+			return true;
+		}
 }

@@ -49,16 +49,6 @@ public class PM_NewsTypeCotroller {
 			return "redirect:/BgType/BgConsultation";
 		}
 		
-		//删除
-		@RequestMapping("/del")
-		public String del(int delid) {
-			System.out.println(delid+00000123456);
-			NewsType news = pm_NewsTypeServiceImpl.getById(delid);
-			//这里有个问题，不会删除用户表
-			pm_NewsTypeServiceImpl.delete(news);
-			return "redirect:/BgType/BgConsultation";
-		}
-		
 		
 		//查询是否有该类别
 		@ResponseBody

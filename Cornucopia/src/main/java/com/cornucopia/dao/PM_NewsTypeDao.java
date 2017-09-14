@@ -7,9 +7,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.cornucopia.bean.News;
 import com.cornucopia.bean.NewsType;
-import com.cornucopia.bean.UserRole;
-import com.cornucopia.bean.Users;
 
 @Component
 public class PM_NewsTypeDao {
@@ -56,7 +55,7 @@ public class PM_NewsTypeDao {
 		public  boolean getByName(String name) {
 			Session session=getSession();
 			String hql="from NewsType u where u.name='"+name+"'";
-			List<Users> list=session.createQuery(hql).list();
+			List<NewsType> list=session.createQuery(hql).list();
 			if(list.size()>0){
 				return false;
 			}

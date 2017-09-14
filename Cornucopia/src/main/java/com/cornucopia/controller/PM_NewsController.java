@@ -51,16 +51,26 @@ public class PM_NewsController {
 			return "redirect:/BgNews/BgTration";
 		}
 		
+		// 删除标题
+				@RequestMapping("del")
+				public String del(int delid) {
+					System.out.println(delid);
+					News news = newsServiceImpl.getById(delid);
+					newsServiceImpl.delete(news);
+					return "redirect:/BgNews/BgTration";
+				}
+		
 		// 修改标题
-		@RequestMapping("update")
-		public String update(String title, int error, String updTime) {
-			News news = newsServiceImpl.getByName(title);
-			NewsType newsType = newsTypeServiceImpl.getById(error);
-			news.setNewsType(newsType);
-			news.setUpdTime(updTime);
-			newsTypeServiceImpl.save(news);
-			return "redirect:/BgNews/BgTration";
-		}
+				@RequestMapping("update")
+				public String update(String title,String updTime,int error) {
+					System.out.println("000123");
+					News news = newsServiceImpl.getByName(title);
+					NewsType newsType = newsTypeServiceImpl.getById(error);
+					news.setNewsType(newsType);
+					news.setUpdTime(updTime);
+					newsServiceImpl.save(news);
+					return "redirect:/BgNews/BgTration";
+				}
 		
 		// 查询是否有该标题
 		@ResponseBody
