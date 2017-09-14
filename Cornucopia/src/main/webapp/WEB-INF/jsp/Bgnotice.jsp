@@ -52,7 +52,7 @@ $(document).ready(function(){
 </script>
 <script type="text/javascript">
 $(function () {
-    $('#xform').bootstrapValidator({message: 'This value is not valid',feedbackIcons: {valid: 'glyphicon glyphicon-ok',invalid: 'glyphicon glyphicon-remove',validating: 'glyphicon glyphicon-refresh' },
+    $('form').bootstrapValidator({message: 'This value is not valid',feedbackIcons: {valid: 'glyphicon glyphicon-ok',invalid: 'glyphicon glyphicon-remove',validating: 'glyphicon glyphicon-refresh' },
         fields: {
             title: {
                 message: '标题验证失败',
@@ -163,11 +163,8 @@ $(document).ready(function() {
     <c:forEach items="${plist }" var="e" varStatus="stat">
 		<tr>
 		<td>${e.id }</td><td>公告</td><td>${e.title }</td><td>${e.create_date }</td>
-		<td>
-	<ul class="menuson">
-        <li><a href="/Cornucopia/push/cha?id=${e.id}" target="rightFrame">查看</a></li>
-        <li><a href="/Cornucopia/push/update" target="rightFrame">编辑</a></li>
-    </ul>
+		<td><a href="">查看</a>
+		<li><span></span><a href="">编辑</a></li>
 		</td>
 		</tr>
 	</c:forEach>
@@ -190,7 +187,7 @@ $(document).ready(function() {
                     </div>
 
                     <div class="panel-body">
-                       	<form id="xform" method="post"  action="/Cornucopia/push/save">
+                       	<form id="form" method="post"  action="/Cornucopia/push/save">
                             <div class="form-group">
                                 <label>公告标题:</label>
                                  <input type="text" class="form-control" placeholder="请输入公告标题" name="title">

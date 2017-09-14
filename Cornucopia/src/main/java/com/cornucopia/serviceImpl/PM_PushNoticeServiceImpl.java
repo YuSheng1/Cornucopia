@@ -3,8 +3,6 @@ package com.cornucopia.serviceImpl;
 import java.util.List;
 import java.util.Map;
 
-import javax.transaction.Transactional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -40,11 +38,4 @@ public class PM_PushNoticeServiceImpl<T> implements PM_PushNoticeService{
 		List<PushNotice> plist=pushNoticeDao.ListAll(objects);
 		return plist;
 	}
-
-	//根据ID查询公告内容
-	@Override
-	public PushNotice chakan(int id) {
-		return pushNoticeDao.chakan(id);
-	}
-
 }

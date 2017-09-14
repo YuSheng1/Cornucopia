@@ -46,7 +46,7 @@ public class PM_PushNoticeDao {
 		session.save(objects[0]);
 	}
 	
-	//查询是否有该标题
+	//查询是否有该角色
 		public  boolean getByTitle(String title) {
 			Session session=getSession();
 			String hql="from PushNotice p where p.title='"+title+"'";
@@ -55,11 +55,5 @@ public class PM_PushNoticeDao {
 				return false;
 			}
 			return true;
-		}
-	//根据id查询公告内容
-		public PushNotice chakan(int id){
-			Session session=getSession();
-			PushNotice pushNotice = (PushNotice) session.get(PushNotice.class, id);
-			return pushNotice;
 		}
 }
