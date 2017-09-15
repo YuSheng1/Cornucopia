@@ -183,10 +183,9 @@
                		<li><a href="#" id="44">已完成</a></li>
             </ul>
         </div>
-<<<<<<< HEAD
-		
-		<div class="ajaxContainer">
+		<div class="ajaxContainer" style="margin-left: 300px;width: 1000px;">
 	<!-- 异步内容开始 -->
+			<c:forEach items="${slist }" var="list">
 					<ul class="tbList">
 						<li class="first">
 									<span class="ico zq"></span>
@@ -196,23 +195,23 @@
 						<li class="second">					
 							
 							<div class="txt1">
-								<h2>5.0<span style="font-size:18px;">+1.0%</span></h2>
+								<h2>${list.year_rote}<span style="font-size:18px;">+1.0%</span></h2>
 								<p>年化收益</p>
 							</div>
 							
 							<div class="txt2">
-								<h2>￥100.00</h2>
+								<h2>￥${list.floor_amount}</h2>
 								<p>起购金额(元)</p>
 							</div>
 							
 							<div class="txt2">
-								<h2>5天</h2>
+								<h2>${list.period }天</h2>
 								<p>投资期限</p>
 							</div>
 						</li>
 						<li class="three">
 								<a href="#1">企业担保</a><span>中国人保财险承保</span>
-								<p>计息日期：当天投资，立即计息<br>已购人数：689人</p>
+								<p>计息日期：当天投资，立即计息<br>已购人数：${list.bought}人</p>
 						</li>
 						<li class="four">
 								
@@ -221,6 +220,7 @@
 							<a class="abtn" href="/subject/subjectContent/1612">购买</a>
 						</li>
 					</ul>
+					</c:forEach>
 		</div>
         
 

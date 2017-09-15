@@ -17,8 +17,8 @@ public class AG_SubjectServiceImpl implements AG_SubjectService {
 
 	@Override
 	public  List<Subject> ListAll(Object... objects) {
-		// TODO Auto-generated method stub
-		return null;
+		List<Subject> slist=AG_subjectDao.ListAll();
+		return slist;
 	}
 
 }

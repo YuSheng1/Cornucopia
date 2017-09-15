@@ -21,7 +21,7 @@ public class AG_SubjectDao {
 	
 	public List<Subject> ListAll(){
 		Session session=getSession();
-		List<Subject> list=session.createQuery("from Subject").list();
-		return list;
+		List<Subject> slist=session.createQuery("from Subject").list();
+		return slist;
 	}
 }

@@ -61,11 +61,6 @@ public class AG_UserController {
 		return "Contact";
 	}
 
-	@RequestMapping("Example")
-	public String Example() {
-		return "Example";
-	}
-
 	@RequestMapping("Join")
 	public String Join() {
 		return "Join";

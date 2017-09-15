@@ -15,8 +15,8 @@ public class Subject {
             private String name;//标的名称
             private int type;//标的类型
             private int status;//标的状态
-            private int floor_amount;//起投金额
-            private int amount;//标的金额
+            private float floor_amount;//起投金额
+            private float amount;//标的金额
             private int first_id;//始标id
             private int parent_id;//父标id
             private int period;//标的周期
@@ -77,16 +77,16 @@ public class Subject {
 			public void setStatus(int status) {
 				this.status = status;
 			}
-			public int getFloor_amount() {
+			public float getFloor_amount() {
 				return floor_amount;
 			}
-			public void setFloor_amount(int floor_amount) {
+			public void setFloor_amount(float floor_amount) {
 				this.floor_amount = floor_amount;
 			}
-			public int getAmount() {
+			public float getAmount() {
 				return amount;
 			}
-			public void setAmount(int amount) {
+			public void setAmount(float amount) {
 				this.amount = amount;
 			}
 			public int getFirst_id() {
