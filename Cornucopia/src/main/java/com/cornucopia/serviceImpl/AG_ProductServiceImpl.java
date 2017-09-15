@@ -54,11 +54,12 @@ public class AG_ProductServiceImpl implements AG_ProductService {
 	}
 
 	// 往及账表添加数据
-	@Override
-	public void saveMembertally(Object... object) {
-		ag_ProductDao.saveMembertally(object);
+		@Override
+		public void saveMembertally(Object... object) {
+			ag_ProductDao.saveMembertally(object);
 
-	}
+		}
+		
 
 	// 往购买标的标添加数据
 	@Override
@@ -71,12 +72,18 @@ public class AG_ProductServiceImpl implements AG_ProductService {
 		ag_ProductDao.saveSubjectPurchaseRecord(object);
 
 	}
+	@Override
+	public void updateAlipayTradePagePay(Object... object) {
+		ag_ProductDao.updateAlipayTradePagePay(object);
+
+	}
 	
 	@Override
 	public void saveMemberAccount(Object... object) {
 		ag_ProductDao.saveMemberAccount(object);
 		
 	}
+	
 
 	@Override
 	public void saveMemberProfitRecord(Object... object) {

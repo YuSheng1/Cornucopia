@@ -1,10 +1,14 @@
 package com.cornucopia.controller;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
+import org.apache.shiro.session.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +36,9 @@ public class AG_UserPlay {
 	// 产品炒作类
 	@Resource
 	private AG_ProductService AG_ProductServiceImpl;
+	Date currentTime = new Date();
+	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+	String dateString = formatter.format(currentTime);
 
 	@RequestMapping("GoPlay")
 	public String BgMain(MemberTradeRecord memberTradeRecord, Member_tally member_tally,
@@ -68,7 +75,9 @@ public class AG_UserPlay {
 		// 记账表消费类型暂时放0 以后天际
 		member_tally.setType_id(0);
 		// 记账表类别
-		member_tally.setType_name(memberTradeRecord.getTrade_type());
+		member_tally.setType_name("购买:" + subject.getName());
+		//及账表成功
+		member_tally.setType_id(1);
 		// 记账表金额
 		member_tally.setAmount(memberTradeRecord.getAmount());
 		// 记账表时间
@@ -133,10 +142,14 @@ public class AG_UserPlay {
 		if (sRecord.size() > 1) {
 			for (SubjectPurchaseRecord subjectPurchaseRecord2 : sRecord) {
 				count = subjectPurchaseRecord2.getPay_interest_times();
+				subjectPurchaseRecord2.setPay_interest_times(count + 1);
 				subjectPurchaseRecord.setPay_interest_times(count + 1);
+				subjectPurchaseRecord2.setSubject(subject);
+				subjectPurchaseRecord2.setMember(member);
+				// 如果这个集合大于0 就去根据用户名和标的id去修改所有次数+1
+				AG_ProductServiceImpl.UpdateSubjectPurchaseRecord(subjectPurchaseRecord2);
 			}
-			// 如果这个集合大于0 就去根据用户名和标的id去修改所有次数+1
-			AG_ProductServiceImpl.UpdateSubjectPurchaseRecord(member.getId(), subject_id, count);
+			
 		} else {
 			// 如果这个用户没有购买这个标，就让他加1
 			subjectPurchaseRecord.setPay_interest_times(1);
@@ -152,7 +165,7 @@ public class AG_UserPlay {
 		// 保存memberProfitRecord对象
 		AG_ProductServiceImpl.saveMemberProfitRecord(memberProfitRecord);
 
-		return "Login";
+		return "redirect:/item/Purchased?id="+subject.getId();
 	}
 	
 	@RequestMapping("GoRecharge")
@@ -163,14 +176,14 @@ public class AG_UserPlay {
 	@RequestMapping("AlipayTradePagePay")
 	public String AlipayTradePagePay(MemberTradeRecord memberTradeRecord,
 	MemberDepositRecord memberDepositRecord,String name, String WIDout_trade_no, String WIDsubject, int WIDtotal_amount,
-			String WIDbody, String date) {
+			String WIDbody, String date,HttpSession session) {
 		// WIDout_trade_no订单标号
 		// WIDsubject
 		// WIDtotal_amount订单金额
 		// WIDbody商品描述
 		// date系统时间
 		// 获取用户表
-		Member member = validateImpl.member(name);
+		Member member=(Member)session.getAttribute("member");
 		// 添加充值流水表
 		memberDepositRecord.setAmount(WIDtotal_amount);
 		// 添加创建日期
@@ -204,34 +217,45 @@ public class AG_UserPlay {
 		// 充值表添加信息
 		AG_ProductServiceImpl.saveAlipayTradePagePay(memberDepositRecord);
 		AG_ProductServiceImpl.saveMemberTradeRecord(memberTradeRecord);
+		    session.setAttribute("WIDtotal_amount", WIDtotal_amount);
+		    session.setAttribute("memberDepositRecord", memberDepositRecord);
+		    session.setAttribute("memberTradeRecord", memberTradeRecord);
 		return "alipay.trade.page.pay";
 	}
 
-//	// 支付成功
-//	@RequestMapping("AlipayTradePagePaySuccessful")
-//	public String AlipayTradePagePaySuccessful(Member_tally member_tally) {
-//		// 支付成功
-//		// 交易状态成功
-//		memberDepositRecord.setStatus(1);
-//		AG_ProductServiceImpl.saveAlipayTradePagePay(memberDepositRecord);
-//		memberTradeRecord.setTrade_status(1);
-//		AG_ProductServiceImpl.saveMemberTradeRecord(memberTradeRecord);
-//		// 查询这个用户MemberAccount表
-//		MemberAccount MAccount = AG_ProductServiceImpl.UpdateMemberAccount(member.getId());
-//		// 修改这个用户MemberAccount的可用金额
-//		MAccount.setMember(member);
-//		MAccount.setUseable_balance(MAccount.getUseable_balance() + number);
-//		MAccount.setUpdate_date(memberTradeRecord.getCreate_date());
-//		AG_ProductServiceImpl.saveMemberAccount(MAccount);
-//		// 保存MemberAccount表数据
-//		AG_ProductServiceImpl.saveMemberAccount(MAccount);
-//		member_tally.setAmount(number);
-//		member_tally.setCreate_date(shijian);
-//		member_tally.setMember(member);
-//		member_tally.setPay_date(shijian);
-//		member_tally.setType_id(1);
-//		member_tally.setType_name("支付宝充值");
-//		AG_ProductServiceImpl.saveMembertally(member_tally);
-//		return "Login";
-//	}
+	// 支付成功
+	@RequestMapping("AlipayTradePagePaySuccessful")
+	public String AlipayTradePagePaySuccessful(Member_tally member_tally,HttpSession session) {
+		// 支付成功
+		// 交易状态成功
+		Member member=(Member)session.getAttribute("member");
+		MemberDepositRecord memberDepositRecord=(MemberDepositRecord)session.getAttribute("memberDepositRecord");
+		MemberTradeRecord memberTradeRecord=(MemberTradeRecord)session.getAttribute("memberTradeRecord");
+		int number =(int) session.getAttribute("WIDtotal_amount");
+		Subject sub=(Subject) session.getAttribute("subject");
+		memberDepositRecord.setStatus(1);
+		
+		AG_ProductServiceImpl.updateAlipayTradePagePay(memberDepositRecord);
+		memberTradeRecord.setTrade_status(1);
+		AG_ProductServiceImpl.saveMemberTradeRecord(memberTradeRecord);
+		// 查询这个用户MemberAccount表
+		MemberAccount MAccount = AG_ProductServiceImpl.UpdateMemberAccount(member.getId());
+		// 修改这个用户MemberAccount的可用金额
+		MAccount.setMember(member);
+		MAccount.setUseable_balance(MAccount.getUseable_balance() + number);
+		MAccount.setUpdate_date(memberTradeRecord.getCreate_date());
+		// 保存MemberAccount表数据
+		AG_ProductServiceImpl.saveMemberAccount(MAccount);
+		member_tally.setAmount(number);
+		member_tally.setCreate_date(dateString);
+		member_tally.setMember(member);
+		member_tally.setPay_date(dateString);
+		member_tally.setType_id(1);
+		member_tally.setType_name("支付宝充值");
+		AG_ProductServiceImpl.saveMembertally(member_tally);
+		session.setAttribute("memberDepositRecord", null);
+		session.setAttribute("memberTradeRecord", null);
+		session.setAttribute("WIDtotal_amount", null);
+		return "redirect:/item/Purchased?id="+sub.getId();
+	}
 }

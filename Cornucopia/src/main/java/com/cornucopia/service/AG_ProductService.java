@@ -21,5 +21,6 @@ public interface AG_ProductService {
 		public void saveSubject(Object...object);
 		//往充值表添加数据
 		public void saveAlipayTradePagePay(Object...object);
-
+		public void updateAlipayTradePagePay(Object...object);
+		
 }

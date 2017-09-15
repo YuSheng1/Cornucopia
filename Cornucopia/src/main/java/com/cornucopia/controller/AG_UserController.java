@@ -3,12 +3,14 @@ package com.cornucopia.controller;
 import java.util.List;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.cornucopia.bean.Member;
 import com.cornucopia.bean.MemberAccount;
 import com.cornucopia.bean.MemberBankcards;
 import com.cornucopia.bean.Subject;
@@ -35,18 +37,19 @@ public class AG_UserController {
 
 	// 购买产品
 	@RequestMapping("/Purchased")
-	public String Purchased(int id, Model model,int mid) {
-		System.out.println(id+"---"+mid);
+	public String Purchased(int id, Model model,HttpSession session) {
+		Member member=(Member) session.getAttribute("member");
+		System.out.println(id+"---"+member.getId());
 		//现在是死值
 		id=1628;
 		//根据登陆人id查询可用金额
-		MemberAccount memberAccount=validateImpl.MemberAccount(mid);
+		MemberAccount memberAccount=validateImpl.MemberAccount(member.getId());
 		//根据登录人id查询是否绑定银行卡
-		List<MemberBankcards> memberBankcards=validateImpl.MemberBankcards(mid);
+		List<MemberBankcards> memberBankcards=validateImpl.MemberBankcards(member.getId());
 		Subject subject = AG_ProductServiceImpl.getBySubjectId(id);
 		model.addAttribute("memberBankcards", memberBankcards);
 		model.addAttribute("memberAccount", memberAccount);
-		model.addAttribute("subject", subject);
+		session.setAttribute("subject", subject);
 		return "Purchased";
 	}
 
@@ -86,6 +89,7 @@ public class AG_UserController {
 		org.apache.shiro.subject.Subject subject = SecurityUtils.getSubject();
 		Session session = subject.getSession();
 		session.setAttribute("Lname", null);
+		session.setAttribute("member", null);
 		return "Login";
 	}
 

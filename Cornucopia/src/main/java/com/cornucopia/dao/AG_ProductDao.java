@@ -61,10 +61,7 @@ public class AG_ProductDao {
 	// 根据ID修改产品购买表操作
 	public void UpdateSubjectPurchaseRecord(Object... objects) {
 		Session session = getsession();
-		System.out.println("秀高了");
-		String sql = "update subject_purchase_record set pay_interest_times="+ objects[2]+ " where member_id="
-				+ objects[0] + "  and subject_id=" + objects[1];
-		          session.createSQLQuery(sql);
+		session.update(objects[0]);
 	}
 
 	// 根据ID查询成员账户表操作
@@ -93,8 +90,13 @@ public class AG_ProductDao {
 	// 往充值表添加数据
 		public void saveAlipayTradePagePay(Object... object) {
 			Session session = getsession();
-			session.saveOrUpdate(object[0]);
+			session.save(object[0]);
 		}
+		// 往充值表添加数据
+				public void updateAlipayTradePagePay(Object... object) {
+					Session session = getsession();
+					session.update(object[0]);
+				}
 
 	// 修改成员表金额
 	public void saveMemberAccount(Object... object) {
