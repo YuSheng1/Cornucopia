@@ -44,9 +44,9 @@ public class PM_NewsServiceImpl implements PM_NewsService {
 	}
 
 	@Override
-	public  Boolean getByName(String name) {
-		boolean newsType=newsDao.getByName(name);
-		return newsType;
+	public  Boolean getByName(String title) {
+		boolean boo=newsDao.getByName(title);
+		return boo;
 	}
 
 }

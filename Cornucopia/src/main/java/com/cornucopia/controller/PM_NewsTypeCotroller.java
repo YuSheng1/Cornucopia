@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cornucopia.bean.NewsType;
+import com.cornucopia.bean.UserRole;
 import com.cornucopia.service.PM_NewsService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -45,14 +46,6 @@ public class PM_NewsTypeCotroller {
 		public String update(NewsType newsType) {
 			System.out.println(newsType.getTid());
 			pm_NewsTypeServiceImpl.update(newsType);
-			return "redirect:/BgType/BgConsultation";
-		}
-		
-		//删除
-		@RequestMapping("/delete")
-		public String delete(int id ) {
-			System.out.println(123);
-			pm_NewsTypeServiceImpl.delete(id);
 			return "redirect:/BgType/BgConsultation";
 		}
 		

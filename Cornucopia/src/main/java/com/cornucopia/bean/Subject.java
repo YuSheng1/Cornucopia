@@ -15,8 +15,8 @@ public class Subject {
             private String name;//标的名称
             private int type;//标的类型
             private int status;//标的状态
-            private int floor_amount;//起投金额
-            private int amount;//标的金额
+            private float floor_amount;//起投金额
+            private float amount;//标的金额
             private int first_id;//始标id
             private int parent_id;//父标id
             private int period;//标的周期
@@ -25,14 +25,12 @@ public class Subject {
             private Date raise_end;//募集结束
             private int refund_way;//还款方式
             private int safeGuard_way;//保障方式
-            private Date start_date;//标的开始日期
-            private Date end_date;//标的结束日期
             private int year_rate;//年化率
             private String comment;//产品速览
             private int folder_id;//文件夹id
             private int delflag;//是否删除
-            private Date update_date;//更新日期
-            private Date create_date;//创建日期
+            private String update_date;//更新日期
+            private String create_date;//创建日期
             private String borrowername;//借款人姓名
             private int borrowerid;//借款人id
             private int bought;//已购人数
@@ -79,16 +77,16 @@ public class Subject {
 			public void setStatus(int status) {
 				this.status = status;
 			}
-			public int getFloor_amount() {
+			public float getFloor_amount() {
 				return floor_amount;
 			}
-			public void setFloor_amount(int floor_amount) {
+			public void setFloor_amount(float floor_amount) {
 				this.floor_amount = floor_amount;
 			}
-			public int getAmount() {
+			public float getAmount() {
 				return amount;
 			}
-			public void setAmount(int amount) {
+			public void setAmount(float amount) {
 				this.amount = amount;
 			}
 			public int getFirst_id() {
@@ -139,18 +137,6 @@ public class Subject {
 			public void setSafeGuard_way(int safeGuard_way) {
 				this.safeGuard_way = safeGuard_way;
 			}
-			public Date getStart_date() {
-				return start_date;
-			}
-			public void setStart_date(Date start_date) {
-				this.start_date = start_date;
-			}
-			public Date getEnd_date() {
-				return end_date;
-			}
-			public void setEnd_date(Date end_date) {
-				this.end_date = end_date;
-			}
 			public int getYear_rate() {
 				return year_rate;
 			}
@@ -175,16 +161,16 @@ public class Subject {
 			public void setDelflag(int delflag) {
 				this.delflag = delflag;
 			}
-			public Date getUpdate_date() {
+			public String getUpdate_date() {
 				return update_date;
 			}
-			public void setUpdate_date(Date update_date) {
+			public void setUpdate_date(String update_date) {
 				this.update_date = update_date;
 			}
-			public Date getCreate_date() {
+			public String getCreate_date() {
 				return create_date;
 			}
-			public void setCreate_date(Date create_date) {
+			public void setCreate_date(String create_date) {
 				this.create_date = create_date;
 			}
 			public String getBorrowername() {

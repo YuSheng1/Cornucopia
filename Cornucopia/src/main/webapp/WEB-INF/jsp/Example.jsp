@@ -183,6 +183,183 @@
                		<li><a href="#" id="44">已完成</a></li>
             </ul>
         </div>
+		<div class="ajaxContainer" style="margin-left: 300px;width: 1000px;">
+	<!-- 异步内容开始 -->
+			<c:forEach items="${slist }" var="list">
+					<ul class="tbList">
+						<li class="first">
+									<span class="ico zq"></span>
+							<h2><em>投</em>稳盈宝新手标</h2>
+							<i></i>
+						</li>
+						<li class="second">					
+							
+							<div class="txt1">
+								<h2>${list.year_rote}<span style="font-size:18px;">+1.0%</span></h2>
+								<p>年化收益</p>
+							</div>
+							
+							<div class="txt2">
+								<h2>￥${list.floor_amount}</h2>
+								<p>起购金额(元)</p>
+							</div>
+							
+							<div class="txt2">
+								<h2>${list.period }天</h2>
+								<p>投资期限</p>
+							</div>
+						</li>
+						<li class="three">
+								<a href="#1">企业担保</a><span>中国人保财险承保</span>
+								<p>计息日期：当天投资，立即计息<br>已购人数：${list.bought}人</p>
+						</li>
+						<li class="four">
+								
+						</li>
+						<li class="five">
+							<a class="abtn" href="/subject/subjectContent/1612">购买</a>
+						</li>
+					</ul>
+					</c:forEach>
+		</div>
+        
+
+    <div class="section">
+    
+    <div class="container">
+      <div>
+        <ul>
+        
+        </ul>
+      
+      </div>
+      
+    </div>
+      <div class="container">
+        <div class="section--header">
+					<h2 class="section--title">Latest News</h2>
+					<p class="section--description">
+						云适配与中建材信息技术股份有限公司（以下简称“中建信息”）联合举办的“战略
+						<br>合作签约仪式暨全国跨屏行动启动大会”在北京成功举办。
+					</p>
+				</div>
+
+        <div class="news-contaier">
+          <div class="blog">
+            <div class="am-g">
+             
+              <div class="am-u-lg-4 am-u-md-6">
+                <div class="article">
+                  <div class="article-img">
+                    <img src="../assets/images/news/b01.jpg" alt="" />
+                  </div>
+                  <div class="article-header">
+                    <h2><a href="#" rel="">云适配：价值驱动是占有市场的关键</a></h2>
+                    <ul class="article--meta">
+											<li class="article--meta_item -date">December 28, 2015</li>
+											<li class="article--meta_item comments">33 Comments</li>
+										</ul>
+                  </div>
+                  <div class="article--content">
+										<p>作为一家技术创新型企业，技术的先进性和创新型是构建企业核心竞争力的根本。但是要想占领市场并获得持续增长，需要从服务市场的角度出发，为用户输出价值，也是云适配的发展宗旨。</p>
+									</div>
+                  <div class="article--footer">
+  									<a href="#" class="link">Read More</a>
+  								</div>
+                </div>
+              </div>
+
+          
+
+
+              <div class="am-u-lg-4 am-u-md-6  am-u-end">
+                <div class="article">
+                  <div class="article-img">
+                    <img src="../assets/images/news/b01.jpg" alt="" />
+                  </div>
+                  <div class="article-header">
+                    <h2><a href="#" rel="">云适配：价值驱动是占有市场的关键</a></h2>
+                    <ul class="article--meta">
+											<li class="article--meta_item -date">December 28, 2015</li>
+											<li class="article--meta_item comments">33 Comments</li>
+										</ul>
+                  </div>
+                  <div class="article--content">
+										<p>作为一家技术创新型企业，技术的先进性和创新型是构建企业核心竞争力的根本。但是要想占领市场并获得持续增长，需要从服务市场的角度出发，为用户输出价值，也是云适配的发展宗旨。</p>
+									</div>
+                  <div class="article--footer">
+  									<a href="#" class="link">Read More</a>
+  								</div>
+                </div>
+              </div>
+
+              <div class="am-u-lg-4 am-u-md-6  am-u-end">
+                <div class="article">
+                  <div class="article-img">
+                    <img src="../assets/images/news/b01.jpg" alt="" />
+                  </div>
+                  <div class="article-header">
+                    <h2><a href="#" rel="">云适配：价值驱动是占有市场的关键</a></h2>
+                    <ul class="article--meta">
+											<li class="article--meta_item -date">December 28, 2015</li>
+											<li class="article--meta_item comments">33 Comments</li>
+										</ul>
+                  </div>
+                  <div class="article--content">
+										<p>作为一家技术创新型企业，技术的先进性和创新型是构建企业核心竞争力的根本。但是要想占领市场并获得持续增长，需要从服务市场的角度出发，为用户输出价值，也是云适配的发展宗旨。</p>
+									</div>
+                  <div class="article--footer">
+  									<a href="#" class="link">Read More</a>
+  								</div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- pagination-->
+           
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="section" style="margin-top:0px;background-image: url('../assets/images/pattern-light.png');">
+      <div class="container">
+        <!--index-container start-->
+        <div class="index-container">
+          <div class="am-g">
+            <div class="am-u-md-4">
+              <div class="contact_card">
+  							<i style="color:#59bcdb" class="contact_card--icon am-icon-phone"></i>
+  							<strong class="contact_card--title">Contact Us</strong>
+  							<p class="contact_card--text">Feel free to call us on <br> <strong>0 (855) 233-5385</strong> <br> Monday - Friday, 8am - 7pm</p>
+                <button type="button" class="am-btn am-btn-secondary">Order a Call Back</button>
+  						</div>
+            </div>
+            <div class="am-u-md-4">
+              <div class="contact_card">
+  							<i style="color:#59bcdb" class="contact_card--icon am-icon-envelope-o"></i>
+  							<strong class="contact_card--title">Our Email</strong>
+  							<p class="contact_card--text">Drop us a line anytime at <br> <strong><a href="mailto:info@financed.com">info@financed.com</a>,</strong> <br> and we’ll get back soon.</p>
+                <button type="button" class="am-btn am-btn-secondary">Start Writing</button>
+  						</div>
+            </div>
+            <div class="am-u-md-4">
+              <div class="contact_card">
+  							<i style="color:#59bcdb" class="contact_card--icon am-icon-map-marker"></i>
+  							<strong class="contact_card--title">Our Address</strong>
+  							<p class="contact_card--text">Come visit us at <br> <strong>Stock Building, New York,</strong> <br> NY 93459</p>
+                <button type="button" class="am-btn am-btn-secondary">See the Map</button>
+  						</div>
+            </div>
+          </div>
+        </div>
+        <!--index-container end-->
+      </div>
+    </div>
      
 <div class="ajaxContainer" style="margin-left: 300px;width: 1000px;">
 	<!-- 异步内容开始 -->

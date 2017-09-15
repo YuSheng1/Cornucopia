@@ -43,12 +43,12 @@ $(document).ready(function(){
 
 });
 
-function add(name,id,tid){
-	$("#name").val(name);
-	$("#name").val(name);
-	 $("#id").val(id);
-	
+function update(title,tid,id){
+	$("#title").val(title);
+	$("#error").val(tid);
+	 /* $("#id").val(id); */
 }
+
 	
 </script>
 <script type="text/javascript">
@@ -141,8 +141,9 @@ $(function () {
         <td>${list.id}</td>
         <td>${list.addTime}</td>
         <td>
-		<h6   onclick="update('${list.title}','${list.newsType.name}','${list.id}','${list.updTime}')" class="tablelink" data-toggle="modal" data-target="#myModal2"  > 
+		<h6   onclick="update('${list.title}','${list.newsType.tid}','${list.id}')" class="tablelink" data-toggle="modal" data-target="#myModal2"  > 
 		       <img src="../BgAssets/images/t02.png" />修改类别信息</h6>
+		       <h6 class="tablelink" data-toggle="modal" data-target="#myModal3" onclick="del(${list.id})"> <img src="../BgAssets/images/t03.png" />删除标题</h6>
 			</td>
 					</tr>
 				</c:forEach>
@@ -182,7 +183,7 @@ $(function () {
                     </div>
 
                     <div class="panel-body">
-                       	<form  id="formupdate" method="post"  action="/Cornucopia/BgType/update">
+                       	<form  id="formupdate" method="post"  action="/Cornucopia/BgNews/update">
                             <div class="form-group">
                                 <label>标题:</label>
                                  <input type="text" class="form-control" placeholder="请输入标题名称"  name="title" id="title"  >
@@ -194,8 +195,8 @@ $(function () {
           <option class="form-control" id="oid" value="${list.tid}"  selected="selected"  >${list.name}</option>
           	</c:forEach>
         </select>
-        <input style="display: none;"name="id"   id="id">
                             </div>
+                            <!-- <input style="display: none;"name="id"   id="id"> -->
 	<input style="display: none;"name="updTime" value="<%=datetime%>">
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary" >立即修改</button>
@@ -257,16 +258,15 @@ $(function () {
             <div class="col-lg-4 col-lg-offset-4">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h3 class="panel-title">删除角色<button type="button" class="close" 
+                        <h3 class="panel-title">删除标题<button type="button" class="close" 
                data-dismiss="modal" aria-hidden="true">
                   &times;            </button></h3>
                     </div>
 
                     <div class="panel-body">
-                       	<form id="form" method="post"  action="/Cornucopia/PM_UsersItem/del">
-                       	<h4 align="center"   style="font-style: normal;">是否要删除该角色</h4></br></br>
+                       	<form id="form" method="post"  action="/Cornucopia/BgNews/del">
+                       	<h4 align="center"   style="font-style: normal;">是否要删除该标题</h4></br></br>
                        	 <input style="display: none;"name="delid"   id="delid">
-                       	  <input style="display: none;"name="delname"   id="delname">
                                  <button type="button" class="btn btn-default" data-dismiss="modal">取消操作</button>
                                 <button type="submit" class="btn btn-primary" style="margin-left: 50px;">立即删除</button>
                         </form>
@@ -279,9 +279,8 @@ $(function () {
 	</div>
     
     <script type="text/javascript">
-    function del(id,delname){
+    function del(id){
     	$("#delid").val(id);
-    	$("#delname").val(delname);
     }
   
 	$('.tablelist tbody tr:odd').addClass('odd');
