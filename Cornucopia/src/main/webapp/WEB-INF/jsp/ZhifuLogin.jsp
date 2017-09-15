@@ -198,6 +198,13 @@ h2 {
 </head>
 <script type="text/javascript">
 <%String datetime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()); //获取系统时间%>
+function fun(){
+	alert(123)
+	window.location.reload();
+}
+
+
+
 </script>
 <body text=#000000 bgColor="#ffffff" leftMargin=0 topMargin=4>
 	<header class="am-header">
@@ -212,7 +219,7 @@ h2 {
 			<h2 id="tab5" name="tab">交 易 关 闭</h2>
 		</div>memberTradeRecord
 		<form name=alipayment action="/Cornucopia/AG_UserPlay/AlipayTradePagePay?name=${Lname}" method=post
-			target="_blank">
+			target="_blank"   onsubmit="fun();">
 			<div id="body1" class="show" name="divcontent">
 				<dl class="content">
 					<dt>商户订单号 ：</dt>
