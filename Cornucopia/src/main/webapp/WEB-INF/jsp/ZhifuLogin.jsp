@@ -199,7 +199,6 @@ h2 {
 <script type="text/javascript">
 <%String datetime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()); //获取系统时间%>
 function fun(){
-	alert(123)
 	window.location.reload();
 }
 

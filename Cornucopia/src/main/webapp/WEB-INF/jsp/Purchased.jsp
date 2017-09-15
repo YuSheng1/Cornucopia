@@ -38,7 +38,6 @@
 	function fun(id,name,qian){
 		var qc=	$("#mytext").val();
 		var yue=qian;
-		alert(qc+"--"+qian)
 		if(qc>yue){
 			document.getElementById("li6").style.display="";
 			return false;
