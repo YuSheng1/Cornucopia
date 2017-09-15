@@ -12,13 +12,12 @@
   <link rel="stylesheet" href="../assets/css/common.min.css" />
   <link rel="stylesheet" href="../assets/css/news.min.css" />
   <link rel="stylesheet" href="../assets/css/product.min.css" />
-  
-  
 <link href="../assets/css/iconfont.css" rel="stylesheet" type="text/css" />
 <link href="../assets/css/common1.css" rel="stylesheet">
 <link href="../assets/css/jw.css" rel="stylesheet">
 <script type="text/javascript" src="../assets/js/layer.js"></script>
 <script src="../assets/js/echarts.js"></script>
+<link href="../assets/css/jj/jw.css" rel="stylesheet">
 </head>
 <body>
   <div class="layout">
@@ -151,48 +150,7 @@
 
 
 
-  <!--===========layout-container================-->
-    <div class="layout-container">
-      <!--product1-page start-->
-      <div class="product1-page">
-        <div class="container">
-          <div data-am-widget="slider" class="am-slider am-slider-b3" data-am-slider='{"animation":"slide","slideshow":true}' >
-            <ul class="am-slides">
-                <li>
-                  <div class="product-banner-box">
-                    <h2>自主创新跨平台企业级浏览器内核</h2>
-                    <p>光明网曾考虑过通过原生App来实现移动化，但是由于无法复用原始业务流程和数据就放弃了，直到选用了云适配整体解决方案后，可<br/>以很方便的在Enterplorer上使用一个帐号登录我们的系统，通过VPN随时进入内网。</p>
-                    <button type="button" class="am-btn am-btn-secondary am-round">了解更多</button>
-                  </div>
-                </li>
-                <li>
-                  <div class="product-banner-box">
-                    <h2>自主创新跨平台企业级浏览器内核</h2>
-                    <p>光明网曾考虑过通过原生App来实现移动化，但是由于无法复用原始业务流程和数据就放弃了，直到选用了云适配整体解决方案后，可<br/>以很方便的在Enterplorer上使用一个帐号登录我们的系统，通过VPN随时进入内网。</p>
-                    <button type="button" class="am-btn am-btn-secondary am-round">了解更多</button>
-                  </div>
-                </li>
-                <li>
-                  <div class="product-banner-box">
-                    <h2>自主创新跨平台企业级浏览器内核</h2>
-                    <p>光明网曾考虑过通过原生App来实现移动化，但是由于无法复用原始业务流程和数据就放弃了，直到选用了云适配整体解决方案后，可<br/>以很方便的在Enterplorer上使用一个帐号登录我们的系统，通过VPN随时进入内网。</p>
-                    <button type="button" class="am-btn am-btn-secondary am-round">了解更多</button>
-                  </div>
-                </li>
-                <li>
-                  <div class="product-banner-box">
-                    <h2>自主创新跨平台企业级浏览器内核</h2>
-                    <p>光明网曾考虑过通过原生App来实现移动化，但是由于无法复用原始业务流程和数据就放弃了，直到选用了云适配整体解决方案后，可<br/>以很方便的在Enterplorer上使用一个帐号登录我们的系统，通过VPN随时进入内网。</p>
-                    <button type="button" class="am-btn am-btn-secondary am-round">了解更多</button>
-                  </div>
-                </li>
-            </ul>
-          </div>
-
-        </div>
-      </div>
-
-     <div class="sdShaix" style="width: 800px;margin-left: 500px">
+     <div class="sdShaix" style="width: 800px;margin-left: 460px;margin-top: 30px;">
         	<ul>
             	<li class="first">标的类型：</li>
                		<li><a href="#" id="11">全部</a></li>
@@ -225,6 +183,7 @@
                		<li><a href="#" id="44">已完成</a></li>
             </ul>
         </div>
+<<<<<<< HEAD
 		
 		<div class="ajaxContainer">
 	<!-- 异步内容开始 -->
@@ -401,6 +360,44 @@
         <!--index-container end-->
       </div>
     </div>
+     
+<div class="ajaxContainer" style="margin-left: 300px;width: 1000px;">
+	<!-- 异步内容开始 -->
+					<ul class="tbList">
+						<li class="first">
+									<span class="ico zq"></span>
+							<h2><em>投</em>稳盈宝新手标</h2>
+							<i></i>
+						</li>
+						<li class="second">					
+							
+							<div class="txt1">
+								<h2>5.0<span style="font-size:18px;">+1.0%</span></h2>
+								<p>年化收益</p>
+							</div>
+							
+							<div class="txt2">
+								<h2>￥100.00</h2>
+								<p>起购金额(元)</p>
+							</div>
+							
+							<div class="txt2">
+								<h2>5天</h2>
+								<p>投资期限</p>
+							</div>
+						</li>
+						<li class="three">
+								<a href="#1">企业担保</a><span>中国人保财险承保</span>
+								<p>计息日期：当天投资，立即计息<br>已购人数：689人</p>
+						</li>
+						<li class="four">
+								
+						</li>
+						<li class="five">
+							<a class="abtn" href="/Cornucopia/item/Purchased?id=12&mid=${member.id}">购买</a>
+						</li>
+					</ul>
+	  </div>
 
 
     <!--===========layout-footer================-->

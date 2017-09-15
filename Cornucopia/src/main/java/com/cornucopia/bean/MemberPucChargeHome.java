@@ -4,6 +4,8 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Table(name="Member_puc_charge_home")//缴费家庭
@@ -11,12 +13,19 @@ import javax.persistence.Table;
 public class MemberPucChargeHome {
 
 	private int id;//主键
-	private int member_id;//用户id
 	private String name;//家庭名称
 	private int is_default;//是否默认(0:n1:y)
 	private Date create_date;//创建时间
 	private Date update_date;//修改时间
-	
+	private Member member;
+	@ManyToOne
+	@JoinColumn(name="member_id")
+	public Member getMember() {
+		return member;
+	}
+	public void setMember(Member member) {
+		this.member = member;
+	}
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -24,12 +33,6 @@ public class MemberPucChargeHome {
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public int getMember_id() {
-		return member_id;
-	}
-	public void setMember_id(int member_id) {
-		this.member_id = member_id;
 	}
 	public String getName() {
 		return name;
