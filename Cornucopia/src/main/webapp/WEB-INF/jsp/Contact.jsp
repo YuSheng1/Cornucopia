@@ -18,14 +18,14 @@
 <script src="/resources/web/js/jquery.js"></script>
 <script type="text/javascript" src="/resources/web/layer/layer.js"></script>
 <script src="/resources/web/echart/dist/echarts.js"></script></head>
-
+<link href="../assets/css/bootstrap.css" rel="stylesheet">
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
 	<link href="../assets/resources/css/common.css" rel="stylesheet">
 	<link href="../assets/resources/css/jw.css" rel="stylesheet">
     <link href="../assets/resources/css/iconfont.css" rel="stylesheet">
     <script src="../assets/resources/js/jquery.js"></script>
     <script src="../assets/resources/js/echarts.js"></script>
-
-<body>
 
 </head>
 <body>
@@ -205,216 +205,150 @@
 </table>
 <div class="countBox">
     <ul>
-        <li><h2>0</h2><p>账户可用余额(元)<a href="javascript:;" class="iconfont">&#xe619;<span>账户可用余额</span><i></i></a></p></li>
-        <li><h2>0</h2><p>账户总资产(元)<a href="javascript:;" class="iconfont">&#xe619;<span>可用余额+投资金额+累计收益</span><i></i></a></p></li>
-        <li><h2 style="color:#9d8440">0</h2><p>投资金额(元)<a href="javascript:;" class="iconfont">&#xe619;<span>投资中资金</span><i></i></a></p></li>
-        <li><h2 style="color:#9d8440">0</h2><p>累计收益(元)<a href="javascript:;" class="iconfont">&#xe619;<span>累计收益</span><i></i></a></p></li>
-        <li><h2 style="color:#9d8440">0</h2><p>冻结金额(元)<a href="javascript:;" class="iconfont">&#xe619;<span>提现冻结金额</span><i></i></a></p></li>
+        <li><h2>0</h2><p>账户可用余额(元)<a href="javascript:;" class="glyphicon glyphicon-search"><span>账户可用余额</span><i></i></a></p></li>
+        <li><h2>0</h2><p>账户总资产(元)<a href="javascript:;" class="glyphicon glyphicon-search"><span>可用余额+投资金额+累计收益</span><i></i></a></p></li>
+        <li><h2 style="color:#9d8440">0</h2><p>投资金额(元)<a href="javascript:;" class="glyphicon glyphicon-search"><span>投资中资金</span><i></i></a></p></li>
+        <li><h2 style="color:#9d8440">0</h2><p>累计收益(元)<a href="javascript:;" class="glyphicon glyphicon-search"><span>累计收益</span><i></i></a></p></li>
+        <li><h2 style="color:#9d8440">0</h2><p>冻结金额(元)<a href="javascript:;" class="glyphicon glyphicon-search"><span>提现冻结金额</span><i></i></a></p></li>
     </ul>
-    <a href="/account/deposit" class="cz">充值</a>
-    <a href="/account/withdraw" class="tk">提款</a>
-</div>    <div class="proMain clearfix">
-<div class="adminLeft">
-    <h2>我的投资</h2>
-    <ul>
-        <li><a id="member_center_menu_invests" href="/account/touZiList"><em class="iconfont red">&#xe602;</em>投资记录</a></li>
-        <li><a id="member_center_menu_profit_record" href="/account/trades/profit/records"><em class="iconfont red">&#xe616;</em>收益记录</a></li>
-        <li><a id="member_center_menu_deposit_record" href="/account/deposit/records"><em class="iconfont red">&#xe616;</em>充值记录</a></li>
-        <li><a id="member_center_menu_withdraw_record" href="/account/withdraw/records"><em class="iconfont red">&#xe616;</em>提款记录</a></li>
-        <li><a id="member_center_menu_bbinInfo_record" href="/account/bbinInfo/records"><em class="iconfont red">&#xe616;</em>体验金记录</a></li>
-    </ul>
-    <h2>我的账户</h2>
-    <ul>
-        <li><a id="member_center_menu_deposit" href="/account/deposit"><em class="iconfont">&#xe614;</em>账户充值</a></li>
-        <li><a id="member_center_menu_security" href="/account/security"><em class="iconfont">&#xe612;</em>安全信息</a></li>
-        <li><a id="member_center_menu_withdraw" href="/account/withdraw"><em class="iconfont">&#xe612;</em>我要提款</a></li>
-        <li><a id="member_center_menu_financial" href="/account/financial"><em class="iconfont">&#xe612;</em>我是理财师</a></li>
-    </ul>
-</div>
-<script>
-  var menu_item="member_center_menu_profit_record";
- $("#"+menu_item).addClass("select");
-</script>
-
-        <div class="admin-right">
-        	<div class="tbConBox">
-                <div class="tab">
-                    <a class="select" href="javascript:;">收益记录</a>
-                </div>
-                <div id="conBox">
-                    <div class="box" style="display:block">
-
-<meta name="keywords" content="盈+，盈，社区金融，O2O社区金融，社区金融O2O，O2O，互联网+社区金融，O2O连锁，社区门店，首家社区金融，社区金融服务，综合金融，互联网金融，体验中心，普惠金融，金融创新，社区化，普惠化，全渠道化，互联网线上平台，O2O交易，全国首家，盈十，金融衍生品，固收类理财，私募基金，股权基金，股指期货，玩转股指，商品期货，国际期货，外盘，A50，沪深300，中证500，上证50" />
-<meta name="description" content="盈+——全国首家互联网金融交流体验中心，与您共盈，给财富做加法。" />
-<link href="/resources/web/images/icon.ico" type="image/x-icon" rel="shortcut icon">
-
-<div class="ajaxContainer">
-		<table class="tzlist" width="100%" border="1" bordercolor="#e9e9e9" cellspacing="0" cellpadding="0">
-								<tr>
-									<th width="20%">时间</th>
-									<th width="30%">订单号</th>
-									<th width="20%">金额</th>
-									<th width="20%">备注</th>
-								</tr>
-							</table>
-</div>                       
+    <a href="#zhcz" onclick="fun()" class="cz" data-toggle="tab">充值 </a>
+   <a href="#wytk"   onclick="fun()" class="tk" data-toggle="tab" >提现 </a>
+</div> 
 <script type="text/javascript">
-	function getJsonInfo(url) {
-		$.get(url, 'json', function(data) {
-			$(".ajaxContainer").empty();
-			$(".ajaxContainer").append(data);
-		});
-	}
-</script>      
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    
-    <div class="section">
-      <div class="container">
-        <div class="section--header">
-					<h2 class="section--title">Get In Touch!</h2>
-					<p class="section--description">
-            云适配致力于为企业提供全球最先进的移动化技术帮助企业最高效安全实现生产力提升<br/>
-              One Web，Any Device
-					</p>
-				</div>
-
-        <div class="section-container">
-          <div class="am-g">
-            <!--contact-left start-->
-            <div class="am-u-md-5">
-              <ul class="contact-left">
-                <li class="contact-box-item">
-                  <div class="contact_item">
-										<i class="contact_item--icon am-icon-phone"></i>
-										<h3 class="contact_item--title">Call Us</h3>
-										<p class="contact_item--text">
-											联系电话： <strong>400-069-0309</strong>,
-											<br> Monday - Friday, 8am - 7pm
-										</p>
-									</div>
-                </li>
-                <li class="contact-item">
-                  <div class="contact_item">
-										<i class="contact_item--icon am-icon-envelope-o"></i>
-										<h3 class="contact_item--title">Drop a Line</h3>
-										<p class="contact_item--text">
-                      service@yunshipei.com, <br/>期待您的来信...
-										</p>
-									</div>
-                </li>
-                <li class="contact-item">
-                  <div class="contact_item">
-										<i class="contact_item--icon am-icon-map-marker"></i>
-										<h3 class="contact_item--title">Visit Us</h3>
-										<p class="contact_item--text">
-											北京市海淀区海淀大街27号天使大厦（原亿景大厦）三层西侧
-										</p>
-									</div>
-                </li>
-              </ul>
-            </div>
-            <!--contact-left end-->
-
-            <!--contact-right start-->
-              <div class="am-u-md-7">
-                <div class="contact-form">
-                  <h3 class="contact-form_title">Your Request</h3>
-                  <form class="am-form">
-                    <div class="am-g">
-                      <div class="am-u-md-6">
-                        <input type="email" class="" id="doc-ipt-email-1" placeholder="姓名">
-                      </div>
-                      <div class="am-u-md-6">
-                        <input type="email" class="" id="doc-ipt-email-2" placeholder="Email">
-                      </div>
-                    </div>
-
-                    <div class="am-g">
-                      <div class="am-u-md-6">
-                        <input type="email" class="" id="doc-ipt-email-3" placeholder="电话">
-                      </div>
-                      <div class="am-u-md-6">
-                        <div class="am-form-group" style="background: #fcfcfc;">
-                          <select id="doc-select-1" style="width: 100%;font-size: 16px;line-height: 20px;padding: 15px 20px;border-radius: 3px;color: #262626;border: 2px solid #e9e9e9;">
-                            <option value="option1">选项一</option>
-                            <option value="option2">选项二</option>
-                            <option value="option3">选项三</option>
-                          </select>
-                          <span class="am-form-caret"></span>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class=am-g>
-                      <div class="am-u-md-12">
-                        <div class="am-form-group">
-                          <textarea class="" rows="5" id="doc-ta-1" placeholder="写下你想说的..."></textarea>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="am-g">
-                      <div class="am-u-md-9">
-                        <div class="am-form-group am-form-file">
-                          <button type="button" class="am-btn am-btn-default am-btn-sm btn-change">
-                            <i class="am-icon-cloud-upload"></i> 上传文件</button>
-                          <input type="file" multiple>
-                        </div>
-                      </div>
-                      <div class="am-u-md-3">
-                        <p><button type="submit" class="am-btn am-btn-default btn-reguest am-fr btn-fl">提交</button></p>
-                      </div>
-                    </div>
-                  </form>
-                </div>
-              </div>
-            <!--contact-right end-->
-          </div>
-        </div>
+		function fun(){
+			$(window).scrollTop(300);
+		  
+		}
+</script>
+ <ul id="myTab" class="nav nav-pills nav-stacked"  style="width: 200px;margin-top: 30px;margin-left: 350px;">
+     <h4>我的投资</h4>
+   <li class="active"><a href="#touzi" data-toggle="tab"> 投资记录</a></li>
+   <li><a href="#yuyue" data-toggle="tab" >预约记录</a></li>
+   <li><a href="#jine"   data-toggle="tab">充值记录  </a></li>
+   <li><a href="#shouyi" data-toggle="tab">收益记录  </a></li>
+   <li><a href="#tikuan" data-toggle="tab">提款记录  </a></li>
+   <li><a href="#tiyan" data-toggle="tab">体验金记录  </a></li>
+     <h4>我的账户</h4>
+   <li><a href="#zhcz" data-toggle="tab" >账户充值</a></li>
+   <li><a href="#aqxx" data-toggle="tab">安全信息 </a></li>
+   <li><a href="#wytk" data-toggle="tab">我要提款 </a></li>
+  </ul><div id="myTabContent" class="tab-content">
+   <div class="tab-pane fade in active" id="touzi" style="margin-left: 600px;margin-top: -450px;width: 700px;height: 800px;">
+<table class="table" width="700px" height="250px;" >
+   <caption><h4>投资记录</h4></caption>
+   <thead><tr><th>订单编号</th><th>标的名称</th><th>金额</th><th>预期收益</th><th>状态</th><th>购买时间</th></tr></thead>
+   <tbody> <tr class="active"><td>产品1</td><td>产品1</td><td>产品1</td><td>产品1</td><td>23/11/2013</td> <td>待发货</td></tr>
+   <tr class="success"><td>产品1</td><td>产品2</td> <td>产品1</td><td>产品1</td><td>10/11/2013</td> <td>发货中</td> </tr>
+    <tr class="warning"> <td>产品1</td><td>产品3</td> <td>产品1</td><td>产品1</td> <td>20/10/2013</td> <td>待确认</td></tr>
+    <tr class="danger"><td>产品1</td><td>产品4</td><td>产品1</td> <td>产品1</td> <td>20/10/2013</td><td>已退货</td></tr>
+     <tr class="active"><td>产品1</td><td>产品4</td><td>产品1</td> <td>产品1</td> <td>20/10/2013</td><td>已退货</td></tr>
+      <tr class="active"><td>产品1</td><td>产品4</td><td>产品1</td> <td>产品1</td> <td>20/10/2013</td><td>已退货</td></tr>
+       <tr class="active"><td>产品1</td><td>产品4</td><td>产品1</td> <td>产品1</td> <td>20/10/2013</td><td>已退货</td></tr>
+   </tbody></table>
+   </div>
+   <div class="tab-pane fade" id="yuyue" style="margin-left: 600px;margin-top: -450px;width: 700px;height: 600px;">
+     <table class="table" width="700px" height="250px;" >
+   <caption><h4>预约记录</h4></caption>
+<thead><tr><th>标的名称</th><th>金额</th><th>预期收益</th><th>状态</th><th>预约时间</th><th>下载</th></tr></thead>
+  <tbody> <tr class="active"><td>产品1</td><td>产品1</td><td>产品1</td><td>产品1</td><td>23/11/2013</td> <td>待发货</td></tr>
+   <tr class="success"><td>产品1</td><td>产品2</td> <td>产品1</td><td>产品1</td><td>10/11/2013</td> <td>发货中</td> </tr>
+    <tr class="warning"> <td>产品1</td><td>产品3</td> <td>产品1</td><td>产品1</td> <td>20/10/2013</td> <td>待确认</td></tr>
+    <tr class="danger"><td>产品1</td><td>产品4</td><td>产品1</td> <td>产品1</td> <td>20/10/2013</td><td>已退货</td></tr>
+     <tr class="active"><td>产品1</td><td>产品4</td><td>产品1</td> <td>产品1</td> <td>20/10/2013</td><td>已退货</td></tr>
+      <tr class="active"><td>产品1</td><td>产品4</td><td>产品1</td> <td>产品1</td> <td>20/10/2013</td><td>已退货</td></tr>
+       <tr class="active"><td>产品1</td><td>产品4</td><td>产品1</td> <td>产品1</td> <td>20/10/2013</td><td>已退货</td></tr>
+   </tbody></table>
+   </div>
+   <div class="tab-pane fade" id="jine" style="margin-left: 600px;margin-top: -450px;width: 700px;height: 600px;">
+     <table class="table" width="700px" height="250px;" >
+   <caption><h4>充值记录</h4></caption>
+   <thead><tr><th>订单号</th><th>充值金额</th><th>充值状态</th><th>充值时间</th></tr></thead>
+   <tbody> <tr class="active"><td>产品1</td><td>产品4</td><td>待发货</td><td>23/11/2013</td> </tr>
+   <tr class="success"><td>产品2</td><td>产品4</td> <td>发货中</td><td>10/11/2013</td>  </tr>
+    <tr class="warning"> <td>产品3</td> <td>产品4</td><td>待确认</td> <td>20/10/2013</td> </tr>
+    <tr class="danger"><td>产品4</td> <td>产品4</td> <td>已退货</td><td>20/10/2013</td></tr>
+   </tbody></table>
+   </div>
+    <div class="tab-pane fade" id="shouyi" style="margin-left: 600px;margin-top: -450px;width: 700px;height: 600px;">
+     <table class="table" width="700px">
+    <caption><h4>收益记录</h4></caption>
+   <thead><tr><th>订单号</th><th>收益日期</th><th>收益金额</th><th>备注</th></tr></thead>
+   <tbody> <tr class="active"><td>产品1</td><td>产品1</td><td>23/11/2013</td> <td>待发货</td></tr>
+   <tr class="success"><td>产品2</td> <td>产品1</td><td>10/11/2013</td> <td>发货中</td> </tr>
+    <tr class="warning"> <td>产品3</td><td>产品1</td>  <td>20/10/2013</td> <td>待确认</td></tr>
+    <tr class="danger"><td>产品4</td> <td>产品1</td> <td>20/10/2013</td><td>已退货</td></tr>
+   </tbody></table>
+   </div>
+    <div class="tab-pane fade" id="tikuan" style="margin-left: 600px;margin-top: -450px;width: 700px;height: 600px;">
+     <table class="table" width="700px">
+  <caption><h4>提款记录</h4></caption>
+    <thead><tr><th>订单号</th><th>提款日期</th><th>提款金额</th><th>提款状态</th></tr></thead>
+   <tbody> <tr class="active"><td>产品1</td><td>23/11/2013</td> <td>待发货</td></tr>
+   <tr class="success"><td>产品2</td> <td>10/11/2013</td> <td>发货中</td> </tr>
+    <tr class="warning"> <td>产品3</td>  <td>20/10/2013</td> <td>待确认</td></tr>
+    <tr class="danger"><td>产品4</td>  <td>20/10/2013</td><td>已退货</td></tr>
+   </tbody></table>
+   </div>
+    <div class="tab-pane fade" id="tiyan" style="margin-left: 600px;margin-top: -450px;width: 700px;height: 600px;">
+     <table class="table" width="700px">
+    <caption><h4>体验金记录</h4></caption>
+   <thead><tr><th>产品</th><th>付款日期</th><th>状态</th></tr></thead>
+   <tbody> <tr class="active"><td>产品1</td><td>23/11/2013</td> <td>待发货</td></tr>
+   <tr class="success"><td>产品2</td> <td>10/11/2013</td> <td>发货中</td> </tr>
+    <tr class="warning"> <td>产品3</td>  <td>20/10/2013</td> <td>待确认</td></tr>
+    <tr class="danger"><td>产品4</td>  <td>20/10/2013</td><td>已退货</td></tr>
+   </tbody></table>
+   </div>
+    <div class="tab-pane fade" id="zhcz" style="margin-left: 600px;margin-top: -450px;width: 700px;height: 600px;">
+     <table class="table" width="700px">
+   <caption><h4>账户充值</h4></caption>
+   </table>
+   </div>
+    <div class="tab-pane fade" id="aqxx" style="margin-left: 600px;margin-top: -450px;width: 700px;height: 600px;">
+     <table class="table" width="700px">
+  <caption><h4>安全信息</h4></caption>
+   <thead><tr><th>产品</th><th>付款日期</th><th>状态</th></tr></thead>
+   <tbody> <tr class="active"><td>产品1</td><td>23/11/2013</td> <td>待发货</td></tr>
+   <tr class="success"><td>产品2</td> <td>10/11/2013</td> <td>发货中</td> </tr>
+    <tr class="warning"> <td>产品3</td>  <td>20/10/2013</td> <td>待确认</td></tr>
+    <tr class="danger"><td>产品4</td>  <td>20/10/2013</td><td>已退货</td></tr>
+   </tbody></table>
+   </div>
+    <div class="tab-pane fade" id="wytk" style="margin-left: 600px;margin-top: -450px;width: 500px;height: 600px;">
+   <caption><h4>我要提款</h4></caption>
+   <div style="padding: 50px 50px 10px;">
+   <form class="bs-example bs-example-form" role="form">
+      <div class="input-group">
+         <span class="input-group-addon">账户余额</span>
+          <div class="input-group">
+         <input type="text" class="form-control">
+         <span class="input-group-addon">.00</span>
       </div>
-    </div>
-  </div>
-
-
-  <div class="section" style="margin-top:0px;background-image: url('../assets/images/pattern-light.png');">
-    <div class="container">
-      <!--index-container start-->
-      <div class="index-container">
-        <div class="am-g">
-          <div class="am-u-md-4">
-            <div class="contact_card">
-							<i style="color:#59bcdb" class="contact_card--icon am-icon-phone"></i>
-							<strong class="contact_card--title">Contact Us</strong>
-							<p class="contact_card--text">Feel free to call us on <br> <strong>0 (855) 233-5385</strong> <br> Monday - Friday, 8am - 7pm</p>
-              <button type="button" class="am-btn am-btn-secondary">Order a Call Back</button>
-						</div>
-          </div>
-          <div class="am-u-md-4">
-            <div class="contact_card">
-							<i style="color:#59bcdb" class="contact_card--icon am-icon-envelope-o"></i>
-							<strong class="contact_card--title">Our Email</strong>
-							<p class="contact_card--text">Drop us a line anytime at <br> <strong><a href="mailto:info@financed.com">info@financed.com</a>,</strong> <br> and we’ll get back soon.</p>
-              <button type="button" class="am-btn am-btn-secondary">Start Writing</button>
-						</div>
-          </div>
-          <div class="am-u-md-4">
-            <div class="contact_card">
-							<i style="color:#59bcdb" class="contact_card--icon am-icon-map-marker"></i>
-							<strong class="contact_card--title">Our Address</strong>
-							<p class="contact_card--text">Come visit us at <br> <strong>Stock Building, New York,</strong> <br> NY 93459</p>
-              <button type="button" class="am-btn am-btn-secondary">See the Map</button>
-						</div>
-          </div>
-        </div>
       </div>
-      <!--index-container end-->
-    </div>
-  </div>
+      <br>
+        <div class="input-group">
+         <span class="input-group-addon">银行卡</span>
+         <input type="text" class="form-control" placeholder="巴拉拉能量">
+      </div>
+       <br>
+       <div class="input-group">
+        <span class="input-group-addon">提款金额</span>
+         <input type="text" class="form-control">
+         <span class="input-group-addon">.00</span>
+      </div>
+      <br>
+       <div class="input-group">
+         <span class="input-group-addon">提款密码</span>
+         <input type="text" class="form-control" placeholder="提款密码">
+      </div>
+      <br>
+        <button type="button" class="btn btn-default">申请提现</button>
+   </form></div>
+   </div>
+  </div><script>
+   $(function () {
+      $('#myTab li:eq(1) a').tab('show');
+   });</script>
 
   <!--===========layout-container================-->
   <div class="layout-footer">
