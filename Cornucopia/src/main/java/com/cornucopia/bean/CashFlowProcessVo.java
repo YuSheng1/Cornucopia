@@ -6,7 +6,14 @@ public class CashFlowProcessVo {
     private float money;
     private String mname;
     private String cashWithdrawalTime;
-    //流程id
+    private String deploymentId;
+    public String getDeploymentId() {
+		return deploymentId;
+	}
+	public void setDeploymentId(String deploymentId) {
+		this.deploymentId = deploymentId;
+	}
+	//流程id
     private int lid;
     //流水号
     private String serialNumbe;

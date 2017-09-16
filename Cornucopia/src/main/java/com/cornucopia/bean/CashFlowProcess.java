@@ -11,6 +11,13 @@ public class CashFlowProcess {
 	private int id;
 	private String serialNumbe;
 	private int ProcessInstanceId;
+	 private String deploymentId;
+	public String getDeploymentId() {
+		return deploymentId;
+	}
+	public void setDeploymentId(String deploymentId) {
+		this.deploymentId = deploymentId;
+	}
 	@Id
 	@GeneratedValue
 	public int getId() {

@@ -83,7 +83,6 @@ public class WithdrawDepositController {
 		membeWithdrawRecord.setUpdate_date(date);
 		membeWithdrawRecord.setDelFlag(0);
 		membeWithdrawRecord.setMember(member);
-	
 		AG_ProductServiceImpl.saveMembeWithdrawRecord(membeWithdrawRecord);
 		System.out.println("432");
 				Deployment deployment=processEngine.getRepositoryService() // 获取部署相关Service
@@ -99,6 +98,8 @@ public class WithdrawDepositController {
 		cashflowprocess.setProcessInstanceId(Integer.parseInt(pi.getId()));
 		System.out.println("流水号"+membeWithdrawRecord.getSerial_number());
 		cashflowprocess.setSerialNumbe(membeWithdrawRecord.getSerial_number());
+		cashflowprocess.setDeploymentId(deployment.getId());
+		System.out.println(cashflowprocess.getDeploymentId()+"123*********8");
 		AG_ProductServiceImpl.saveCashFlowProcess(cashflowprocess);
 			System.out.println("流程实例ID:"+pi.getId());
 			System.out.println("流程定义ID:"+pi.getProcessDefinitionId()); 
@@ -122,7 +123,6 @@ public class WithdrawDepositController {
 			cashFlowProcessVo.setRid(task.getId());//任务id
 			list.add(cashFlowProcessVo);
 		}
-		
 		model.addAttribute("cashFlowProcessVo", list);
 		return "BgwithdrawDeposit";
 	}
@@ -147,6 +147,18 @@ public class WithdrawDepositController {
 		     AG_ProductServiceImpl.saveMemberAccount(memberAccount);
 		}
 		return "redirect:/Wi/findTask";
+	}
+	@RequestMapping("delete")
+	public String deleteCascade(String rid,String roles,String mname,String serialNumbe,String money){
+		  processEngine.getRepositoryService()
+	        .deleteDeployment(rid, true); // 默认是false true就是级联删除
+		Member member=validateImpl.member(mname);
+		MembeWithdrawRecord membeWithdrawRecord=AG_ProductServiceImpl.GetMembeWithdrawRecordByliushui(serialNumbe);
+	     membeWithdrawRecord.setStatus(3);
+	     membeWithdrawRecord.setMember(member);
+	     AG_ProductServiceImpl.saveMembeWithdrawRecord(membeWithdrawRecord);
+	    System.out.println("驳回");
+	    return "redirect:/Wi/findTask";
 	}
 	
 	/**

@@ -75,7 +75,7 @@ public class ValidateDao {
 					}
 					String serialNumbe=list.get(0).getSerialNumbe();
 					System.out.println(serialNumbe);
-					String sql = "select mr.member_name,m.amount,m.create_date,m.serial_number,c.ProcessInstanceId  from member mr,member_withdraw_record m,CashFlowProcess c where mr.id=m.member_id and m.serial_number="+serialNumbe+" and c.serialNumbe="+serialNumbe;
+					String sql = "select mr.member_name,m.amount,m.create_date,m.serial_number,c.ProcessInstanceId,c.deploymentId  from member mr,member_withdraw_record m,CashFlowProcess c where mr.id=m.member_id and m.serial_number="+serialNumbe+" and c.serialNumbe="+serialNumbe;
 					List listVo=session.createSQLQuery(sql).list();
 					List<CashFlowProcessVo> temp=new ArrayList<CashFlowProcessVo>();
 					for(int i=0;i<listVo.size();i++){
@@ -86,6 +86,7 @@ public class ValidateDao {
 						vo.setCashWithdrawalTime(obj[2].toString());
 						vo.setSerialNumbe(obj[3].toString());
 						vo.setLid(Integer.parseInt(obj[4].toString()));
+						vo.setDeploymentId(obj[5].toString());
 						temp.add(vo);
 					}
 					CashFlowProcessVo cashFlowProcessVo=temp.get(0);

@@ -53,10 +53,9 @@
 						<td><a  href="/Cornucopia/Wi/findRW?rid=${c.rid}&roles=${url}&mname=${c.mname}&serialNumbe=${c.serialNumbe}&money=${c.money}">
 								<img src="../BgAssets/images/t05.png" />审核通过
 							</a>
-							<h6 class="tablelink" data-toggle="modal" data-target="#myModal3"
-								onclick="del(${e.id })">
-								<img src="../BgAssets/images/t03.png" />驳回审核
-							</h6></td>
+							<a  href="/Cornucopia/Wi/delete?rid=${c.deploymentId}&roles=${url}&mname=${c.mname}&serialNumbe=${c.serialNumbe}&money=${c.money}">
+								<img src="../BgAssets/images/t05.png" />审核驳回
+							</a></td>
 
 					</tr>
 				</c:forEach>
