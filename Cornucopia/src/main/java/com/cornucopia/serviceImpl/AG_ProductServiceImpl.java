@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.cornucopia.bean.FinanceProductFunds;
+import com.cornucopia.bean.MembeWithdrawRecord;
 import com.cornucopia.bean.MemberAccount;
+import com.cornucopia.bean.MemberBankcards;
+import com.cornucopia.bean.MemberDepositRecord;
 import com.cornucopia.bean.Subject;
 import com.cornucopia.bean.SubjectPurchaseRecord;
 import com.cornucopia.dao.AG_ProductDao;
@@ -33,18 +36,36 @@ public class AG_ProductServiceImpl implements AG_ProductService {
 		List<SubjectPurchaseRecord> subjectPurchaseRecord = ag_ProductDao.GetSubjectPurchaseRecord(object);
 		return subjectPurchaseRecord;
 	}
-
+	//根据id查询充值记录表
+	@Override
+	public List<MemberDepositRecord> GetMemberDepositRecordByid(int id) {
+		List<MemberDepositRecord> memberDepositRecord = ag_ProductDao.GetMemberDepositRecordByid(id);
+		return memberDepositRecord;
+	}
+   //根据id查询银行卡绑定表
+	@Override
+	public MemberBankcards GetMemberBankcardsByid(int id) {
+		MemberBankcards memberDepositRecord = ag_ProductDao.GetMemberBankcardsByid(id);
+		return memberDepositRecord;
+	}
+	
 	// 根据memberid和subjectid修改SubjectPurchaseRecord产品记录信息
 	@Override
 	public void UpdateSubjectPurchaseRecord(Object... object) {
 		ag_ProductDao.UpdateSubjectPurchaseRecord(object);
 	}
-
+	@Override
 	// 根据ID查询成员账户表操作
 	public MemberAccount UpdateMemberAccount(Object... objects) {
 		MemberAccount memberAccount=ag_ProductDao.GetMemberAccount(objects);
 		return memberAccount;
 	}
+	@Override
+	// 根据ID查询成员账户表操作
+		public MembeWithdrawRecord GetMembeWithdrawRecordByliushui(String liushui) {
+			MembeWithdrawRecord memberAccount=ag_ProductDao.GetMembeWithdrawRecordByliushui(liushui);
+			return memberAccount;
+		}
 	
 	// 向交易记录表添加数据
 	@Override
@@ -52,6 +73,20 @@ public class AG_ProductServiceImpl implements AG_ProductService {
 		ag_ProductDao.saveMemberTradeRecord(object);
 
 	}
+	// 向交易记录表添加数据
+		@Override
+		public void saveCashFlowProcess(Object... object) {
+			ag_ProductDao.saveCashFlowProcess(object);
+
+		}
+	
+	// 向交易记录表添加数据
+		@Override
+		public void saveMembeWithdrawRecord(Object... object) {
+			ag_ProductDao.saveMembeWithdrawRecord(object);
+
+		}
+	
 
 	// 往及账表添加数据
 		@Override
@@ -93,6 +128,20 @@ public class AG_ProductServiceImpl implements AG_ProductService {
 	@Override
 	public void saveSubject(Object... object) {
 		ag_ProductDao.saveSubject(object);
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public  List<SubjectPurchaseRecord> GetSubjectPurchaseRecordByid(int mid) {
+		List<SubjectPurchaseRecord> subjectPurchaseRecordlist=ag_ProductDao.GetSubjectPurchaseRecordByid(mid);
+		return subjectPurchaseRecordlist;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<MembeWithdrawRecord> GetMembeWithdrawRecordByid(int mid) {
+		List<MembeWithdrawRecord> membeWithdrawRecordlist=ag_ProductDao.GetMembeWithdrawRecordByid(mid);
+		return membeWithdrawRecordlist;
 	}
 
 }

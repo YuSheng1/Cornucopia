@@ -72,6 +72,7 @@ public class PM_UserRoleImpl {
 			System.out.println(set.size()+"角色");
 			return set;
 		}
+	   
          //根据用户名查询权限
 	public Set<String> ListResourcesByName(String userName) {
 		Session session=getSession();

@@ -1,8 +1,11 @@
 package com.cornucopia.controller;
 import java.util.List;
+import java.util.Set;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
+import org.activiti.engine.impl.util.json.HTTP;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +33,16 @@ public class BKjumpController {
 	public String BgMain() {
 		return "BgMain";
 	}
+//	// 后台提现
+//		@RequestMapping("BgwithdrawDeposit")
+//		public String BgwithdrawDeposit(HttpSession session) {
+//			System.out.println("123");
+//			//获取当前人角色
+//			String roles="";
+//		
+//			return "redirect:/WithdrawDepositController/findTask?name="+roles;
+//		}
+//	
 	// 后台默认主页
 		@RequestMapping("BgIndex")
 		public String BgIndex() {

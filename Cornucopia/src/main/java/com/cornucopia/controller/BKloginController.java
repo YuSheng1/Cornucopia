@@ -4,6 +4,7 @@ import java.util.Set;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.DisabledAccountException;
@@ -39,7 +40,7 @@ public class BKloginController {
 	
 	
 	@RequestMapping("/toMain")
-	public String toMain(Users user,HttpServletRequest request,Model model){
+	public String toMain(Users user,HttpServletRequest request,Model model,HttpSession session1){
 		String msg="";
 		String name=user.getUser_name();
 		String password=user.getPassword();
@@ -58,10 +59,11 @@ public class BKloginController {
 				session.setAttribute("user_name", user.getUser_name());
 				System.out.println(user.getUser_name()+"mingz");
 				Set<String> set=PM_UserRoleServiceImpl.ListAllByName(name);
+				
 				String url=null;
 				for (String string : set) {
 					url=string;
-					//用户角色
+					session1.setAttribute("url", url);
 					if(url!=null){
 						break;
 					}
@@ -98,10 +100,9 @@ public class BKloginController {
 		        model.addAttribute("message", msg);  
 		        System.out.println(msg);  
 		    }  
-			
 			return "BgLogin";
 		}
-		}
+	}
 }
 		
 	

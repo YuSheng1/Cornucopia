@@ -1,5 +1,6 @@
 package com.cornucopia.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Session;
@@ -7,6 +8,8 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.cornucopia.bean.CashFlowProcess;
+import com.cornucopia.bean.CashFlowProcessVo;
 import com.cornucopia.bean.Member;
 import com.cornucopia.bean.MemberAccount;
 import com.cornucopia.bean.MemberBankcards;
@@ -61,5 +64,32 @@ public class ValidateDao {
 			List<MemberBankcards> list = session.createQuery(hql).list();
 			return list;
 		}
+		
+		// 根据id获取MemberBankcards对象银行卡绑定表表
+				public CashFlowProcessVo CashFlowProcessVo(int id) {
+					Session session = getSession();
+					String hql = "from CashFlowProcess  where ProcessInstanceId=" + id;
+					List<CashFlowProcess> list = session.createQuery(hql).list();
+					if(list.size()<1){
+						return null;
+					}
+					String serialNumbe=list.get(0).getSerialNumbe();
+					System.out.println(serialNumbe);
+					String sql = "select mr.member_name,m.amount,m.create_date,m.serial_number,c.ProcessInstanceId  from member mr,member_withdraw_record m,CashFlowProcess c where mr.id=m.member_id and m.serial_number="+serialNumbe+" and c.serialNumbe="+serialNumbe;
+					List listVo=session.createSQLQuery(sql).list();
+					List<CashFlowProcessVo> temp=new ArrayList<CashFlowProcessVo>();
+					for(int i=0;i<listVo.size();i++){
+						Object[] obj=(Object[])listVo.get(i);
+						CashFlowProcessVo vo=new CashFlowProcessVo();
+						vo.setMname(obj[0].toString());
+						vo.setMoney(Float.parseFloat(obj[1].toString()));
+						vo.setCashWithdrawalTime(obj[2].toString());
+						vo.setSerialNumbe(obj[3].toString());
+						vo.setLid(Integer.parseInt(obj[4].toString()));
+						temp.add(vo);
+					}
+					CashFlowProcessVo cashFlowProcessVo=temp.get(0);
+					return cashFlowProcessVo;
+				}
 
 }

@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.cornucopia.bean.CashFlowProcessVo;
 import com.cornucopia.bean.Member;
 import com.cornucopia.dao.PM_UserDaoImpl;
 import com.cornucopia.dao.ValidateDao;
@@ -35,6 +36,13 @@ public class ValidateImpl implements ValidateService {
 		Member member=validateDao.memberLogin(name);
 		return member;
 	}
+	//根据流程id查询Vo表
+		@Override
+		public CashFlowProcessVo cashFlowProcessVo(int id) {
+			CashFlowProcessVo cashFlowProcessVo=validateDao.CashFlowProcessVo(id);
+			return cashFlowProcessVo;
+		}
+	
 	//根据用户id查询金额
 	@Override
 	public com.cornucopia.bean.MemberAccount MemberAccount(int id) {

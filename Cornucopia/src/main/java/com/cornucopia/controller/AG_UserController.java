@@ -10,10 +10,13 @@ import org.apache.shiro.session.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.cornucopia.bean.MembeWithdrawRecord;
 import com.cornucopia.bean.Member;
 import com.cornucopia.bean.MemberAccount;
 import com.cornucopia.bean.MemberBankcards;
+import com.cornucopia.bean.MemberDepositRecord;
 import com.cornucopia.bean.Subject;
+import com.cornucopia.bean.SubjectPurchaseRecord;
 import com.cornucopia.service.AG_ProductService;
 import com.cornucopia.service.ValidateService;
 
@@ -41,7 +44,6 @@ public class AG_UserController {
 		Member member=(Member) session.getAttribute("member");
 		System.out.println(id+"---"+member.getId());
 		//现在是死值
-		id=1628;
 		//根据登陆人id查询可用金额
 		MemberAccount memberAccount=validateImpl.MemberAccount(member.getId());
 		//根据登录人id查询是否绑定银行卡
@@ -60,7 +62,24 @@ public class AG_UserController {
 	}
 
 	@RequestMapping("Contact")
-	public String Contact() {
+	public String Contact(HttpSession session,Model model) {
+		Member member=(Member)session.getAttribute("member");
+		if(member==null){
+			return "redirect:/item/Login";
+		}else{
+			//查询用户基本信息
+			MemberAccount MAccount=AG_ProductServiceImpl.UpdateMemberAccount(member.getId());
+			List<SubjectPurchaseRecord> subjectPurchaseRecorList=AG_ProductServiceImpl.GetSubjectPurchaseRecordByid(member.getId());	
+			List<MemberDepositRecord>  memberDepositRecord= AG_ProductServiceImpl.GetMemberDepositRecordByid(member.getId());
+			List<MembeWithdrawRecord> membeWithdrawRecord=AG_ProductServiceImpl.GetMembeWithdrawRecordByid(member.getId());
+			MemberBankcards  memberBankcards=AG_ProductServiceImpl.GetMemberBankcardsByid(member.getId());
+			model.addAttribute("MAccount", MAccount);
+			model.addAttribute("memberBankcards", memberBankcards);
+		    model.addAttribute("subjectPurchaseRecor", subjectPurchaseRecorList);
+		    model.addAttribute("membeWithdrawRecord", membeWithdrawRecord);
+		    model.addAttribute("memberDepositRecord", memberDepositRecord);
+					
+		}
 		return "Contact";
 	}
 

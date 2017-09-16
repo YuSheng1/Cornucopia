@@ -195,7 +195,7 @@
 						<li class="second">					
 							
 							<div class="txt1">
-								<h2>${list.year_rote}<span style="font-size:18px;">+1.0%</span></h2>
+								<h2>${list.year_rate}<span style="font-size:18px;">+1.0%</span></h2>
 								<p>年化收益</p>
 							</div>
 							
@@ -217,7 +217,7 @@
 								
 						</li>
 						<li class="five">
-							<a class="abtn" href="/subject/subjectContent/1612">购买</a>
+							<a class="abtn" href="/Cornucopia/item/Purchased?id=${list.id}">购买</a>
 						</li>
 					</ul>
 					</c:forEach>

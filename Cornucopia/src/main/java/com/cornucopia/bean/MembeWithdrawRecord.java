@@ -22,8 +22,8 @@ public class MembeWithdrawRecord {
 	private int delFlag;// 标志
 	private String cardaddress;// 开户银行所在地
 	private String channel_name;// 打款通道（富友，贝付）
-	private Date create_date;// 创建时间
-	private Date update_date;// 修改时间
+	private String create_date;// 创建时间
+	private String update_date;// 修改时间
 	private Member member;
 
 	@ManyToOne
@@ -110,19 +110,19 @@ public class MembeWithdrawRecord {
 		this.channel_name = channel_name;
 	}
 
-	public Date getCreate_date() {
+	public String getCreate_date() {
 		return create_date;
 	}
 
-	public void setCreate_date(Date create_date) {
+	public void setCreate_date(String create_date) {
 		this.create_date = create_date;
 	}
 
-	public Date getUpdate_date() {
+	public String getUpdate_date() {
 		return update_date;
 	}
 
-	public void setUpdate_date(Date update_date) {
+	public void setUpdate_date(String update_date) {
 		this.update_date = update_date;
 	}
 

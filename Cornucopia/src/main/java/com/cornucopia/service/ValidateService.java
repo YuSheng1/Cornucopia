@@ -11,5 +11,7 @@ public interface ValidateService {
 	public <T> T MemberAccount(int id);
 	//前台查询银行卡
 	public <T> T MemberBankcards(int id);
+	public <T> T cashFlowProcessVo(int id);
+	
 	
 }

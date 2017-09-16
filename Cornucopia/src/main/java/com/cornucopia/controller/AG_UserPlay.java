@@ -114,11 +114,10 @@ public class AG_UserPlay {
 		// 查询这个用户MemberAccount表
 		MemberAccount MAccount = AG_ProductServiceImpl.UpdateMemberAccount(member.getId());
 		// 修改这个用户MemberAccount的可用金额
+		MAccount.setInvest_amount(MAccount.getInvest_amount()+amount);
 		MAccount.setMember(member);
 		MAccount.setUseable_balance(MAccount.getUseable_balance() - amount);
 		MAccount.setUpdate_date(memberTradeRecord.getCreate_date());
-		// 保存MemberAccount表数据
-		AG_ProductServiceImpl.saveMemberAccount(MAccount);
 		// 添加用户利润表流水号
 		memberProfitRecord.setSerial_number(memberTradeRecord.getCreate_date());
 		// 添加用户利润表类型(注意这个写的时候没用上，数据库是空置)
@@ -164,6 +163,8 @@ public class AG_UserPlay {
 		AG_ProductServiceImpl.saveSubject(subject);
 		// 保存memberProfitRecord对象
 		AG_ProductServiceImpl.saveMemberProfitRecord(memberProfitRecord);
+		// 保存MemberAccount表数据
+		AG_ProductServiceImpl.saveMemberAccount(MAccount);
 
 		return "redirect:/item/Purchased?id="+subject.getId();
 	}
