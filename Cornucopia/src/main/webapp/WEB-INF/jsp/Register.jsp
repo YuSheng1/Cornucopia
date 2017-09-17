@@ -12,8 +12,13 @@
   <title>企业网站模板</title>
   <link rel="stylesheet" href="../assets/css/amazeui.css" />
   <link rel="stylesheet" href="../assets/css/common.min.css" />
-  <link rel="stylesheet" href="../assets/css/other.min.css" />
-  <script src="../BgAssets/js/bootstrapValidator.min.js"></script>
+<script type="text/javascript" src="../BgAssets/js/jquery.js"></script>
+<link href="../assets/css/bootstrap.css" rel="stylesheet">
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/bootstrap-select.js"></script>
+<script src="../assets/js/jquery.ztree.all-3.5.js"></script>
+<script src="../BgAssets/js/bootstrapValidator.min.js"></script>
 <link href="../assets/css/metroStyle.css" rel="stylesheet" />
 <link href="../BgAssets/css/bootstrapValidator.min.css" rel="stylesheet" />
 <link href="../assets/css/bootstrap-select.css" rel="stylesheet" />
@@ -23,26 +28,26 @@
 $(function () {
     $('#form').bootstrapValidator({feedbackIcons: {valid: 'glyphicon glyphicon-ok',invalid: 'glyphicon glyphicon-remove',validating: 'glyphicon glyphicon-refresh' },
         fields: {
-        	user_name: {
+        	member_name: {
                 message: '用户名验证失败',
                 validators: {
                     notEmpty: {
-                        message: '用户名不能为空'
-                    },
-                    threshold :  3 ,
-                remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}  
-                    url: '/Cornucopia/PM_UsersItem/boo',
-                    message: '用户已存在',//提示消息
-                    delay :  2000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
-                    type: 'POST',//请求方式
-                     
-                },
+                        message: '姓名不能为空'
+                    }
             }
             },
             name: {
                  validators: {
                      notEmpty: {
                          message: '昵称不能为空'
+                     },
+                     threshold :  3 ,
+                     remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}  
+                         url: '/Cornucopia/AgUserItem/nc',
+                         message: '昵称已存在',//提示消息
+                         delay :  2000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
+                         type: 'POST',//请求方式
+                          
                      }
                  }
              },
@@ -63,7 +68,7 @@ $(function () {
                      },
                      threshold :  11 ,
                      remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}  
-                         url: '/Cornucopia/PM_UsersItem/booPhone',
+                    	  url: '/Cornucopia/AgUserItem/phone',
                          message: '手机号已经被注册',//提示消息
                          delay :  5000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
                          type: 'POST',//请求方式
@@ -82,12 +87,8 @@ $(function () {
                          max: 30,
                          message: '密码长度必须在4到30之间'
                      },
-                     identical: {//相同
-                         field: 'repassword',
-                         message: '两次密码不一致'
-                     },
                      different: {//不能和用户名相同
-                         field: 'user_name',
+                         field: 'name',
                          message: '不能和用户名相同'
                      },
                      regexp: {//匹配规则
@@ -112,7 +113,7 @@ $(function () {
                          message: '两次密码不一致'
                      },
                      different: {//不能和用户名相同
-                         field: 'user_name',
+                         field: 'name',
                          message: '不能和用户名相同'
                      },
                      regexp: {//匹配规则
@@ -125,9 +126,6 @@ $(function () {
         }
     });
 });
-
-
-
 </script>
 <body class="register-container">
 <div class="layout">
@@ -232,7 +230,7 @@ $(function () {
                 </ul>
                 <!-- sub-menu end-->
               </li>
-              <li><a href="/Cornucopia/item/Example">产品中心</a></li>
+             <li><a href="/Cornucopia/AGSub/subject">产品中心</a></li>
               <li><a href="/Cornucopia/item/Solution">下载中心</a></li>
               <li>
                 <a href="/Cornucopia/item/News">新闻中心</a>
@@ -256,130 +254,55 @@ $(function () {
     </div>
 
 
-    <!--===========layout-container================-->
-    <div class="register-box">
-      <form action="" class="am-form" data-am-validator>
-        <fieldset>
-          <legend>注册用户<p class="register-info">账号可以使用手机或者邮箱注册，但是仔细核对后，填入正确信息。</p></legend>
+ 		<!-- 添加-->
+	
+    <div class="container" style="margin-top: 50px;">
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">添加角色<button type="button" class="close" 
+               data-dismiss="modal" aria-hidden="true">
+                  &times;            </button></h3>
+                    </div>
 
-          <div class="am-form-group">
-            <div class="am-g">
-              <div class="am-u-md-2 am-padding-0 am-text-right">
-                <label for="doc-vld-name-2" class="register-name">用户名</label>
-              </div>
-              <div class="am-u-md-10">
-                <input type="text" id="doc-vld-name-2" minlength="3"
-                       placeholder="请输入用户名" required/>
-              </div>(需要实名注册)
-            </div>
-          </div>
-          <div class="am-form-group">
-            <div class="am-g">
-              <div class="am-u-md-2 am-padding-0 am-text-right">
-                <label for="doc-vld-name-2" class="register-name">手机号</label>
-              </div>
-              <div class="am-u-md-10">
-                <input type="text" id="doc-vld-name-2" minlength="3"
-                       placeholder="请输入手机号" required/>
-              </div>
-            </div>
-          </div>
-          <div class="am-form-group">
-            <div class="am-g">
-              <div class="am-u-md-2 am-padding-0 am-text-right">
-                <label for="doc-vld-name-2" class="register-name">图形验证码</label>
-              </div>
-              <div class="am-u-md-10">
-                <input type="text" id="doc-vld-name-2" minlength="3"
-                       placeholder="图形验证码" required/>
-              </div>
-            </div>
-          </div>
-          <div class="am-form-group">
-            <div class="am-g">
-              <div class="am-u-md-2 am-padding-0 am-text-right">
-                <label for="doc-vld-name-2" class="register-name">验证码</label>
-              </div>
-              <div class="am-u-md-10">
-                <input type="text" id="doc-vld-name-2" minlength="3"
-                       placeholder="请输入验证码" required/>
-                 <input type="button" value="获取验证码">
-              </div>
-            </div>
-          </div>
-          <div class="am-form-group">
-            <div class="am-g">
-              <div class="am-u-md-2 am-padding-0 am-text-right">
-                <label for="doc-vld-name-2" class="register-name">登陆密码</label>
-              </div>
-              <div class="am-u-md-10">
-                <input type="password" id="doc-vld-name-2" minlength="3"
-                       placeholder="请输入密码" required/>
-              </div>（数字和字母组合，不少于6位）
-            </div>
-          </div>
+                    <div class="panel-body">
+                       	<form id="form" method="post"  action="/Cornucopia/AgUserItem/toRegister">
+                            <div class="form-group">
+                                <label>真实姓名:</label>
+                                 <input type="text" class="form-control" placeholder="请输入真实姓名，需实名认证" name="member_name">
+                            </div>
+                            <div class="form-group">
+                                <label>昵称:</label>
+                               <input  type="text" class="form-control" placeholder="请输入用户昵称，用于登录" name="name" />
+                            </div>
+                            <div class="form-group">
+                                <label>密码:</label>
+                               <input  type="text" class="form-control" placeholder="请输入密码" name="password" />
+                            </div>
+                             <div class="form-group">
+                                <label>确认密码:</label>
+                               <input  type="text" class="form-control" placeholder="确认密码" name="repassword" />
+                            </div>
+                            <div class="form-group">
+                                <label>手机号码:</label>
+                               <input  type="text" class="form-control" placeholder="请输入手机号码" name="mobile_Phone" />
+                            </div>
+                            
+	                      <input style="display: none;" name="create_date" value="<%=datetime%>">
+	                       <input style="display: none;"name="update_date" value="<%=datetime%>">
 
-          <div class="am-form-group">
-            <div class="am-g">
-              <div class="am-u-md-2 am-padding-0 am-text-right">
-                <label for="doc-vld-pwd-1" class="register-pwd">确认密码</label>
-              </div>
-              <div class="am-u-md-10">
-                <input type="password" id="doc-vld-pwd-1" placeholder="请再输入密码" pattern="^\d{6}$" required/>
-              </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">立即添加</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
-          </div>
-
-          <div class="am-form-group">
-            <div class="am-g">
-              <div class="am-u-md-2 am-padding-0 am-text-right">
-                <label for="doc-vld-pwd-2">理财师邀请码</label>
-              </div>
-              <div class="am-u-md-10">
-                <input type="text" id="doc-vld-pwd-2" placeholder="选填" data-equal-to="#doc-vld-pwd-1"/>
-              </div>（填写理财师邀请码，将会有更多惊喜）
-            </div>
-          </div>
-          
-           <div class="am-form-group">
-            <div class="am-g">
-              <div class="am-u-md-2 am-padding-0 	">
-                <label for="doc-vld-pwd-2">QQ号码</label>
-              </div>
-              <div class="am-u-md-10">
-                <input type="text" id="doc-vld-pwd-2" placeholder="选填" data-equal-to="#doc-vld-pwd-1"/>
-                <p placeholder="请用户提供QQ号码，方便客服联系">
-              </div>
-            </div>
-          </div>
-				
-		<div class="am-form-group">
-            <div class="am-g">
-              <div class="am-u-md-2 am-padding-0 am-text-right">
-                <label for="doc-vld-pwd-2"></label>
-              </div>
-              <div class="am-u-md-10">
-               <input type="checkbox">          
-                我已阅读并同意《本网站服务协议》
-              </div>
-            </div>
-          </div>
-          <div class="am-g">
-            <div class="am-u-md-10">
-              <button class="am-btn am-btn-secondary" type="submit">立即注册</button>
-            </div>
-          </div>
-        </fieldset>
-      </form>
+        </div>
     </div>
-
-  </div>
-
-
-
-
-  <script src="../assets/js/jquery-2.1.0.js" charset="utf-8"></script>
-  <script src="../assets/js/amazeui.js" charset="utf-8"></script>
+		<!-- /.modal -->
+	
 </body>
 
 </html>

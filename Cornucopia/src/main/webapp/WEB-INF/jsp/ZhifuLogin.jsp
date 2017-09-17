@@ -229,7 +229,7 @@ function fun(){
 					<hr class="one_line">
 					<dt>订单名称 ：</dt>
 					<dd>
-						<input id="WIDsubject" name="WIDsubject" />
+						<input id="WIDsubject" name="WIDsubject" readonly="readonly"/>
 					</dd>
 					<hr class="one_line">
 					<dt>付款金额 ：</dt>
@@ -239,7 +239,7 @@ function fun(){
 					<hr class="one_line">
 					<dt>商品描述：</dt>
 					<dd>
-						<input id="WIDbody" name="WIDbody" />
+						<input id="WIDbody" name="WIDbody" readonly="readonly"/>
 					</dd>
 					<hr class="one_line">
 					<dt></dt>

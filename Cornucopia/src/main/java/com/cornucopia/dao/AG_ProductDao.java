@@ -15,6 +15,7 @@ import com.cornucopia.bean.MemberDepositRecord;
 import com.cornucopia.bean.Resources;
 import com.cornucopia.bean.Subject;
 import com.cornucopia.bean.SubjectPurchaseRecord;
+import com.cornucopia.bean.SysRegion;
 import com.cornucopia.bean.Users;
 
 @Component
@@ -25,6 +26,23 @@ public class AG_ProductDao {
 
 	public Session getsession() {
 		return sessionFactory.getCurrentSession();
+	}
+
+	// 省市级联
+	public List<SysRegion> saveGetregion(Object... objects) {
+		Session session = getsession();
+		String sql = " from SysRegion p where p.region_level=1";
+		List list = session.createQuery(sql).list();
+		return list;
+	}
+
+	// 省市级联1
+	public List<SysRegion> saveGetregion1(Object... objects) {
+		System.out.println(objects[0] + "***********88");
+		Session session = getsession();
+		String sql = " from SysRegion p where p.parent_id=" + objects[0];
+		List list = session.createQuery(sql).list();
+		return list;
 	}
 
 	// 根据ID查询基金类产品信息 产品信息表操作
@@ -73,23 +91,27 @@ public class AG_ProductDao {
 		List list = session.createQuery(sql).list();
 		return list;
 	}
+
 	// 根据流水号查询提款记录表
-		public MembeWithdrawRecord GetMembeWithdrawRecordByliushui(String  liushui) {
-			Session session = getsession();
-			String sql = " from MembeWithdrawRecord m where m.serial_number=" + liushui + " order by create_date desc";
-			List list = session.createQuery(sql).list();
-			MembeWithdrawRecord membeWithdrawRecord=(MembeWithdrawRecord) list.get(0);
-			return membeWithdrawRecord;
-		}
+	public MembeWithdrawRecord GetMembeWithdrawRecordByliushui(String liushui) {
+		Session session = getsession();
+		String sql = " from MembeWithdrawRecord m where m.serial_number=" + liushui + " order by create_date desc";
+		List list = session.createQuery(sql).list();
+		MembeWithdrawRecord membeWithdrawRecord = (MembeWithdrawRecord) list.get(0);
+		return membeWithdrawRecord;
+	}
+
 	// 根据id查询提款记录表
-		public MemberBankcards GetMemberBankcardsByid(int mid) {
-			Session session = getsession();
-			String sql = " from MemberBankcards m where m.member.id=" + mid + " order by create_date desc";
-			List<MemberBankcards> list = session.createQuery(sql).list();
-			
-			return  list.get(0);
+	public MemberBankcards GetMemberBankcardsByid(int mid) {
+		Session session = getsession();
+		String sql = " from MemberBankcards m where m.member.id=" + mid + " order by create_date desc";
+		List<MemberBankcards> list = session.createQuery(sql).list();
+		if (list.size() > 0) {
+			return list.get(0);
 		}
-	
+		return null;
+	}
+
 	// 根据id查询成员利润表(暂时用不上，所以查询字段没改，是错的)
 	// public List GetMemberProfitRecord(Object... objects) {
 	// String sql = "select * from Subject_purchase_record where subject_id=" +
@@ -123,24 +145,31 @@ public class AG_ProductDao {
 		session.saveOrUpdate(object[0]);
 
 	}
-	
-	// 向提现记录中间表添加数据
-		public void saveCashFlowProcess(Object... object) {
-			Session session = getsession();
-			session.saveOrUpdate(object[0]);
 
-		}
+	// 向提现记录中间表添加数据
+	public void saveCashFlowProcess(Object... object) {
+		Session session = getsession();
+		session.saveOrUpdate(object[0]);
+
+	}
+
+	// 往银联表里添加数据
+	public void saveMemberBankcards(Object... object) {
+		Session session = getsession();
+		session.save(object[0]);
+	}
 
 	// 往及账表添加数据
 	public void saveMembertally(Object... object) {
 		Session session = getsession();
 		session.saveOrUpdate(object[0]);
 	}
+
 	// 往提现表添加数据
-		public void saveMembeWithdrawRecord(Object... object) {
-			Session session = getsession();
-			session.saveOrUpdate(object[0]);
-		}
+	public void saveMembeWithdrawRecord(Object... object) {
+		Session session = getsession();
+		session.saveOrUpdate(object[0]);
+	}
 
 	// 往充值表添加数据
 	public void saveAlipayTradePagePay(Object... object) {
@@ -158,6 +187,12 @@ public class AG_ProductDao {
 	public void saveMemberAccount(Object... object) {
 		Session session = getsession();
 		session.update(object[0]);
+	}
+
+	// 修改成员表金额
+	public void savesMemberAccount(Object... object) {
+		Session session = getsession();
+		session.save(object[0]);
 	}
 
 	// 修改标数据

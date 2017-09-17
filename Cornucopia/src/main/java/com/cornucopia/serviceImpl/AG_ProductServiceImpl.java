@@ -12,6 +12,7 @@ import com.cornucopia.bean.MemberBankcards;
 import com.cornucopia.bean.MemberDepositRecord;
 import com.cornucopia.bean.Subject;
 import com.cornucopia.bean.SubjectPurchaseRecord;
+import com.cornucopia.bean.SysRegion;
 import com.cornucopia.dao.AG_ProductDao;
 import com.cornucopia.service.AG_ProductService;
 
@@ -22,14 +23,12 @@ public class AG_ProductServiceImpl implements AG_ProductService {
 
 	@Autowired
 	private AG_ProductDao ag_ProductDao;// 产品操作类
-
 	// 根据id查询subject产品信息
 	@Override
 	public Subject getBySubjectId(int id) {
 		Subject subject = ag_ProductDao.GetSubject(id);
 		return subject;
 	}
-
 	// 根据id查询SubjectPurchaseRecord产品记录信息
 	@Override
 	public List<SubjectPurchaseRecord> getBySubjectPurchaseRecordId(Object... object) {
@@ -48,7 +47,6 @@ public class AG_ProductServiceImpl implements AG_ProductService {
 		MemberBankcards memberDepositRecord = ag_ProductDao.GetMemberBankcardsByid(id);
 		return memberDepositRecord;
 	}
-	
 	// 根据memberid和subjectid修改SubjectPurchaseRecord产品记录信息
 	@Override
 	public void UpdateSubjectPurchaseRecord(Object... object) {
@@ -66,7 +64,6 @@ public class AG_ProductServiceImpl implements AG_ProductService {
 			MembeWithdrawRecord memberAccount=ag_ProductDao.GetMembeWithdrawRecordByliushui(liushui);
 			return memberAccount;
 		}
-	
 	// 向交易记录表添加数据
 	@Override
 	public void saveMemberTradeRecord(Object... object) {
@@ -79,23 +76,18 @@ public class AG_ProductServiceImpl implements AG_ProductService {
 			ag_ProductDao.saveCashFlowProcess(object);
 
 		}
-	
 	// 向交易记录表添加数据
 		@Override
 		public void saveMembeWithdrawRecord(Object... object) {
 			ag_ProductDao.saveMembeWithdrawRecord(object);
 
 		}
-	
-
 	// 往及账表添加数据
 		@Override
 		public void saveMembertally(Object... object) {
 			ag_ProductDao.saveMembertally(object);
 
 		}
-		
-
 	// 往购买标的标添加数据
 	@Override
 	public void saveSubjectPurchaseRecord(Object... object) {
@@ -112,36 +104,51 @@ public class AG_ProductServiceImpl implements AG_ProductService {
 		ag_ProductDao.updateAlipayTradePagePay(object);
 
 	}
-	
 	@Override
 	public void saveMemberAccount(Object... object) {
 		ag_ProductDao.saveMemberAccount(object);
 		
 	}
-	
-
 	@Override
 	public void saveMemberProfitRecord(Object... object) {
 	    ag_ProductDao.saveMemberProfitRecord(object);
 	}
-
 	@Override
 	public void saveSubject(Object... object) {
 		ag_ProductDao.saveSubject(object);
 	}
-
 	@SuppressWarnings("unchecked")
 	@Override
 	public  List<SubjectPurchaseRecord> GetSubjectPurchaseRecordByid(int mid) {
 		List<SubjectPurchaseRecord> subjectPurchaseRecordlist=ag_ProductDao.GetSubjectPurchaseRecordByid(mid);
 		return subjectPurchaseRecordlist;
 	}
-
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<MembeWithdrawRecord> GetMembeWithdrawRecordByid(int mid) {
 		List<MembeWithdrawRecord> membeWithdrawRecordlist=ag_ProductDao.GetMembeWithdrawRecordByid(mid);
 		return membeWithdrawRecordlist;
 	}
+	@Override
+	public void savesMemberAccount(Object... object) {
+		ag_ProductDao.savesMemberAccount(object);		
+	}
+	@Override
+	public List<SysRegion> saveGetregion(Object... object) {
+		List<SysRegion> sysRegion=ag_ProductDao.saveGetregion(object);
+		return sysRegion;
+		
+	}
+	@Override
+	public List<SysRegion> saveGetregion1(Object... object) {
+		List<SysRegion> sysRegion=ag_ProductDao.saveGetregion1(object);
+		return sysRegion;
+		
+	}
 
+	@Override
+	public void saveMemberBankcards(Object... object) {
+		ag_ProductDao.saveMemberBankcards(object);
+	}
+	
 }

@@ -257,6 +257,9 @@ public class AG_UserPlay {
 		session.setAttribute("memberDepositRecord", null);
 		session.setAttribute("memberTradeRecord", null);
 		session.setAttribute("WIDtotal_amount", null);
+		if(sub==null){
+			return "redirect:/item/Contact";
+		}
 		return "redirect:/item/Purchased?id="+sub.getId();
 	}
 }

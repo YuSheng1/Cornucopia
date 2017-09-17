@@ -151,7 +151,7 @@
 									<li class="menu-item"><a href="/Cornucopia/item/Product2">产品展示2</a></li>
 									<li class="menu-item"><a href="/Cornucopia/item/Product3">产品展示3</a></li>
 								</ul> <!-- sub-menu end--></li>
-							<li><a href="/Cornucopia/item/Example">产品中心</a></li>
+							<li><a href="/Cornucopia/AGSub/subject">产品中心</a></li>
 							<li><a href="/Cornucopia/item/Solution">下载中心</a></li>
 							<li><a href="/Cornucopia/item/News">新闻中心</a> <!-- sub-menu start-->
 								<ul class="sub-menu">

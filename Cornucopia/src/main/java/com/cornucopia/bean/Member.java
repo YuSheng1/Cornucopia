@@ -23,8 +23,8 @@ public class Member {
 	private int status;//账号状态（正常，锁定，删除
 	private int del_flag;//删除标志
 	private String identity;//身份
-	private Date create_date;//创建时间
-	private Date update_date;//修改时间
+	private String create_date;//创建时间
+	private String update_date;//修改时间
 	private String weiBoAccount;//微博账号关联
 	private String weixinAccount;//微信账号关联
 	private int headid;//头像图片id
@@ -98,16 +98,16 @@ public class Member {
 	public void setIdentity(String identity) {
 		this.identity = identity;
 	}
-	public Date getCreate_date() {
+	public String getCreate_date() {
 		return create_date;
 	}
-	public void setCreate_date(Date create_date) {
+	public void setCreate_date(String create_date) {
 		this.create_date = create_date;
 	}
-	public Date getUpdate_date() {
+	public String getUpdate_date() {
 		return update_date;
 	}
-	public void setUpdate_date(Date update_date) {
+	public void setUpdate_date(String update_date) {
 		this.update_date = update_date;
 	}
 	public String getWeiBoAccount() {

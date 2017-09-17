@@ -136,7 +136,7 @@
 									<li class="menu-item"><a href="/Cornucopia/item/Product2">产品展示2</a></li>
 									<li class="menu-item"><a href="/Cornucopia/item/Product3">产品展示3</a></li>
 								</ul> <!-- sub-menu end--></li>
-							<li><a href="/Cornucopia/item/Example">产品中心</a></li>
+							<li><a href="/Cornucopia/AGSub/subject">产品中心</a></li>
 							<li><a href="/Cornucopia/item/Solution">下载中心</a></li>
 							<li><a href="/Cornucopia/item/News">新闻中心</a> <!-- sub-menu start-->
 								<ul class="sub-menu">
@@ -183,9 +183,9 @@
 		cellspacing="0" cellpadding="0">
 		<tr>
 			<td align="left" valign="middle" class="info"><a
-				href="/account/security">
+				href="/Cornucopia/AG_UserPlay/Contact">
 					<div class="img">
-						<img src="/resources/web/images/userPic.jpg">
+						<img src="../BgAssets/images/头像.png">
 					</div>
 					<h2>${Lname}<span>您好!</span>
 					</h2>
@@ -227,8 +227,8 @@
 					冻结金额(元)<a href="javascript:;" class="glyphicon glyphicon-search"><span>提现冻结金额</span><i></i></a>
 				</p></li>
 		</ul>
-		<a href="#zhcz" onclick="fun()" class="cz" data-toggle="tab">充值 </a> <a
-			href="#wytk" onclick="fun()" class="tk" data-toggle="tab">提现 </a>
+		<a   class="cz"  href="/Cornucopia/AG_UserPlay/GoRecharge" >充值 </a>
+		 <a href="#wytk" onclick="fun()" class="tk" data-toggle="tab">提现 </a>
 	</div>
 	<script type="text/javascript">
 		function fun(){
@@ -246,14 +246,14 @@
 		<li><a href="#tikuan" data-toggle="tab">提款记录 </a></li>
 		<li><a href="#tiyan" data-toggle="tab">体验金记录 </a></li>
 		<h4>我的账户</h4>
-		<li><a href="#zhcz" data-toggle="tab">账户充值</a></li>
 		<li><a href="#aqxx" data-toggle="tab">安全信息 </a></li>
 		<li><a href="#wytk" data-toggle="tab">我要提款 </a></li>
 	</ul>
 	<div id="myTabContent" class="tab-content">
 		<div class="tab-pane fade in active" id="touzi"
 			style="margin-left: 600px; margin-top: -450px; width: 700px; height: 800px;">
-			<table class="table" width="700px" height="250px;">
+			<table class="table" width="700px" >
+			
 				<caption>
 					<h4>投资记录</h4>
 				</caption>
@@ -360,7 +360,7 @@
 		</div>
 		<div class="tab-pane fade" id="jine"
 			style="margin-left: 600px; margin-top: -450px; width: 700px; height: 600px;">
-			<table class="table" width="700px" height="250px;">
+			<table class="table" width="700px">
 				<caption>
 					<h4>充值记录</h4>
 				</caption>
@@ -479,14 +479,6 @@
 				</tbody>
 			</table>
 		</div>
-		<div class="tab-pane fade" id="zhcz"
-			style="margin-left: 600px; margin-top: -450px; width: 700px; height: 600px;">
-			<table class="table" width="700px">
-				<caption>
-					<h4>账户充值</h4>
-				</caption>
-			</table>
-		</div>
 		<div class="tab-pane fade" id="aqxx"
 			style="margin-left: 600px; margin-top: -450px; width: 700px; height: 600px;">
 			<table class="table" width="700px">
@@ -524,17 +516,60 @@
 				</tbody>
 			</table>
 		</div>
+		<script type="text/javascript">
+		function ss(){
+			 var s = $("#error").val(); 
+			 var s1 = $("#error1").val(); 
+			 var s2 = $("#error2").val(); 
+			 var bank = $("#bank").val(); 
+			 
+			if(s==-1||s1==-1||s2==-1){
+			alert("请选择正确的地址");
+			return false;
+			}
+			if(bank==""){
+				alert("请填写正确的银行卡号");
+				
+				return false;
+			}
+			 var reg=/^[0-9]{16,19}$/ 
+			 if(!reg.test(bank)){    
+		            alert("对不起，您输入的银行卡不正确!");//请将“英文字母类型”改成你需要验证的属性名称!    
+		            return false;
+			 }  
+			
+			alert("绑定成功！ 您的卡号为"+bank);
+			return true;
+			}
+		</script>
 		<div class="tab-pane fade" id="wytk"
 			style="margin-left: 600px; margin-top: -450px; width: 500px; height: 600px;">
 			<caption>
 				<h4>我要提款</h4>
 			</caption>
 			<div style="padding: 50px 50px 10px;">
-				<c:if test="${memberBankcards.id<1}">
+				<c:if test="${memberBankcards.id==null}">
+				<form id="yinhangka" method="post" action="/Cornucopia/AgUserItem/toBank" onsubmit="return ss()">
 					<div class="input-group">
 						<span class="input-group-addon">绑定银行卡</span> <input type="text"
-							class="form-control" placeholder="请输入银行卡">
-					</div>
+							class="form-control" placeholder="请输入银行卡号" id="bank" name="card_no">
+					</div><br>
+							<input type="hidden" value="<%=datetime1%>" name="datebank">
+					 <select id="error" name="error"   style="width: 130px;" onchange="fun2()">
+					  <option  id="oid1" value="-1"  selected="selected" >请选择</option>
+              <c:forEach items="${sysregion}" var="sysregion" >
+          <option  id="oid" value="${sysregion.ID}"  >${sysregion.name}</option>
+        </c:forEach>
+       </select>
+       	 <select id="error1" name="error1"   style="width: 130px;" onchange="fun3()">
+          <option  id="oid1" value="-1"  selected="selected"  >请选择</option>
+       	  </select>
+       	 <select id="error2" name="error2"   style="width: 130px;" >
+          <option id="oid2" value="-1"  selected="selected"  >请选择</option>
+         </select>
+        <input type="submit" class="btn btn-default" value="立即绑定">
+       
+					</form>
 				</c:if>
 				<c:if test="${memberBankcards.id>0}">
 					<div class="panel panel-default">
@@ -588,7 +623,45 @@
 		</div>
 	</div>
 	<script>
-	
+	function fun2(){
+		 var s1 = $("#error").val(); 
+		 var s2=0;
+		 $("#error1").empty(); 
+		 $.post("/Cornucopia/AgUserItem/queryInfo",{"id":s1},function(msg){
+			 var city=$("#error1");
+			 ws2=msg[0].id;
+			 for(var i=0;i<msg.length;i++){
+				 var option=new Option(msg[i].name,msg[i].id);
+				 city.append(option);
+				
+			 }
+			 $("#error2").empty(); 
+			 fun4(ws2);
+		 });
+	}function fun4(ws2){
+		 $("#error2").empty(); 
+		
+		 $.post("/Cornucopia/AgUserItem/queryInfo",{"id":ws2},function(msg){
+			 var city=$("#error2");
+			 for(var i=0;i<msg.length;i++){
+				 //创建一个html标签
+				 var option=new Option(msg[i].name,msg[i].id);
+				 city.append(option);
+			 }
+		 });
+	}
+	function fun3(){
+		 var s1 = $("#error1").val(); 
+		 $("#error2").empty(); 
+		 $.post("/Cornucopia/AgUserItem/queryInfo",{"id":s1},function(msg){
+			 var city=$("#error2");
+			 for(var i=0;i<msg.length;i++){
+				 //创建一个html标签
+				 var option=new Option(msg[i].name,msg[i].id);
+				 city.append(option);
+			 }
+		 });
+	}
 	$(function () {
       $('#myTab li:eq(1) a').tab('show');
    });
@@ -696,6 +769,12 @@
 		</div>
 	</div>
 	<script src="../assets/js/amazeui.js" charset="utf-8"></script>
+	<script type="text/javascript">
+	function fun1(sid){
+		alert(sid);
+	}
+	
+	</script>
 </body>
 
 </html>

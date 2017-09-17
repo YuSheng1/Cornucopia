@@ -55,6 +55,21 @@ public class ValidateImpl implements ValidateService {
 		List<com.cornucopia.bean.MemberBankcards> memberAccount=validateDao.getMemberBankcards(id);
 		return memberAccount;
 	}
+	//根据昵称查询
+	@Override
+	public boolean Usernc(String name) {
+		return validateDao.Userzcnc(name);
+	}
+	//根据手机号查询
+	@Override
+	public boolean Usersjh(String mobile_Phone) {
+		return validateDao.Userzcsjh(mobile_Phone);
+	}
+	@Override
+	public  Member memberLoginUser(String name) {
+		Member member=validateDao.memberLoginUser(name);
+		return member;
+	}
 	
 
 }

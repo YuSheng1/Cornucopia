@@ -74,7 +74,6 @@ public class WithdrawDepositController {
 	 */
 	@RequestMapping("statu")
 	public String BgRight(MembeWithdrawRecord membeWithdrawRecord,CashFlowProcess cashflowprocess,HttpSession session,String date) {
-		System.out.println("123");
 		Member member=(Member) session.getAttribute("member");
 		//给表字段赋值
 		membeWithdrawRecord.setStatus(0);
@@ -83,8 +82,12 @@ public class WithdrawDepositController {
 		membeWithdrawRecord.setUpdate_date(date);
 		membeWithdrawRecord.setDelFlag(0);
 		membeWithdrawRecord.setMember(member);
-		AG_ProductServiceImpl.saveMembeWithdrawRecord(membeWithdrawRecord);
-		System.out.println("432");
+	    MemberAccount memberAccount=validateImpl.MemberAccount(member.getId());
+	    //提现是吧金额给给冻结
+	    memberAccount.setUseable_balance(memberAccount.getUseable_balance()-membeWithdrawRecord.getAmount());
+	    memberAccount.setImuseale_balance(memberAccount.getImuseale_balance()+membeWithdrawRecord.getAmount());
+		memberAccount.setMember(member);
+	    AG_ProductServiceImpl.saveMembeWithdrawRecord(membeWithdrawRecord);
 				Deployment deployment=processEngine.getRepositoryService() // 获取部署相关Service
 				.createDeployment() // 创建部署
 				.addClasspathResource("diagrams/Withdraw.bpmn") // 加载资源文件
@@ -99,8 +102,8 @@ public class WithdrawDepositController {
 		System.out.println("流水号"+membeWithdrawRecord.getSerial_number());
 		cashflowprocess.setSerialNumbe(membeWithdrawRecord.getSerial_number());
 		cashflowprocess.setDeploymentId(deployment.getId());
-		System.out.println(cashflowprocess.getDeploymentId()+"123*********8");
 		AG_ProductServiceImpl.saveCashFlowProcess(cashflowprocess);
+		  AG_ProductServiceImpl.saveMemberAccount(memberAccount);
 			System.out.println("流程实例ID:"+pi.getId());
 			System.out.println("流程定义ID:"+pi.getProcessDefinitionId()); 
 			return "redirect:/item/Contact";
@@ -132,19 +135,22 @@ public class WithdrawDepositController {
 	 */
 	@RequestMapping("findRW")
 	public String findRW(String rid,String roles,String mname,String serialNumbe,String money){
-		processEngine.getTaskService() // 任务相关Service
-			.complete(rid);//任务ID
 		if(roles.equals("经理")){
-			System.out.println("123");
-			Member member=validateImpl.member(mname);
+			Member member=validateImpl.memberLoginUser(mname);
 			MembeWithdrawRecord membeWithdrawRecord=AG_ProductServiceImpl.GetMembeWithdrawRecordByliushui(serialNumbe);
 		     membeWithdrawRecord.setStatus(1);
 		     membeWithdrawRecord.setMember(member);
 		     MemberAccount memberAccount=validateImpl.MemberAccount(member.getId());
-		     memberAccount.setUseable_balance((int)(memberAccount.getUseable_balance()-Float.parseFloat(money)));
+		     memberAccount.setImuseale_balance((int)(memberAccount.getImuseale_balance()-Float.parseFloat(money)));
 		     memberAccount.setMember(member);
 		     AG_ProductServiceImpl.saveMembeWithdrawRecord(membeWithdrawRecord);
 		     AG_ProductServiceImpl.saveMemberAccount(memberAccount);
+		     processEngine.getTaskService() // 任务相关Service
+				.complete(rid);//任务ID
+		}
+		if(roles.equals("会计")){
+		processEngine.getTaskService() // 任务相关Service
+		.complete(rid);//任务ID
 		}
 		return "redirect:/Wi/findTask";
 	}
@@ -152,11 +158,16 @@ public class WithdrawDepositController {
 	public String deleteCascade(String rid,String roles,String mname,String serialNumbe,String money){
 		  processEngine.getRepositoryService()
 	        .deleteDeployment(rid, true); // 默认是false true就是级联删除
-		Member member=validateImpl.member(mname);
+		Member member=validateImpl.memberLoginUser(mname);
 		MembeWithdrawRecord membeWithdrawRecord=AG_ProductServiceImpl.GetMembeWithdrawRecordByliushui(serialNumbe);
 	     membeWithdrawRecord.setStatus(3);
 	     membeWithdrawRecord.setMember(member);
 	     AG_ProductServiceImpl.saveMembeWithdrawRecord(membeWithdrawRecord);
+	     MemberAccount memberAccount=validateImpl.MemberAccount(member.getId());
+	     memberAccount.setUseable_balance((int)(memberAccount.getUseable_balance()+Float.parseFloat(money)));
+	     memberAccount.setImuseale_balance((int)(memberAccount.getImuseale_balance()-Float.parseFloat(money)));
+	     memberAccount.setMember(member);
+	     AG_ProductServiceImpl.saveMemberAccount(memberAccount);
 	    System.out.println("驳回");
 	    return "redirect:/Wi/findTask";
 	}

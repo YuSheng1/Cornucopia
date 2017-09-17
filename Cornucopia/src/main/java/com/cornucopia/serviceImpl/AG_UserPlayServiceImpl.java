@@ -18,4 +18,10 @@ public class AG_UserPlayServiceImpl implements AG_UserPlayService{
 		aG_UserPlaytDao.save(objects);
 	}
 
+	@Override
+	public void savemember(Object... objects) {
+		aG_UserPlaytDao.savemember(objects);
+		
+	}
+
 }

@@ -17,6 +17,7 @@ import com.cornucopia.bean.MemberBankcards;
 import com.cornucopia.bean.MemberDepositRecord;
 import com.cornucopia.bean.Subject;
 import com.cornucopia.bean.SubjectPurchaseRecord;
+import com.cornucopia.bean.SysRegion;
 import com.cornucopia.service.AG_ProductService;
 import com.cornucopia.service.ValidateService;
 
@@ -73,16 +74,17 @@ public class AG_UserController {
 			List<MemberDepositRecord>  memberDepositRecord= AG_ProductServiceImpl.GetMemberDepositRecordByid(member.getId());
 			List<MembeWithdrawRecord> membeWithdrawRecord=AG_ProductServiceImpl.GetMembeWithdrawRecordByid(member.getId());
 			MemberBankcards  memberBankcards=AG_ProductServiceImpl.GetMemberBankcardsByid(member.getId());
+			//查询省市级联
+			List<SysRegion>  sysregion=AG_ProductServiceImpl.saveGetregion();
+			model.addAttribute("sysregion", sysregion);
 			model.addAttribute("MAccount", MAccount);
 			model.addAttribute("memberBankcards", memberBankcards);
 		    model.addAttribute("subjectPurchaseRecor", subjectPurchaseRecorList);
 		    model.addAttribute("membeWithdrawRecord", membeWithdrawRecord);
 		    model.addAttribute("memberDepositRecord", memberDepositRecord);
-					
 		}
 		return "Contact";
 	}
-
 	@RequestMapping("Join")
 	public String Join() {
 		return "Join";

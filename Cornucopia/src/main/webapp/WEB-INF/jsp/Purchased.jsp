@@ -160,7 +160,7 @@
 									<li class="menu-item"><a href="/Cornucopia/item/Product2">产品展示2</a></li>
 									<li class="menu-item"><a href="/Cornucopia/item/Product3">产品展示3</a></li>
 								</ul> <!-- sub-menu end--></li>
-							<li><a href="/Cornucopia/item/Example">产品中心</a></li>
+							<li><a href="/Cornucopia/AGSub/subject">产品中心</a></li>
 							<li><a href="/Cornucopia/item/Solution">下载中心</a></li>
 							<li><a href="/Cornucopia/item/News">新闻中心</a> <!-- sub-menu start-->
 								<ul class="sub-menu">
@@ -220,7 +220,7 @@
 						<c:if test="${ empty memberBankcards}">
 						<span id="checkmoney" style="color: red;">请先绑定银行卡
 						:<a style="color: #2695d5"
-									class="unlogin" href="/web/login">立即绑定</a></span>
+									class="unlogin" href="/Cornucopia/item/Contact">立即绑定</a></span>
 </c:if>
 						</div>
 						<div class="li4" id="li5" style="display: none;" >

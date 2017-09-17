@@ -126,7 +126,7 @@
                 </ul>
                 <!-- sub-menu end-->
               </li>
-              <li><a href="/Cornucopia/item/Example">产品中心</a></li>
+            <li><a href="/Cornucopia/AGSub/subject">产品中心</a></li>
               <li><a href="/Cornucopia/item/Solution">下载中心</a></li>
               <li>
                 <a href="/Cornucopia/item/News">新闻中心</a>
