@@ -1,5 +1,7 @@
 package com.cornucopia.controller;
 
+import java.text.SimpleDateFormat;
+
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -30,7 +32,6 @@ public class PM_PushNoticeController {
 	//查询所有
 	@RequestMapping("list")
 	public String listAll(Model model,String title1){
-		
 		Map map=new HashMap();
 		map.put("title1",title1);
 		System.out.println(title1);
@@ -47,6 +48,38 @@ public class PM_PushNoticeController {
 		PM_PushNoticeServiceImpl.save(pushNotice);
 		return "redirect:/push/list";
 	}
+	
+	//根基Id查询公告内容
+	@RequestMapping("cha")
+	public String chakan(int id,Model model){
+		System.out.println("111");
+		PushNotice pushNotice = PM_PushNoticeServiceImpl.chakan(id);
+		System.out.println(pushNotice.getContent()+"公告内容");
+		model.addAttribute("pushNotice",pushNotice);
+		return "Bgnoticelist";
+	}
+	
+	//去修改
+		@RequestMapping("updatebyid")
+		public String updateById(int id,Model model){
+			System.out.println("111");
+			PushNotice pushNotice = PM_PushNoticeServiceImpl.chakan(id);
+			model.addAttribute("pushNotice",pushNotice);
+			return "Bgnoticeupdate";
+		}
+	//修改
+		@RequestMapping("update")
+		public String update(PushNotice pushNotice){
+			System.out.println("进修改了");
+			Date date=new Date();
+			SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			System.out.println(sdf.format(date).toString());
+			//pushNotice.setCreate_date(sdf.format(date));
+			pushNotice.setUpdate_date(sdf.format(date));
+			this.PM_PushNoticeServiceImpl.update(pushNotice);
+			System.out.println(1);
+			return "redirect:/push/list";
+		}
 	
 	//查询是否有该标题
 		@ResponseBody

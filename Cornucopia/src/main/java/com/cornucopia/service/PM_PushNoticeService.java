@@ -12,4 +12,8 @@ public interface PM_PushNoticeService {
 	public void save (Object...objects);
 	//查询是否有该标题
 	public <T> T getByTitle(String title);
+	//根据id查询公告内容
+	public <T> T chakan(int id);
+	//修改公告
+	public void update(Object object);
 }
