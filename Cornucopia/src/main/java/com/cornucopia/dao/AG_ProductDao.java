@@ -161,11 +161,18 @@ public class AG_ProductDao {
 
 	// 向交易记录表添加数据
 	public void saveMemberTradeRecord(Object... object) {
+		System.out.println("我要看进了几次");
 		Session session = getsession();
-		session.saveOrUpdate(object[0]);
+		session.save(object[0]);
 
 	}
+	// 向交易记录表添加数据
+		public void save1MemberTradeRecord(Object... object) {
+			System.out.println("我要看进了几次");
+			Session session = getsession();
+			session.save(object[0]);
 
+		}
 	// 向提现记录中间表添加数据
 	public void saveCashFlowProcess(Object... object) {
 		Session session = getsession();

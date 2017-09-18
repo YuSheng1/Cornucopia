@@ -9,7 +9,8 @@ public interface ValidateService {
 
 	// 根据用户名获取对象
 	public <T> T member(String name);
-
+	// 邀请奖励
+		public <T> T Useryqjl(String invitationCode);
 	// 根据用户名获取对象
 	public <T> T memberLoginUser(String name);
 
@@ -30,5 +31,8 @@ public interface ValidateService {
 
 	// 手机号有没有注册
 	public boolean Usersjh(String mobile_Phone);
+	//邀请码存不存在
+	public boolean Usersyz(String invitedCode);
+	
 
 }

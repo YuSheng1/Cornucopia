@@ -14,6 +14,8 @@ public interface AG_ProductService {
 
 	// 向交易记录表添加数据
 	public void saveMemberTradeRecord(Object... object);
+	// 向交易记录表添加数据
+		public void save1MemberTradeRecord(Object... object);
 
 	// 往及账表添加数据
 	public void saveMembertally(Object... object);

@@ -47,11 +47,21 @@ public class ValidateDao {
 		}
 		return true;
 	}
-
-	// 根据昵称查询有没有注册
-	public Boolean Userzcsjh(String mobile_Phone) {
+	// 根据被邀请码查询邀请人
+	public Member Useryqjl(String invitationCode) {
 		Session session = getSession();
-		String hql = "from Member  where mobile_Phone='" + mobile_Phone.trim()+"'";
+		String hql = "from Member  where invitationCode='"+invitationCode.trim()+"'";
+		List<Member> list = session.createQuery(hql).list();
+		if (list.size() > 0) {
+			return list.get(0);
+		}
+		return null;
+		
+	}
+	// 根据邀请码存不存在
+	public Boolean Userzcsjh(String invitationCode) {
+		Session session = getSession();
+		String hql = "from Member  where invitationCode='" + invitationCode.trim()+"'";
 		List<Member> list = session.createQuery(hql).list();
 		if (list.size() > 0) {
 			System.out.println("用户名密码匹配");
@@ -59,7 +69,16 @@ public class ValidateDao {
 		}
 		return true;
 	}
-
+	// 根据昵称查询有没有注册
+		public Boolean Usersyz(String mobile_Phone) {
+			Session session = getSession();
+			String hql = "from Member  where mobile_Phone='" + mobile_Phone.trim()+"'";
+			List<Member> list = session.createQuery(hql).list();
+			if (list.size() > 0) {
+				return true;
+			}
+			return false;
+		}
 	// 根据昵称获取对象
 	public Member memberLogin(String name) {
 		Session session = getSession();

@@ -39,7 +39,7 @@ public class AG_UserPlay {
 	Date currentTime = new Date();
 	SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 	String dateString = formatter.format(currentTime);
-
+   
 	@RequestMapping("GoPlay")
 	public String BgMain(MemberTradeRecord memberTradeRecord, Member_tally member_tally,
 			SubjectPurchaseRecord subjectPurchaseRecord, MemberAccount memberAccount,
@@ -57,6 +57,21 @@ public class AG_UserPlay {
 		// fund_flow 交易类型 这里是 流入
 		// trade_status 默认 0 失败
 		Member member = validateImpl.member(memberName);
+		//邀请码奖励。根据被邀请码查看邀请人
+		if(member.getInvitedCode()!=null&&member.getInvitedCode()!=""&&amount>1000&&member.getInvitedCode().length()>0){
+			Member memberyq = validateImpl.Useryqjl(member.getInvitedCode());
+			System.out.println(memberyq.getId()+"奖励");
+			System.out.println(member.getId());
+		// 查询邀请人MemberAccount表
+			MemberAccount MAccount = AG_ProductServiceImpl.UpdateMemberAccount(memberyq.getId());
+			int many=(int)MAccount.getUseable_balance()+(amount/10);
+			int jlmoney=amount/10;
+			MAccount.setUseable_balance(many);
+			MAccount.setMember(memberyq);
+			// 保存MemberAccount表数据
+			AG_ProductServiceImpl.saveMemberAccount(MAccount);
+		save(member,MAccount,memberyq,memberTradeRecord,many,no,jlmoney);
+		}
 		// 根据id查询标的信息
 		Subject subject = AG_ProductServiceImpl.getBySubjectId(subject_id);
 		// 标的已投金额加购买金额
@@ -262,4 +277,21 @@ public class AG_UserPlay {
 		}
 		return "redirect:/item/Purchased?id="+sub.getId();
 	}
+	  public void save(Member member,MemberAccount MAccount,Member memberyq,MemberTradeRecord memberTradeRecord,int many,String no,int jlmoney){
+		  MemberTradeRecord memberTradeRecordMember=new MemberTradeRecord();
+			memberTradeRecordMember.setTrade_name("来自"+member.getMember_name()+"的邀请奖励:" + jlmoney+"元");
+			memberTradeRecordMember.setTrade_no(no.trim()+MAccount.getId());
+			memberTradeRecordMember.setCounterpart(member.getMember_name());
+			memberTradeRecordMember.setAmount(jlmoney);
+			memberTradeRecordMember.setTrade_type("邀请奖励");
+			// 交易记录表添加交易流入
+			memberTradeRecordMember.setFund_flow(1);
+			// 交易记录表添加交易状态
+			memberTradeRecordMember.setTrade_status(1);
+			memberTradeRecordMember.setCreate_date(memberTradeRecord.getCreate_date());
+			memberTradeRecordMember.setUpdate_date(memberTradeRecord.getCreate_date());
+			// 交易记录表添加member对象
+			memberTradeRecordMember.setMember(memberyq);
+			AG_ProductServiceImpl.save1MemberTradeRecord(memberTradeRecordMember);
+	  }
 }

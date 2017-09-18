@@ -22,6 +22,6 @@ public class AG_UserPlayDao {
 	//注册表添加数据
 	public void savemember(Object... objects){
 		Session session = getsession();
-		session.save(objects[0]);
+		session.saveOrUpdate(objects[0]);
 	}
 }

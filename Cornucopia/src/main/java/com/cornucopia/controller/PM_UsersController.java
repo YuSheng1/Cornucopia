@@ -4,11 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.cornucopia.bean.Member;
 import com.cornucopia.bean.UserRole;
 import com.cornucopia.bean.Users;
 import com.cornucopia.service.PM_UserService;
@@ -121,5 +123,52 @@ public class PM_UsersController {
 		}
 		return resultString;
 	}
-
+	// 查询密码是否正确
+		@ResponseBody
+		@RequestMapping("password")
+		public String password(HttpSession session,String password) {
+			Member member=(Member) session.getAttribute("member");
+			System.out.println(member.getPassword());
+			boolean boo=false;
+			 password=mD5Aauthentification.MD5Chains(member.getName(),password);
+			if(password.equals(member.getPassword())){
+				boo=true;
+			}
+			Map<String, Boolean> map = new HashMap<>();
+			map.put("valid", boo);
+			System.out.println(boo);
+			ObjectMapper mapper = new ObjectMapper();
+			String resultString = "";
+			try {
+				resultString = mapper.writeValueAsString(map);
+			} catch (JsonProcessingException e) {
+				e.printStackTrace();
+			}
+			return resultString;
+		}
+		// 查询密码是否正确
+				@ResponseBody
+				@RequestMapping("withdraw_password")
+				public String withdraw_password(HttpSession session,String withdraw_password1,String withdraw_password) {
+					Member member=(Member) session.getAttribute("member");
+					withdraw_password=mD5Aauthentification.MD5Chains(member.getName(),withdraw_password);
+					System.out.println(withdraw_password);
+					System.out.println(member.getWithdraw_password());
+					boolean boo=false;
+					if(withdraw_password.equals(member.getWithdraw_password())){
+						boo=true;
+					}
+					Map<String, Boolean> map = new HashMap<>();
+					map.put("valid", boo);
+					System.out.println(boo);
+					ObjectMapper mapper = new ObjectMapper();
+					String resultString = "";
+					try {
+						resultString = mapper.writeValueAsString(map);
+					} catch (JsonProcessingException e) {
+						e.printStackTrace();
+					}
+					return resultString;
+				}
+		
 }

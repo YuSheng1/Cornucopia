@@ -73,6 +73,12 @@ public class AG_ProductServiceImpl implements AG_ProductService {
 	}
 	// 向交易记录表添加数据
 		@Override
+		public void save1MemberTradeRecord(Object... object) {
+			ag_ProductDao.save1MemberTradeRecord(object);
+
+		}
+	// 向交易记录表添加数据
+		@Override
 		public void saveCashFlowProcess(Object... object) {
 			ag_ProductDao.saveCashFlowProcess(object);
 

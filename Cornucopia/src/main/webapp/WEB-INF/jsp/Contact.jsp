@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ page import="java.util.*"%>
 <!-- //获取系统时间必须导入的 -->
 <%@ page import="java.text.*"%>
@@ -200,9 +201,9 @@
 					<li class="active"><a href="#1">&#xe61a;</a><em>&#xe61b;</em></li>
 					<li class=""><a href="#1">&#xe61e;</a><em>&#xe61b;</em></li>
 				</ul></td>
-			<td align="right"><a href="/web/logout" class="loginOut"><span
+			<td align="right"><a href="/Cornucopia/item/Login" class="loginOut"><span
 					class="iconfont">&#xe618;</span>安全退出</a></td>
-		</tr>
+		</tr> 
 	</table>
 	<div class="countBox">
 		<ul>
@@ -485,35 +486,51 @@
 				<caption>
 					<h4>安全信息</h4>
 				</caption>
-				<thead>
-					<tr>
-						<th>产品</th>
-						<th>付款日期</th>
-						<th>状态</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr class="active">
-						<td>产品1</td>
-						<td>23/11/2013</td>
-						<td>待发货</td>
-					</tr>
-					<tr class="success">
-						<td>产品2</td>
-						<td>10/11/2013</td>
-						<td>发货中</td>
-					</tr>
-					<tr class="warning">
-						<td>产品3</td>
-						<td>20/10/2013</td>
-						<td>待确认</td>
-					</tr>
-					<tr class="danger">
-						<td>产品4</td>
-						<td>20/10/2013</td>
-						<td>已退货</td>
-					</tr>
-				</tbody>
+                    	<table class="safeTable" width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                             
+	                            <td class="first"><span class="iconfont active"><a href="#1">&#xe61c;</a><em>&#xe61b;</em></span></td>
+	                            <td><p style="color:#ff503f">实名认证</p></td>
+	                           <td> ${fn:substring(member.member_name,0,1)}**</td>
+	                            <td><p style="color:#888">保障账户安全，只有完成实名认证才能充值提款</p></td>
+	                            <td>认证完成</td>					 
+   							                         
+                          </tr>
+							<tr>
+								 
+									<td class="first"><span class="iconfont active"><a href="#1">&#xe61c;</a><em>&#xe61b;</em></span></td>
+									<td><p style="color:#ff503f">绑卡认证</p></td>
+										<c:if test="${memberBankcards.id>0}">
+									<td>已绑定</td></c:if>
+									<c:if test="${memberBankcards.id==null}">
+									 <a href="#wytk" onclick="fun()" class="tk" data-toggle="tab">立即绑定 </a></c:if>
+									<td><p style="color:#888">保障账户安全，只有完成绑卡认证才能充值提款</p></td>
+									<td><a href="#wytk" onclick="fun()" class="tk" data-toggle="tab">查看 </a></td>					 
+ 
+							</tr>
+                          <tr>
+                            <td class="first"><span class="iconfont active"><a href="#1">&#xe61d;</a><em>&#xe61b;</em></span></td>
+                            <td><p style="color:#ff503f">绑定手机</p></td>
+                            <td>${fn:substring(member.mobile_Phone,0,7)}******</td>
+                            <td><p style="color:#888">手机号码是您在盈+金融的重要身份凭证</p></td>
+                            <td>绑定完成</td>
+                          <tr>
+                            <td class="first"><span class="iconfont active"><a href="#1">&#xe61a;</a><em>&#xe61b;</em></span></td>
+                            <td><p style="color:#ff503f">登录密码</p></td>
+                            <td>已设置</td>
+                            <td><p style="color:#888">登录盈+金融网站时需要输入的密码</p></td>
+                            <td><a href="#ggmm" data-toggle="tab">更改密码 </a></td>
+                          </tr>
+                          <tr>
+                              
+	                            <td class="first"><span class="iconfont"><a href="#1">&#xe61e;</a><em>&#xe61b;</em></span></td>
+	                            <td><p style="color:#ff503f">提款密码</p></td>
+	                            <td><c:if test="${member.withdraw_password==null}">未绑定</c:if>
+	                            <c:if test="${ not empty member.withdraw_password}">已绑定</c:if></td>
+	                            <td><p style="color:#888">保障资金安全，提款需要设置提款密码</p></td>
+	                           	<td><a href="#txmm"  class="tk" data-toggle="tab">查看 </a></td>					 
+                          </tr>
+                        </table>
 			</table>
 		</div>
 		<script type="text/javascript">
@@ -542,6 +559,70 @@
 			return true;
 			}
 		</script>
+		<div class="tab-pane fade" id="ggmm"
+			style="margin-left: 600px; margin-top: -450px; width: 700px; height: 600px;">
+			<table class="table" width="700px">
+				<caption>
+					<h4>更改密码</h4>
+					  <div class="panel panel-default">
+					     <div class="panel-body">
+                       	<form id="formcc" method="post"  action="/Cornucopia/AgUserItem/updatepass">
+                    
+                            <div class="form-group">
+                                <label>输入旧密码:</label>
+                               <input  type="text" class="form-control" placeholder="请输入旧密码" name="password" />
+                            </div>
+                             <div class="form-group">
+                                <label>输入新密码:</label>
+                               <input  type="text" class="form-control" placeholder="请输入新密码" name="repassword" />
+                            </div>
+                             <div class="form-group">
+                                <label>确认新密码:</label>
+                               <input  type="text" class="form-control" placeholder="确认新密码" name="repassword1" />
+                            </div>
+                            
+	                       <input style="display: none;"name="update_date" value="<%=datetime%>">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">立即添加</button>
+                            </div>
+                        </form>
+                    </div>
+                      </div>
+				</caption>
+			</table>
+		</div>
+		<div class="tab-pane fade" id="txmm"
+			style="margin-left: 600px; margin-top: -450px; width: 700px; height: 600px;">
+			<table class="table" width="700px">
+				<caption>
+					<h4>更改提款密码</h4>
+					  <div class="panel panel-default">
+					     <div class="panel-body">
+                       	<form id="formtkmm" method="post"  action="/Cornucopia/AgUserItem/updawd">
+                       <c:if test="${ not empty member.withdraw_password}">
+                            <div class="form-group">
+                                <label>输入旧密码:</label>
+                               <input  type="text" class="form-control" name="withdraw_password"  />
+                            </div></c:if>
+                             <div class="form-group">
+                                <label>输入新提款密码:</label>
+                               <input  type="text" class="form-control" placeholder="请输入新提款密码" name="rewithdraw_password1" />
+                            </div>
+                             <div class="form-group">
+                                <label>确认新提款密码:</label>
+                               <input  type="text" class="form-control" placeholder="确认新提款密码" name="rewithdraw_password2" />
+                            </div>
+                            
+	                       <input style="display: none;"name="update_date" value="<%=datetime%>">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">立即添加</button>
+                            </div>
+                        </form>
+                    </div>
+                      </div>
+				</caption>
+			</table>
+		</div>
 		<div class="tab-pane fade" id="wytk"
 			style="margin-left: 600px; margin-top: -450px; width: 500px; height: 600px;">
 			<caption>
@@ -607,12 +688,17 @@
 												type="text" class="form-control" id="tkje" name="amount">
 										</div>
 									</div>
+									<c:if test="${member.withdraw_password==null}">
+									<a href="#txmm"  class="tk" data-toggle="tab">设置提款密码 </a>
+									</c:if>
+											<c:if test="${not empty member.withdraw_password}">
 									<div class="form-group">
 										<div class="input-group">
 											<span class="input-group-addon">提款密码</span> <input
-												type="text" class="form-control" placeholder="提款密码">
+												type="text" class="form-control" placeholder="提款密码" name="withdraw_password">
 										</div>
 									</div>
+									</c:if>
 									<br>
 									<button type="submit" class="btn btn-default"
 										onclick="func(${MAccount.useable_balance})">申请提现</button>
@@ -626,6 +712,181 @@
 		</div>
 	</div>
 	<script>
+	$(function () {
+		 $('#formupdate').bootstrapValidator({feedbackIcons: {valid: 'glyphicon glyphicon-ok',invalid: 'glyphicon glyphicon-remove',validating: 'glyphicon glyphicon-refresh' },
+		        fields: {
+		        	withdraw_password: {
+		                 message: '密码无效',
+		                 validators: {
+		                	 notEmpty: {
+		                         message: '密码不能为空'
+		                     },
+		                     threshold :  11 ,
+		                     remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}  
+		                         url: '/Cornucopia/PM_UsersItem/withdraw_password',
+		                         message: '密码不匹配',//提示消息
+		                         delay :  10000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
+		                         type: 'POST',//请求方式
+		                          
+		                     },
+		                     regexp: {//匹配规则
+		                         regexp: /^[a-zA-Z0-9_\.]+$/,
+		                         message: '密码不能为中文'
+		                     }
+		                 }
+		             },
+		             amount: {
+		                 message: '金额无效',
+		                 validators: {
+		                	 notEmpty: {
+		                         message: '密码不能为空'
+		                     },
+		                     regexp: {
+				                 regexp: "^[1-9][0-9]*$",
+				                 message: '请输入正确的金额'
+				             }
+		                 }
+		             }
+		        }
+		    });
+		});
+		 $('#formtkmm').bootstrapValidator({feedbackIcons: {valid: 'glyphicon glyphicon-ok',invalid: 'glyphicon glyphicon-remove',validating: 'glyphicon glyphicon-refresh' },
+		        fields: {
+		        	withdraw_password: {
+		                 message: '密码无效',
+		                 validators: {
+		                     stringLength: {
+		                         min: 4,
+		                         max: 30,
+		                         message: '密码长度必须在4到30之间'
+		                     },
+		                     threshold :  11 ,
+		                     remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}  
+		                         url: '/Cornucopia/PM_UsersItem/withdraw_password',
+		                         message: '旧密码不匹配',//提示消息
+		                         delay :  10000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
+		                         type: 'POST',//请求方式
+		                          
+		                     },
+		                     regexp: {//匹配规则
+		                         regexp: /^[a-zA-Z0-9_\.]+$/,
+		                         message: '密码不能为中文'
+		                     }
+		                 }
+		             },
+		             rewithdraw_password1: {
+		                 message: '密码无效',
+		                 validators: {
+		                     notEmpty: {
+		                         message: '密码名不能为空'
+		                     },
+		                     stringLength: {
+		                         min: 4,
+		                         max: 30,
+		                         message: '密码长度必须在4到30之间'
+		                     },
+		                     regexp: {//匹配规则
+		                         regexp: /^[a-zA-Z0-9_\.]+$/,
+		                         message: '密码不能为中文'
+		                     },
+		                     identical: {//相同
+		                         field: 'rewithdraw_password2',
+		                         message: '两次密码不一致'
+		                     }
+		                 }
+		             },
+		             rewithdraw_password2: {
+		                 message: '密码无效',
+		                 validators: {
+		                     notEmpty: {
+		                         message: '密码名不能为空'
+		                     },
+		                     stringLength: {
+		                         min: 4,
+		                         max: 30,
+		                         message: '密码长度必须在4到30之间'
+		                     },
+		                     identical: {//相同
+		                         field: 'rewithdraw_password1',
+		                         message: '两次密码不一致'
+		                     },
+		                     regexp: {//匹配规则
+		                         regexp: /^[a-zA-Z0-9_\.]+$/,
+		                         message: '密码不能为中文'
+		                     }
+		                 }
+		             }
+		            
+		        }
+		    });
+	    $('#formcc').bootstrapValidator({feedbackIcons: {valid: 'glyphicon glyphicon-ok',invalid: 'glyphicon glyphicon-remove',validating: 'glyphicon glyphicon-refresh' },
+	        fields: {
+	             password: {
+	                 message: '密码无效',
+	                 validators: {
+	                     notEmpty: {
+	                         message: '密码名不能为空'
+	                     },
+	                     stringLength: {
+	                         min: 4,
+	                         max: 30,
+	                         message: '密码长度必须在4到30之间'
+	                     },
+	                     threshold :  11 ,
+	                     remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}  
+	                         url: '/Cornucopia/PM_UsersItem/password',
+	                         message: '旧密码不匹配',//提示消息
+	                         delay :  10000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
+	                         type: 'POST',//请求方式
+	                          
+	                     },
+	                     regexp: {//匹配规则
+	                         regexp: /^[a-zA-Z0-9_\.]+$/,
+	                         message: '密码不能为中文'
+	                     }
+	                 }
+	             },
+	             repassword: {
+	                 message: '密码无效',
+	                 validators: {
+	                     notEmpty: {
+	                         message: '密码名不能为空'
+	                     },
+	                     stringLength: {
+	                         min: 4,
+	                         max: 30,
+	                         message: '密码长度必须在4到30之间'
+	                     },
+	                     regexp: {//匹配规则
+	                         regexp: /^[a-zA-Z0-9_\.]+$/,
+	                         message: '密码不能为中文'
+	                     }
+	                 }
+	             },
+	             repassword1: {
+	                 message: '密码无效',
+	                 validators: {
+	                     notEmpty: {
+	                         message: '密码名不能为空'
+	                     },
+	                     stringLength: {
+	                         min: 4,
+	                         max: 30,
+	                         message: '密码长度必须在4到30之间'
+	                     },
+	                     identical: {//相同
+	                         field: 'repassword',
+	                         message: '两次密码不一致'
+	                     },
+	                     regexp: {//匹配规则
+	                         regexp: /^[a-zA-Z0-9_\.]+$/,
+	                         message: '密码不能为中文'
+	                     }
+	                 }
+	             }
+	            
+	        }
+	    });
 	function fun2(){
 		 var s1 = $("#error").val(); 
 		 $(".dz1").val($("#error").find("option:selected").text()); 
@@ -783,12 +1044,7 @@
 		</div>
 	</div>
 	<script src="../assets/js/amazeui.js" charset="utf-8"></script>
-	<script type="text/javascript">
-	function fun1(sid){
-		alert(sid);
-	}
 	
-	</script>
 </body>
 
 </html>
