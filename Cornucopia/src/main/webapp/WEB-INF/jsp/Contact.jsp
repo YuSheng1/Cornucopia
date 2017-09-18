@@ -550,6 +550,9 @@
 			<div style="padding: 50px 50px 10px;">
 				<c:if test="${memberBankcards.id==null}">
 				<form id="yinhangka" method="post" action="/Cornucopia/AgUserItem/toBank" onsubmit="return ss()">
+					  <input type="hidden" name="dz1" class="dz1"/>
+					    <input type="hidden" name="dz2" class="dz2"/>
+					      <input type="hidden" name="dz3" class="dz3"/>
 					<div class="input-group">
 						<span class="input-group-addon">绑定银行卡</span> <input type="text"
 							class="form-control" placeholder="请输入银行卡号" id="bank" name="card_no">
@@ -564,7 +567,7 @@
        	 <select id="error1" name="error1"   style="width: 130px;" onchange="fun3()">
           <option  id="oid1" value="-1"  selected="selected"  >请选择</option>
        	  </select>
-       	 <select id="error2" name="error2"   style="width: 130px;" >
+       	 <select id="error2" name="error2"   style="width: 130px;"  onchange="fun5()">
           <option id="oid2" value="-1"  selected="selected"  >请选择</option>
          </select>
         <input type="submit" class="btn btn-default" value="立即绑定">
@@ -625,6 +628,7 @@
 	<script>
 	function fun2(){
 		 var s1 = $("#error").val(); 
+		 $(".dz1").val($("#error").find("option:selected").text()); 
 		 var s2=0;
 		 $("#error1").empty(); 
 		 $.post("/Cornucopia/AgUserItem/queryInfo",{"id":s1},function(msg){
@@ -633,25 +637,29 @@
 			 for(var i=0;i<msg.length;i++){
 				 var option=new Option(msg[i].name,msg[i].id);
 				 city.append(option);
-				
+				 $(".dz2").val($("#error1").find("option:selected").text()); 
 			 }
 			 $("#error2").empty(); 
 			 fun4(ws2);
 		 });
 	}function fun4(ws2){
 		 $("#error2").empty(); 
-		
+		 $("#d3").val($("#error2").find("option:selected").text()); 
 		 $.post("/Cornucopia/AgUserItem/queryInfo",{"id":ws2},function(msg){
 			 var city=$("#error2");
 			 for(var i=0;i<msg.length;i++){
 				 //创建一个html标签
 				 var option=new Option(msg[i].name,msg[i].id);
 				 city.append(option);
+				 $(".dz3").val($("#error2").find("option:selected").text()); 
 			 }
+			 $("#error3").empty(); 
+			 fun5();
 		 });
 	}
 	function fun3(){
 		 var s1 = $("#error1").val(); 
+		 $(".dz2").val($("#error1").find("option:selected").text()); 
 		 $("#error2").empty(); 
 		 $.post("/Cornucopia/AgUserItem/queryInfo",{"id":s1},function(msg){
 			 var city=$("#error2");
@@ -659,9 +667,15 @@
 				 //创建一个html标签
 				 var option=new Option(msg[i].name,msg[i].id);
 				 city.append(option);
+				 $(".dz3").val($("#error2").find("option:selected").text()); 
+				 
 			 }
 		 });
 	}
+	function fun5(){
+		 $(".dz3").val($("#error2").find("option:selected").text()); 
+	}
+	
 	$(function () {
       $('#myTab li:eq(1) a').tab('show');
    });

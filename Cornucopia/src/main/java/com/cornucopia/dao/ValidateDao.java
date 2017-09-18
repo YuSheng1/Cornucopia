@@ -99,6 +99,13 @@ public class ValidateDao {
 		List<MemberBankcards> list = session.createQuery(hql).list();
 		return list;
 	}
+	// 根据id获取MemberBankcards对象银行卡绑定表表
+		public List<MemberBankcards> MemberBankcardsList() {
+			Session session = getSession();
+			String hql = "from MemberBankcards";
+			List<MemberBankcards> list = session.createQuery(hql).list();
+			return list;
+		}
 
 	// 根据id获取MemberBankcards对象银行卡绑定表表
 	public CashFlowProcessVo CashFlowProcessVo(int id) {

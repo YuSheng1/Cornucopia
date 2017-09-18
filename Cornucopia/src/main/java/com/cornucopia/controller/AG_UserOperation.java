@@ -51,14 +51,15 @@ public class AG_UserOperation {
 
 	
 	@RequestMapping("/toBank")
-	public String toBank(HttpSession session,MemberBankcards memberBankcards,String datebank,String error,String error1,String error2) {
+	public String toBank(HttpSession session,MemberBankcards memberBankcards,String datebank,String dz1,String dz2,String dz3) {
 		Member member=(Member) session.getAttribute("member");
 		memberBankcards.setCreate_date(datebank);
 		memberBankcards.setUpdate_date(datebank);
 		memberBankcards.setMember(member);
 		memberBankcards.setDelflag(0);
 		memberBankcards.setType("银联");
-		memberBankcards.setCardaddress(error+error1+error2);
+		System.out.println(dz1+"-"+dz2+"-"+dz3);
+		memberBankcards.setCardaddress(dz1+"-"+dz2+"-"+dz3);
 		AG_ProductServiceImpl.saveMemberBankcards(memberBankcards);
 	return "redirect:/item/Contact";
 	}

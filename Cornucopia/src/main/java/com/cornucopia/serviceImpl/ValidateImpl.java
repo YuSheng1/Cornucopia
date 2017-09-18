@@ -70,6 +70,11 @@ public class ValidateImpl implements ValidateService {
 		Member member=validateDao.memberLoginUser(name);
 		return member;
 	}
+	@Override
+	public List<com.cornucopia.bean.MemberBankcards> MemberBankcardsList() {
+		List<com.cornucopia.bean.MemberBankcards> list=validateDao.MemberBankcardsList();
+		return list;
+	}
 	
 
 }
