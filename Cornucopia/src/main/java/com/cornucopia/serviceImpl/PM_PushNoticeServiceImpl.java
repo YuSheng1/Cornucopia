@@ -38,4 +38,20 @@ public class PM_PushNoticeServiceImpl<T> implements PM_PushNoticeService{
 		List<PushNotice> plist=pushNoticeDao.ListAll(objects);
 		return plist;
 	}
+
+	//根据ID查询公告内容
+	@SuppressWarnings("unchecked")
+	@Override
+	public PushNotice chakan(int id) {
+		return pushNoticeDao.chakan(id);
+	}
+
+	//修改
+	@Override
+	public void update(Object  object) {
+		System.out.println("qqq");
+		pushNoticeDao.update(object);
+		
+	}
+
 }

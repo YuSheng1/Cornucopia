@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
 <%@ page import="java.util.*"%>
 <!-- //获取系统时间必须导入的 -->
 <%@ page import="java.text.*"%>
@@ -20,39 +19,21 @@
 <script src="../BgAssets/js/bootstrapValidator.min.js"></script>
 <link href="../assets/css/metroStyle.css" rel="stylesheet" />
 <link href="../BgAssets/css/bootstrapValidator.min.css" rel="stylesheet" />
+ 
+ <script type="text/javascript"  src="/Cornucopia/utf8-jsp/ueditor.config.js"></script>
+    <script type="text/javascript"  src="/Cornucopia/utf8-jsp/ueditor.all.min.js"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript"  src="/Cornucopia/utf8-jsp/lang/zh-cn/zh-cn.js"></script>
+    
 <script language="javascript">
 <%String datetime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(Calendar.getInstance().getTime()); //获取系统时间%>
-$(function(){	
-	//导航切换z
-	$(".imglist li").click(function(){
-		$(".imglist li.selected").removeClass("selected")
-		$(this).addClass("selected");
-	})	
-})	
+
 </script>
-<script type="text/javascript">
-$(document).ready(function(){
-  $(".click").click(function(){
-  $(".tip").fadeIn(200);
-  });
-  
-  $(".tiptop a").click(function(){
-  $(".tip").fadeOut(200);
-});
 
-  $(".sure").click(function(){
-  $(".tip").fadeOut(100);
-});
-
-  $(".cancel").click(function(){
-  $(".tip").fadeOut(100);
-});
-
-});
-</script>
 <script type="text/javascript">
 $(function () {
-    $('form').bootstrapValidator({message: 'This value is not valid',feedbackIcons: {valid: 'glyphicon glyphicon-ok',invalid: 'glyphicon glyphicon-remove',validating: 'glyphicon glyphicon-refresh' },
+    $('#form').bootstrapValidator({message: 'This value is not valid',feedbackIcons: {valid: 'glyphicon glyphicon-ok',invalid: 'glyphicon glyphicon-remove',validating: 'glyphicon glyphicon-refresh' },
         fields: {
             title: {
                 message: '标题验证失败',
@@ -73,7 +54,7 @@ $(function () {
             content: {
                  validators: {
                      notEmpty: {
-                         message: '内容不能为空'
+                         message: '内容不能为空',
                      }
                  }
              }
@@ -82,24 +63,8 @@ $(function () {
     });
 });
 
-$(document).ready(function() {
-	$(".click").click(function() {
-		$(".tip1").show();
-	});
-
-	$(".tiptop a").click(function() {
-		$(".tip").fadeOut(200);
-	});
-
-	$(".sure").click(function() {
-		$(".tip").fadeOut(100);
-	});
-
-	$(".cancel").click(function() {
-		$(".tip").fadeOut(100);
-	});
-});
 </script>
+
 </head>
 <body>
 
@@ -109,7 +74,6 @@ $(document).ready(function() {
     
     <div class="rightinfo">
     <div class="tools">
-    <table>
     <tr>
     <td>
     <div class="tools">
@@ -128,7 +92,6 @@ $(document).ready(function() {
 	</div>
      </td>
      </tr>
-    </table>
     <!-- 
     	<ul class="toolbar">
         <li class="click"><span><img src="../BgAssets/images/t01.png" /></span>添加</li>
@@ -163,8 +126,11 @@ $(document).ready(function() {
     <c:forEach items="${plist }" var="e" varStatus="stat">
 		<tr>
 		<td>${e.id }</td><td>公告</td><td>${e.title }</td><td>${e.create_date }</td>
-		<td><a href="">查看</a>
-		<li><span></span><a href="">编辑</a></li>
+		<td>
+	<ul class="menuson">
+        <li><a href="/Cornucopia/push/cha?id=${e.id}" target="rightFrame">查看</a></li>
+        <li><a href="/Cornucopia/push/updatebyid?id=${e.id}" target="rightFrame">编辑</a></li>
+    </ul>
 		</td>
 		</tr>
 	</c:forEach>
@@ -192,17 +158,24 @@ $(document).ready(function() {
                                 <label>公告标题:</label>
                                  <input type="text" class="form-control" placeholder="请输入公告标题" name="title">
                             </div>
-                            <div class="form-group">
-                                <label>公告内容:</label>
-                               <input  type="text" class="form-control" placeholder="内容" name="content" />
-                            </div>
-	<input style="display: none;" name="create_date"
+                               <div>
+									<!-- 加载编辑器的容器 -->  
+									标题内容
+									<script id="container" name="content" type="text/plain" ></script>  
+									<!-- 配置文件 -->  
+									<!-- 编辑器源码文件 -->  
+									<!-- 实例化编辑器 -->  
+									<script type="text/javascript">  
+									    var ue = UE.getEditor('container');  
+									</script> 
+								</div>
+									<input style="display: none;" name="create_date"
 									value="<%=datetime%>">
 										<input style="display: none;" name="create_date1"
 									value="<%=datetime%>">
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary">立即添加</button>
+                                <button type="submit" class="btn btn-primary" onclick="fun1()">立即添加</button>
                             </div>
                         </form>
                     </div>
