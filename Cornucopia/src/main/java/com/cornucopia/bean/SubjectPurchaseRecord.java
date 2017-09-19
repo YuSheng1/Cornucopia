@@ -24,7 +24,7 @@ public class SubjectPurchaseRecord {
 	private float interset;// 结算利息
 	private int ispayment;// 是否还款
 	private int pay_interest_times;// 购买次数
-	private int last_profit_day;// 最后计息日
+	private String last_profit_day;// 最后计息日
 	private String bonus_info;// 红包金额信息（app端实际投资额度+红包额度)
 	private Member member;// 会员表
 	private Subject subject;//标的标
@@ -130,11 +130,11 @@ public class SubjectPurchaseRecord {
 		this.pay_interest_times = pay_interest_times;
 	}
 
-	public int getLast_profit_day() {
+	public String getLast_profit_day() {
 		return last_profit_day;
 	}
 
-	public void setLast_profit_day(int last_profit_day) {
+	public void setLast_profit_day(String last_profit_day) {
 		this.last_profit_day = last_profit_day;
 	}
 

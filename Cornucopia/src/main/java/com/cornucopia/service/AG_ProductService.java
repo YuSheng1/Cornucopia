@@ -14,8 +14,9 @@ public interface AG_ProductService {
 
 	// 向交易记录表添加数据
 	public void saveMemberTradeRecord(Object... object);
+
 	// 向交易记录表添加数据
-		public void save1MemberTradeRecord(Object... object);
+	public void save1MemberTradeRecord(Object... object);
 
 	// 往及账表添加数据
 	public void saveMembertally(Object... object);
@@ -37,6 +38,9 @@ public interface AG_ProductService {
 
 	// 保存成员账户表金额
 	public void savesMemberAccount(Object... object);
+
+	// 保存奖励表金额
+	public void saveAwardRecords(Object... object);
 
 	// 查询成员账户表金额
 	public <T> T UpdateMemberAccount(Object... object);

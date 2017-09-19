@@ -391,6 +391,7 @@ html {
 body {
   position: relative;
   background: #fff;
+  font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans", "wenquanyi micro hei", "Hiragino Sans GB", "Hiragino Sans GB W3", "FontAwesome", sans-serif;
   font-weight: normal;
   line-height: 1.6;
   color: #333333;
@@ -602,7 +603,8 @@ select {
  * http://timkadlec.com/2012/10/ie10-snap-mode-and-responsive-design/
  * http://msdn.microsoft.com/en-us/library/ie/hh869615%28v=vs.85%29.aspx
  * http://msdn.microsoft.com/zh-cn/library/ie/hh708740(v=vs.85).aspx
- * @2014.01.20: 鐠佸墽鐤嗘稉鈧稉瀣潣閹備簰閸氬函绱漺indows Phone 8 娑撳﹥妯夌粈铏规畱鐎涙ぞ缍嬫潻鍥х毈閿涘本娈忛弮鑸垫暈闁插﹥甯� * ========================================================================== */
+ * @2014.01.20: 璁剧疆涓€涓嬪睘鎬т互鍚庯紝windows Phone 8 涓婃樉绀虹殑瀛椾綋杩囧皬锛屾殏鏃舵敞閲婃帀
+ * ========================================================================== */
 /*
 @-ms-viewport {
   width: device-width;
@@ -8995,8 +8997,8 @@ ul.am-dropdown-content > .am-disabled > a:focus {
 }
 /*
 TODO:
-  1. 閸斻劎鏁炬惔鏃囶嚉閺�儳婀�dialog 娑撳绱濇稉宥呭晙閺勵垱鏆ｆ稉锟�modal閿涘本绉归崣锟�JS 闁槒绶敍宀勬付鐟曚胶绮虹粵閫涙叏閺�拷
-  2. modal 濠婃艾濮╅弶鈥愁槱閻炲棴绱濋弰顖氭儊闂団偓鐟曚焦鍧婇崝鐘辩娑擃亝绮撮崝銊︽蒋鐎硅棄瀹抽惃鍕寜楠烇拷 padding閿涳拷
+  1. 鍔ㄧ敾搴旇鏀惧湪 dialog 涓婏紝涓嶅啀鏄暣涓� modal锛屾秹鍙� JS 閫昏緫锛岄渶瑕佺粺绛逛慨鏀�
+  2. modal 婊氬姩鏉″鐞嗭紝鏄惁闇€瑕佹坊鍔犱竴涓粴鍔ㄦ潯瀹藉害鐨勬按骞� padding锛�
 */
 /* ==========================================================================
    Component: Modal Plugin

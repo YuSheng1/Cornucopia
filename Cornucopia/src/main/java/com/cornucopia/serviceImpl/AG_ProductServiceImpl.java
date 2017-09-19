@@ -162,5 +162,10 @@ public class AG_ProductServiceImpl implements AG_ProductService {
 		List<MemberTradeRecord> memberTradeRecord=ag_ProductDao.GetmemberTradeRecordByid(mid);
 		return memberTradeRecord;
 	}
+	@Override
+	public void saveAwardRecords(Object... object) {
+		ag_ProductDao.saveAwardRecords(object);
+		
+	}
 	
 }

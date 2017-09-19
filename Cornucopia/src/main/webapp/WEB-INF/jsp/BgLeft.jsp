@@ -74,10 +74,9 @@ $(function(){
     <ul class="menuson">
         <li><cite></cite><a href="/Cornucopia/BgItem/BgAccountManagement" target="rightFrame">账号管理</a><i></i></li>
         <li><cite></cite><a href="/Cornucopia/BgItem/BgCardBinding" target="rightFrame">绑卡管理</a><i></i></li>
-        <li><cite></cite><a href="#" target="rightFrame">付息计划</a><i></i></li>
-        <li><cite></cite><a href="#" target="rightFrame">充值管理</a><i></i></li>
+        <li><cite></cite><a href="/Cornucopia/BgItem/BgServicePlan" target="rightFrame">付息计划</a><i></i></li>
+        <li><cite></cite><a href="/Cornucopia/BgItem/BgRechargeRecord" target="rightFrame">充值管理</a><i></i></li>
         <li><cite></cite><a href="/Cornucopia/Wi/findTask" target="rightFrame">体现管理</a><i></i></li>
-        <li><cite></cite><a href="#" target="rightFrame">邀请奖励</a><i></i></li>
     </ul>
     
     </dd>  

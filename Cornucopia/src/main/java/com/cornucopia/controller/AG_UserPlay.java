@@ -3,6 +3,7 @@ package com.cornucopia.controller;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.cornucopia.bean.AwardRecords;
 import com.cornucopia.bean.Member;
 import com.cornucopia.bean.MemberAccount;
 import com.cornucopia.bean.MemberDepositRecord;
@@ -41,7 +43,7 @@ public class AG_UserPlay {
 	String dateString = formatter.format(currentTime);
    
 	@RequestMapping("GoPlay")
-	public String BgMain(MemberTradeRecord memberTradeRecord, Member_tally member_tally,
+	public String BgMain(MemberTradeRecord memberTradeRecord,AwardRecords awardRecords, Member_tally member_tally,
 			SubjectPurchaseRecord subjectPurchaseRecord, MemberAccount memberAccount,
 			MemberProfitRecord memberProfitRecord, String memberName, int amount, Model model, int subject_id) {
 		Calendar cal = Calendar.getInstance();
@@ -64,12 +66,20 @@ public class AG_UserPlay {
 			System.out.println(member.getId());
 		// 查询邀请人MemberAccount表
 			MemberAccount MAccount = AG_ProductServiceImpl.UpdateMemberAccount(memberyq.getId());
-			int many=(int)MAccount.getUseable_balance()+(amount/10);
+			int many=(int)MAccount.getUseable_balance()+(amount/100);
 			int jlmoney=amount/10;
 			MAccount.setUseable_balance(many);
 			MAccount.setMember(memberyq);
+			MAccount.setUpdate_date(memberTradeRecord.getCreate_date());
+			awardRecords.setAddTime(memberTradeRecord.getCreate_date());
+			awardRecords.setAmount(many);
+			awardRecords.setByinvitingid(member.getId());
+			awardRecords.setInvitingid(memberyq.getId());
+			awardRecords.setType(1);
+			awardRecords.setIsAward(1);
 			// 保存MemberAccount表数据
 			AG_ProductServiceImpl.saveMemberAccount(MAccount);
+			AG_ProductServiceImpl.saveAwardRecords(awardRecords);
 		save(member,MAccount,memberyq,memberTradeRecord,many,no,jlmoney);
 		}
 		// 根据id查询标的信息
@@ -118,14 +128,16 @@ public class AG_UserPlay {
 		// 标的购买表修改时间
 		subjectPurchaseRecord.setUpdate_date(memberTradeRecord.getCreate_date());
 		// 标的购买表添加利息 这个会动态改变
-		subjectPurchaseRecord.setInterset(0);
+		subjectPurchaseRecord.setInterset(amount+amount*(subject.getYear_rate()));
 		// 标的购买表是否还款
 		subjectPurchaseRecord.setIspayment(0);
 		// 表的购买表次数 判断这个人是否买了这个标
 		List<SubjectPurchaseRecord> sRecord = AG_ProductServiceImpl.getBySubjectPurchaseRecordId(subject_id,
 				member.getId());
 		// 最后计息日
-		subjectPurchaseRecord.setLast_profit_day(20160324);
+		Calendar now = Calendar.getInstance(); 
+		now.add(Calendar.DATE, subject.getPeriod());
+		subjectPurchaseRecord.setLast_profit_day(now.toString());
 		// 查询这个用户MemberAccount表
 		MemberAccount MAccount = AG_ProductServiceImpl.UpdateMemberAccount(member.getId());
 		// 修改这个用户MemberAccount的可用金额

@@ -1,5 +1,6 @@
 package com.cornucopia.controller;
 
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -25,9 +26,11 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.cornucopia.bean.AwardRecords;
 import com.cornucopia.bean.Member;
 import com.cornucopia.bean.MemberAccount;
 import com.cornucopia.bean.MemberBankcards;
+import com.cornucopia.bean.MemberTradeRecord;
 import com.cornucopia.bean.SysRegion;
 import com.cornucopia.service.AG_ProductService;
 import com.cornucopia.service.ValidateService;
@@ -57,9 +60,8 @@ public class AG_UserOperation {
 		memberBankcards.setUpdate_date(datebank);
 		memberBankcards.setMember(member);
 		memberBankcards.setDelflag(0);
-		memberBankcards.setType("银联");
 		System.out.println(dz1+"-"+dz2+"-"+dz3);
-		memberBankcards.setCardaddress(dz1+"-"+dz2+"-"+dz3);
+		memberBankcards.setCardaddress(dz1+"-"+dz2+"-"+dz3+"-"+memberBankcards.getType());
 		AG_ProductServiceImpl.saveMemberBankcards(memberBankcards);
 	return "redirect:/item/Contact";
 	}
@@ -112,7 +114,16 @@ public class AG_UserOperation {
 	}
 
 	@RequestMapping("/toRegister")
-	public String register(Member member, MemberAccount memberAccount) {
+	public String register(Member member,AwardRecords awardRecords, MemberAccount memberAccount) {
+		Calendar cal = Calendar.getInstance();
+		int year = cal.get(Calendar.YEAR);
+		int month = cal.get(Calendar.MONTH) + 1;
+		int day = cal.get(Calendar.DATE);
+		int hour=cal.get(Calendar.HOUR);//小时
+	    int minute=cal.get(Calendar.MINUTE);//分           
+	    int second=cal.get(Calendar.SECOND);//秒 
+	    //用来使用流水号
+	    String no=""+year+month+day+hour+minute+second;
 		member.setStatus(0);
 		member.setDel_flag(0);
 		member.setPassword(mD5Aauthentification.MD5Chains(member.getName(),member.getPassword()));
@@ -129,6 +140,24 @@ public class AG_UserOperation {
 		memberAccount.setUpdate_date(member.getCreate_date());
 		memberAccount.setUseable_balance(0);
 		memberAccount.setMember(memberUser);
+		if(member.getInvitedCode()!=null&&member.getInvitedCode()!=""&&member.getInvitedCode().length()>0){
+			//被奖励人
+			System.out.println("我进来了");
+			Member memberyq = validateImpl.Useryqjl(member.getInvitedCode());
+			MemberAccount MAccount = AG_ProductServiceImpl.UpdateMemberAccount(memberyq.getId());
+			MAccount.setUseable_balance(MAccount.getUseable_balance()+50);
+			MAccount.setMember(memberyq);
+			MAccount.setUpdate_date(member.getCreate_date());
+			awardRecords.setAddTime(member.getCreate_date());
+			awardRecords.setAmount(50);
+			awardRecords.setByinvitingid(memberUser.getId());
+			awardRecords.setInvitingid(memberyq.getId());
+			awardRecords.setType(0);
+			awardRecords.setIsAward(1);
+			AG_ProductServiceImpl.saveMemberAccount(MAccount);
+			AG_ProductServiceImpl.saveAwardRecords(awardRecords);
+			save(member,MAccount,memberyq,no);
+		}
 		// 保存MemberAccount表数据
 		AG_ProductServiceImpl.savesMemberAccount(memberAccount);
 		return "Login";
@@ -152,7 +181,42 @@ public class AG_UserOperation {
 		}
 		return resultString;
 	}
-
+	// 查询是否有该角色
+		@ResponseBody
+		@RequestMapping("sfid")
+		public String sfid(String identity) {
+			System.out.println(identity + "name");
+			boolean boo = validateImpl.Usersfid(identity);
+			Map<String, Boolean> map = new HashMap<>();
+			map.put("valid", boo);
+			System.out.println(boo);
+			ObjectMapper mapper = new ObjectMapper();
+			String resultString = "";
+			try {
+				resultString = mapper.writeValueAsString(map);
+			} catch (JsonProcessingException e) {
+				e.printStackTrace();
+			}
+			return resultString;
+		}
+	// 查询是否有该角色
+		@ResponseBody
+		@RequestMapping("getMemberBK")
+		public String getMemberBK(String card_no) {
+			System.out.println(card_no + "name");
+			boolean boo = validateImpl.getMemberBankcardsKa(card_no);
+			Map<String, Boolean> map = new HashMap<>();
+			map.put("valid", boo);
+			System.out.println(boo);
+			ObjectMapper mapper = new ObjectMapper();
+			String resultString = "";
+			try {
+				resultString = mapper.writeValueAsString(map);
+			} catch (JsonProcessingException e) {
+				e.printStackTrace();
+			}
+			return resultString;
+		}
 	// 查询是否有该角色
 	@ResponseBody
 	@RequestMapping("phone")
@@ -197,4 +261,21 @@ public class AG_UserOperation {
 		List<SysRegion>  sysregion=AG_ProductServiceImpl.saveGetregion1(id);
 		return sysregion;
 }
+	public void save(Member member,MemberAccount MAccount,Member memberyq,String no){
+		MemberTradeRecord memberTradeRecordMember=new MemberTradeRecord();
+			memberTradeRecordMember.setTrade_name("来自"+member.getMember_name()+"的注册奖励:50 元");
+			memberTradeRecordMember.setTrade_no(no.trim()+MAccount.getId());
+			memberTradeRecordMember.setCounterpart(member.getMember_name());
+			memberTradeRecordMember.setAmount(50);
+			memberTradeRecordMember.setTrade_type("注册奖励");
+			// 交易记录表添加交易流入
+			memberTradeRecordMember.setFund_flow(1);
+			// 交易记录表添加交易状态
+			memberTradeRecordMember.setTrade_status(1);
+			memberTradeRecordMember.setCreate_date(member.getCreate_date());
+			memberTradeRecordMember.setUpdate_date(member.getCreate_date());
+			// 交易记录表添加member对象
+			memberTradeRecordMember.setMember(memberyq);
+			AG_ProductServiceImpl.save1MemberTradeRecord(memberTradeRecordMember);
+	  }
 }

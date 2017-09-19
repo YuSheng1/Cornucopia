@@ -492,20 +492,18 @@
 	                            <td class="first"><span class="iconfont active"><a href="#1">&#xe61c;</a><em>&#xe61b;</em></span></td>
 	                            <td><p style="color:#ff503f">实名认证</p></td>
 	                           <td> ${fn:substring(member.member_name,0,1)}**</td>
-	                            <td><p style="color:#888">保障账户安全，只有完成实名认证才能充值提款</p></td>
+	                            <td><p style="color:#888">保障账户安全，实名认证才能充值提款</p></td>
 	                            <td>认证完成</td>					 
-   							                         
                           </tr>
 							<tr>
-								 
 									<td class="first"><span class="iconfont active"><a href="#1">&#xe61c;</a><em>&#xe61b;</em></span></td>
 									<td><p style="color:#ff503f">绑卡认证</p></td>
+									<td><p style="color:#888">保障账户安全，绑卡认证才能充值提款</p></td>
 										<c:if test="${memberBankcards.id>0}">
 									<td>已绑定</td></c:if>
-									<c:if test="${memberBankcards.id==null}">
-									 <a href="#wytk" onclick="fun()" class="tk" data-toggle="tab">立即绑定 </a></c:if>
-									<td><p style="color:#888">保障账户安全，只有完成绑卡认证才能充值提款</p></td>
-									<td><a href="#wytk" onclick="fun()" class="tk" data-toggle="tab">查看 </a></td>					 
+									<td><c:if test="${memberBankcards.id==null}">
+									 <a href="#wytk" data-toggle="tab">立即绑定 </a></c:if>
+				</td>					
  
 							</tr>
                           <tr>
@@ -634,23 +632,49 @@
 					  <input type="hidden" name="dz1" class="dz1"/>
 					    <input type="hidden" name="dz2" class="dz2"/>
 					      <input type="hidden" name="dz3" class="dz3"/>
+					      <div class="form-group" >
 					<div class="input-group">
 						<span class="input-group-addon">绑定银行卡</span> <input type="text"
 							class="form-control" placeholder="请输入银行卡号" id="bank" name="card_no">
-					</div><br>
+					</div></div><br>
+					<div class="form-group" style="margin-top: 10px;">
+						开户银行： <select class="form-control" id="type" name="type">
+							<option value="工商银行" selected="selected">工商银行</option>
+							<option value="光大银行">光大银行</option>
+							<option value="广发银行">广发银行</option>
+							<option value="华夏银行">华夏银行</option>
+							<option value="建设银行">建设银行</option>
+							<option value="交通银行">交通银行</option>
+							<option value="民生银行">民生银行</option>
+							<option value="农业银行">农业银行</option>
+							<option value="浦发银行">浦发银行</option>
+							<option value="兴业银行">兴业银行</option>
+							<option value="邮政储蓄">邮政储蓄</option>
+							<option value="招商银行">招商银行</option>
+							<option value="中国银行">中国银行</option>
+							<option value="中信银行">中信银行</option>
+						</select> 
+					</div>
+					<br>
 							<input type="hidden" value="<%=datetime1%>" name="datebank">
-					 <select id="error" name="error"   style="width: 130px;" onchange="fun2()">
+					<div class="form-group" style="margin-top: 10px;">
+					 <select id="error" name="error" class="form-control"  style="width: 130px;" onchange="fun2()">
 					  <option  id="oid1" value="-1"  selected="selected" >请选择</option>
               <c:forEach items="${sysregion}" var="sysregion" >
           <option  id="oid" value="${sysregion.ID}"  >${sysregion.name}</option>
         </c:forEach>
        </select>
-       	 <select id="error1" name="error1"   style="width: 130px;" onchange="fun3()">
+       </div>
+       <div class="form-group" style="margin-top: -49px; margin-left: 150px">
+       	 <select id="error1" name="error1" class="form-control"  style="width: 130px;" onchange="fun3()">
           <option  id="oid1" value="-1"  selected="selected"  >请选择</option>
        	  </select>
-       	 <select id="error2" name="error2"   style="width: 130px;"  onchange="fun5()">
+       	  </div>
+       	  <div class="form-group" style="margin-top: -49px; margin-left: 300px">
+       	 <select id="error2" name="error2"  class="form-control" style="width: 130px;"  onchange="fun5()">
           <option id="oid2" value="-1"  selected="selected"  >请选择</option>
          </select>
+         </div>
         <input type="submit" class="btn btn-default" value="立即绑定">
        
 					</form>
@@ -813,6 +837,29 @@
 		                     regexp: {//匹配规则
 		                         regexp: /^[a-zA-Z0-9_\.]+$/,
 		                         message: '密码不能为中文'
+		                     }
+		                 }
+		             }
+		            
+		        }
+		    });
+		 $('#yinhangka').bootstrapValidator({feedbackIcons: {valid: 'glyphicon glyphicon-ok',invalid: 'glyphicon glyphicon-remove',validating: 'glyphicon glyphicon-refresh' },
+		        fields: {
+		        	card_no: {
+		                 message: '密码无效',
+		                 validators: {
+		                     stringLength: {
+		                         min: 16,
+		                         max: 19,
+		                         message: '卡号长度必须在16到19之间'
+		                     },
+		                     threshold :  11 ,
+		                     remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}  
+		                         url: '/Cornucopia/AgUserItem/getMemberBK',
+		                         message: '该卡已经绑定',//提示消息
+		                         delay :  10000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
+		                         type: 'POST',//请求方式
+		                          
 		                     }
 		                 }
 		             }

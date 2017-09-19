@@ -5,8 +5,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
+import com.cornucopia.bean.AwardRecords;
+import com.cornucopia.bean.AwardRecordsVo;
 import com.cornucopia.bean.CashFlowProcessVo;
 import com.cornucopia.bean.Member;
+import com.cornucopia.bean.MemberDepositRecord;
+import com.cornucopia.bean.Subject;
+import com.cornucopia.bean.SubjectBbinPurchassRecord;
+import com.cornucopia.bean.SubjectPurchaseRecord;
 import com.cornucopia.dao.PM_UserDaoImpl;
 import com.cornucopia.dao.ValidateDao;
 import com.cornucopia.service.ValidateService;
@@ -84,6 +90,43 @@ public class ValidateImpl implements ValidateService {
 		Member member=validateDao.Useryqjl(invitationCode);
 		return member;
 	}
+	@Override
+	public Boolean getMemberBankcardsKa(String card_no) {
+		return 	validateDao.getMemberBankcardsKa(card_no);
+	}
+	@Override
+	public boolean Usersfid(String invitedCode) {
+		return 	validateDao.Usersfid(invitedCode);
+	}
+	@Override
+	public List<Subject> SubjectList() {
+		List<Subject> list=validateDao.SubjectList();
+		return list;
+	}
+	@Override
+	public List<SubjectBbinPurchassRecord> SubjectBbinPurchassRecordList(int subjectId) {
+		List<SubjectBbinPurchassRecord> list=validateDao.SubjectBbinPurchassRecordList(subjectId);
+		return list;
+	}
+	@Override
+	public List<SubjectPurchaseRecord> SubjectPurchaseRecordList(int subjectId) {
+		List<SubjectPurchaseRecord> list=validateDao.SubjectPurchaseRecordList(subjectId);
+		return list;
+	}
+	@Override
+	public List<MemberDepositRecord> getMemberDepositRecord() {
+		List<MemberDepositRecord> list=validateDao.getMemberDepositRecord();
+		return list;
+	}
+	@Override
+	public List<AwardRecords> AwardRecordsList() {
+		List<AwardRecords> list=validateDao.AwardRecordsList();
+		return list;
+	}
+	@Override
+	public List<AwardRecordsVo>  AwardRecordsListVo(int id) {
+		List<AwardRecordsVo> list=validateDao.AwardRecordsListVo(id);
+		return list;
+	}
 	
-
 }

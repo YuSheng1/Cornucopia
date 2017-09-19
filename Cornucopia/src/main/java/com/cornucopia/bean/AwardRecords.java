@@ -17,7 +17,7 @@ public class AwardRecords {
 	private int type;//奖励类型（0：注册奖励，1：投资奖励）
 	private int amount;//奖励金额
 	private int isAward;//0:未奖励  1：已奖励
-	private Date addTime;//添加时间
+	private String addTime;//添加时间
 	
 	@Id
 	@GeneratedValue
@@ -57,10 +57,10 @@ public class AwardRecords {
 	public void setIsAward(int isAward) {
 		this.isAward = isAward;
 	}
-	public Date getAddTime() {
+	public String getAddTime() {
 		return addTime;
 	}
-	public void setAddTime(Date addTime) {
+	public void setAddTime(String addTime) {
 		this.addTime = addTime;
 	}
 	

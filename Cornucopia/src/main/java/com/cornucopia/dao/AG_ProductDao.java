@@ -74,31 +74,32 @@ public class AG_ProductDao {
 		Session session = getsession();
 		String sql = " from SubjectPurchaseRecord p where p.member.id=" + mid;
 		List list = session.createQuery(sql).list();
-		if(list.size()>0){
+		if (list.size() > 0) {
 			return list;
 		}
-		return  null;
+		return null;
 	}
+
 	// 根据ID查询产品购买表操作
-		public List<MemberTradeRecord> GetmemberTradeRecordByid(int mid) {
-			Session session = getsession();
-			String sql = " from MemberTradeRecord p where p.member.id=" + mid;
-			List list = session.createQuery(sql).list();
-			if(list.size()>0){
-				return list;
-			}
-			return  null;
+	public List<MemberTradeRecord> GetmemberTradeRecordByid(int mid) {
+		Session session = getsession();
+		String sql = " from MemberTradeRecord p where p.member.id=" + mid;
+		List list = session.createQuery(sql).list();
+		if (list.size() > 0) {
+			return list;
 		}
-	
+		return null;
+	}
+
 	// 根据id查询充值记录表
 	public List<MemberDepositRecord> GetMemberDepositRecordByid(int mid) {
 		Session session = getsession();
 		String sql = " from MemberDepositRecord m where m.member.id=" + mid + " order by create_date desc";
 		List list = session.createQuery(sql).list();
-		if(list.size()>0){
+		if (list.size() > 0) {
 			return list;
 		}
-		return  null;
+		return null;
 	}
 
 	// 根据id查询提款记录表
@@ -106,10 +107,10 @@ public class AG_ProductDao {
 		Session session = getsession();
 		String sql = " from MembeWithdrawRecord m where m.member.id=" + mid + " order by create_date desc";
 		List list = session.createQuery(sql).list();
-		if(list.size()>0){
+		if (list.size() > 0) {
 			return list;
 		}
-		return  null;
+		return null;
 	}
 
 	// 根据流水号查询提款记录表
@@ -166,13 +167,15 @@ public class AG_ProductDao {
 		session.save(object[0]);
 
 	}
-	// 向交易记录表添加数据
-		public void save1MemberTradeRecord(Object... object) {
-			System.out.println("我要看进了几次");
-			Session session = getsession();
-			session.save(object[0]);
 
-		}
+	// 向交易记录表添加数据
+	public void save1MemberTradeRecord(Object... object) {
+		System.out.println("我要看进了几次");
+		Session session = getsession();
+		session.save(object[0]);
+
+	}
+
 	// 向提现记录中间表添加数据
 	public void saveCashFlowProcess(Object... object) {
 		Session session = getsession();
@@ -182,6 +185,12 @@ public class AG_ProductDao {
 
 	// 往银联表里添加数据
 	public void saveMemberBankcards(Object... object) {
+		Session session = getsession();
+		session.save(object[0]);
+	}
+
+	// 往奖励表里添加数据
+	public void saveAwardRecords(Object... object) {
 		Session session = getsession();
 		session.save(object[0]);
 	}
