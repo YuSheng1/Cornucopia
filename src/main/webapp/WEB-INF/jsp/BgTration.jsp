@@ -43,12 +43,6 @@ $(document).ready(function(){
 
 });
 
-function update(title,tid,id){
-	$("#title").val(title);
-	$("#error").val(tid);
-	 /* $("#id").val(id); */
-}
-
 	
 </script>
 <script type="text/javascript">
@@ -75,28 +69,6 @@ $(function () {
     });
 });
 
-$(function () {
-    $('#formupdate').bootstrapValidator({feedbackIcons: {valid: 'glyphicon glyphicon-ok',invalid: 'glyphicon glyphicon-remove',validating: 'glyphicon glyphicon-refresh' },
-        fields: {
-        	title: {
-                message: '标题验证失败',
-                validators: {
-                    notEmpty: {
-                        message: '标题不能为空'
-                    },
-                    threshold :  3 ,
-                remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}  
-                    url: '/Cornucopia/BgNews/boo',
-                    message: '标题已存在',//提示消息
-                    delay :  2000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
-                    type: 'POST',//请求方式
-                     
-                },
-            }
-            },
-        }
-    });
-});
 </script>
 
 </head>
@@ -141,8 +113,8 @@ $(function () {
         <td>${list.id}</td>
         <td>${list.addTime}</td>
         <td>
-		<h6   onclick="update('${list.title}','${list.newsType.tid}','${list.id}')" class="tablelink" data-toggle="modal" data-target="#myModal2"  > 
-		       <img src="../BgAssets/images/t02.png" />修改类别信息</h6>
+		<a href="/Cornucopia/BgNews/bgut?id=${list.id }&title=${list.title}&tid=${list.newsType.tid}&text=${list.text}"><h6   class="tablelink" data-toggle="modal" data-target="#myModal2"  > 
+		       <img src="../BgAssets/images/t02.png" />修改类别信息</h6></a>
 		       <h6 class="tablelink" data-toggle="modal" data-target="#myModal3" onclick="del(${list.id})"> <img src="../BgAssets/images/t03.png" />删除标题</h6>
 			</td>
 					</tr>
@@ -166,49 +138,6 @@ $(function () {
     </div>
     </div>
     
-    		<div class="modal fade" id="myModal2" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="container" style="margin-top: 50px;">
-        <div class="row">
-        
-            <div class="col-lg-4 col-lg-offset-4">
-            
-                <div class="panel panel-default">
-                
-                    <div class="panel-heading">
-                        <h3 class="panel-title">修改标题信息<button type="button" class="close" 
-               data-dismiss="modal" aria-hidden="true">
-                  &times;            </button></h3>
-                            
-                    </div>
-
-                    <div class="panel-body">
-                       	<form  id="formupdate" method="post"  action="/Cornucopia/BgNews/update">
-                            <div class="form-group">
-                                <label>标题:</label>
-                                 <input type="text" class="form-control" placeholder="请输入标题名称"  name="title" id="title"  >
-                            </div>
-                            <div class="form-group">
-                                <label>类&nbsp;别:</label>
-                              <select id="error" name="error" class="form-control" >
-                               <c:forEach items="${tlist}" var="list" >
-          <option class="form-control" id="oid" value="${list.tid}"  selected="selected"  >${list.name}</option>
-          	</c:forEach>
-        </select>
-                            </div>
-                            <!-- <input style="display: none;"name="id"   id="id"> -->
-	<input style="display: none;"name="updTime" value="<%=datetime%>">
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary" >立即修改</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-		<!-- /.modal -->
-	</div>
 	
 		<!-- 添加-->
 	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"

@@ -90,5 +90,11 @@ public class PM_NewsController {
 			}
 			return resultString;
 		}
+		
+		@RequestMapping("bgut")
+		public String bgut(News news,int id,String title,int tid,String text){
+			
+			return "BGNUT";
+		}
 	
 }
