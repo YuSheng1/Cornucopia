@@ -45,11 +45,11 @@
                 <i class="am-icon-linkedin"></i>
                 <i class="am-icon-youtube-play"></i>
                 <i class="am-icon-rss"></i>
-               	<c:if test="${empty Lname}">  <a href="/Cornucopia/item/Login">登录</a> <a
+               	<c:if test="${empty Lname}">  <a href="/Cornucopia/item/Login1">登录</a> <a
 									href="/Cornucopia/item/Register">注册</a></c:if>	
 									<c:if test="${not empty Lname}"> 欢迎您: ${Lname}
  <a
-									href="/Cornucopia/item/Login">退出登陆</a>
+									href="/Cornucopia/item/Login1">退出登陆</a>
 </c:if>
               </div>
             </div>

@@ -21,9 +21,11 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.authz.UnauthorizedException;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cornucopia.bean.AwardRecords;
@@ -93,7 +95,8 @@ public class AG_UserOperation {
 	
 	// 前台用户操作
 	@RequestMapping("/toMain")
-	public String toMain(HttpServletRequest request, Model model, String Lname, String Lpassworld) {
+	public String toMain(HttpServletRequest request, Model model, String Lname, String Lpassworld,HttpSession session) {
+	
 		String msg = "用户名密码错误";
 		String name = Lname;
 		String password = Lpassworld;
@@ -104,10 +107,14 @@ public class AG_UserOperation {
 		if (boo == true) {
 			Subject subject = SecurityUtils.getSubject();
 			Member member = validateImpl.member(Lname);
-			Session session = subject.getSession();
 			session.setAttribute("Lname", Lname);
 			session.setAttribute("member", member);
-			return "redirect:/item/Index";
+			if(session.getAttribute("subid")==null){
+				return "redirect:/item/Index";
+			}else{
+				int subid=Integer.parseInt(session.getAttribute("subid").toString());
+				return "redirect:/item/Purchased?id="+subid;
+			}
 		} else {
 			model.addAttribute("message", msg);
 			return "Login";

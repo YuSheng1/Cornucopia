@@ -69,7 +69,7 @@
 									<a href="/Cornucopia/item/Register">注册</a>
 								</c:if>
 								<c:if test="${not empty Lname}"> 欢迎您: ${Lname}
- <a href="/Cornucopia/item/Login">退出登陆</a>
+ <a href="/Cornucopia/item/Login1">退出登陆</a>
 								</c:if>
 							</div>
 						</div>
@@ -201,7 +201,7 @@
 					<li class="active"><a href="#1">&#xe61a;</a><em>&#xe61b;</em></li>
 					<li class=""><a href="#1">&#xe61e;</a><em>&#xe61b;</em></li>
 				</ul></td>
-			<td align="right"><a href="/Cornucopia/item/Login" class="loginOut"><span
+			<td align="right"><a href="/Cornucopia/item/Login1" class="loginOut"><span
 					class="iconfont">&#xe618;</span>安全退出</a></td>
 		</tr> 
 	</table>

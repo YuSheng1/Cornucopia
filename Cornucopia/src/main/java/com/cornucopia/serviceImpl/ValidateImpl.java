@@ -53,13 +53,19 @@ public class ValidateImpl implements ValidateService {
 	@Override
 	public com.cornucopia.bean.MemberAccount MemberAccount(int id) {
 		com.cornucopia.bean.MemberAccount memberAccount=validateDao.getMemberAccount(id);
-		return memberAccount;
+		if (memberAccount !=null) {
+			return memberAccount;
+		}
+		return null;
 	}
 	//根据用户id查询银行卡
 	@Override
 	public List<com.cornucopia.bean.MemberBankcards> MemberBankcards(int id) {
 		List<com.cornucopia.bean.MemberBankcards> memberAccount=validateDao.getMemberBankcards(id);
-		return memberAccount;
+		if (memberAccount.size()>0) {
+			return memberAccount;
+		}
+		return null;
 	}
 	//根据昵称查询
 	@Override
@@ -79,7 +85,10 @@ public class ValidateImpl implements ValidateService {
 	@Override
 	public List<com.cornucopia.bean.MemberBankcards> MemberBankcardsList() {
 		List<com.cornucopia.bean.MemberBankcards> list=validateDao.MemberBankcardsList();
-		return list;
+		if (list.size()>0) {
+			return list;
+		}
+		return null;
 	}
 	@Override
 	public boolean Usersyz(String invitedCode) {
@@ -88,7 +97,10 @@ public class ValidateImpl implements ValidateService {
 	@Override
 	public Member  Useryqjl(String invitationCode) {
 		Member member=validateDao.Useryqjl(invitationCode);
-		return member;
+		if (member!=null) {
+			return member;
+		}
+		return null;
 	}
 	@Override
 	public Boolean getMemberBankcardsKa(String card_no) {
@@ -101,32 +113,50 @@ public class ValidateImpl implements ValidateService {
 	@Override
 	public List<Subject> SubjectList() {
 		List<Subject> list=validateDao.SubjectList();
-		return list;
+		if (list.size()>0) {
+			return list;
+		}
+		return null;
 	}
 	@Override
 	public List<SubjectBbinPurchassRecord> SubjectBbinPurchassRecordList(int subjectId) {
 		List<SubjectBbinPurchassRecord> list=validateDao.SubjectBbinPurchassRecordList(subjectId);
-		return list;
+		if (list.size()>0) {
+			return list;
+		}
+		return null;
 	}
 	@Override
 	public List<SubjectPurchaseRecord> SubjectPurchaseRecordList(int subjectId) {
 		List<SubjectPurchaseRecord> list=validateDao.SubjectPurchaseRecordList(subjectId);
-		return list;
+		if (list.size()>0) {
+			return list;
+		}
+		return null;
 	}
 	@Override
 	public List<MemberDepositRecord> getMemberDepositRecord() {
 		List<MemberDepositRecord> list=validateDao.getMemberDepositRecord();
-		return list;
+		if (list.size()>0) {
+			return list;
+		}
+		return null;
 	}
 	@Override
 	public List<AwardRecords> AwardRecordsList() {
 		List<AwardRecords> list=validateDao.AwardRecordsList();
-		return list;
+		if (list.size()>0) {
+			return list;
+		}
+		return null;
 	}
 	@Override
 	public List<AwardRecordsVo>  AwardRecordsListVo(int id) {
 		List<AwardRecordsVo> list=validateDao.AwardRecordsListVo(id);
-		return list;
+		if (list.size()>0) {
+			return list;
+		}
+		return null;
 	}
 	
 }

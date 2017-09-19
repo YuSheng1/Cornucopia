@@ -82,7 +82,7 @@
 								<i class="am-icon-google-plus"></i> <i class="am-icon-pinterest"></i>
 								<i class="am-icon-instagram"></i> <i class="am-icon-linkedin"></i>
 								<i class="am-icon-youtube-play"></i> <i class="am-icon-rss"></i>
-								<a href="/Cornucopia/item/Login">登录</a> <a
+								<a href="/Cornucopia/item/Login1">登录</a> <a
 									href="/Cornucopia/item/Register">注册</a>
 							</div>
 						</div>

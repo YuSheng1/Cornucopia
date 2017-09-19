@@ -42,6 +42,10 @@
 			document.getElementById("li6").style.display="";
 			return false;
 		}
+		if(qc==""||qc==0){
+			document.getElementById("li7").style.display="";
+			return false;
+		}
 		if(name==null||name==""){
 			document.getElementById("li5").style.display="";
 			return false;
@@ -88,11 +92,11 @@
 								<i class="am-icon-instagram"></i> <i class="am-icon-linkedin"></i>
 								<i class="am-icon-youtube-play"></i> <i class="am-icon-rss"></i>
 								<c:if test="${empty Lname}">
-									<a href="/Cornucopia/item/Login">登录</a>
+									<a href="/Cornucopia/item/Login1">登录</a>
 									<a href="/Cornucopia/item/Register">注册</a>
 								</c:if>
 								<c:if test="${not empty Lname}"> 欢迎您: ${Lname}
- <a href="/Cornucopia/item/Login">退出登陆</a>
+ <a href="/Cornucopia/item/Login1">退出登陆</a>
 								</c:if>
 							</div>
 						</div>
@@ -226,6 +230,9 @@
 						<div class="li4" id="li5" style="display: none;" >
 						<span id="checkmoney" style="color: red;">请先登陆</span>
 						</div>
+						<div class="li4" id="li7" style="display: none;" >
+						<span id="checkmoney" style="color: red;">请输入正确金额</span>
+						</div>
 						<div class="li4" id="li6" style="display: none;" >
 						<span id="checkmoney" style="color: red;"><a style="color: #2695d5"
 									class="unlogin" href="/Cornucopia/AG_UserPlay/GoRecharge">请先充值</a></span>
@@ -235,11 +242,11 @@
 
 							<c:if test="${empty Lname}">
 								<span class="fr"> <a style="color: #2695d5"
-									class="unlogin" href="/web/login">登录</a>后可见
+									class="unlogin" href="/Cornucopia/item/Login?subid=${subject.id}">登录</a>后可见
 								</span>
 							</c:if>
 							<c:if test="${not empty Lname}">
-								<a style="color: #2695d5" class="unlogin" href="/web/login">账户可用余额</a> ${memberAccount.useable_balance}
+								<a style="color: #2695d5" class="unlogin" >账户可用余额</a> ${memberAccount.useable_balance}
                               
 </c:if>
 

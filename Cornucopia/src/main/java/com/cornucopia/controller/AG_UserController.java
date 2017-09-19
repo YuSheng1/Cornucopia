@@ -9,6 +9,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.cornucopia.bean.MembeWithdrawRecord;
 import com.cornucopia.bean.Member;
@@ -41,17 +42,18 @@ public class AG_UserController {
 
 	// 购买产品
 	@RequestMapping("/Purchased")
-	public String Purchased(int id, Model model,HttpSession session) {
+	public String Purchased(int  id,Model model,HttpSession session) {
 		Member member=(Member) session.getAttribute("member");
-		System.out.println(id+"---"+member.getId());
 		//现在是死值
 		//根据登陆人id查询可用金额
-		MemberAccount memberAccount=validateImpl.MemberAccount(member.getId());
-		//根据登录人id查询是否绑定银行卡
-		List<MemberBankcards> memberBankcards=validateImpl.MemberBankcards(member.getId());
+		if(member!=null){
+			MemberAccount memberAccount=validateImpl.MemberAccount(member.getId());
+			//根据登录人id查询是否绑定银行卡
+			List<MemberBankcards> memberBankcards=validateImpl.MemberBankcards(member.getId());
+			model.addAttribute("memberBankcards", memberBankcards);
+			model.addAttribute("memberAccount", memberAccount);
+		}
 		Subject subject = AG_ProductServiceImpl.getBySubjectId(id);
-		model.addAttribute("memberBankcards", memberBankcards);
-		model.addAttribute("memberAccount", memberAccount);
 		session.setAttribute("subject", subject);
 		return "Purchased";
 	}
@@ -101,14 +103,29 @@ public class AG_UserController {
 	}
 
 	@RequestMapping("Login")
-	public String Login() {
+	public String Login(@RequestParam(required=false,value="subid")String subid) {
+		if(subid==null){
 		org.apache.shiro.subject.Subject subject = SecurityUtils.getSubject();
 		Session session = subject.getSession();
 		session.setAttribute("Lname", null);
 		session.setAttribute("member", null);
+		}else{
+			org.apache.shiro.subject.Subject subject = SecurityUtils.getSubject();
+			Session session = subject.getSession();
+			session.setAttribute("subid", subid);
+		}
 		return "Login";
 	}
-
+	@RequestMapping("Login1")
+	public String Login1() {
+		org.apache.shiro.subject.Subject subject = SecurityUtils.getSubject();
+		Session session = subject.getSession();
+		session.setAttribute("Lname", null);
+		session.setAttribute("member", null);
+		session.setAttribute("subid", null);
+		return "Login";
+	}
+	
 	@RequestMapping("Product1")
 	public String Product1() {
 		return "Product1";

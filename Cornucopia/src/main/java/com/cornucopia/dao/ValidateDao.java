@@ -148,7 +148,10 @@ public class ValidateDao {
 		Session session = getSession();
 		String hql = "from MemberBankcards  where member_id=" + id;
 		List<MemberBankcards> list = session.createQuery(hql).list();
-		return list;
+		if (list.size() > 0) {
+			return list;
+		}
+		return null;
 	}
 
 	// 根据i卡号获取MemberBankcards对象银行卡绑定表表
@@ -167,28 +170,40 @@ public class ValidateDao {
 		Session session = getSession();
 		String hql = "from MemberBankcards";
 		List<MemberBankcards> list = session.createQuery(hql).list();
-		return list;
+		if (list.size() > 0) {
+			return list;
+		}
+		return null;
 	}
 	// 获取邀请奖励表
 		public List<AwardRecords> AwardRecordsList() {
 			Session session = getSession();
 			String hql = "from AwardRecords";
 			List<AwardRecords> list = session.createQuery(hql).list();
-			return list;
+			if (list.size() > 0) {
+				return list;
+			}
+			return null;
 		}
 	// 获取标对象表
 	public List<Subject> SubjectList() {
 		Session session = getSession();
 		String hql = "from Subject";
 		List<Subject> list = session.createQuery(hql).list();
-		return list;
+		if (list.size() > 0) {
+			return list;
+		}
+		return null;
 	}
 	// 充值记录表
 		public List<MemberDepositRecord> getMemberDepositRecord() {
 			Session session = getSession();
 			String hql = "from MemberDepositRecord";
 			List<MemberDepositRecord> list = session.createQuery(hql).list();
-			return list;
+			if (list.size() > 0) {
+				return list;
+			}
+			return null;
 		}
 
 	// 获取体验金对象表
@@ -196,7 +211,10 @@ public class ValidateDao {
 		Session session = getSession();
 		String hql = "from SubjectBbinPurchassRecord where subject.id="+subjectId;
 		List<SubjectBbinPurchassRecord> list = session.createQuery(hql).list();
-		return list;
+		if (list.size() > 0) {
+			return list;
+		}
+		return null;
 	}
 
 	// 获取表的购买表
@@ -204,7 +222,10 @@ public class ValidateDao {
 		Session session = getSession();
 		String hql = "from SubjectPurchaseRecord where subject.id="+subjectId;
 		List<SubjectPurchaseRecord> list = session.createQuery(hql).list();
-		return list;
+		if (list.size() > 0) {
+			return list;
+		}
+		return null;
 	}
 
 	// 根据id获取MemberBankcards对象银行卡绑定表表
