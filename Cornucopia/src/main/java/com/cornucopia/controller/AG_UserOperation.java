@@ -51,18 +51,42 @@ public class AG_UserOperation {
 
 	
 	@RequestMapping("/toBank")
-	public String toBank(HttpSession session,MemberBankcards memberBankcards,String datebank,String error,String error1,String error2) {
+	public String toBank(HttpSession session,MemberBankcards memberBankcards,String datebank,String dz1,String dz2,String dz3) {
 		Member member=(Member) session.getAttribute("member");
 		memberBankcards.setCreate_date(datebank);
 		memberBankcards.setUpdate_date(datebank);
 		memberBankcards.setMember(member);
 		memberBankcards.setDelflag(0);
 		memberBankcards.setType("银联");
-		memberBankcards.setCardaddress(error+error1+error2);
+		System.out.println(dz1+"-"+dz2+"-"+dz3);
+		memberBankcards.setCardaddress(dz1+"-"+dz2+"-"+dz3);
 		AG_ProductServiceImpl.saveMemberBankcards(memberBankcards);
 	return "redirect:/item/Contact";
 	}
+	//修改角色额密码
 	
+	@RequestMapping("/updatepass")
+	public String updatepass(HttpSession session,String repassword,String update_date) {
+		Member member=(Member) session.getAttribute("member");
+		repassword=mD5Aauthentification.MD5Chains(member.getName(),repassword);
+		 System.out.println(repassword);
+	     member.setPassword(repassword);
+	     member.setUpdate_date(update_date);
+	     AG_UserPlayServiceImpl.savemember(member);
+	     session.setAttribute("member", member);
+	return "redirect:/item/Login";
+	}
+	
+	@RequestMapping("/updawd")
+	public String updawd(HttpSession session,String withdraw_password1,String update_date) {
+		Member member=(Member) session.getAttribute("member");
+		withdraw_password1=mD5Aauthentification.MD5Chains(member.getName(),withdraw_password1);
+	     member.setWithdraw_password(withdraw_password1);
+	     member.setUpdate_date(update_date);
+	     AG_UserPlayServiceImpl.savemember(member);
+	     session.setAttribute("member", member);
+	return "redirect:/item/Contact";
+	}
 	
 	// 前台用户操作
 	@RequestMapping("/toMain")
@@ -92,6 +116,7 @@ public class AG_UserOperation {
 		member.setStatus(0);
 		member.setDel_flag(0);
 		member.setPassword(mD5Aauthentification.MD5Chains(member.getName(),member.getPassword()));
+		member.setInvitationCode(member.getMobile_Phone());
 		AG_UserPlayServiceImpl.savemember(member);
 		Member memberUser = validateImpl.member(member.getName());
 		memberAccount.setBbin_amount(8888);
@@ -146,6 +171,24 @@ public class AG_UserOperation {
 		}
 		return resultString;
 	}
+	// 查询是否有该邀请码
+		@ResponseBody
+		@RequestMapping("zhuce")
+		public String zhuce(String invitedCode) {
+			System.out.println(invitedCode + "name");
+			boolean boo = validateImpl.Usersyz(invitedCode);
+			Map<String, Boolean> map = new HashMap<>();
+			map.put("valid", boo);
+			System.out.println(boo);
+			ObjectMapper mapper = new ObjectMapper();
+			String resultString = "";
+			try {
+				resultString = mapper.writeValueAsString(map);
+			} catch (JsonProcessingException e) {
+				e.printStackTrace();
+			}
+			return resultString;
+		}
 	// 查询是否有该角色
 	@ResponseBody
 	@RequestMapping("queryInfo")

@@ -14,11 +14,15 @@ public interface AG_ProductService {
 
 	// 向交易记录表添加数据
 	public void saveMemberTradeRecord(Object... object);
+	// 向交易记录表添加数据
+		public void save1MemberTradeRecord(Object... object);
 
 	// 往及账表添加数据
 	public void saveMembertally(Object... object);
-    //往银联卡添加数据
+
+	// 往银联卡添加数据
 	public void saveMemberBankcards(Object... object);
+
 	// 往提现表添加数据
 	public void saveMembeWithdrawRecord(Object... object);
 
@@ -51,6 +55,9 @@ public interface AG_ProductService {
 	// 根据id查询充值记录表
 	public <T> T GetMemberDepositRecordByid(int mid);
 
+	// 根据id查询充值记录表
+	public <T> T GetmemberTradeRecordByid(int mid);
+
 	// 根据id查询提款记录表
 	public <T> T GetMembeWithdrawRecordByid(int mid);
 
@@ -62,8 +69,10 @@ public interface AG_ProductService {
 
 	// 往中间提款
 	public void saveCashFlowProcess(Object... object);
-	//查询省市级联
+
+	// 查询省市级联
 	public List<SysRegion> saveGetregion(Object... object);
-	//查询省市级联
-		public List<SysRegion> saveGetregion1(Object... object);
+
+	// 查询省市级联
+	public List<SysRegion> saveGetregion1(Object... object);
 }

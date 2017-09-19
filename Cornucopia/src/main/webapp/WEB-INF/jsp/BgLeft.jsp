@@ -72,9 +72,8 @@ $(function(){
 
     <dd><div class="title"><span><img src="../BgAssets/images/leftico04.png" /></span>会员管理</div>
     <ul class="menuson">
-        <li><cite></cite><a href="#" target="rightFrame">账号管理</a><i></i></li>
-        <li><cite></cite><a href="#" target="rightFrame">理财师审核</a><i></i></li>
-        <li><cite></cite><a href="#" target="rightFrame">绑卡管理</a><i></i></li>
+        <li><cite></cite><a href="/Cornucopia/BgItem/BgAccountManagement" target="rightFrame">账号管理</a><i></i></li>
+        <li><cite></cite><a href="/Cornucopia/BgItem/BgCardBinding" target="rightFrame">绑卡管理</a><i></i></li>
         <li><cite></cite><a href="#" target="rightFrame">付息计划</a><i></i></li>
         <li><cite></cite><a href="#" target="rightFrame">充值管理</a><i></i></li>
         <li><cite></cite><a href="/Cornucopia/Wi/findTask" target="rightFrame">体现管理</a><i></i></li>

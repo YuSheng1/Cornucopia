@@ -10,6 +10,7 @@ import com.cornucopia.bean.MembeWithdrawRecord;
 import com.cornucopia.bean.MemberAccount;
 import com.cornucopia.bean.MemberBankcards;
 import com.cornucopia.bean.MemberDepositRecord;
+import com.cornucopia.bean.MemberTradeRecord;
 import com.cornucopia.bean.Subject;
 import com.cornucopia.bean.SubjectPurchaseRecord;
 import com.cornucopia.bean.SysRegion;
@@ -70,6 +71,12 @@ public class AG_ProductServiceImpl implements AG_ProductService {
 		ag_ProductDao.saveMemberTradeRecord(object);
 
 	}
+	// 向交易记录表添加数据
+		@Override
+		public void save1MemberTradeRecord(Object... object) {
+			ag_ProductDao.save1MemberTradeRecord(object);
+
+		}
 	// 向交易记录表添加数据
 		@Override
 		public void saveCashFlowProcess(Object... object) {
@@ -149,6 +156,11 @@ public class AG_ProductServiceImpl implements AG_ProductService {
 	@Override
 	public void saveMemberBankcards(Object... object) {
 		ag_ProductDao.saveMemberBankcards(object);
+	}
+	@Override
+	public List<MemberTradeRecord> GetmemberTradeRecordByid(int mid) {
+		List<MemberTradeRecord> memberTradeRecord=ag_ProductDao.GetmemberTradeRecordByid(mid);
+		return memberTradeRecord;
 	}
 	
 }

@@ -33,7 +33,12 @@ $(function () {
                 validators: {
                     notEmpty: {
                         message: '姓名不能为空'
-                    }
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: '用户名长度必须在6到30之间'
+                       }
             }
             },
             name: {
@@ -48,6 +53,35 @@ $(function () {
                          delay :  2000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
                          type: 'POST',//请求方式
                           
+                     }
+                 }
+             },
+             invitedCode: {
+                 validators: {
+                     threshold :  12 ,
+                     remote: {//ajax验证。server result:{"valid",true or false} 向服务发送当前input name值，获得一个json数据。例表示正确：{"valid",true}  
+                         url: '/Cornucopia/AgUserItem/zhuce',
+                         message: '邀请码不存在',//提示消息
+                         delay :  4000,//每输入一个字符，就发ajax请求，服务器压力还是太大，设置2秒发送一次ajax（默认输入一个字符，提交一次，服务器压力太大）
+                         type: 'POST',//请求方式
+                          
+                     }
+                 }
+             },
+             identity: {
+                 message:'身份证验证失败',
+                 validators: {
+                     notEmpty: {
+                         message: '身份证不能为空'
+                     },
+                     stringLength: {
+                         min: 18,
+                         max: 18,
+                         message: '请输入18位身份证号码'
+                     },
+                     regexp: {
+                         regexp: /^[1-9]{1}[0-9]{16}[xX1-9]{1}$/,
+                         message: '请输入正确的身份证号码'
                      }
                  }
              },
@@ -272,6 +306,10 @@ $(function () {
                                 <label>真实姓名:</label>
                                  <input type="text" class="form-control" placeholder="请输入真实姓名，需实名认证" name="member_name">
                             </div>
+                             <div class="form-group">
+                                <label>身份证号码:</label>
+                               <input  type="text" class="form-control" placeholder="请输入手机号码" name="identity" />
+                            </div>
                             <div class="form-group">
                                 <label>昵称:</label>
                                <input  type="text" class="form-control" placeholder="请输入用户昵称，用于登录" name="name" />
@@ -288,7 +326,10 @@ $(function () {
                                 <label>手机号码:</label>
                                <input  type="text" class="form-control" placeholder="请输入手机号码" name="mobile_Phone" />
                             </div>
-                            
+                            <div class="form-group">
+                                <label>邀请码:</label>
+                               <input  type="text" class="form-control" placeholder="请输入邀请码! 非必填 " name="invitedCode" />
+                            </div>
 	                      <input style="display: none;" name="create_date" value="<%=datetime%>">
 	                       <input style="display: none;"name="update_date" value="<%=datetime%>">
 
