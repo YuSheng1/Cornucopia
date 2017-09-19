@@ -498,14 +498,15 @@
 							<tr>
 									<td class="first"><span class="iconfont active"><a href="#1">&#xe61c;</a><em>&#xe61b;</em></span></td>
 									<td><p style="color:#ff503f">绑卡认证</p></td>
+									 <td> ${fn:substring(memberBankcards.card_no,1,5)}*****${fn:substring(memberBankcards.card_no,11,19)}</td>
 									<td><p style="color:#888">保障账户安全，绑卡认证才能充值提款</p></td>
 										<c:if test="${memberBankcards.id>0}">
-									<td>已绑定</td></c:if>
+									<td><a href="#chakan"  class="tk" data-toggle="tab">查看绑定  </a></td></c:if>
 									<td><c:if test="${memberBankcards.id==null}">
 									 <a href="#wytk" data-toggle="tab">立即绑定 </a></c:if>
 				</td>					
- 
 							</tr>
+							
                           <tr>
                             <td class="first"><span class="iconfont active"><a href="#1">&#xe61d;</a><em>&#xe61b;</em></span></td>
                             <td><p style="color:#ff503f">绑定手机</p></td>
@@ -523,8 +524,8 @@
                               
 	                            <td class="first"><span class="iconfont"><a href="#1">&#xe61e;</a><em>&#xe61b;</em></span></td>
 	                            <td><p style="color:#ff503f">提款密码</p></td>
-	                            <td><c:if test="${member.withdraw_password==null}">未绑定</c:if>
-	                            <c:if test="${ not empty member.withdraw_password}">已绑定</c:if></td>
+	                           <c:if test="${member.withdraw_password==null}"><td style="color: red"> 未绑定</td></c:if>
+	                            <c:if test="${ not empty member.withdraw_password}"><td style="color: blue"> 已绑定</td></c:if>
 	                            <td><p style="color:#888">保障资金安全，提款需要设置提款密码</p></td>
 	                           	<td><a href="#txmm"  class="tk" data-toggle="tab">查看 </a></td>					 
                           </tr>
@@ -582,7 +583,9 @@
 	                       <input style="display: none;"name="update_date" value="<%=datetime%>">
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">立即添加</button>
+                                 <button href="#aqxx"" data-toggle="tab" class="btn btn-primary">关闭</button>
                             </div>
+                            
                         </form>
                     </div>
                       </div>
@@ -614,8 +617,36 @@
 	                       <input style="display: none;"name="update_date" value="<%=datetime%>">
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">立即添加</button>
+                            <button href="#aqxx"" data-toggle="tab" class="btn btn-primary">关闭</button>
                             </div>
                         </form>
+                    </div>
+                      </div>
+				</caption>
+			</table>
+		</div>
+		<div class="tab-pane fade" id="chakan"
+			style="margin-left: 600px; margin-top: -450px; width: 700px; height: 600px;">
+			<table class="table" width="700px">
+				<caption>
+					<h4>更改提款密码</h4>
+					  <div class="panel panel-default">
+					     <div class="panel-body">
+                            <div class="form-group">
+                                <label>您的卡号</label>
+                               <input  type="text" class="form-control"  readonly="readonly" value="${memberBankcards.card_no}"  />
+                            </div>
+                             <div class="form-group">
+                                <label>开户人姓名</label>
+                               <input  type="text" class="form-control"readonly="readonly" value="${member.member_name}"  />
+                            </div>
+                             <div class="form-group">
+                                <label>开户地址</label>
+                               <input  type="text" class="form-control" readonly="readonly"  value="${memberBankcards.cardaddress}" />
+                            </div>
+                            <div class="form-group">
+                                <button href="#aqxx"" data-toggle="tab">关闭</button>
+                            </div>
                     </div>
                       </div>
 				</caption>
@@ -1091,7 +1122,6 @@
 		</div>
 	</div>
 	<script src="../assets/js/amazeui.js" charset="utf-8"></script>
-	
 </body>
 
 </html>

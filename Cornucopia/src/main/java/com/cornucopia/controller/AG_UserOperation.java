@@ -63,6 +63,7 @@ public class AG_UserOperation {
 		System.out.println(dz1+"-"+dz2+"-"+dz3);
 		memberBankcards.setCardaddress(dz1+"-"+dz2+"-"+dz3+"-"+memberBankcards.getType());
 		AG_ProductServiceImpl.saveMemberBankcards(memberBankcards);
+		 session.setAttribute("member", member);
 	return "redirect:/item/Contact";
 	}
 	//修改角色额密码
