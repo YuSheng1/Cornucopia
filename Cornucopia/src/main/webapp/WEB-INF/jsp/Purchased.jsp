@@ -38,18 +38,43 @@
 	function fun(id,name,qian){
 		var qc=	$("#mytext").val();
 		var yue=qian;
+		var exp = /^([1-9][\d]{0,7}|0)(\.[\d]{1,2})?$/;
+		  if(!exp.test(qc)){
+				document.getElementById("li5").style.display="none";
+				document.getElementById("li7").style.display="none";
+				document.getElementById("li6").style.display="none";
+				document.getElementById("li4").style.display="none";
+				document.getElementById("li8").style.display="";
+				return false;
+			    }
 		if(qc>yue){
+			document.getElementById("li5").style.display="none";
+			document.getElementById("li7").style.display="none";
+			document.getElementById("li4").style.display="none";
+			document.getElementById("li8").style.display="none";
 			document.getElementById("li6").style.display="";
 			return false;
 		}
 		if(qc==""||qc==0){
+			document.getElementById("li5").style.display="none";
+			document.getElementById("li4").style.display="none";
+			document.getElementById("li6").style.display="none";
+			document.getElementById("li8").style.display="none";
 			document.getElementById("li7").style.display="";
 			return false;
 		}
 		if(name==null||name==""){
+			document.getElementById("li4").style.display="none";
+			document.getElementById("li7").style.display="none";
+			document.getElementById("li6").style.display="none";
+			document.getElementById("li8").style.display="none";
 			document.getElementById("li5").style.display="";
 			return false;
 		} if(id<1){
+			document.getElementById("li5").style.display="none";
+			document.getElementById("li7").style.display="none";
+			document.getElementById("li6").style.display="none";
+			document.getElementById("li8").style.display="none";
 			document.getElementById("li4").style.display="";
 			return false;
 		}else{
@@ -200,7 +225,7 @@
 		<table class="conTable" width="100%" border="0" cellspacing="0"
 			cellpadding="0">
 			<tr>
-				<td class="txtInfo">
+				<td class="txtInfo" >
 					<div class="txt1">
 						<h2>${subject.bought }</h2>
 						<p>已购人数(人)</p>
@@ -231,6 +256,9 @@
 						<span id="checkmoney" style="color: red;">请先登陆</span>
 						</div>
 						<div class="li4" id="li7" style="display: none;" >
+						<span id="checkmoney" style="color: red;">请输入正确金额</span>
+						</div>
+						<div class="li4" id="li8" style="display: none;" >
 						<span id="checkmoney" style="color: red;">请输入正确金额</span>
 						</div>
 						<div class="li4" id="li6" style="display: none;" >

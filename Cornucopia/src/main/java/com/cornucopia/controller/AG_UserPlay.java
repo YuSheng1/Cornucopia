@@ -137,7 +137,10 @@ public class AG_UserPlay {
 		// 最后计息日
 		Calendar now = Calendar.getInstance(); 
 		now.add(Calendar.DATE, subject.getPeriod());
-		subjectPurchaseRecord.setLast_profit_day(now.toString());
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String dateStr = sdf.format(now.getTime());
+		System.out.println(dateStr);
+		subjectPurchaseRecord.setLast_profit_day(dateStr);
 		// 查询这个用户MemberAccount表
 		MemberAccount MAccount = AG_ProductServiceImpl.UpdateMemberAccount(member.getId());
 		// 修改这个用户MemberAccount的可用金额

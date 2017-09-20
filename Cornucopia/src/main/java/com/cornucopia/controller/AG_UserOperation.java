@@ -105,7 +105,6 @@ public class AG_UserOperation {
 		boolean boo = validateImpl.UserLogin(name, password);
 		System.out.println(boo);
 		if (boo == true) {
-			Subject subject = SecurityUtils.getSubject();
 			Member member = validateImpl.member(Lname);
 			session.setAttribute("Lname", Lname);
 			session.setAttribute("member", member);
