@@ -141,7 +141,7 @@ $(function () {
         <td>${list.id}</td>
         <td>${list.addTime}</td>
         <td>
-		<h6   onclick="update('${list.title}','${list.newsType.tid}','${list.id}')" class="tablelink" data-toggle="modal" data-target="#myModal2"  > 
+		<h6   onclick="update('${list.title}','${list.newsType.id}','${list.id}')" class="tablelink" data-toggle="modal" data-target="#myModal2"  > 
 		       <img src="../BgAssets/images/t02.png" />修改类别信息</h6>
 		       <h6 class="tablelink" data-toggle="modal" data-target="#myModal3" onclick="del(${list.id})"> <img src="../BgAssets/images/t03.png" />删除标题</h6>
 			</td>

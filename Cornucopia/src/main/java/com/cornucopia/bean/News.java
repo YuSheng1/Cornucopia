@@ -36,10 +36,9 @@ public class News {
 	private int updId;//修改人ID
 	private String  updTime;//修改时间
 	private String addTime;//添加时间
-	
 	private NewsType newsType;
 	
-	@ManyToOne()
+	@ManyToOne
 	@JoinColumn(name="typeId")
 	public NewsType getNewsType() {
 		return newsType;
