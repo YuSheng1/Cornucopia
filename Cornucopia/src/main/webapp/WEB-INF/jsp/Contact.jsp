@@ -744,7 +744,7 @@
 										</div>
 									</div>
 									<c:if test="${member.withdraw_password==null}">
-									<a href="#txmm"  class="tk" data-toggle="tab">设置提款密码 </a>
+									c
 									</c:if>
 											<c:if test="${not empty member.withdraw_password}">
 									<div class="form-group">
