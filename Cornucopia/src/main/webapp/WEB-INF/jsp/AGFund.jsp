@@ -165,47 +165,10 @@
     		</ul>
     	</div>
 
-
-
-     <div class="sdShaix" style="width: 800px;margin-left: 460px;margin-top: 30px;">
-        	<ul>
-            	<li class="first">标的类型：</li>
-               		<li><a href="/Cornucopia/AGSub/subject" id="11" class="select">全部</a></li>
-               		<c:if test="">
-               		<li><a href="/Cornucopia/AGSub/queryType?type=0&num=1" id="12">固收类理财</a></li>
-               		</c:if>
-               		<li><a href="/Cornucopia/AGSub/queryType?type=1&num=2" id="13">车盈宝</a></li>
-            </ul>
-        	<ul>
-            	<li class="first">年化收益：</li>
-               		<li><a href="/Cornucopia/AGSub/subject" id="21" class="select">全部</a></li>
-               		<li><a href="/Cornucopia/AGSub/queryYear_rate?year_rate=6" id="22">6.0%</a></li>
-               		<li><a href="/Cornucopia/AGSub/queryYear_rate?year_rate=7" id="23">7.0%</a></li>
-               		<li><a href="/Cornucopia/AGSub/queryYear_rate?year_rate=8" id="24">8.0%</a></li>
-               		<li><a href="/Cornucopia/AGSub/queryYear_rate?year_rate=9" id="25">9.0%</a></li>
-               		<li><a href="/Cornucopia/AGSub/queryYear_rate?year_rate=10" id="25">10%以上</a></li>
-            </ul>
-        	<ul>
-            	<li class="first">项目期限：</li>
-               		<li><a href="/Cornucopia/AGSub/subject" id="31" class="select">全部</a></li>
-               		<li><a href="/Cornucopia/AGSub/queryDays?days=1" id="32">15天以下</a></li>
-               		<li><a href="/Cornucopia/AGSub/queryDays?days=2" id="33">15-30天</a></li>
-               		<li><a href="/Cornucopia/AGSub/queryDays?days=3" id="34">30-180天</a></li>
-               		<li><a href="/Cornucopia/AGSub/queryDays?days=4" id="35">180-365天</a></li>
-               		<li><a href="/Cornucopia/AGSub/queryDays?days=5" id="36">一年以上</a></li>
-            </ul>
-        	<ul>
-            	<li class="first">标的状态：</li>
-               		<li><a href="/Cornucopia/AGSub/subject" class="select">全部</a></li>
-               		<li><a href="/Cornucopia/AGSub/queryStatus?status=0" id="42">投标中</a></li>
-               		<li><a href="/Cornucopia/AGSub/queryStatus?status=1" id="43">还款中</a></li>
-               		<li><a href="/Cornucopia/AGSub/queryStatus?status=2" id="44">已完成</a></li>
-            </ul>
-        </div>
 		<div class="ajaxContainer" style="margin-left: 300px;width: 1000px;">
 	<!-- 异步内容开始 -->
-			<c:forEach items="${slist }" var="list">
-					<ul class="tbList">
+			<c:forEach items="${flist }" var="list">
+                <ul class="tbList">
 						<li class="first">
 									<span class="ico zq"></span>
 							<h2><em>投</em>${list.name}</h2>
@@ -214,12 +177,12 @@
 						<li class="second">					
 							
 							<div class="txt1">
-								<h2>${list.year_rate}<span style="font-size:18px;">+1.0%</span></h2>
+								<h2>${list.year_rate }<span style="font-size:18px;"></span></h2>
 								<p>年化收益</p>
 							</div>
 							
 							<div class="txt2">
-								<h2>￥${list.floor_amount}</h2>
+								<h2>￥${list.floor_amount }</h2>
 								<p>起购金额(元)</p>
 							</div>
 							
@@ -228,17 +191,22 @@
 								<p>投资期限</p>
 							</div>
 						</li>
-						<li class="three">
-								<a href="#1">企业担保</a><span>中国人保财险承保</span>
-								<p>计息日期：当天投资，立即计息<br>已购人数：${list.bought}人</p>
-						</li>
+						<li class="six three" style="width:290px;">
+                        <p>已购人数：${list.buyer_count}人
+                            <br>
+                            管理人：深圳市凯丰投资管理有限公司<br>
+                            投资方向：各交易所期货类、证券类投资品种等
+                        </p>
+                    </li>
 						<li class="four">
 								
 						</li>
-						<li class="five">
-							<a class="abtn" href="/Cornucopia/item/Purchased?id=${list.id}">购买</a>
+						<li class="five" style="margin-top: -70px">
+							<a class="abtn" href="/subject/subjectContent/1612">购买</a>
 						</li>
 					</ul>
+                
+
 					</c:forEach>
 		</div>
         
