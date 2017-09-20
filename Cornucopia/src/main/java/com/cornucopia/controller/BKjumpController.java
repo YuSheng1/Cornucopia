@@ -20,10 +20,12 @@ import com.cornucopia.bean.MemberAccount;
 import com.cornucopia.bean.MemberBankcards;
 import com.cornucopia.bean.MemberDepositRecord;
 import com.cornucopia.bean.MemberTradeRecord;
+import com.cornucopia.bean.NewsType;
 import com.cornucopia.bean.Resources;
 import com.cornucopia.bean.Subject;
 import com.cornucopia.bean.SubjectPurchaseRecord;
 import com.cornucopia.bean.UserRole;
+import com.cornucopia.service.PM_NewsService;
 import com.cornucopia.service.PM_UserManagementService;
 import com.cornucopia.service.PM_UserService;
 import com.cornucopia.service.ValidateService;
@@ -46,6 +48,8 @@ public class BKjumpController {
 	private com.cornucopia.service.AG_ProductService AG_ProductServiceImpl;
 	@Resource
 	private ValidateService ValidateImpl;
+	@Resource
+	private PM_NewsService  PM_NewsTypeServiceImpl;
 
 	// 后台主页
 	@RequestMapping("BgMain")
@@ -64,11 +68,17 @@ public class BKjumpController {
 	// }
 	//
 	// 后台默认主页
+	@RequestMapping("AG_LeftController")
+	public String AG_LeftController(Model model) {
+		List<NewsType> list=PM_NewsTypeServiceImpl.ListAll();
+		model.addAttribute("list", list);
+		return "AG_LeftController";
+	}
+	//新闻类别页
 	@RequestMapping("BgIndex")
 	public String BgIndex() {
 		return "BgIndex";
 	}
-
 	// 后台会员中心
 	@RequestMapping("BgAccountManagement")
 	public String BgAccountManagement(Model model) {

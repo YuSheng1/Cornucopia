@@ -165,17 +165,13 @@
     		</ul>
     	</div>
 
-		<div class="ajaxContainer">
 	<!-- 异步内容开始 -->
+	<div class="row"  >
 	<c:forEach items="${olist }" var="list">
-		<li>
-				<!-- <a href="/oversea/overseaView/3"> -->
-				<span style="width: 40px;height: 40px;" class="iconfont"><img src="/upload/news/img/20160122/20160122211432397907.png" width="40" height="40"/></span>
-
-				<h2>${list.title}<p>${list.child_title}</p></h2>
-				<h3>${list.description }<p><i style="color: #aaa; font-style: normal;">用户群体：</i>${list.user_type }</p></h3>
-			<!-- </a> -->
-		</li>
+			 <div class="panel-body" style="border-bottom:2px solid blue;margin-left: 600px;width: 600px;"> <h2 style="font-weight: 20px;">${list.title}</h2><p>${list.child_title}</p> 	<!-- <a href="/oversea/overseaView/3"> -->
+				<span style="width: 80px;height: 80px;margin-top: -50px;"  class="iconfont"><img src="../assets/images/20160122211524399696.png" width="80" height="80" style="margin-top: -80px;margin-left: -100px;"/></span>
+				<h5 style="margin-left:350px;margin-top: -90px;">${list.description }</h5><p style="margin-left:350px;"><i style="color: #aaa; font-style: normal;" style="margin-left:350px ;margin-top: -90px ;"> 用户群体：</i>${list.user_type }</p>
+			</div>
 		</c:forEach>
 	<!-- 异步内容结束 -->
 	
@@ -426,7 +422,6 @@
     </div>
 
   <script src="../assets/js/jquery-2.1.0.js" charset="utf-8"></script>
-  <script src="../assets/js/amazeui.js" charset="utf-8"></script>
 </body>
 
 </html>

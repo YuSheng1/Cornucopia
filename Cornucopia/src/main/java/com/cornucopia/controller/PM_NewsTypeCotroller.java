@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.cornucopia.bean.News;
 import com.cornucopia.bean.NewsType;
 import com.cornucopia.bean.UserRole;
 import com.cornucopia.service.PM_NewsService;
@@ -24,6 +25,9 @@ public class PM_NewsTypeCotroller {
 
 	@Resource(name="PM_NewsTypeServiceImpl")
 	private PM_NewsService pm_NewsTypeServiceImpl;
+	@Resource(name="PM_NewsServiceImpl")
+	private PM_NewsService PM_NewsServiceImpl;
+	
 	
 	//后台学院管理咨询分类
 		@RequestMapping("BgConsultation")
@@ -40,7 +44,20 @@ public class PM_NewsTypeCotroller {
 			pm_NewsTypeServiceImpl.save(newsType);
 			return "redirect:/BgType/BgConsultation";
 		}
-		
+		//添加分类
+				@RequestMapping("NewsById")
+				public String NewsById(int id,Model model) {
+					List<News> news=PM_NewsServiceImpl.ListAllById(id);
+					model.addAttribute("news",news);
+					return "AG_NewConType";
+				}
+				@RequestMapping("NewsByIdA")
+				public String NewsByIdA(int id,Model model) {
+					News news=PM_NewsServiceImpl.NewsByIdA(id);
+					model.addAttribute("newcon",news);
+					return "AG_NewCon";
+				}	
+				
 		//修改
 		@RequestMapping("update")
 		public String update(NewsType newsType) {

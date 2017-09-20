@@ -49,4 +49,15 @@ public class PM_NewsServiceImpl implements PM_NewsService {
 		return boo;
 	}
 
+	@Override
+	public List<News> ListAllById(int id) {
+		List<News> news=newsDao.ListAllById(id);
+		return news;
+	}
+	@Override
+	public News NewsByIdA(int id) {
+		News news=newsDao.NewsByIdA(id);
+		return news;
+	}
+	
 }

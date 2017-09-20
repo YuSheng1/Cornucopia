@@ -12,7 +12,6 @@
   <link rel="stylesheet" href="../assets/css/common.min.css" />
 <script type="text/javascript" src="/resources/web/layer/layer.js"></script>
 <script src="/resources/web/echart/dist/echarts.js"></script>
-</head>
 <link href="../assets/css/bootstrap.css" rel="stylesheet">
 <script src="../assets/js/jquery.min.js"></script>
 <script src="../assets/js/bootstrap.min.js"></script>
@@ -24,7 +23,9 @@
 <link href="../BgAssets/css/bootstrapValidator.min.css" rel="stylesheet" />
     
 </head>
-<body>
+      
+<noframes><body>
+</body></noframes>
 <div class="layout">
     <!--===========layout-header================-->
     <div class="layout-header am-hide-sm-only">
@@ -115,7 +116,6 @@
           </div>
         <!--header end-->
 
-
         <!--nav start-->
         <div class="nav-contain">
           <div class="nav-inner">
@@ -152,90 +152,14 @@
       </div>
     </div>
  </div>
-    <div class="breadcrumb-box" style="margin-top: 10px;">
-        <div class="am-container">
-          <ol class="am-breadcrumb">
-           
-          </ol>
-        </div>
-      </div>
-    <div id="myTab" class="nav nav-pills nav-stacked"
-		style="width: 200px; margin-top: 30px; margin-left: 350px;">
-		<a href="#touzi" data-toggle="tab"> 投资记录</a><br>
-		<a href="#yuyue" data-toggle="tab">预约记录</a><br>
-		<a href="#jine" data-toggle="tab">充值记录 </a><br>
-		<a href="#shouyi" data-toggle="tab">收益记录 </a><br>
-		<a href="#tikuan" data-toggle="tab">提款记录 </a><br>
-	<a href="#tiyan" data-toggle="tab">体验金记录 </a><br>
-		<a href="#aqxx" data-toggle="tab">安全信息 </a><br>
-		<a href="#wytk" data-toggle="tab">我要提款 </a><br>
-	</div>
-	<div id="myTabContent" class="tab-content">
-			<div class="tab-pane fade" id="tiyan"
-			style="margin-left: 600px; margin-top: -200px; width: 700px; height: 600px;">
-			<table class="table" width="700px">
-				<caption>
-					<h4>体验金记录</h4>
-				</caption>
-				<a href="#txmm"  class="tk" data-toggle="tab">设置提款密码 </a>
-				<thead>
-					<tr>
-						<th>产品</th>
-						<th>付款日期</th>
-						<th>状态</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr class="active">
-						<td>产品1</td>
-						<td>23/11/2013</td>
-						<td>待发货</td>
-					</tr>
-					<tr class="success">
-						<td>产品2</td>
-						<td>10/11/2013</td>
-						<td>发货中</td>
-					</tr>
-					<tr class="warning">
-						<td>产品3</td>
-						<td>20/10/2013</td>
-						<td>待确认</td>
-					</tr>
-					<tr class="danger">
-						<td>产品4</td>
-						<td>20/10/2013</td>
-						<td>已退货</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-			<div class="tab-pane fade" id="txmm"
-			style="margin-left: 600px; margin-top: -200px; width: 700px; height: 600px;">
-			<table class="table" width="700px">
-            <a href="#tiyan" data-toggle="tab">上级</a>/
-         <a href="#txmm" data-toggle="tab">本级</a>/
-          <a href="#xiaji" data-toggle="tab">下级</a>/
-				<caption>
-					<h4>体验金记录</h4>
-				</caption>
-				<thead>
-					<tr>
-						<th>产品</th>
-						<th>付款日期</th>
-						<th>状态</th>
-					</tr>
-				</thead>
-				<tbody>
-					
-					<tr class="danger">
-						<td>产品4</td>
-						<td>20/10/2013</td>
-						<td>已退货</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-   </div>
+
+
+
+  
+<iframe style="margin-left: 300px;" frameborder=0 width=170 height=800 marginheight=0 marginwidth=0 scrolling=no src="/Cornucopia/BgItem/AG_LeftController" >
+
+</iframe>
+<iframe  style="margin-left: 100px;margin-top: -200px;" id="iframeContent" name="iframeContent" frameborder=0 width=800 height=800 marginheight=0 marginwidth=0 scrolling=no ></iframe>
     <!--===========layout-footer================-->
     <div class="layout-footer">
       <div class="footer">
