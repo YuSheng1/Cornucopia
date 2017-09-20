@@ -13,7 +13,7 @@
 <title>网站后台管理系统HTML模板--模板之家 www.cssmoban.com</title>
 <link href="../BgAssets/css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../BgAssets/js/jquery.js"></script>
-<link href="../assets/css/bootstrap.css" rel="stylesheet">
+<link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 <script src="../assets/js/jquery.min.js"></script>
 <script src="../assets/js/bootstrap.min.js"></script>
 <script src="../assets/js/jquery.ztree.all-3.5.js"></script>
@@ -294,11 +294,11 @@ $(function () {
                        	<form id="form" method="post"  action="/Cornucopia/PM_RolesItem/add">
                             <div class="form-group">
                                 <label>用户名:</label>
-                                 <input type="text" class="form-control" placeholder="请输入角色名称" name="cname">
+                                 <input type="text" class="form-control" placeholder="请输入角色名称" name="cname"  style="width: 300px;">
                             </div>
                             <div class="form-group">
                                 <label>角色备注:</label>
-                               <input  type="text" class="form-control" placeholder="备注" name="remark" />
+                               <input  type="text" class="form-control" placeholder="备注" name="remark" style="width: 300px;"/>
                             </div>
 	<input style="display: none;" name="createdate"
 									value="<%=datetime%>"> <input style="display: none;"
@@ -318,7 +318,7 @@ $(function () {
 	
 		<div class="modal fade" id="myModal2" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="container" style="margin-top: 50px;">
+    <div class="container" style="margin-top: 50px; ">
         <div class="row">
         
             <div class="col-lg-4 col-lg-offset-4">
@@ -336,11 +336,11 @@ $(function () {
                        	<form  id="formupdate" method="post"  action="/Cornucopia/PM_RolesItem/update">
                             <div class="form-group">
                                 <label>用户名:</label>
-                                 <input type="text" class="form-control" placeholder="请输入角色名称" readonly name="cname1" id="cname1"  >
+                                 <input type="text" class="form-control" placeholder="请输入角色名称" readonly name="cname1" id="cname1" style="width: 300px;" >
                             </div>
                             <div class="form-group">
                                 <label>角色备注:</label>
-                               <input  type="text" class="form-control" placeholder="备注" name="remark"  id="remark"/>
+                               <input  type="text" class="form-control" placeholder="备注" name="remark"  id="remark"  style="width: 300px;"/>
                             </div>
 	<input style="display: none;"name="update_date" value="<%=datetime%>">
     <input style="display: none;"name="id"   id="id">

@@ -12,7 +12,7 @@
 <title>网站后台管理系统HTML模板--模板之家 www.cssmoban.com</title>
 <link href="../BgAssets/css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../BgAssets/js/jquery.js"></script>
-<link href="../assets/css/bootstrap.css" rel="stylesheet">
+<link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 <script src="../assets/js/jquery.min.js"></script>
 <script src="../assets/js/bootstrap.min.js"></script>
 <script src="../assets/js/bootstrap-select.js"></script>
@@ -266,11 +266,11 @@ $(function () {
                        	<form  id="formupdate" method="post"  action="/Cornucopia/PM_UsersItem/update">
                             <div class="form-group">
                                 <label>用户名:</label>
-                                 <input type="text" class="form-control" placeholder="请输入角色名称" readonly name="cname1" id="cname1"  >
+                                 <input type="text" class="form-control" placeholder="请输入角色名称" style="width: 300px;" readonly name="cname1" id="cname1"  >
                             </div>
                             <div class="form-group">
                                 <label>角&nbsp;色:</label>
-                              <select id="error" name="error" class="form-control" >
+                              <select id="error" name="error" class="form-control" style="width: 300px;" >
                                <c:forEach items="${UserRole}" var="u" >
           <option class="form-control" id="oid" value="${u.id}"  selected="selected"  >${u.cname}</option>
           	</c:forEach>
@@ -307,27 +307,27 @@ $(function () {
                        	<form id="form" method="post"  action="/Cornucopia/PM_UsersItem/add">
                             <div class="form-group">
                                 <label>用户名:</label>
-                                 <input type="text" class="form-control" placeholder="请输入角色名称" name="user_name">
+                                 <input type="text" class="form-control" placeholder="请输入角色名称" name="user_name" style="width: 300px;">
                             </div>
                             <div class="form-group">
                                 <label>昵称:</label>
-                               <input  type="text" class="form-control" placeholder="请输入用户昵称" name="name" />
+                               <input  type="text" class="form-control" placeholder="请输入用户昵称" name="name" style="width: 300px;"/>
                             </div>
                             <div class="form-group">
                                 <label>密码:</label>
-                               <input  type="text" class="form-control" placeholder="请输入密码" name="password" />
+                               <input  type="text" class="form-control" placeholder="请输入密码" name="password" style="width: 300px;"/>
                             </div>
                              <div class="form-group">
                                 <label>确认密码:</label>
-                               <input  type="text" class="form-control" placeholder="确认密码" name="repassword" />
+                               <input  type="text" class="form-control" placeholder="确认密码" name="repassword" style="width: 300px;"/>
                             </div>
                             <div class="form-group">
                                 <label>手机号码:</label>
-                               <input  type="text" class="form-control" placeholder="请输入手机号码" name="mobile_Phone" />
+                               <input  type="text" class="form-control" placeholder="请输入手机号码" name="mobile_Phone" style="width: 300px;"/>
                             </div>
                              <div class="form-group">
                               <label>角&nbsp;色:</label>
-                              <select id="error" name="error" class="form-control" >
+                              <select id="error" name="error" class="form-control" style="width: 300px;">
                               <c:forEach items="${UserRole}" var="u" >
           <option class="form-control" id="oid" value="${u.id}"  selected="selected"  >${u.cname}</option>
           	</c:forEach>

@@ -205,10 +205,10 @@ $(function () {
         <td>${list.name}</td>
         <td>根类别</td>
         <td>${list.info}</td>
-        <td>${list.tid}</td>
+        <td>${list.id}</td>
         <td>${list.addTime}</td>
         <td>
-		<h6   onclick="update('${list.name}','${list.info }','${list.tid}','${list.updTime}')" class="tablelink" data-toggle="modal" data-target="#myModal2"  > 
+		<h6   onclick="update('${list.name}','${list.info }','${list.id}','${list.updTime}')" class="tablelink" data-toggle="modal" data-target="#myModal2"  > 
 		       <img src="../BgAssets/images/t02.png" />修改类别信息</h6>
 			</td>
 					</tr>
