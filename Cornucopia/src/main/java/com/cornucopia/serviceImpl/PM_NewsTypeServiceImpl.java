@@ -22,7 +22,7 @@ public class PM_NewsTypeServiceImpl implements  PM_NewsService{
 
 
 	@Override
-	public  List<NewsType> ListAll(Object... objects) {
+	public  List<NewsType> ListAllT(Object... objects) {
 		List<NewsType> tlist=newsTypeDao.ListAll();
 		return tlist;
 	}
@@ -67,5 +67,12 @@ public class PM_NewsTypeServiceImpl implements  PM_NewsService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public <T> List<T> ListAll(String title, String typeId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }

@@ -21,6 +21,7 @@
 <link href="../assets/css/metroStyle.css" rel="stylesheet" />
 <link href="../BgAssets/css/bootstrapValidator.min.css" rel="stylesheet" />
 <link href="../assets/css/bootstrap-select.css" rel="stylesheet" />
+<script type="text/javascript" src="../BgAssets/editor/kindeditor.js"></script>
 
 <script type="text/javascript">
 <%String datetime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()); //获取系统时间%>
@@ -114,6 +115,16 @@ $(function () {
     </ul>
     </div>
     <div class="rightinfo">
+    		<form action="/Cornucopia/BgNews/BgTration" method="post">
+标题：<input type="text" name="title" class="width=200px" placeholder="标题名称....">
+所属类别：<select name="typeId">
+<option value="-1">全部</option>
+				<c:forEach items="${tlist }" var="list" >
+		<option value="${list.id}">${list.name}</option>
+		</c:forEach>
+		</select>
+<input type="submit" value="搜索"  class="btn btn-primary">
+								</form>
      <div class="tools">
 			<ul class="toolbar">
 					<li class="click"><span><img
@@ -212,7 +223,7 @@ $(function () {
 	
 		<!-- 添加-->
 	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel" aria-hidden="true">
+		aria-labelledby="myModalLabel" aria-hidden="true" style="width: -20px">
     <div class="container" style="margin-top: 50px;">
         <div class="row">
             <div class="col-lg-4 col-lg-offset-4">
@@ -237,6 +248,8 @@ $(function () {
           	</c:forEach>
         </select>
                             </div>
+                            内容：
+                            <textarea id="text" name="text" style="width:700px;height:250px;"></textarea>
 	                      <input style="display: none;" name="addTime" value="<%=datetime%>">
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">立即添加</button>

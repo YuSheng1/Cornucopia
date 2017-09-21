@@ -70,7 +70,7 @@ public class BKjumpController {
 	// 后台默认主页
 	@RequestMapping("AG_LeftController")
 	public String AG_LeftController(Model model) {
-		List<NewsType> list=PM_NewsTypeServiceImpl.ListAll();
+		List<NewsType> list=PM_NewsTypeServiceImpl.ListAllT();
 		model.addAttribute("list", list);
 		return "AG_LeftController";
 	}

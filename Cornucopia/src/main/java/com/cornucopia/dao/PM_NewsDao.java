@@ -21,9 +21,18 @@ public class PM_NewsDao {
 	}
 
 	// ≤È—Ø±ÍÃ‚
-	public List<News> ListAll() {
+	public List<News> ListAll(String title,String typeid) {
+		System.out.println(typeid);
+		String hql="from News where 0=0";
 		Session session = getSession();
-		List<News> list = session.createQuery("from News").list();
+		if(title!=null&&!"".equals(title)){
+			hql+="and title like '%"+title+"%'" ;
+		}
+		if(typeid!=null&&!"".equals(typeid)&&Integer.parseInt(typeid)!=-1){
+			hql+="and typeid = '"+typeid+"'";
+		}
+		hql+="  ORDER BY sort desc";
+		List<News> list = session.createQuery(hql).list();
 		return list;
 	}
 

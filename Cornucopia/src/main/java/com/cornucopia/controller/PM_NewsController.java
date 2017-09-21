@@ -31,10 +31,10 @@ public class PM_NewsController {
 	
 	//后台学院管理咨询管理
 		@RequestMapping("BgTration")
-		public String BgTration(Model model){
-			List<News> list=newsServiceImpl.ListAll();
+		public String BgTration(Model model,String title,String typeId){
+			List<News> list=newsServiceImpl.ListAll(title,typeId);
 			model.addAttribute("list",list);
-			List<NewsType> tlist=newsTypeServiceImpl.ListAll();
+			List<NewsType> tlist=newsTypeServiceImpl.ListAllT();
 			model.addAttribute("tlist",tlist);
 			return "BgTration";
 

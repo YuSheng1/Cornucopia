@@ -7,7 +7,8 @@ import com.cornucopia.bean.News;
 
 public interface PM_NewsService {
 
-	public <T>List<T> ListAll(Object...objects) ;
+	public <T>List<T> ListAll(String title,String typeId);
+	public <T>List<T> ListAllT(Object...objects) ;
 	public void save (Object...objects);
 	public void delete(Object object);
 	public void update(Object object);

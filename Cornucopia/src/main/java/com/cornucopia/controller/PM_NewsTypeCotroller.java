@@ -32,7 +32,7 @@ public class PM_NewsTypeCotroller {
 	//后台学院管理咨询分类
 		@RequestMapping("BgConsultation")
 		public String BgConsultation(Model model) {
-			List<NewsType> tlist=pm_NewsTypeServiceImpl.ListAll();
+			List<NewsType> tlist=pm_NewsTypeServiceImpl.ListAllT();
 			model.addAttribute("tlist",tlist);
 			return "BgConsultation";
 		}
