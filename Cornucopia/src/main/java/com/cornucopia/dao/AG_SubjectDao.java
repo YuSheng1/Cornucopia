@@ -62,6 +62,7 @@ public List<Subject> query(String hql) {
 	 Session session=getSession();
 	  List<Subject> slist=session.createQuery(hql).list();
 	  return slist;
+	  //
 }
 	
 	
