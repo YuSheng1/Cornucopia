@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.cornucopia.bean.FinanceProductFunds;
+import com.cornucopia.bean.News;
 import com.cornucopia.bean.OverseaConfig;
 import com.cornucopia.bean.Subject;
 
@@ -70,7 +71,12 @@ public List<Subject> query(String hql) {
 		List<FinanceProductFunds> flist=session.createQuery(hql).list();
 		return flist;
 	}
-	
+	public FinanceProductFunds ListAllFById(int id){
+		Session session=getSession();
+		FinanceProductFunds financeProductFunds = (FinanceProductFunds) session.get(News.class, id);
+		return financeProductFunds;
+	}
+
 	public List<OverseaConfig> ListAllO(){
 		Session session=getSession();
 		String hql="from OverseaConfig";

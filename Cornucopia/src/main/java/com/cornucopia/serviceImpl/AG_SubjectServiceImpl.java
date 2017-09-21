@@ -46,5 +46,11 @@ public class AG_SubjectServiceImpl implements AG_SubjectService {
 		return olist;
 	}
 
+	@Override
+	public FinanceProductFunds ListAllFById(int id) {
+		FinanceProductFunds financeProductFunds=AG_subjectDao.ListAllFById(id);
+		return financeProductFunds;
+	}
+
 
 }

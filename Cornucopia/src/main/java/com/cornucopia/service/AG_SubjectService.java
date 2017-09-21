@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
+import com.cornucopia.bean.FinanceProductFunds;
 import com.cornucopia.bean.Subject;
 
 public interface AG_SubjectService {
@@ -15,4 +16,6 @@ public interface AG_SubjectService {
 	public List<Subject> query(String hql);
 	public <T>List<T> ListAllF(Objects...objects);
 	public <T>List<T> ListAllO(Objects...objects);
+	public FinanceProductFunds ListAllFById(int id);
+	
 }
