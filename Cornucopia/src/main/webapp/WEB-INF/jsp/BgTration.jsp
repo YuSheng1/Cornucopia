@@ -192,7 +192,7 @@ $(function () {
                                 <label>类&nbsp;别:</label>
                               <select id="error" name="error" class="form-control" >
                                <c:forEach items="${tlist}" var="list" >
-          <option class="form-control" id="oid" value="${list.tid}"  selected="selected"  >${list.name}</option>
+          <option class="form-control" id="oid" value="${list.id}"  selected="selected"  >${list.name}</option>
           	</c:forEach>
         </select>
                             </div>
@@ -233,7 +233,7 @@ $(function () {
                               <label>类&nbsp;别:</label>
                               <select id="error" name="error" class="form-control" >
                               <c:forEach items="${tlist }" var="list" >
-          <option class="form-control" id="oid" value="${list.tid}"  selected="selected"  >${list.name}</option>
+          <option class="form-control" id="oid" value="${list.id}"  selected="selected"  >${list.name}</option>
           	</c:forEach>
         </select>
                             </div>
