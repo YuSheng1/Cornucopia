@@ -12,7 +12,7 @@
 <title>网站后台管理系统HTML模板--模板之家 www.cssmoban.com</title>
 <link href="../BgAssets/css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../BgAssets/js/jquery.js"></script>
-<link href="../assets/css/bootstrap.css" rel="stylesheet">
+<link href="../assets/css/bootstrap.min.css" rel="stylesheet">
 <script src="../assets/js/jquery.min.js"></script>
 <script src="../assets/js/bootstrap.min.js"></script>
 <script src="../assets/js/bootstrap-select.js"></script>

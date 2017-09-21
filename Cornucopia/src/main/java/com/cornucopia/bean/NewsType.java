@@ -9,7 +9,7 @@ import javax.persistence.Table;
 @Entity
 public class NewsType {
 
-	private int id;//主键
+	private int tid;//主键
 	private String name;//名称
 	private String link;//链接
 	private String note;//备注
@@ -25,11 +25,11 @@ public class NewsType {
 	private int addId;//添加人ID
 	@Id
 	@GeneratedValue
-	public int getId() {
-		return id;
+	public int getTId() {
+		return tid;
 	}
-	public void setId(int id) {
-		this.id = id;
+	public void setTId(int tid) {
+		this.tid = tid;
 	}
 	private int updId;//修改人ID
 	private String  updTime;//修改时间

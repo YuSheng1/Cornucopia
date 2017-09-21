@@ -34,6 +34,8 @@ public class PM_NewsController {
 		public String BgTration(Model model){
 			List<News> list=newsServiceImpl.ListAll();
 			model.addAttribute("list",list);
+			List<NewsType> tlist=newsTypeServiceImpl.ListAll();
+			model.addAttribute("tlist",tlist);
 			return "BgTration";
 		}
 		
