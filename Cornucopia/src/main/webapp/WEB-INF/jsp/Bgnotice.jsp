@@ -175,7 +175,7 @@ $(function () {
 									value="<%=datetime%>">
 
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary" onclick="fun1()">立即添加</button>
+                                <button type="submit" class="btn btn-primary" >立即添加</button>
                             </div>
                         </form>
                     </div>

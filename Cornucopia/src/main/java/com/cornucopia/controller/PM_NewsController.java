@@ -1,5 +1,7 @@
 package com.cornucopia.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.cornucopia.bean.News;
 import com.cornucopia.bean.NewsType;
+import com.cornucopia.bean.PushNotice;
 import com.cornucopia.bean.UserRole;
 import com.cornucopia.bean.Users;
 import com.cornucopia.service.PM_NewsService;
@@ -61,15 +64,24 @@ public class PM_NewsController {
 					return "redirect:/BgNews/BgTration";
 				}
 		
-		// 修改标题
+				//去修改
+				@RequestMapping("updatebyid")
+				public String updateById(int id,Model model){
+					System.out.println("111");
+					System.out.println(id);
+					News news = newsServiceImpl.getById(id);
+					model.addAttribute("news",news);
+					List<NewsType> tlist=newsTypeServiceImpl.ListAllT();
+					model.addAttribute("tlist",tlist);
+					return "BGNewsUpdate";
+				}
+			//修改
 				@RequestMapping("update")
-				public String update(String title,String updTime,int error) {
-					System.out.println("000123");
-					News news = newsServiceImpl.getByName(title);
-					NewsType newsType = newsTypeServiceImpl.getById(error);
-					news.setNewsType(newsType);
+				public String update(News news,String updTime){
+					System.out.println("进修改了");
 					news.setUpdTime(updTime);
-					newsServiceImpl.save(news);
+					this.newsServiceImpl.update(news);
+					System.out.println(1);
 					return "redirect:/BgNews/BgTration";
 				}
 		

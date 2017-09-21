@@ -21,7 +21,12 @@
 <link href="../assets/css/metroStyle.css" rel="stylesheet" />
 <link href="../BgAssets/css/bootstrapValidator.min.css" rel="stylesheet" />
 <link href="../assets/css/bootstrap-select.css" rel="stylesheet" />
-<script type="text/javascript" src="../BgAssets/editor/kindeditor.js"></script>
+
+ <script type="text/javascript"  src="/Cornucopia/utf8-jsp/ueditor.config.js"></script>
+    <script type="text/javascript"  src="/Cornucopia/utf8-jsp/ueditor.all.min.js"> </script>
+    <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
+    <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
+    <script type="text/javascript"  src="/Cornucopia/utf8-jsp/lang/zh-cn/zh-cn.js"></script>
 
 <script type="text/javascript">
 <%String datetime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()); //获取系统时间%>
@@ -152,8 +157,7 @@ $(function () {
         <td>${list.id}</td>
         <td>${list.addTime}</td>
         <td>
-		<h6   onclick="update('${list.title}','${list.newsType.id}','${list.id}')" class="tablelink" data-toggle="modal" data-target="#myModal2"  > 
-		       <img src="../BgAssets/images/t02.png" />修改类别信息</h6>
+		      <h6> <img src="../BgAssets/images/t02.png" /><a href="/Cornucopia/BgNews/updatebyid?id=${list.id}">修改类别信息</a></h6>
 		       <h6 class="tablelink" data-toggle="modal" data-target="#myModal3" onclick="del(${list.id})"> <img src="../BgAssets/images/t03.png" />删除标题</h6>
 			</td>
 					</tr>
@@ -177,27 +181,24 @@ $(function () {
     </div>
     </div>
     
-    		<div class="modal fade" id="myModal2" tabindex="-1" role="dialog"
+	
+	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="container" style="margin-top: 50px;">
         <div class="row">
-        
             <div class="col-lg-4 col-lg-offset-4">
-            
                 <div class="panel panel-default">
-                
                     <div class="panel-heading">
-                        <h3 class="panel-title">修改标题信息<button type="button" class="close" 
+                        <h3 class="panel-title">添加标题<button type="button" class="close" 
                data-dismiss="modal" aria-hidden="true">
                   &times;            </button></h3>
-                            
                     </div>
 
                     <div class="panel-body">
-                       	<form  id="formupdate" method="post"  action="/Cornucopia/BgNews/update">
+                       	<form id="form" method="post"  action="/Cornucopia/BgNews/add">
                             <div class="form-group">
-                                <label>标题:</label>
-                                 <input type="text" class="form-control" placeholder="请输入标题名称"  name="title" id="title"  >
+                                <label>标题名称:</label>
+                                 <input type="text" class="form-control" placeholder="请输入标题名称" name="title">
                             </div>
                             <div class="form-group">
                                 <label>类&nbsp;别:</label>
@@ -207,52 +208,21 @@ $(function () {
           	</c:forEach>
         </select>
                             </div>
-                            <!-- <input style="display: none;"name="id"   id="id"> -->
-	<input style="display: none;"name="updTime" value="<%=datetime%>">
+                               <div>
+									<!-- 加载编辑器的容器 -->  
+									标题内容
+									<script id="container" name="text" type="text/plain" ></script>  
+									<!-- 配置文件 -->  
+									<!-- 编辑器源码文件 -->  
+									<!-- 实例化编辑器 -->  
+									<script type="text/javascript">  
+									    var ue = UE.getEditor('container');  
+									</script> 
+								</div>
+									<input style="display: none;" name="addTime"
+									value="<%=datetime%>">
                             <div class="form-group">
-                                <button type="submit" class="btn btn-primary" >立即修改</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-		<!-- /.modal -->
-	</div>
-	
-		<!-- 添加-->
-	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
-		aria-labelledby="myModalLabel" aria-hidden="true" style="width: -20px">
-    <div class="container" style="margin-top: 50px;">
-        <div class="row">
-            <div class="col-lg-4 col-lg-offset-4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h3 class="panel-title">添加角色<button type="button" class="close" 
-               data-dismiss="modal" aria-hidden="true">
-                  &times;            </button></h3>
-                    </div>
-
-                    <div class="panel-body">
-                       	<form id="form" method="post"  action="/Cornucopia/BgNews/add">
-                            <div class="form-group">
-                                <label>标题名:</label>
-                                 <input type="text" class="form-control" placeholder="请输入标题名称" name="title">
-                            </div>
-                             <div class="form-group">
-                              <label>类&nbsp;别:</label>
-                              <select id="error" name="error" class="form-control" >
-                              <c:forEach items="${tlist }" var="list" >
-          <option class="form-control" id="oid" value="${list.id}"  selected="selected"  >${list.name}</option>
-          	</c:forEach>
-        </select>
-                            </div>
-                            内容：
-                            <textarea id="text" name="text" style="width:700px;height:250px;"></textarea>
-	                      <input style="display: none;" name="addTime" value="<%=datetime%>">
-                            <div class="form-group">
-                                <button type="submit" class="btn btn-primary">立即添加</button>
+                                <button type="submit" class="btn btn-primary" >立即添加</button>
                             </div>
                         </form>
                     </div>
