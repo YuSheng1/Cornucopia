@@ -37,6 +37,7 @@ public class PM_NewsController {
 			List<NewsType> tlist=newsTypeServiceImpl.ListAll();
 			model.addAttribute("tlist",tlist);
 			return "BgTration";
+
 		}
 		
 		// 添加标题
