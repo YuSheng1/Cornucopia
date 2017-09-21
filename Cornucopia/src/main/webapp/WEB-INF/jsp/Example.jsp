@@ -170,36 +170,36 @@
      <div class="sdShaix" style="width: 800px;margin-left: 460px;margin-top: 30px;">
         	<ul>
             	<li class="first">标的类型：</li>
-               		<li><a href="/Cornucopia/AGSub/subject" id="11" class="select">全部</a></li>
+               		<li><a href="/Cornucopia/AGSub/queryType?type=-1&num=-1" id="11" <c:if test="${ empty type}">class="select" </c:if>>全部</a></li>
                		<c:if test="">
-               		<li><a href="/Cornucopia/AGSub/queryType?type=0&num=1" id="12">固收类理财</a></li>
+               		<li><a href="/Cornucopia/AGSub/queryType?type=0&num=1" <c:if test="${type==0}">class="select" </c:if> id="12">固收类理财</a></li>
                		</c:if>
-               		<li><a href="/Cornucopia/AGSub/queryType?type=1&num=2" id="13">车盈宝</a></li>
+               		<li><a href="/Cornucopia/AGSub/queryType?type=1&num=2"  <c:if test="${type==1}">class="select" </c:if> id="13">车盈宝</a></li>
             </ul>
         	<ul>
             	<li class="first">年化收益：</li>
-               		<li><a href="/Cornucopia/AGSub/subject" id="21" class="select">全部</a></li>
-               		<li><a href="/Cornucopia/AGSub/queryYear_rate?year_rate=6" id="22">6.0%</a></li>
-               		<li><a href="/Cornucopia/AGSub/queryYear_rate?year_rate=7" id="23">7.0%</a></li>
-               		<li><a href="/Cornucopia/AGSub/queryYear_rate?year_rate=8" id="24">8.0%</a></li>
-               		<li><a href="/Cornucopia/AGSub/queryYear_rate?year_rate=9" id="25">9.0%</a></li>
-               		<li><a href="/Cornucopia/AGSub/queryYear_rate?year_rate=10" id="25">10%以上</a></li>
+               		<li><a href="/Cornucopia/AGSub/queryType?year_rate=-1" id="21" <c:if test="${ empty year_rate}">class="select" </c:if>>全部</a></li>
+               		<li><a href="/Cornucopia/AGSub/queryType?year_rate=6" <c:if test="${year_rate==6}">class="select" </c:if> id="22">6.0%</a></li>
+               		<li><a href="/Cornucopia/AGSub/queryType?year_rate=7" <c:if test="${year_rate==7}">class="select" </c:if> id="23">7.0%</a></li>
+               		<li><a href="/Cornucopia/AGSub/queryType?year_rate=8" <c:if test="${year_rate==8}">class="select" </c:if> id="24">8.0%</a></li>
+               		<li><a href="/Cornucopia/AGSub/queryType?year_rate=9"<c:if test="${year_rate==9}">class="select" </c:if> id="25">9.0%</a></li>
+               		<li><a href="/Cornucopia/AGSub/queryType?year_rate=10" <c:if test="${year_rate==10}">class="select" </c:if>id="25">10%以上</a></li>
             </ul>
         	<ul>
             	<li class="first">项目期限：</li>
-               		<li><a href="/Cornucopia/AGSub/subject" id="31" class="select">全部</a></li>
-               		<li><a href="/Cornucopia/AGSub/queryDays?days=1" id="32">15天以下</a></li>
-               		<li><a href="/Cornucopia/AGSub/queryDays?days=2" id="33">15-30天</a></li>
-               		<li><a href="/Cornucopia/AGSub/queryDays?days=3" id="34">30-180天</a></li>
-               		<li><a href="/Cornucopia/AGSub/queryDays?days=4" id="35">180-365天</a></li>
-               		<li><a href="/Cornucopia/AGSub/queryDays?days=5" id="36">一年以上</a></li>
+               		<li><a href="/Cornucopia/AGSub/queryType?days=-1" id="31" <c:if test="${ empty days}">class="select" </c:if>>全部</a></li>
+               		<li><a href="/Cornucopia/AGSub/queryType?days=1" <c:if test="${days==1}">class="select" </c:if> id="32">15天以下</a></li>
+               		<li><a href="/Cornucopia/AGSub/queryType?days=2" <c:if test="${days==2}">class="select" </c:if>id="33">15-30天</a></li>
+               		<li><a href="/Cornucopia/AGSub/queryType?days=3" <c:if test="${days==3}">class="select" </c:if>id="34">30-180天</a></li>
+               		<li><a href="/Cornucopia/AGSub/queryType?days=4" <c:if test="${days==4}">class="select" </c:if>id="35">180-365天</a></li>
+               		<li><a href="/Cornucopia/AGSub/queryType?days=5" <c:if test="${days==5}">class="select" </c:if> id="36">一年以上</a></li>
             </ul>
         	<ul>
             	<li class="first">标的状态：</li>
-               		<li><a href="/Cornucopia/AGSub/subject" class="select">全部</a></li>
-               		<li><a href="/Cornucopia/AGSub/queryStatus?status=0" id="42">投标中</a></li>
-               		<li><a href="/Cornucopia/AGSub/queryStatus?status=1" id="43">还款中</a></li>
-               		<li><a href="/Cornucopia/AGSub/queryStatus?status=2" id="44">已完成</a></li>
+               		<li><a href="/Cornucopia/AGSub/queryType?status=-1" <c:if test="${ empty status}">class="select" </c:if>>全部</a></li>
+               		<li><a href="/Cornucopia/AGSub/queryType?status=0" <c:if test="${status==0}">class="select" </c:if> id="42">投标中</a></li>
+               		<li><a href="/Cornucopia/AGSub/queryType?status=1" <c:if test="${status==1}">class="select" </c:if> id="43">还款中</a></li>
+               		<li><a href="/Cornucopia/AGSub/queryType?status=2" <c:if test="${status==2}">class="select" </c:if> id="44">已完成</a></li>
             </ul>
         </div>
 		<div class="ajaxContainer" style="margin-left: 300px;width: 1000px;">
