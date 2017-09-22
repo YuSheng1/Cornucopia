@@ -2,8 +2,9 @@ package com.cornucopia.controller;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -12,7 +13,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.cornucopia.bean.AwardRecords;
 import com.cornucopia.bean.AwardRecordsVo;
 import com.cornucopia.bean.MembeWithdrawRecord;
 import com.cornucopia.bean.Member;
@@ -157,18 +157,22 @@ public class BKjumpController {
 
 	// 后台绑卡管理
 	@RequestMapping("BgCardBinding")
-	public String BgCardBinding(Model model) {
-		List<MemberBankcards> mbl = ValidateImpl.MemberBankcardsListAll();
+	public String BgCardBinding(Model model,String member_name,String mobile_Phone,String card_no,String create_date) {
+		Map map=new HashMap<>();
+		map.put("member_name", member_name);
+		map.put("mobile_Phone", mobile_Phone);
+		map.put("card_no", card_no);
+		map.put("create_date", create_date);
+		List<MemberBankcards> mbl=ValidateImpl.MemberBankcardsListAll(map);
 		model.addAttribute("mbl", mbl);
+		model.addAttribute("member_name", member_name);
+		model.addAttribute("mobile_Phone", mobile_Phone);
+		model.addAttribute("card_no", card_no);
+		model.addAttribute("create_date", create_date);
 		return "BgCardBinding";
 	}
 	
-	@RequestMapping("BgCardBindingAll")
-	public String BgCardBindingAll(Model model,String mobile_Phone,String member_name,String card_no,String create_date) {
-		List mbl = ValidateImpl.MemberBankcardsList(mobile_Phone, member_name, card_no, create_date);
-		model.addAttribute("mbl", mbl);
-		return "BgCardBinding";
-	}
+
 
 	// 后台顶部
 	@RequestMapping("BgTop")

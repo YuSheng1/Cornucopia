@@ -1,6 +1,7 @@
 package com.cornucopia.serviceImpl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -83,8 +84,8 @@ public class ValidateImpl implements ValidateService {
 		return member;
 	}
 	@Override
-	public List<com.cornucopia.bean.MemberBankcards> MemberBankcardsListAll() {
-		List<com.cornucopia.bean.MemberBankcards> list=validateDao.MemberBankcardsListAll();
+	public List<com.cornucopia.bean.MemberBankcards> MemberBankcardsListAll(Map map) {
+		List<com.cornucopia.bean.MemberBankcards> list=validateDao.MemberBankcardsListAll(map);
 		if (list.size()>0) {
 			return list;
 		}
@@ -153,14 +154,6 @@ public class ValidateImpl implements ValidateService {
 	@Override
 	public List<AwardRecordsVo>  AwardRecordsListVo(int id) {
 		List<AwardRecordsVo> list=validateDao.AwardRecordsListVo(id);
-		if (list.size()>0) {
-			return list;
-		}
-		return null;
-	}
-	@Override
-	public  List MemberBankcardsList(String mobile_Phone, String member_name, String card_no, String create_date) {
-		List list=validateDao.MemberBankcardsList(mobile_Phone, member_name, card_no, create_date);
 		if (list.size()>0) {
 			return list;
 		}

@@ -2,6 +2,7 @@ package com.cornucopia.dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -166,37 +167,34 @@ public class ValidateDao {
 	}
 
 	// 根据id获取MemberBankcards对象银行卡绑定表表
-	public List<MemberBankcards> MemberBankcardsListAll() {
-		Session session = getSession();
-		String hql = "from MemberBankcards";
-		List<MemberBankcards> list = session.createQuery(hql).list();
-		if (list.size() > 0) {
-			return list;
-		}
-		return null;
-	}
-	
-	public List<MemberBankcards> MemberBankcardsList(String mobile_Phone,String member_name,String card_no,String create_date) {
-		Session session = getSession();
-		String sql = "select m.mobile_Phone,m.member_name,m.identity,c.type,c.card_no,c.cardaddress,c.delflag,c.create_date,c.id from member_bankcards c inner join Member m on c.member_id=m.id where 0=0";
-		if(mobile_Phone!=null&&!mobile_Phone.equals("")){
-			sql+=" and m.mobile_Phone like '%"+mobile_Phone+"%' ";
-		}
+	public String hqlData(String hql,Map map){
+		String member_name=(String)map.get("member_name");
+		String mobile_Phone=(String)map.get("mobile_Phone");
+		String card_no=(String)map.get("card_no");
+		String create_date=(String)map.get("create_date");
 		if(member_name!=null&&!member_name.equals("")){
-			sql+=" and m.member_name like '%"+member_name+"%' ";
+			hql+="and M.member.member_name like '%"+member_name+"%'";
+		}
+		if(mobile_Phone!=null&&!mobile_Phone.equals("")){
+			hql+="and M.member.mobile_Phone like '%"+mobile_Phone+"%'";
 		}
 		if(card_no!=null&&!card_no.equals("")){
-			sql+=" and c.card_no like '%"+card_no+"%' ";
+			hql+="and M.card_no like '%"+card_no+"%'";
 		}
 		if(create_date!=null&&!create_date.equals("")){
-			sql+=" and c.create_date like '%"+create_date+"%' ";
+			hql+="and M.create_date like '%"+create_date+"%'";
 		}
-		List list = session.createQuery(sql).list();
-		if (list.size() > 0) {
-			return list;
-		}
-		return null;
+		return hql;
 	}
+
+	public List<MemberBankcards> MemberBankcardsListAll(Map map) {
+		String hql="from MemberBankcards M where 0=0 ";
+		hql=hqlData(hql, map);
+		Session session=getSession();
+		List<MemberBankcards> list=session.createQuery(hql).list();
+		return list;
+	}
+
 	// 获取邀请奖励表
 		public List<AwardRecords> AwardRecordsList() {
 			Session session = getSession();

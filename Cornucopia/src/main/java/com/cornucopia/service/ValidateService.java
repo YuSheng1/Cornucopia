@@ -1,5 +1,7 @@
 package com.cornucopia.service;
 
+import java.util.Map;
+
 public interface ValidateService {
 	// 验证手机号
 	public <T> T getByPhone(String mobile_Phone);
@@ -26,8 +28,7 @@ public interface ValidateService {
 	
 	
 	// 后台查询所有银行卡
-	public <T> T MemberBankcardsListAll();
-	public <T> T MemberBankcardsList(String mobile_Phone,String member_name,String card_no,String create_date);
+	public <T> T MemberBankcardsListAll(Map map);
 	// 后台查询所有标记录卡
 	public <T> T SubjectList(String name,String status,String type);
 	//后台体验金购买的人

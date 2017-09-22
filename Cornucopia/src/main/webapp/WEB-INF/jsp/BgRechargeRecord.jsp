@@ -37,10 +37,9 @@
 	订单编号：<input type="text" name="serial_number" placeholder="订单编号">
 	订单状态：<select name="status">
 <option value="-1">全部</option>
-				<c:forEach items="${MemberDepositRecord }" var="list" >
-		<option >${list.status }</option>
-		</c:forEach>
-		</select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		<option value="1">订单已完成</option>
+						<option value="0">订单未完成</option>
+		</select>&nbsp;&nbsp;&nbsp;&nbsp;
 		充值渠道流水号：<input type="text" name="pay_channel_order_no" placeholder="充值渠道流水号">
 		订单时间：<input type="date" name="create_date" placeholder="订单时间">
 		<input type="submit" value="搜索"  class="btn btn-primary">

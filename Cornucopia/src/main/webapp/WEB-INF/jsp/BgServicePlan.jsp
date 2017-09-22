@@ -37,15 +37,13 @@
 	名称：<input type="text" name="name" placeholder="名称">
 	状态：<select name="status">
 <option value="-1">全部</option>
-				<c:forEach items="${subject }" var="list" >
-		<option >${list.status }</option>
-		</c:forEach>
+		<option value="1">投资中</option>
+		<option value="0">投资已结束</option>
 		</select>
 		类型：<select name="type">
 <option value="-1">全部</option>
-				<c:forEach items="${subject }" var="list" >
-		<option >${list.type }</option>
-		</c:forEach>
+		<option value="0">固收类</option>
+		<option value="1">P2P车贷</option>
 		</select>
 		<input type="submit" value="搜索"  class="btn btn-primary">
 	</form>

@@ -31,14 +31,13 @@
 			<li><a href="#">基本内容</a></li>
 		</ul>
 	</div>
-		<form action="/Cornucopia/BgItem/BgCardBindingAll" method="post">
-		<input type="hidden" name="member_id">
-手机号：<input type="text" name="mobile_Phone" class="width=200px" placeholder="手机号">
-绑卡姓名：<input type="text" name="member_name" class="width=200px" placeholder="绑卡姓名">
-绑卡卡号：<input type="text" name="card_no" class="width=200px" placeholder="绑卡卡号">
-注册时间：<input type="date" name="create_date" class="width=200px" placeholder="注册时间">
-<input type="submit" value="搜索"  class="btn btn-primary">
-								</form>
+		<form action="/Cornucopia/BgItem/BgCardBinding" method="post">
+		手机号：<input type="text" name="mobile_Phone" >
+			绑卡姓名：<input type="text" name="member_name" >
+			绑卡卡号：<input type="text" name="card_no">
+			注册时间：<input type="date" name="create_date" >
+			<input type="submit" value="搜索"  class="btn btn-primary">
+										</form>
 	<div class="rightinfo">
 		<table class="tablelist">
 			<thead>
