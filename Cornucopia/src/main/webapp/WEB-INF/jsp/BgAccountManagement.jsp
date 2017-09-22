@@ -33,6 +33,14 @@
 			<li><a href="#">基本内容</a></li>
 		</ul>
 	</div>
+	<form action="/Cornucopia/BgItem/BgAccountManagement" method="post">
+用户名：<input type="text" name="member_name" class="width=200px" placeholder="用户名" >
+手机号：<input type="text" name="mobile_Phone" class="width=200px" placeholder="手机号">
+姓名：<input type="text" name="name" class="width=200px" placeholder="姓名">
+邀请码：<input type="text" name="invitationCode" class="width=200px" placeholder="邀请码">
+注册时间：<input type="date" name="create_date" class="width=200px" placeholder="注册时间">
+<input type="submit" value="搜索"  class="btn btn-primary">
+								</form>
 	<div class="rightinfo">
 
 		<div class="tools">

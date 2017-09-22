@@ -26,15 +26,16 @@ public interface ValidateService {
 	
 	
 	// 后台查询所有银行卡
-	public <T> T MemberBankcardsList();
+	public <T> T MemberBankcardsListAll();
+	public <T> T MemberBankcardsList(String mobile_Phone,String member_name,String card_no,String create_date);
 	// 后台查询所有标记录卡
-	public <T> T SubjectList();
+	public <T> T SubjectList(String name,String status,String type);
 	//后台体验金购买的人
 	public <T> T SubjectBbinPurchassRecordList(int subjectId);
 	//后台标购买的人
 		public <T> T SubjectPurchaseRecordList(int subjectId);
 		//充值记录表
-		public <T> T getMemberDepositRecord();
+		public <T> T getMemberDepositRecord(String serial_number,String status,String pay_channel_order_no,String create_date);
 		//奖励记录表
 		public <T> T AwardRecordsList();
 	
@@ -50,6 +51,7 @@ public interface ValidateService {
 	public boolean Usersyz(String invitedCode);
 	//身份证存不存在
 		public boolean Usersfid(String invitedCode);
+
 	
 	
 

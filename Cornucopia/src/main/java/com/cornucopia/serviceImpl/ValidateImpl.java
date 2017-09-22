@@ -83,8 +83,8 @@ public class ValidateImpl implements ValidateService {
 		return member;
 	}
 	@Override
-	public List<com.cornucopia.bean.MemberBankcards> MemberBankcardsList() {
-		List<com.cornucopia.bean.MemberBankcards> list=validateDao.MemberBankcardsList();
+	public List<com.cornucopia.bean.MemberBankcards> MemberBankcardsListAll() {
+		List<com.cornucopia.bean.MemberBankcards> list=validateDao.MemberBankcardsListAll();
 		if (list.size()>0) {
 			return list;
 		}
@@ -111,8 +111,8 @@ public class ValidateImpl implements ValidateService {
 		return 	validateDao.Usersfid(invitedCode);
 	}
 	@Override
-	public List<Subject> SubjectList() {
-		List<Subject> list=validateDao.SubjectList();
+	public List<Subject> SubjectList(String name,String status,String type) {
+		List<Subject> list=validateDao.SubjectList(name, status, type);
 		if (list.size()>0) {
 			return list;
 		}
@@ -135,8 +135,8 @@ public class ValidateImpl implements ValidateService {
 		return null;
 	}
 	@Override
-	public List<MemberDepositRecord> getMemberDepositRecord() {
-		List<MemberDepositRecord> list=validateDao.getMemberDepositRecord();
+	public List<MemberDepositRecord> getMemberDepositRecord(String serial_number,String status,String pay_channel_order_no,String create_date) {
+		List<MemberDepositRecord> list=validateDao.getMemberDepositRecord(serial_number, status, pay_channel_order_no, create_date);
 		if (list.size()>0) {
 			return list;
 		}
@@ -158,5 +158,12 @@ public class ValidateImpl implements ValidateService {
 		}
 		return null;
 	}
-	
+	@Override
+	public  List MemberBankcardsList(String mobile_Phone, String member_name, String card_no, String create_date) {
+		List list=validateDao.MemberBankcardsList(mobile_Phone, member_name, card_no, create_date);
+		if (list.size()>0) {
+			return list;
+		}
+		return null;
+	}
 }

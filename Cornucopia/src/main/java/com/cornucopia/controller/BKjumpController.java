@@ -81,8 +81,8 @@ public class BKjumpController {
 	}
 	// 后台会员中心
 	@RequestMapping("BgAccountManagement")
-	public String BgAccountManagement(Model model) {
-		List<Member> memberslist = PM_UserManagementServiceImpl.ListmemberList();
+	public String BgAccountManagement(Model model,String name,String mobile_Phone,String member_name,String invitationCode,String create_date) {
+		List<Member> memberslist = PM_UserManagementServiceImpl.ListmemberList(name, member_name, mobile_Phone, invitationCode, create_date);
 		model.addAttribute("memberslist", memberslist);
 		return "BgAccountManagement";
 	}
@@ -112,15 +112,15 @@ public class BKjumpController {
 
 	// 后台付息计划
 	@RequestMapping("BgServicePlan")
-	public String BgServicePlan(Model model) {
-		List<Subject> subject = ValidateImpl.SubjectList();
+	public String BgServicePlan(Model model,String name,String status,String type) {
+		List<Subject> subject = ValidateImpl.SubjectList(name, status, type);
 		model.addAttribute("subject", subject);
 		return "BgServicePlan";
 	}
 	// 后台充值信息计划
 	@RequestMapping("BgRechargeRecord")
-	public String BgRechargeRecord(Model model) {
-		List<MemberDepositRecord> MemberDepositRecord = ValidateImpl.getMemberDepositRecord();
+	public String BgRechargeRecord(Model model,String serial_number,String status,String pay_channel_order_no,String create_date) {
+		List<MemberDepositRecord> MemberDepositRecord = ValidateImpl.getMemberDepositRecord(serial_number, status, pay_channel_order_no, create_date);
 		model.addAttribute("MemberDepositRecord", MemberDepositRecord);
 		return "BgRechargeRecord";
 	}
@@ -158,7 +158,14 @@ public class BKjumpController {
 	// 后台绑卡管理
 	@RequestMapping("BgCardBinding")
 	public String BgCardBinding(Model model) {
-		List<MemberBankcards> mbl = ValidateImpl.MemberBankcardsList();
+		List<MemberBankcards> mbl = ValidateImpl.MemberBankcardsListAll();
+		model.addAttribute("mbl", mbl);
+		return "BgCardBinding";
+	}
+	
+	@RequestMapping("BgCardBindingAll")
+	public String BgCardBindingAll(Model model,String mobile_Phone,String member_name,String card_no,String create_date) {
+		List mbl = ValidateImpl.MemberBankcardsList(mobile_Phone, member_name, card_no, create_date);
 		model.addAttribute("mbl", mbl);
 		return "BgCardBinding";
 	}

@@ -166,10 +166,32 @@ public class ValidateDao {
 	}
 
 	// 根据id获取MemberBankcards对象银行卡绑定表表
-	public List<MemberBankcards> MemberBankcardsList() {
+	public List<MemberBankcards> MemberBankcardsListAll() {
 		Session session = getSession();
 		String hql = "from MemberBankcards";
 		List<MemberBankcards> list = session.createQuery(hql).list();
+		if (list.size() > 0) {
+			return list;
+		}
+		return null;
+	}
+	
+	public List<MemberBankcards> MemberBankcardsList(String mobile_Phone,String member_name,String card_no,String create_date) {
+		Session session = getSession();
+		String sql = "select m.mobile_Phone,m.member_name,m.identity,c.type,c.card_no,c.cardaddress,c.delflag,c.create_date,c.id from member_bankcards c inner join Member m on c.member_id=m.id where 0=0";
+		if(mobile_Phone!=null&&!mobile_Phone.equals("")){
+			sql+=" and m.mobile_Phone like '%"+mobile_Phone+"%' ";
+		}
+		if(member_name!=null&&!member_name.equals("")){
+			sql+=" and m.member_name like '%"+member_name+"%' ";
+		}
+		if(card_no!=null&&!card_no.equals("")){
+			sql+=" and c.card_no like '%"+card_no+"%' ";
+		}
+		if(create_date!=null&&!create_date.equals("")){
+			sql+=" and c.create_date like '%"+create_date+"%' ";
+		}
+		List list = session.createQuery(sql).list();
 		if (list.size() > 0) {
 			return list;
 		}
@@ -186,9 +208,26 @@ public class ValidateDao {
 			return null;
 		}
 	// 获取标对象表
-	public List<Subject> SubjectList() {
+	public List<Subject> SubjectList(String name,String status,String type) {
 		Session session = getSession();
-		String hql = "from Subject";
+		String hql = "from Subject where 0=0";
+		if(name!=null&&!name.equals("")){
+			hql+=" and name like '%"+name+"%'";
+		}
+		if(status!=null&&!status.equals("")){
+			if(status.equals("-1")){
+				hql+="";
+			}else{
+				hql+=" and status like '%"+status+"%'";
+			}
+		}
+		if(type!=null&&!type.equals("")){
+			if(type.equals("-1")){
+				hql+="";
+			}else{
+				hql+=" and type like '%"+type+"%'";
+			}
+		}
 		List<Subject> list = session.createQuery(hql).list();
 		if (list.size() > 0) {
 			return list;
@@ -196,9 +235,27 @@ public class ValidateDao {
 		return null;
 	}
 	// 充值记录表
-		public List<MemberDepositRecord> getMemberDepositRecord() {
+		public List<MemberDepositRecord> getMemberDepositRecord(String serial_number,String status,String pay_channel_order_no,String create_date) {
 			Session session = getSession();
-			String hql = "from MemberDepositRecord";
+			String hql = "from MemberDepositRecord where 0=0";
+			if(serial_number!=null&&!serial_number.equals("")){
+				hql+=" and serial_number like '%"+serial_number+"%' ";
+			}
+			if(status!=null&&!status.equals("")){
+				if(status.equals("-1")){
+					//sql+=" and r.status like '%"+0+"%' or r.status like '%"+1+"%'";
+					hql+="";
+				}
+				else{
+					hql+=" and status like '%"+status+"%' ";
+				}
+			}
+			if(pay_channel_order_no!=null&&!pay_channel_order_no.equals("")){
+				hql+="and pay_channel_order_no like '%"+pay_channel_order_no+"%' ";
+			}
+			if(create_date!=null&&!create_date.equals("")){
+				hql+=" and create_date like '%"+create_date+"%' ";
+			}
 			List<MemberDepositRecord> list = session.createQuery(hql).list();
 			if (list.size() > 0) {
 				return list;

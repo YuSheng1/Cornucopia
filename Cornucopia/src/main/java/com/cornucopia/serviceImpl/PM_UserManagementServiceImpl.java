@@ -13,8 +13,8 @@ public class PM_UserManagementServiceImpl implements PM_UserManagementService {
 	@Autowired
 	private PM_UserManagemenDao PM_UserManagemenDao;
 	@Override
-	public  List<Member> ListmemberList() {
-		List<Member> memberslist=PM_UserManagemenDao.ListmemberList();
+	public  List<Member> ListmemberList(String name,String mobile_Phone,String member_name,String invitationCode,String create_date) {
+		List<Member> memberslist=PM_UserManagemenDao.ListmemberList(member_name, name, mobile_Phone, invitationCode, create_date);
 		return memberslist;
 	}
 

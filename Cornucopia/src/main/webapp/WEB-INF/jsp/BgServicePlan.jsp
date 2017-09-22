@@ -33,6 +33,22 @@
 			<li><a href="#">基本内容</a></li>
 		</ul>
 	</div>
+	<form action="/Cornucopia/BgItem/BgServicePlan" method="post">
+	名称：<input type="text" name="name" placeholder="名称">
+	状态：<select name="status">
+<option value="-1">全部</option>
+				<c:forEach items="${subject }" var="list" >
+		<option >${list.status }</option>
+		</c:forEach>
+		</select>
+		类型：<select name="type">
+<option value="-1">全部</option>
+				<c:forEach items="${subject }" var="list" >
+		<option >${list.type }</option>
+		</c:forEach>
+		</select>
+		<input type="submit" value="搜索"  class="btn btn-primary">
+	</form>
 	<div class="rightinfo">
 
 		<div class="tools">
@@ -68,7 +84,7 @@
 					<tr>
 						<td>${s.id }</td>
 						<td>${s.serial_no}</td>
-						<td>${s.type }</td>
+						<td><c:if test="${s.type==1}">P2P车贷</c:if><c:if test="${s.type==0}">固收类</c:if></td>
 						<td>${s.name }</td>
 						<td>${s.amount }</td>
 						<td>${s.bought }</td>
