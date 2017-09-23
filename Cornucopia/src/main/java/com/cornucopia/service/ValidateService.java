@@ -1,6 +1,9 @@
 package com.cornucopia.service;
 
+import java.util.List;
 import java.util.Map;
+
+import com.cornucopia.bean.MemberTradeRecord;
 
 public interface ValidateService {
 	// 验证手机号
@@ -53,7 +56,8 @@ public interface ValidateService {
 	//身份证存不存在
 		public boolean Usersfid(String invitedCode);
 
-	
+		//后台缴费管理
+		public <T>List<T> MemberTradeRecordListAll(Map map);
 	
 
 }

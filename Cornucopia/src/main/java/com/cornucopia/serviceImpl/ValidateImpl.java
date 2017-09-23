@@ -11,6 +11,7 @@ import com.cornucopia.bean.AwardRecordsVo;
 import com.cornucopia.bean.CashFlowProcessVo;
 import com.cornucopia.bean.Member;
 import com.cornucopia.bean.MemberDepositRecord;
+import com.cornucopia.bean.MemberTradeRecord;
 import com.cornucopia.bean.Subject;
 import com.cornucopia.bean.SubjectBbinPurchassRecord;
 import com.cornucopia.bean.SubjectPurchaseRecord;
@@ -154,6 +155,14 @@ public class ValidateImpl implements ValidateService {
 	@Override
 	public List<AwardRecordsVo>  AwardRecordsListVo(int id) {
 		List<AwardRecordsVo> list=validateDao.AwardRecordsListVo(id);
+		if (list.size()>0) {
+			return list;
+		}
+		return null;
+	}
+	@Override
+	public List<MemberTradeRecord> MemberTradeRecordListAll(Map map) {
+		List<MemberTradeRecord> list=validateDao.MemberTradeRecordListAll(map);
 		if (list.size()>0) {
 			return list;
 		}

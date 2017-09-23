@@ -50,7 +50,7 @@ $(function(){
     <span><img src="../BgAssets/images/leftico02.png" /></span>钱包管理
     </div>
     <ul class="menuson">
-        <li><cite></cite><a href="#" target="rightFrame">钱包缴费记录</a><i></i></li>
+        <li><cite></cite><a href="/Cornucopia/BgItem/BgStade" target="rightFrame">钱包缴费记录</a><i></i></li>
         </ul>     
     </dd> 
     

@@ -149,11 +149,6 @@ public class BKjumpController {
 		return "BgServicePlanByTyId";
 	}
 
-	// 后台左侧
-	@RequestMapping("BgLeft")
-	public String BgLeft() {
-		return "BgLeft";
-	}
 
 	// 后台绑卡管理
 	@RequestMapping("BgCardBinding")
@@ -290,5 +285,30 @@ public class BKjumpController {
 		System.out.println(data);
 		return data;
 	}
+	
+	// 后台缴费
+		@RequestMapping("BgStade")
+		public String BgStade(Model model,String trade_no,String mobile_Phone,String trade_type,String trade_status,String create_date) {
+			Map map=new HashMap<>();
+			map.put("trade_no", trade_no);
+			map.put("mobile_Phone", mobile_Phone);
+			map.put("trade_type", trade_type);
+			map.put("trade_status", trade_status);
+			map.put("create_date", create_date);
+			List<MemberTradeRecord> list=ValidateImpl.MemberTradeRecordListAll(map);
+			model.addAttribute("list", list);
+			model.addAttribute("trade_no", trade_no);
+			model.addAttribute("mobile_Phone", mobile_Phone);
+			model.addAttribute("trade_type", trade_type);
+			model.addAttribute("trade_status", trade_status);
+			model.addAttribute("create_date", create_date);
+			return "BgStade";
+		}
+		
+		//后台左侧
+		@RequestMapping("BgLeft")
+		public String BgLeft(){
+			return "BgLeft";
+		}
 
 }
