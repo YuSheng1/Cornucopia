@@ -19,14 +19,15 @@
     <div class="tools">
   <ul class="toolbar1"> 
         <li class="click"><span><img src="../BgAssets/images/t01.png" /></span>
-        <input type="button" id="butselect" value="新增"></li>    
+        <a href="/Cornucopia/BgOver/toadd">
+        <input type="button" id="butselect" value="新增"></a></li>    
      
   </ul>  
      
      <div class="xline"></div>
   </div>
  
-    <table class="imgtable">
+    <table class="tablelist">
     <thead>
     <tr>
     <th>序号</th>
@@ -39,25 +40,25 @@
     <th>操作</th>
     </tr>
     </thead>
-    <c:forEach items="${list }" var="list" varStatus="c">
+    <c:forEach items="${list }" var="l" varStatus="c">
     <tbody> 
     <tr>
     <td>${c.index+1 }</td>
-    <td>${list.title }</td>
-    <td>${list.child_title }</td>
-    <td>${list.status }</td>
-    <td>${list.sortColum }</td>
-    <td>${list.oversea_icon }</td>
-     <td>${list.addTime }</td>
+    <td>${l.title }</td>
+    <td>${l.child_title }</td>
+    <td>
+    <c:if test="${l.status==0 }">已发布</c:if>
+    <c:if test="${l.status==1 }">慕集中</c:if>
+    <c:if test="${l.status==2 }">已发布</c:if>
+    </td>
+    <td>${l.sortColum }</td>
+    <td>${l.oversea_icon }</td>
+     <td>${l.addTime }</td>
           <td>
-          <input type="button" id="but1" value="查看预约">
-          <input type="button" id="but" value="编辑查看">
-          </td>
-    </tr> 
-    </tbody>
+          <a href="/Cornucopia/BgOver/listAlll?id=${l.id}">查看预约</a>
+          <a href="/Cornucopia/BgOver/toupdate?id=${l.id}">查看编辑</a> 
     </c:forEach>
     </table>
-    
-    
+  
 </body>
 </html>

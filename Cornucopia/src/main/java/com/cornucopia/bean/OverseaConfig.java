@@ -1,6 +1,8 @@
 package com.cornucopia.bean;
 import java.util.Date;
 
+
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,11 +19,11 @@ public class OverseaConfig {
 	private String child_title;//子标题
 	private String description;//描述
 	private String user_type;//用户群体
-	private Date updTime;//修改时间
-    private Date addTime;//创建时间
+	private String updTime;//修改时间
+    private String addTime;//创建时间
     private String oversea_icon;//图标
-    private Date start_time;//开始时间
-    private Date end_time;//结束时间
+    private String start_time;//开始时间
+    private String end_time;//结束时间
     private int status;//状态
     
     @Id
@@ -68,16 +70,16 @@ public class OverseaConfig {
 	public void setUser_type(String user_type) {
 		this.user_type = user_type;
 	}
-	public Date getUpdTime() {
+	public String getUpdTime() {
 		return updTime;
 	}
-	public void setUpdTime(Date updTime) {
+	public void setUpdTime(String updTime) {
 		this.updTime = updTime;
 	}
-	public Date getAddTime() {
+	public String getAddTime() {
 		return addTime;
 	}
-	public void setAddTime(Date addTime) {
+	public void setAddTime(String addTime) {
 		this.addTime = addTime;
 	}
 	public String getOversea_icon() {
@@ -86,16 +88,16 @@ public class OverseaConfig {
 	public void setOversea_icon(String oversea_icon) {
 		this.oversea_icon = oversea_icon;
 	}
-	public Date getStart_time() {
+	public String getStart_time() {
 		return start_time;
 	}
-	public void setStart_time(Date start_time) {
+	public void setStart_time(String start_time) {
 		this.start_time = start_time;
 	}
-	public Date getEnd_time() {
+	public String getEnd_time() {
 		return end_time;
 	}
-	public void setEnd_time(Date end_time) {
+	public void setEnd_time(String end_time) {
 		this.end_time = end_time;
 	}
 	public int getStatus() {

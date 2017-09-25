@@ -12,12 +12,10 @@ import javax.persistence.Table;
 @Table(name = "Finance_product_subscribe") // 理财类基金产品预约记录表
 @Entity
 public class FinanceProductSubscribe {
-
 	private int id;// 主键
 	private String name;// 名称
 	private String phone;// 联系电话
-	private int product_id;// 理财产品id
-	private String addr;// 所在地区
+    private String addr;// 所在地区
 	private int status;// 是否处理(0:签署拍照|1:已签约|2:审核中|3:签署失败)
 	private String comment;// 电子签署文档信息
 	private String risk_reveal;// 风险揭示书
@@ -29,15 +27,26 @@ public class FinanceProductSubscribe {
 	private Date end_date;// 结束时间
 	private String signed_photos;// 签署拍照
 	private Member member;
-
+	private FinanceProductFunds financeProductFunds;
+	
 	@ManyToOne
-	@JoinColumn(name = "member_id")
+	@JoinColumn(name = "product_id")
 	public Member getMember() {
 		return member;
 	}
 
 	public void setMember(Member member) {
 		this.member = member;
+	}
+	
+	@ManyToOne
+	@JoinColumn(name = "member_id")
+	public FinanceProductFunds getFinanceProductFunds() {
+		return financeProductFunds;
+	}
+
+	public void setFinanceProductFunds(FinanceProductFunds financeProductFunds) {
+		this.financeProductFunds = financeProductFunds;
 	}
 
 	@Id
@@ -66,13 +75,7 @@ public class FinanceProductSubscribe {
 		this.phone = phone;
 	}
 
-	public int getProduct_id() {
-		return product_id;
-	}
-
-	public void setProduct_id(int product_id) {
-		this.product_id = product_id;
-	}
+	
 
 	public String getAddr() {
 		return addr;

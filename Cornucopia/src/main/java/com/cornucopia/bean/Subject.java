@@ -21,8 +21,8 @@ public class Subject {
             private int parent_id;//父标id
             private int period;//标的周期
             private String purpose;//借款目的
-            private Date raise_start;//募集开始
-            private Date raise_end;//募集结束
+            private String raise_start;//募集开始
+            private String raise_end;//募集结束
             private int refund_way;//还款方式
             private int safeGuard_way;//保障方式
             private int year_rate;//年化率
@@ -37,9 +37,23 @@ public class Subject {
             private String projectDetails;//项目详情
             private String safetyControl;//安全保障
             private int exper_status;//体验金是否可以购买（0：否，1：是）
+            private String end_date;
+            private String start_date;
             
 
-            @Id
+            public String getEnd_date() {
+				return end_date;
+			}
+			public void setEnd_date(String end_date) {
+				this.end_date = end_date;
+			}
+			public String getStart_date() {
+				return start_date;
+			}
+			public void setStart_date(String start_date) {
+				this.start_date = start_date;
+			}
+			@Id
             @GeneratedValue
 			public int getId() {
 				return id;
@@ -113,16 +127,16 @@ public class Subject {
 			public void setPurpose(String purpose) {
 				this.purpose = purpose;
 			}
-			public Date getRaise_start() {
+			public String getRaise_start() {
 				return raise_start;
 			}
-			public void setRaise_start(Date raise_start) {
+			public void setRaise_start(String raise_start) {
 				this.raise_start = raise_start;
 			}
-			public Date getRaise_end() {
+			public String getRaise_end() {
 				return raise_end;
 			}
-			public void setRaise_end(Date raise_end) {
+			public void setRaise_end(String raise_end) {
 				this.raise_end = raise_end;
 			}
 			public int getRefund_way() {
@@ -209,5 +223,5 @@ public class Subject {
 			public void setExper_status(int exper_status) {
 				this.exper_status = exper_status;
 			}
-            
+			
 }
