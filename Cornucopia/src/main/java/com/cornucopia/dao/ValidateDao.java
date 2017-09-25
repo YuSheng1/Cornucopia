@@ -335,34 +335,44 @@ public class ValidateDao {
 			return temp;
 		}
 
-//		//后台缴费记录查询
-//		public String hqlData1(String hql,Map map){
-//			String trade_no=(String)map.get("trade_no");
-//			String mobile_Phone=(String)map.get("mobile_Phone");
-//			String trade_type=(String)map.get("trade_type");
-//			String trade_status=(String)map.get("trade_status");
-//			String create_date=(String)map.get("create_date");
-//			if(trade_no!=null&&!trade_no.equals("")){
-//				hql+="and M.trade_no like '%"+trade_no+"%'";
-//			}
-//			if(mobile_Phone!=null&&!mobile_Phone.equals("")){
-//				hql+="and M.member.mobile_Phone like '%"+mobile_Phone+"%'";
-//			}
-//			if(trade_type!=null&&!trade_type.equals("")){
-//				hql+="and M.trade_type like '%"+trade_type+"%'";
-//			}
-//			if(trade_status!=null&&!trade_status.equals("")){
-//				hql+="and M.trade_status like '%"+trade_status+"%'";
-//			}
-//			if(create_date!=null&&!create_date.equals("")){
-//				hql+="and M.create_date like '%"+create_date+"%' ";
-//			}
-//			return hql;
-//		}
+		//后台缴费记录查询
+		public String hqlData1(String hql,Map map){
+			String trade_no=(String)map.get("trade_no");
+			String mobile_Phone=(String)map.get("mobile_Phone");
+			String trade_type=(String)map.get("trade_type");
+			String trade_status=(String)map.get("trade_status");
+			String create_date=(String)map.get("create_date");
+			if(trade_no!=null&&!trade_no.equals("")){
+				hql+="and M.trade_no like '%"+trade_no+"%'";
+			}
+			if(mobile_Phone!=null&&!mobile_Phone.equals("")){
+				hql+="and M.member.mobile_Phone like '%"+mobile_Phone+"%'";
+			}
+			if(trade_type!=null&&!trade_type.equals("")){
+				if(trade_type.equals("-1")){
+					hql+="";
+				}
+				else{
+					hql+=" and trade_type like '%"+trade_type+"%' ";
+				}
+			}
+			if(trade_status!=null&&!trade_status.equals("")){
+				if(trade_status.equals("-1")){
+					hql+="";
+				}
+				else{
+					hql+=" and trade_status like '%"+trade_status+"%' ";
+				}
+			}
+			if(create_date!=null&&!create_date.equals("")){
+				hql+="and M.create_date like '%"+create_date+"%' ";
+			}
+			return hql;
+		}
 
 		public List<MemberTradeRecord> MemberTradeRecordListAll(Map map) {
-			String hql="from MemberTradeRecord M where 0=0 ";
-//			hql=hqlData1(hql, map);
+			String hql="from MemberTradeRecord M  inner  join fetch M.member where 0=0 ";
+			hql=hqlData1(hql, map);
 			Session session=getSession();
 			List<MemberTradeRecord> list=session.createQuery(hql).list();
 			return list;
