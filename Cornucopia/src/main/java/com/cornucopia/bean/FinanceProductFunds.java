@@ -23,8 +23,8 @@ public class FinanceProductFunds {
 	private String product_factor;//产品要素
 	private String product_strategy;//产品策略
 	private String product_manager;//基金经理详细
-	private Date create_date;//创建时间
-	private Date update_date;//修改时间
+	private String create_date;//创建时间
+	private String update_date;//修改时间
 	private String product_manager_name;//管理人名称
 	private String product_manager_pic;//管理人图片
 	private String product_manager_title;//管理人头衔
@@ -33,8 +33,8 @@ public class FinanceProductFunds {
 	private int amount;//募集金额
 	private int sold_amount;//已售金额
 	private int buyer_count;//购买人数
-	private Date start_date;//开始时间
-	private Date end_date;//结束时间
+	private String start_date;//开始时间
+	private String end_date;//结束时间
 	private String ratio;//返佣比例
 	private String contract;//私募合同
 	private String bank_account;//银行账户（支行名称|银行账号|户名）
@@ -110,21 +110,9 @@ public class FinanceProductFunds {
 	public String getProduct_manager() {
 		return product_manager;
 	}
-	public void setProduct_manager(String product_manager) {
-		this.product_manager = product_manager;
-	}
-	public Date getCreate_date() {
-		return create_date;
-	}
-	public void setCreate_date(Date create_date) {
-		this.create_date = create_date;
-	}
-	public Date getUpdate_date() {
-		return update_date;
-	}
-	public void setUpdate_date(Date update_date) {
-		this.update_date = update_date;
-	}
+
+	
+	
 	public String getProduct_manager_name() {
 		return product_manager_name;
 	}
@@ -173,17 +161,33 @@ public class FinanceProductFunds {
 	public void setBuyer_count(int buyer_count) {
 		this.buyer_count = buyer_count;
 	}
-	public Date getStart_date() {
+	
+	public String getCreate_date() {
+		return create_date;
+	}
+	public void setCreate_date(String create_date) {
+		this.create_date = create_date;
+	}
+	public String getUpdate_date() {
+		return update_date;
+	}
+	public void setUpdate_date(String update_date) {
+		this.update_date = update_date;
+	}
+	public String getStart_date() {
 		return start_date;
 	}
-	public void setStart_date(Date start_date) {
+	public void setStart_date(String start_date) {
 		this.start_date = start_date;
 	}
-	public Date getEnd_date() {
+	public String getEnd_date() {
 		return end_date;
 	}
-	public void setEnd_date(Date end_date) {
+	public void setEnd_date(String end_date) {
 		this.end_date = end_date;
+	}
+	public void setProduct_manager(String product_manager) {
+		this.product_manager = product_manager;
 	}
 	public String getRatio() {
 		return ratio;

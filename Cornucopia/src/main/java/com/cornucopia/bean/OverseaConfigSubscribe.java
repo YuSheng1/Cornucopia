@@ -15,13 +15,14 @@ import javax.persistence.Table;
 public class OverseaConfigSubscribe {
 
 	private int id;// 主键
-	private int oversea_id;// 海外配置id
+	
 	private String name;// 姓名
 	private String phone;// 电话
 	private String addr;// 地址
 	private int status;// 状态
-	private Date create_date;// 创建时间
-	private Date update_date;// 修改时间
+	private String create_date;// 创建时间
+	private String update_date;// 修改时间
+	private OverseaConfig overseaConfig;
 	private Member member;
 
 	@ManyToOne
@@ -44,12 +45,15 @@ public class OverseaConfigSubscribe {
 		this.id = id;
 	}
 
-	public int getOversea_id() {
-		return oversea_id;
+	
+    @ManyToOne
+    @JoinColumn(name="oversea_id")
+	public OverseaConfig getOverseaConfig() {
+		return overseaConfig;
 	}
 
-	public void setOversea_id(int oversea_id) {
-		this.oversea_id = oversea_id;
+	public void setOverseaConfig(OverseaConfig overseaConfig) {
+		this.overseaConfig = overseaConfig;
 	}
 
 	public String getName() {
@@ -84,19 +88,19 @@ public class OverseaConfigSubscribe {
 		this.status = status;
 	}
 
-	public Date getCreate_date() {
+	public String getCreate_date() {
 		return create_date;
 	}
 
-	public void setCreate_date(Date create_date) {
+	public void setCreate_date(String create_date) {
 		this.create_date = create_date;
 	}
 
-	public Date getUpdate_date() {
+	public String getUpdate_date() {
 		return update_date;
 	}
 
-	public void setUpdate_date(Date update_date) {
+	public void setUpdate_date(String update_date) {
 		this.update_date = update_date;
 	}
 }
