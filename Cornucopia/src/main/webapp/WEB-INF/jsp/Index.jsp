@@ -48,8 +48,7 @@
 							<c:if test="${empty Lname}">  <a href="/Cornucopia/item/Login1">登录</a> <a
 									href="/Cornucopia/item/Register">注册</a></c:if>	
 									<c:if test="${not empty Lname}"> 欢迎您: ${Lname}
- <a
-									href="/Cornucopia/item/Login1">退出登陆</a>
+ 							<a	href="/Cornucopia/item/Login1">退出登陆</a>
 </c:if>
 								
 							</div>
@@ -148,9 +147,9 @@
 								<div class="container">
 									<div class="am-g">
 										<div class="am-u-md-10 am-u-sm-centered">
-											<h1 class="slide_simple--title">企业移动化，首选云适配</h1>
+											<h1 class="slide_simple--title">盈+理财，让你的钱聪明起来</h1>
 											<p class="slide_simple--text am-text-left">
-												全球领先的HTML5企业移动化解决方案供应商，安全高效的帮助您的企业移动化。云适配企业浏览器Enterploer,让企业安全迈进移动办公时代！
+												<h3>我们要求高收益的同时更注重资金的安全，月月钱滚钱，月月可提现!</h3>
 											</p>
 											<div class="slide_simple--buttons">
 												<button type="button" class="am-btn am-btn-danger">了解更多</button>
@@ -161,66 +160,12 @@
 							</div>
 						</div>
 					</div>
-					<div data-tab-panel-1 class="am-tab-panel ">
-						<div class="index-banner">
-							<div class="index-mask">
-								<div class="container">
-									<div class="am-g">
-										<div class="am-u-md-10 am-u-sm-centered">
-											<h1 class="slide_simple--title">企业移动化，首选云适配</h1>
-											<p class="slide_simple--text am-text-left">
-												全球领先的HTML5企业移动化解决方案供应商，安全高效的帮助您的企业移动化。云适配企业浏览器Enterploer,让企业安全迈进移动办公时代！
-											</p>
-											<div class="slide_simple--buttons">
-												<button type="button" class="am-btn am-btn-danger">了解更多</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div data-tab-panel-2 class="am-tab-panel ">
-						<div class="index-banner">
-							<div class="index-mask">
-								<div class="container">
-									<div class="am-g">
-										<div class="am-u-md-10 am-u-sm-centered">
-											<h1 class="slide_simple--title">企业移动化，首选云适配</h1>
-											<p class="slide_simple--text am-text-left">
-												全球领先的HTML5企业移动化解决方案供应商，安全高效的帮助您的企业移动化。云适配企业浏览器Enterploer,让企业安全迈进移动办公时代！
-											</p>
-											<div class="slide_simple--buttons">
-												<button type="button" class="am-btn am-btn-danger">了解更多</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div data-tab-panel-3 class="am-tab-panel ">
-						<div class="index-banner">
-							<div class="index-mask">
-								<div class="container">
-									<div class="am-g">
-										<div class="am-u-md-10 am-u-sm-centered">
-											<h1 class="slide_simple--title">企业移动化，首选云适配</h1>
-											<p class="slide_simple--text am-text-left">
-												全球领先的HTML5企业移动化解决方案供应商，安全高效的帮助您的企业移动化。云适配企业浏览器Enterploer,让企业安全迈进移动办公时代！
-											</p>
-											<div class="slide_simple--buttons">
-												<button type="button" class="am-btn am-btn-danger">了解更多</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
+					
+					
+					
 				</div>
 
-				<ul class="am-tabs-nav am-cf index-tab">
+				<class="am-tabs-nav am-cf index-tab">
 					<li class="am-active"><a href="[data-tab-panel-0] am-g">
 							<div class="am-u-md-3 am-u-sm-3 am-padding-right-0">
 								<i class="am-icon-cog"></i>
@@ -286,8 +231,7 @@
 			<div class="section--header">
 				<h2 class="section--title">我们的服务</h2>
 				<p class="section--description">
-					全球领先HTML5企业移动化解决方案供应商，由前微软美国总部IE浏览器核心研发团队成员及移动互联网行业专家在美国西雅图创立 <br>获得了微软创投的扶持以及晨兴资本、IDG资本、天创资本等国际顶级风投机构的投资。
-				</p>
+					来自三阳科技的实力最强颜值最高得的team为您倾心打造，让你用得放心用得开心。在线客服1号康熙二十四小时全心全意为您排忧解答，欢迎致电欢迎骚扰，联系方式15278733243。				</p>
 			</div>
 
 			<!--index-container start-->

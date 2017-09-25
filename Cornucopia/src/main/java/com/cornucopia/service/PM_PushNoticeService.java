@@ -3,6 +3,8 @@ package com.cornucopia.service;
 import java.util.List;
 import java.util.Map;
 
+import com.cornucopia.bean.PushNotice;
+
 //公告管理接口
 public interface PM_PushNoticeService {
 
@@ -16,4 +18,5 @@ public interface PM_PushNoticeService {
 	public <T> T chakan(int id);
 	//修改公告
 	public void update(Object object);
+	public <T> T ListPush(Map map);
 }
