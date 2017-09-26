@@ -27,7 +27,7 @@ public class ValidateDao {
 	@Autowired
 	public SessionFactory sessionFactory;
 
-	public Session getSession() {
+	public Session getSession() {   
 		return sessionFactory.getCurrentSession();
 	}
 
