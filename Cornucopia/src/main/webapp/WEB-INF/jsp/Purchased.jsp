@@ -33,7 +33,16 @@
 <link href="../BgAssets/css/bootstrapValidator.min.css" rel="stylesheet" />
 
 <script>
-	
+$(function(){  
+    
+    $('#mytext').bind('input propertychange', function() { 
+    	var q=document.getElementById("mytext").value;
+    	var q1=document.getElementById("c1").value;
+    	var q2=document.getElementById("c2").value;
+    	var q3=((q*q1)/365)*q2;
+    	 document.getElementById("ili1").innerHTML = q3.toFixed(4);
+    });  
+    })  
 <%String datetime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()); //获取系统时间%>
 	function fun(id,name,qian){
 		var qc=	$("#mytext").val();
@@ -80,9 +89,6 @@
 		}else{
 			return true;
 		}
-		 
-		
-		
 	}
 </script>
 </head>
@@ -231,10 +237,12 @@
 						<p>已购人数(人)</p>
 					</div>
 					<div class="txt2">
+					<input type="hidden" value="${subject.year_rate }" id="c1">
 						<h2>${subject.year_rate }%</h2>
 						<p>年化收益</p>
 					</div>
 					<div class="txt1">
+					<input type="hidden" value="${subject.period }" id="c2">
 						<h2>${subject.period }</h2>
 						<p>投资期限(天)</p>
 					</div>
@@ -280,14 +288,14 @@
 
 						</div>
 						<input id="mytext" class="txt" name="amount" type="text"
-							placeholder="起投金额100元以上"> <span
+							placeholder="起投金额100元以上" onchange="cc()"> <span
 							style="float: right; margin-top: -40px; position: relative; line-height: 40px; padding: 0 10px; color: #f00;"
 							id="addMoney"></span>
 						<p class="preBox">
 							<input type="checkbox" id="registerRule" class="registerRule"
 								checked="checked"><span class="fl">同意<a
 								href="/web/syxy" target="_black">《产品协议》</a></span>
-								
+								预计收益  <a id="ili1" href="">1</a>
 						</p>
 						<button class="submit" >确认抢购</button>
 					</div>
@@ -675,6 +683,9 @@
 	padding: 20px 0
 }
 </style>
+<script>
+	$(function () { $("[data-toggle='tooltip']").tooltip(); });
+</script>
 </body>
 
 </html>

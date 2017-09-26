@@ -239,11 +239,11 @@
                        	<form id="formupdate" method="post"  action="/Cornucopia/AgUserItem/toMain">
                             <div class="form-group" style="width: 300px;">
                                 <label>用户名:</label>
-                                 <input type="text" class="form-control"  name="Lname" id="Lname" style="width: 300px;">
+                                 <input type="text" class="form-control"  name="Lname" id="Lname" style="width: 300px;" value="pangzi" >
                             </div>
                             <div class="form-group" style="width: 300px;">
                                 <label>密码:</label>
-                               <input  type="text" class="form-control"  name="Lpassworld" id="Lpassworld" style="width: 300px;"/>
+                               <input  type="text" class="form-control"  name="Lpassworld" id="Lpassworld" style="width: 300px;" value="pang" />
                             </div>
 <font color="red" style="font-size: 15px">${message}</font>
                             <div class="form-group">
