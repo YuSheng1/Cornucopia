@@ -7,6 +7,7 @@ import com.cornucopia.bean.SysRegion;
 public interface AG_ProductService {
 	// 前台产品类操作
 	public <T> T getBySubjectId(int id);
+	public <T> T GetPushNotice();
 
 	public <T> T getBySubjectPurchaseRecordId(Object... object);
 

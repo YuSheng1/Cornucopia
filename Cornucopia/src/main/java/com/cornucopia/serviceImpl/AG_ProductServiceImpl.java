@@ -11,6 +11,7 @@ import com.cornucopia.bean.MemberAccount;
 import com.cornucopia.bean.MemberBankcards;
 import com.cornucopia.bean.MemberDepositRecord;
 import com.cornucopia.bean.MemberTradeRecord;
+import com.cornucopia.bean.PushNotice;
 import com.cornucopia.bean.Subject;
 import com.cornucopia.bean.SubjectPurchaseRecord;
 import com.cornucopia.bean.SysRegion;
@@ -173,6 +174,11 @@ public class AG_ProductServiceImpl implements AG_ProductService {
 	public void saveAwardRecords(Object... object) {
 		ag_ProductDao.saveAwardRecords(object);
 		
+	}
+	@Override
+	public List<PushNotice> GetPushNotice() {
+		List<PushNotice> PushNotice=ag_ProductDao.GetPushNotice();
+		return PushNotice;
 	}
 	
 }

@@ -16,6 +16,7 @@ import com.cornucopia.bean.Member;
 import com.cornucopia.bean.MemberAccount;
 import com.cornucopia.bean.MemberBankcards;
 import com.cornucopia.bean.MemberDepositRecord;
+import com.cornucopia.bean.PushNotice;
 import com.cornucopia.bean.Subject;
 import com.cornucopia.bean.SubjectPurchaseRecord;
 import com.cornucopia.bean.SysRegion;
@@ -36,7 +37,9 @@ public class AG_UserController {
 
 	// 主页
 	@RequestMapping("Index")
-	public String Index() {
+	public String Index(Model model) {
+		List<PushNotice> list=AG_ProductServiceImpl.GetPushNotice();
+		model.addAttribute("list", list);
 		return "Index";
 	}
 

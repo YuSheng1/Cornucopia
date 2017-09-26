@@ -67,6 +67,14 @@ public class PM_PushNoticeController {
 		model.addAttribute("pushNotice",pushNotice);
 		return "Bgnoticelist";
 	}
+	//根基Id查询公告内容
+		@RequestMapping("cha1")
+		public String chakan1(int id,Model model){
+			PushNotice pushNotice = PM_PushNoticeServiceImpl.chakan(id);
+			model.addAttribute("pushNotice",pushNotice);
+			return "Ag_title";
+		}
+		
 	
 	//去修改
 		@RequestMapping("updatebyid")

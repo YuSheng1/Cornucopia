@@ -11,49 +11,43 @@ import java.util.logging.Logger;
 
 import javax.annotation.Resource;
 
-
 import com.cornucopia.bean.MemberAccount;
 import com.cornucopia.bean.SubjectPurchaseRecord;
 import com.cornucopia.service.AG_ProductService;
 import com.cornucopia.service.ValidateService;
 
 public class DingShiBean {
-	//杂查询类
-		@Resource
-		private ValidateService validateImpl;
-		
-		@Resource
-		private AG_ProductService AG_ProductServiceImpl;
-	
+	// 杂查询类
+	@Resource
+	private ValidateService validateImpl;
+
+	@Resource
+	private AG_ProductService AG_ProductServiceImpl;
+
 	private static Logger logger = Logger.getLogger(DingShiBean.class.getName());
+
 	public void execute() {
-		System.out.println("进来了");
-		List<SubjectPurchaseRecord> list=validateImpl.SubjectPurchaseRecordListAll();
+		List<SubjectPurchaseRecord> list = validateImpl.SubjectPurchaseRecordListAll();
 		SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String date = format.format(new Date());
-		for(int i=0;i<list.size();i++){
-			 int res =list.get(i).getLast_profit_day().compareTo(date);
-			 if(res>0||list.get(i).getIspayment()==1)
-			    {
-			     System.out.println("时间未到");
-			    }else{
-			    	MemberAccount memberAccount=AG_ProductServiceImpl.UpdateMemberAccount(list.get(i).getMember().getId());
-			    	int money=(int)list.get(i).getInterset();
-			    	System.out.println(money+"金额");
-			    	memberAccount.setUseable_balance(memberAccount.getUseable_balance()+money+list.get(i).getAmount());
-			    	//金额
-			    	memberAccount.setTotal_profit(memberAccount.getTotal_profit()+money);
-			    	list.get(i).setUpdate_date(date);
-			    	//累计收益
-			    	memberAccount.setInvest_amount(memberAccount.getInvest_amount()-list.get(i).getAmount());
-			    	AG_ProductServiceImpl.saveMemberAccount(memberAccount);
-			    	list.get(i).setIspayment(1);
-			    	AG_ProductServiceImpl.updateSubjectPurchaseRecord(list.get(i));
-			    }
+		for (int i = 0; i < list.size(); i++) {
+			int res = list.get(i).getLast_profit_day().compareTo(date);
+			if (res > 0 || list.get(i).getIspayment() == 1) {
+			} else {
+				MemberAccount memberAccount = AG_ProductServiceImpl
+						.UpdateMemberAccount(list.get(i).getMember().getId());
+				int money = (int) list.get(i).getInterset();
+				memberAccount.setUseable_balance(memberAccount.getUseable_balance() + money + list.get(i).getAmount());
+				// 金额
+				memberAccount.setTotal_profit(memberAccount.getTotal_profit() + money);
+				list.get(i).setUpdate_date(date);
+				// 累计收益
+				memberAccount.setInvest_amount(memberAccount.getInvest_amount() - list.get(i).getAmount());
+				AG_ProductServiceImpl.saveMemberAccount(memberAccount);
+				list.get(i).setIspayment(1);
+				AG_ProductServiceImpl.updateSubjectPurchaseRecord(list.get(i));
+			}
 		}
-		System.out.println("这是第一个定时任务：" + date);
-		logger.info("任务1：每分钟定时获取当前系统时间");
-		
 	}
 
 	public void auto() {

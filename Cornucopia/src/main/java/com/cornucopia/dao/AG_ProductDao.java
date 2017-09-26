@@ -13,6 +13,7 @@ import com.cornucopia.bean.MemberAccount;
 import com.cornucopia.bean.MemberBankcards;
 import com.cornucopia.bean.MemberDepositRecord;
 import com.cornucopia.bean.MemberTradeRecord;
+import com.cornucopia.bean.PushNotice;
 import com.cornucopia.bean.Resources;
 import com.cornucopia.bean.Subject;
 import com.cornucopia.bean.SubjectPurchaseRecord;
@@ -33,6 +34,12 @@ public class AG_ProductDao {
 	public List<SysRegion> saveGetregion(Object... objects) {
 		Session session = getsession();
 		String sql = " from SysRegion p where p.region_level=1";
+		List list = session.createQuery(sql).list();
+		return list;
+	}
+	public List<PushNotice> GetPushNotice(Object... objects) {
+		Session session = getsession();
+		String sql = " from PushNotice";
 		List list = session.createQuery(sql).list();
 		return list;
 	}

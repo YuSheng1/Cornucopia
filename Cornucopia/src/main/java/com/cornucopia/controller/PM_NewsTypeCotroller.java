@@ -51,12 +51,14 @@ public class PM_NewsTypeCotroller {
 					model.addAttribute("news",news);
 					return "AG_NewConType";
 				}
+			
 				@RequestMapping("NewsByIdA")
 				public String NewsByIdA(int id,Model model) {
 					News news=PM_NewsServiceImpl.NewsByIdA(id);
 					model.addAttribute("newcon",news);
 					return "AG_NewCon";
 				}	
+	
 				
 		//修改
 		@RequestMapping("update")
