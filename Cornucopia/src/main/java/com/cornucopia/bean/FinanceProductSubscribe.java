@@ -9,38 +9,28 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Table(name = "Finance_product_subscribe") // Àí²ÆÀà»ù½ð²úÆ·Ô¤Ô¼¼ÇÂ¼±í
+@Table(name = "Finance_product_subscribe") // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ·Ô¤Ô¼ï¿½ï¿½Â¼ï¿½ï¿½
 @Entity
 public class FinanceProductSubscribe {
-	private int id;// Ö÷¼ü
-	private String name;// Ãû³Æ
-	private String phone;// ÁªÏµµç»°
-    private String addr;// ËùÔÚµØÇø
-	private int status;// ÊÇ·ñ´¦Àí(0:Ç©ÊðÅÄÕÕ|1:ÒÑÇ©Ô¼|2:ÉóºËÖÐ|3:Ç©ÊðÊ§°Ü)
-	private String comment;// µç×ÓÇ©ÊðÎÄµµÐÅÏ¢
-	private String risk_reveal;// ·çÏÕ½ÒÊ¾Êé
-	private Date create_date;// ´´½¨Ê±¼ä
-	private Date update_date;// ÐÞ¸ÄÊ±¼ä
-	private int amount;// Ë½Ä¼¹ºÂò½ð¶î
-	private int interest;// Ë½Ä¼½áËãÊÕÒæ
-	private Date start_date;// ¿ªÊ¼Ê±¼ä
-	private Date end_date;// ½áÊøÊ±¼ä
-	private String signed_photos;// Ç©ÊðÅÄÕÕ
-	private Member member;
+	private int id;// ï¿½ï¿½ï¿½ï¿½
+	private String name;// ï¿½ï¿½ï¿½
+	private String phone;// ï¿½ï¿½Ïµï¿½ç»°
+    private String addr;// ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½
+	private int status;// ï¿½Ç·ï¿½ï¿½ï¿½(0:Ç©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½|1:ï¿½ï¿½Ç©Ô¼|2:ï¿½ï¿½ï¿½ï¿½ï¿½|3:Ç©ï¿½ï¿½Ê§ï¿½ï¿½)
+	private String comment;// ï¿½ï¿½ï¿½ï¿½Ç©ï¿½ï¿½ï¿½Äµï¿½ï¿½ï¿½Ï¢
+	private String risk_reveal;// ï¿½ï¿½ï¿½Õ½ï¿½Ê¾ï¿½ï¿½
+	private String create_date;// ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+	private String update_date;// ï¿½Þ¸ï¿½Ê±ï¿½ï¿½
+	private int amount;// Ë½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private int interest;// Ë½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String start_date;// ï¿½ï¿½Ê¼Ê±ï¿½ï¿½
+	private String end_date;// ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½
+	private String signed_photos;// Ç©ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	private FinanceProductFunds financeProductFunds;
+	private Member member;
 	
 	@ManyToOne
-	@JoinColumn(name = "product_id")
-	public Member getMember() {
-		return member;
-	}
-
-	public void setMember(Member member) {
-		this.member = member;
-	}
-	
-	@ManyToOne
-	@JoinColumn(name = "member_id")
+	@JoinColumn(name="product_id")
 	public FinanceProductFunds getFinanceProductFunds() {
 		return financeProductFunds;
 	}
@@ -48,6 +38,19 @@ public class FinanceProductSubscribe {
 	public void setFinanceProductFunds(FinanceProductFunds financeProductFunds) {
 		this.financeProductFunds = financeProductFunds;
 	}
+
+	@ManyToOne
+	@JoinColumn(name = "member_id")
+	public Member getMember() {
+		return member;
+	}
+	
+
+	public void setMember(Member member) {
+		this.member = member;
+	}
+	
+	
 
 	@Id
 	@GeneratedValue
@@ -109,19 +112,19 @@ public class FinanceProductSubscribe {
 		this.risk_reveal = risk_reveal;
 	}
 
-	public Date getCreate_date() {
+	public String getCreate_date() {
 		return create_date;
 	}
 
-	public void setCreate_date(Date create_date) {
+	public void setCreate_date(String create_date) {
 		this.create_date = create_date;
 	}
 
-	public Date getUpdate_date() {
+	public String getUpdate_date() {
 		return update_date;
 	}
 
-	public void setUpdate_date(Date update_date) {
+	public void setUpdate_date(String update_date) {
 		this.update_date = update_date;
 	}
 
@@ -141,19 +144,19 @@ public class FinanceProductSubscribe {
 		this.interest = interest;
 	}
 
-	public Date getStart_date() {
+	public String getStart_date() {
 		return start_date;
 	}
 
-	public void setStart_date(Date start_date) {
+	public void setStart_date(String start_date) {
 		this.start_date = start_date;
 	}
 
-	public Date getEnd_date() {
+	public String getEnd_date() {
 		return end_date;
 	}
 
-	public void setEnd_date(Date end_date) {
+	public void setEnd_date(String end_date) {
 		this.end_date = end_date;
 	}
 
