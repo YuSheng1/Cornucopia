@@ -9,23 +9,23 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Table(name = "Finance_product_subscribe") // ��������ƷԤԼ��¼��
+@Table(name = "Finance_product_subscribe") // 锟斤拷锟斤拷锟斤拷锟斤拷品预约锟斤拷录锟斤拷
 @Entity
 public class FinanceProductSubscribe {
-	private int id;// ����
-	private String name;// ���
-	private String phone;// ��ϵ�绰
-    private String addr;// ���ڵ���
-	private int status;// �Ƿ���(0:ǩ������|1:��ǩԼ|2:�����|3:ǩ��ʧ��)
-	private String comment;// ����ǩ���ĵ���Ϣ
-	private String risk_reveal;// ���ս�ʾ��
-	private String create_date;// ����ʱ��
-	private String update_date;// �޸�ʱ��
-	private int amount;// ˽ļ������
-	private int interest;// ˽ļ��������
-	private String start_date;// ��ʼʱ��
-	private String end_date;// ����ʱ��
-	private String signed_photos;// ǩ������
+	private int id;// 锟斤拷锟斤拷
+	private String name;// 锟斤拷锟�
+	private String phone;// 锟斤拷系锟界话
+    private String addr;// 锟斤拷锟节碉拷锟斤拷
+	private int status;// 锟角凤拷锟斤拷(0:签锟斤拷锟斤拷锟斤拷|1:锟斤拷签约|2:锟斤拷锟斤拷锟絴3:签锟斤拷失锟斤拷)
+	private String comment;// 锟斤拷锟斤拷签锟斤拷锟侥碉拷锟斤拷息
+	private String risk_reveal;// 锟斤拷锟秸斤拷示锟斤拷
+	private String create_date;// 锟斤拷锟斤拷时锟斤拷
+	private String update_date;// 锟睫革拷时锟斤拷
+	private int amount;// 私募锟斤拷锟斤拷锟斤拷
+	private int interest;// 私募锟斤拷锟斤拷锟斤拷锟斤拷
+	private String start_date;// 锟斤拷始时锟斤拷
+	private String end_date;// 锟斤拷锟斤拷时锟斤拷
+	private String signed_photos;// 签锟斤拷锟斤拷锟斤拷
 	private FinanceProductFunds financeProductFunds;
 	private Member member;
 	
@@ -49,9 +49,6 @@ public class FinanceProductSubscribe {
 	public void setMember(Member member) {
 		this.member = member;
 	}
-	
-	
-
 	@Id
 	@GeneratedValue
 	public int getId() {
