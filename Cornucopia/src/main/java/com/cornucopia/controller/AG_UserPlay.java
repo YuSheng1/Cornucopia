@@ -94,7 +94,7 @@ public class AG_UserPlay {
 		// 交易记录表添加交易流入
 		memberTradeRecord.setFund_flow(1);
 		// 交易记录表添加交易状态
-		memberTradeRecord.setTrade_status(0);
+		memberTradeRecord.setTrade_status(1);
 		// 交易记录表添加member对象
 		memberTradeRecord.setMember(member);
 		// 记账表消费类型暂时放0 以后天际
