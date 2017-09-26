@@ -64,7 +64,7 @@ public class AG_ProductDao {
 	public List<SubjectPurchaseRecord> GetSubjectPurchaseRecord(Object... objects) {
 		Session session = getsession();
 		String sql = " from SubjectPurchaseRecord p where p.subject.id=" + objects[0] + " and p.member.id="
-				+ objects[1];
+				+ objects[1] + " order by create_date desc ";
 		List list = session.createQuery(sql).list();
 		return list;
 	}
@@ -72,7 +72,7 @@ public class AG_ProductDao {
 	// 根据ID查询产品购买表操作
 	public List<SubjectPurchaseRecord> GetSubjectPurchaseRecordByid(int mid) {
 		Session session = getsession();
-		String sql = " from SubjectPurchaseRecord p where p.member.id=" + mid;
+		String sql = " from SubjectPurchaseRecord p where p.member.id=" + mid+ " order by create_date desc ";
 		List list = session.createQuery(sql).list();
 		if (list.size() > 0) {
 			return list;
@@ -83,7 +83,7 @@ public class AG_ProductDao {
 	// 根据ID查询产品购买表操作
 	public List<MemberTradeRecord> GetmemberTradeRecordByid(int mid) {
 		Session session = getsession();
-		String sql = " from MemberTradeRecord p where p.member.id=" + mid;
+		String sql = " from MemberTradeRecord p where p.member.id=" + mid+ " order by create_date desc ";
 		List list = session.createQuery(sql).list();
 		if (list.size() > 0) {
 			return list;
@@ -242,7 +242,11 @@ public class AG_ProductDao {
 		Session session = getsession();
 		session.save(object[0]);
 	}
-
+	// 往购买标的标添加数据
+		public void updateSubjectPurchaseRecord(Object... object) {
+			Session session = getsession();
+			session.update(object[0]);
+		}
 	// 往购买标的标添加数据
 	public void saveMemberProfitRecord(Object... object) {
 		Session session = getsession();

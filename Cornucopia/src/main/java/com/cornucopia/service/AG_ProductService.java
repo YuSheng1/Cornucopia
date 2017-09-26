@@ -29,6 +29,9 @@ public interface AG_ProductService {
 
 	// 往购买标的标添加数据
 	public void saveSubjectPurchaseRecord(Object... object);
+	// 往购买标的标添加数据
+		public void updateSubjectPurchaseRecord(Object... object);
+	
 
 	// 往成员利润记录表添加数据
 	public void saveMemberProfitRecord(Object... object);
