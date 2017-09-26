@@ -7,6 +7,8 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import com.cornucopia.bean.PageBean;
 import com.cornucopia.bean.PushNotice;
 import com.cornucopia.bean.Users;
 
@@ -22,13 +24,42 @@ public class PM_PushNoticeDao {
 	}
 	
 	//查询所有
-	public List<PushNotice>  ListAll(Object...object){
+	public List<PushNotice>  ListAll(Map map){
 		String hql="from PushNotice where 0=0";
-		Map map= (Map)object[0];
-			hql=listDataHql(hql, map);
+		PageBean pb=(PageBean)map.get("pb");
+		int page=pb.getPage();
+		int size=pb.getSize();
+		String flag=(String)map.get("flag");
+		int count=countNum(map);
+		pb.setTotal(count);
+		
+		if(flag!=null){
+			if("next".equals(flag)){
+				if(page+1>pb.getTotalpage()){
+					page=pb.getTotalpage();
+				}else{
+					page=page+1;
+				}
+			}
+			if("up".equals(flag)){
+				if(page-1<1){
+					page=1;
+				}else{
+					page=page-1;
+				}
+			}
+			if("first".equals(flag)){
+				page=1;
+			}
+			if("last".equals(flag)){
+				page=pb.getTotalpage();
+			}
+		}
+		pb.setPage(page);
 		Session session=getSession();
-		System.out.println(hql);
-		List<PushNotice> list=session.createQuery(hql).list();
+		System.out.println("sdfs");
+		hql=listDataHql(hql, map);
+		List<PushNotice> list=session.createQuery(hql).setFirstResult((page-1)*size).setMaxResults(size).list();
 		return list;
 	}
 	//模糊查询
@@ -39,6 +70,14 @@ public class PM_PushNoticeDao {
 		}
 		System.out.println(hql);
 		return hql;
+	}
+	
+	public int countNum(Map map){
+		String hql=" select count(*) from push_notice where 0=0";
+		hql=listDataHql(hql, map);
+		Session session=getSession();
+		int count=Integer.valueOf(session.createSQLQuery(hql).uniqueResult().toString());
+		return count;
 	}
 	//添加
 	public void save(Object...objects){
@@ -67,4 +106,5 @@ public class PM_PushNoticeDao {
 			Session session=getSession();
 			session.update(object);
 		}
+
 }

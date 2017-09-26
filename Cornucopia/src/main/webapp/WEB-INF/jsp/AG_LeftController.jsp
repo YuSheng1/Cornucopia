@@ -22,7 +22,7 @@
     
 </head>
 <body>
-<p>新闻类别</p><ul class="nav nav-pills nav-stacked" >
+<h4>新闻类别</h4><ul class="nav nav-pills nav-stacked" >
    <c:forEach items="${list}" var="e">
    <li class="active"><a href="/Cornucopia/BgType/NewsById?id=${e.id}" target="iframeContent"  >${e.name}</a></li>
  </c:forEach></ul>

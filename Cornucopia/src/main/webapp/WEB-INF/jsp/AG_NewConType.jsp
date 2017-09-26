@@ -23,15 +23,18 @@
 function fun(id){
 	window.open("/Cornucopia/BgType/NewsByIdA?id="+id,"","width=800,height=800,top=100")
 }
-
+     
 
 </SCRIPT> 
 </head>
 <body>
-<p>新闻类别</p><ul class="nav nav-pills nav-stacked">
+<h4>新闻标题</h4>
+<ul class="nav nav-pills nav-stacked">
    <c:forEach items="${news}" var="e" >
+
    <li class="active"><a  href="" onclick="fun(${e.id})">${e.title}</a></li>
- </c:forEach></ul>
+	
+ </c:forEach>   </ul>
 </body>
 </body>
 </html>

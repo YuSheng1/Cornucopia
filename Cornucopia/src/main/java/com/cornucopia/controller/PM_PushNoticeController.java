@@ -9,12 +9,14 @@ import java.util.Map;
 
 import javax.annotation.Resource;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.cornucopia.bean.PageBean;
 import com.cornucopia.bean.PushNotice;
 import com.cornucopia.service.PM_PushNoticeService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -29,15 +31,22 @@ public class PM_PushNoticeController {
 	@Resource
 	private PM_PushNoticeService PM_PushNoticeServiceImpl;
 	
+	@Autowired
+	private PageBean pb;
+	
 	//查询所有
 	@RequestMapping("list")
-	public String listAll(Model model,String title1){
+	public String listAll(Model model,String title1,@RequestParam(required=true,defaultValue="1")int page,String flag){
 		Map map=new HashMap();
+		pb.setSize(5);
+		pb.setPage(page);
 		map.put("title1",title1);
-		System.out.println(title1);
-		 List<PushNotice> plist=PM_PushNoticeServiceImpl.ListAll(map);
+		map.put("flag",flag);
+		map.put("pb",pb);
+		 List<PushNotice> plist=PM_PushNoticeServiceImpl.ListPush(map);
 		 model.addAttribute("plist",plist);
 		 model.addAttribute("title1",title1);
+		 model.addAttribute("pb",pb);
 		 return "Bgnotice";
 	}
 	
