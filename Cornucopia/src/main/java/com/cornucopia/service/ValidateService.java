@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.cornucopia.bean.MemberTradeRecord;
+import com.cornucopia.bean.SubjectPurchaseRecord;
 
 public interface ValidateService {
 	// 验证手机号
@@ -58,6 +59,8 @@ public interface ValidateService {
 
 		//后台缴费管理
 		public <T>List<T> MemberTradeRecordListAll(Map map);
+
+		public List<SubjectPurchaseRecord> SubjectPurchaseRecordListAll();
 	
 
 }

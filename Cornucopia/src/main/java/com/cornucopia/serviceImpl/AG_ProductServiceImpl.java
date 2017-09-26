@@ -101,6 +101,13 @@ public class AG_ProductServiceImpl implements AG_ProductService {
 		ag_ProductDao.saveSubjectPurchaseRecord(object);
 
 	}
+	// 往购买标的标添加数据
+		@Override
+		public void updateSubjectPurchaseRecord(Object... object) {
+			ag_ProductDao.updateSubjectPurchaseRecord(object);
+
+		}
+	
 	@Override
 	public void saveAlipayTradePagePay(Object... object) {
 		ag_ProductDao.saveSubjectPurchaseRecord(object);

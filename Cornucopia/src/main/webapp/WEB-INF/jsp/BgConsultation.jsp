@@ -178,16 +178,8 @@ $(function () {
 							src="../BgAssets/images/t01.png" /></span><a class="tablelink"
 						data-toggle="modal" data-target="#myModal1">添加</a></li>
 			</ul>
-
-
-			<ul class="toolbar1">
-				<li><span><img src="../BgAssets/images/t05.png" /></span>设置</li>
-			</ul>
-
 		</div>
-		
-
-		<table class="tablelist">
+		<table class="tablelist" id="t_student">
 			<thead>
 				<tr>
 					<th>序号<i class="sort"><img src="../BgAssets/images/px.gif" /></i></th>
@@ -218,25 +210,25 @@ $(function () {
 		</table>
 
 
-		<div class="pagin">
-			<div class="message">
-				共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页
-			</div>
-			<ul class="paginList">
-				<li class="paginItem"><a href="javascript:;"><span
-						class="pagepre"></span></a></li>
-				<li class="paginItem"><a href="javascript:;">1</a></li>
-				<li class="paginItem current"><a href="javascript:;">2</a></li>
-				<li class="paginItem"><a href="javascript:;">3</a></li>
-				<li class="paginItem"><a href="javascript:;">4</a></li>
-				<li class="paginItem"><a href="javascript:;">5</a></li>
-				<li class="paginItem more"><a href="javascript:;">...</a></li>
-				<li class="paginItem"><a href="javascript:;">10</a></li>
-				<li class="paginItem"><a href="javascript:;"><span
-						class="pagenxt"></span></a></li>
-			</ul>
+	<div class="pagin">
+<div class="gridItem" style=" padding: 5px; width: 300px; float: left; text-align: left; height: 30px; line-height:30px; font-size: 15px;" > 
+			        共有 <span id="spanTotalInfor" style="color: red;font-weight: bold;"></span> 条记录 ,    
+			        当前第 <span id="spanPageNum" style="color: red;font-weight: bold;"></span> 页    , 
+			        共 <span id="spanTotalPage" style="color: red;font-weight: bold;"></span> 页
+		    </div>
+    		<div class="gridItem" style="margin-left:45px;  padding: 5px; width: 400px; float: left; text-align: center; height: 30px; line-height:30px; vertical-align: middle; font-size: 15px;">   
+	            <span id="spanFirst" >首页</span> 
+	            <span id="spanPre">上一页</span>
+	            <span id="spanInput" style="margin: 0px; padding: 0px 0px 4px 0px; height:100%; "> 
+                	第<input id="Text1" type="text" class="TextBox" onkeyup="changepage()"   style="height:20px; text-align: center;width:50px" />页 
+            	</span>
+	            <span id="spanNext">下一页</span> 
+	            <span  id="spanLast">尾页</span> 
+        	</div>
+
 		</div>
 	</div>
+
 	<!-- 添加-->
 	<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
 		aria-labelledby="myModalLabel" aria-hidden="true">
@@ -313,9 +305,48 @@ $(function () {
 		<!-- /.modal -->
 	</div>
 	
-	</div>
 	<script type="text/javascript">
-		$('.tablelist tbody tr:odd').addClass('odd');
-	</script>
+            var theTable = document.getElementById("t_student");
+            var txtValue = document.getElementById("Text1").value;
+            function changepage() {
+                var txtValue2 = document.getElementById("Text1").value;
+                if (txtValue != txtValue2) {
+                    if (txtValue2 > pageCount()) {
+
+                    }
+                    else if (txtValue2 <= 0) {
+
+                    }
+                    else if (txtValue2 == 1) {
+                        first();
+                    }
+                    else if (txtValue2 == pageCount()) {
+                        last();
+                    }
+                    else {
+                        hideTable();
+                        page = txtValue2;
+                        pageNum2.value = page;
+
+                        currentRow = pageSize * page;
+                        maxRow = currentRow - pageSize;
+                        if (currentRow > numberRowsInTable) currentRow = numberRowsInTable;
+                        for (var i = maxRow; i < currentRow; i++) {
+                            theTable.rows[i].style.display = '';
+                        }
+                        if (maxRow == 0) { preText(); firstText(); }
+                        showPage();
+                        nextLink();
+                        lastLink();
+                        preLink();
+                        firstLink();
+                   }
+
+                    txtValue = txtValue2;
+                }
+            }
+            
+    </script>
+	<script src="../assets/js/Pagging.js"></script>
 </body>
 </html>

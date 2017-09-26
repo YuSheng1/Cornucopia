@@ -17,6 +17,7 @@ import com.cornucopia.bean.Member;
 import com.cornucopia.bean.MemberAccount;
 import com.cornucopia.bean.MemberBankcards;
 import com.cornucopia.bean.MemberDepositRecord;
+import com.cornucopia.bean.MemberProfitRecord;
 import com.cornucopia.bean.MemberTradeRecord;
 import com.cornucopia.bean.Subject;
 import com.cornucopia.bean.SubjectBbinPurchassRecord;
@@ -27,7 +28,7 @@ public class ValidateDao {
 	@Autowired
 	public SessionFactory sessionFactory;
 
-	public Session getSession() {   
+	public Session getSession() {
 		return sessionFactory.getCurrentSession();
 	}
 
@@ -375,6 +376,13 @@ public class ValidateDao {
 			hql=hqlData1(hql, map);
 			Session session=getSession();
 			List<MemberTradeRecord> list=session.createQuery(hql).list();
+			return list;
+		}
+		
+		public List<SubjectPurchaseRecord> SubjectPurchaseRecordListAll() {
+			String hql="from SubjectPurchaseRecord M  inner  join fetch M.member where 0=0 ";
+			Session session=getSession();
+			List<SubjectPurchaseRecord> list=session.createQuery(hql).list();
 			return list;
 		}
 }

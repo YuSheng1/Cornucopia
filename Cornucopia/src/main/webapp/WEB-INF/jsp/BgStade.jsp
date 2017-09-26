@@ -56,7 +56,7 @@ $(function(){
 		订单时间：<input type="date" name="create_date" placeholder="订单时间">
 		<input type="submit" value="搜索"  class="btn btn-primary">
 	</form>
-    <table class="tablelist">
+    <table class="tablelist"   id="t_student">
 			<thead>
 				<tr>
 					<th>编号<i class="sort"><img src="../BgAssets/images/px.gif" /></i></th>
@@ -78,12 +78,75 @@ $(function(){
 						<td>${s.trade_type}</td>
 						<td>${s.trade_name}</td>
 						<td>${s.amount }</td>
+						<c:if test="${s.trade_status==1}"><td style="color: blue;">订单已完成</td></c:if>
 						<c:if test="${s.trade_status==2}"><td style="color: blue;">订单已完成</td></c:if>
 						<c:if test="${s.trade_status==0}"><td  style="color: red;">订单未完成</td></c:if>
 						<td>${s.create_date }</td>
 				</c:forEach>
 			</tbody>
-		</table>   
+		</table> 
 		
+    	  <div class="pagin">
+<div class="gridItem" style=" padding: 5px; width: 300px; float: left; text-align: left; height: 30px; line-height:30px; font-size: 15px;" > 
+			        共有 <span id="spanTotalInfor" style="color: red;font-weight: bold;"></span> 条记录 ,    
+			        当前第 <span id="spanPageNum" style="color: red;font-weight: bold;"></span> 页    , 
+			        共 <span id="spanTotalPage" style="color: red;font-weight: bold;"></span> 页
+		    </div>
+    		<div class="gridItem" style="margin-left:45px;  padding: 5px; width: 400px; float: left; text-align: center; height: 30px; line-height:30px; vertical-align: middle; font-size: 15px;">   
+	            <span id="spanFirst" >首页</span> 
+	            <span id="spanPre">上一页</span>
+	            <span id="spanInput" style="margin: 0px; padding: 0px 0px 4px 0px; height:100%; "> 
+                	第<input id="Text1" type="text" class="TextBox" onkeyup="changepage()"   style="height:20px; text-align: center;width:50px" />页 
+            	</span>
+	            <span id="spanNext">下一页</span> 
+	            <span  id="spanLast">尾页</span> 
+        	</div>
+
+		</div>
+	</div>
+		  
+		<script type="text/javascript">
+            var theTable = document.getElementById("t_student");
+            var txtValue = document.getElementById("Text1").value;
+            function changepage() {
+                var txtValue2 = document.getElementById("Text1").value;
+                if (txtValue != txtValue2) {
+                    if (txtValue2 > pageCount()) {
+
+                    }
+                    else if (txtValue2 <= 0) {
+
+                    }
+                    else if (txtValue2 == 1) {
+                        first();
+                    }
+                    else if (txtValue2 == pageCount()) {
+                        last();
+                    }
+                    else {
+                        hideTable();
+                        page = txtValue2;
+                        pageNum2.value = page;
+
+                        currentRow = pageSize * page;
+                        maxRow = currentRow - pageSize;
+                        if (currentRow > numberRowsInTable) currentRow = numberRowsInTable;
+                        for (var i = maxRow; i < currentRow; i++) {
+                            theTable.rows[i].style.display = '';
+                        }
+                        if (maxRow == 0) { preText(); firstText(); }
+                        showPage();
+                        nextLink();
+                        lastLink();
+                        preLink();
+                        firstLink();
+                   }
+
+                    txtValue = txtValue2;
+                }
+            }
+            
+    </script>
+	<script src="../assets/js/Pagging.js"></script>
 </body>
 </html>
