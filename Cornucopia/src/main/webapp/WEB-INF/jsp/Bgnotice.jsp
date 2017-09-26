@@ -126,8 +126,9 @@ $(function () {
 		<td>${e.id }</td><td>公告</td><td>${e.title }</td><td>${e.create_date }</td>
 		<td>
 	<ul class="menuson">
-        <li><a href="/Cornucopia/push/cha?id=${e.id}" target="rightFrame">查看</a></li>
-        <li><a href="/Cornucopia/push/updatebyid?id=${e.id}" target="rightFrame">编辑</a></li>
+        <li><a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/push/cha?id=${e.id}" target="rightFrame">查看</a></li>
+        <li><a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/push/updatebyid?id=${e.id}" target="rightFrame">编辑</a></li>
+    
     </ul>
 		</td>
 		</tr>
@@ -184,12 +185,12 @@ $(function () {
 		<!-- /.modal -->
 	</div>
 	
-    <div class="pagin">
+    <div class="pagin" style="text-align: center;">
     <div class="message">共<i class="blue">${pb.total }</i>条记录，当前显示第&nbsp;<i class="blue">${pb.page }</i>页</div> 
-    	<a href="/Cornucopia/push/list?flag=first&page=${pb.page }">首页</a>
-		<a href="/Cornucopia/push/list?flag=up&page=${pb.page }">上一页</a>
-		<a href="/Cornucopia/push/list?flag=next&page=${pb.page }">下一页</a>
-		<a href="/Cornucopia/push/list?flag=last&page=${pb.page }">末页</a>
+    	<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/push/list?flag=first&page=${pb.page }">首页</a>
+		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/push/list?flag=up&page=${pb.page }">上一页</a>
+		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/push/list?flag=next&page=${pb.page }">下一页</a>
+		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/push/list?flag=last&page=${pb.page }">末页</a>
     </div>
     </div>
 </form>
