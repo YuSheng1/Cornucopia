@@ -1,6 +1,7 @@
 package com.cornucopia.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.cornucopia.bean.SysRegion;
 
@@ -54,16 +55,16 @@ public interface AG_ProductService {
 	public void updateAlipayTradePagePay(Object... object);
 
 	// 根据用户id查询SubjectPurchaseRecord
-	public <T> T GetSubjectPurchaseRecordByid(int mid);
+	public <T> T GetSubjectPurchaseRecordByid(int mid,Map map);
 
 	// 根据id查询充值记录表
-	public <T> T GetMemberDepositRecordByid(int mid);
+	public <T> T GetMemberDepositRecordByid(int mid,Map map);
 
 	// 根据id查询充值记录表
 	public <T> T GetmemberTradeRecordByid(int mid);
 
 	// 根据id查询提款记录表
-	public <T> T GetMembeWithdrawRecordByid(int mid);
+	public <T> T GetMembeWithdrawRecordByid(int mid,Map map);
 
 	// 根据id查询英航卡绑定表
 	public <T> T GetMemberBankcardsByid(int mid);
