@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.cornucopia.bean.PageBean;
+import com.cornucopia.bean.PageBeanWMY;
 import com.cornucopia.bean.PushNotice;
 import com.cornucopia.service.PM_PushNoticeService;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -32,7 +32,7 @@ public class PM_PushNoticeController {
 	private PM_PushNoticeService PM_PushNoticeServiceImpl;
 	
 	@Autowired
-	private PageBean pb;
+	private PageBeanWMY pb;
 	
 	//查询所有
 	@RequestMapping("list")

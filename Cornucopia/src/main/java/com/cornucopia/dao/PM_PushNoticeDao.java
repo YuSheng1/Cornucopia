@@ -8,7 +8,7 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.cornucopia.bean.PageBean;
+import com.cornucopia.bean.PageBeanWMY;
 import com.cornucopia.bean.PushNotice;
 import com.cornucopia.bean.Users;
 
@@ -26,7 +26,7 @@ public class PM_PushNoticeDao {
 	//²éÑ¯ËùÓÐ
 	public List<PushNotice>  ListAll(Map map){
 		String hql="from PushNotice where 0=0";
-		PageBean pb=(PageBean)map.get("pb");
+		PageBeanWMY pb=(PageBeanWMY)map.get("pb");
 		int page=pb.getPage();
 		int size=pb.getSize();
 		String flag=(String)map.get("flag");
