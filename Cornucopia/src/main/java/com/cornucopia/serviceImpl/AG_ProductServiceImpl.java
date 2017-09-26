@@ -1,11 +1,11 @@
 package com.cornucopia.serviceImpl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.cornucopia.bean.FinanceProductFunds;
 import com.cornucopia.bean.MembeWithdrawRecord;
 import com.cornucopia.bean.MemberAccount;
 import com.cornucopia.bean.MemberBankcards;
@@ -39,8 +39,8 @@ public class AG_ProductServiceImpl implements AG_ProductService {
 	}
 	//根据id查询充值记录表
 	@Override
-	public List<MemberDepositRecord> GetMemberDepositRecordByid(int id) {
-		List<MemberDepositRecord> memberDepositRecord = ag_ProductDao.GetMemberDepositRecordByid(id);
+	public List<MemberDepositRecord> GetMemberDepositRecordByid(int id,Map map) {
+		List<MemberDepositRecord> memberDepositRecord = ag_ProductDao.GetMemberDepositRecordByid(id,map);
 		return memberDepositRecord;
 	}
    //根据id查询银行卡绑定表
@@ -134,14 +134,14 @@ public class AG_ProductServiceImpl implements AG_ProductService {
 	}
 	@SuppressWarnings("unchecked")
 	@Override
-	public  List<SubjectPurchaseRecord> GetSubjectPurchaseRecordByid(int mid) {
-		List<SubjectPurchaseRecord> subjectPurchaseRecordlist=ag_ProductDao.GetSubjectPurchaseRecordByid(mid);
+	public  List<SubjectPurchaseRecord> GetSubjectPurchaseRecordByid(int mid,Map map) {
+		List<SubjectPurchaseRecord> subjectPurchaseRecordlist=ag_ProductDao.GetSubjectPurchaseRecordByid(map,mid);
 		return subjectPurchaseRecordlist;
 	}
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<MembeWithdrawRecord> GetMembeWithdrawRecordByid(int mid) {
-		List<MembeWithdrawRecord> membeWithdrawRecordlist=ag_ProductDao.GetMembeWithdrawRecordByid(mid);
+	public List<MembeWithdrawRecord> GetMembeWithdrawRecordByid(int mid,Map map) {
+		List<MembeWithdrawRecord> membeWithdrawRecordlist=ag_ProductDao.GetMembeWithdrawRecordByid(mid,map);
 		return membeWithdrawRecordlist;
 	}
 	@Override

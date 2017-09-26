@@ -1,12 +1,15 @@
 package com.cornucopia.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -17,6 +20,7 @@ import com.cornucopia.bean.MemberAccount;
 import com.cornucopia.bean.MemberBankcards;
 import com.cornucopia.bean.MemberDepositRecord;
 import com.cornucopia.bean.PushNotice;
+import com.cornucopia.bean.PageBean;
 import com.cornucopia.bean.Subject;
 import com.cornucopia.bean.SubjectPurchaseRecord;
 import com.cornucopia.bean.SysRegion;
@@ -34,6 +38,9 @@ public class AG_UserController {
 	//杂查询类
 	@Resource
 	private ValidateService validateImpl;
+	
+	@Autowired
+	private PageBean pb;
 
 	// 主页
 	@RequestMapping("Index")
@@ -68,25 +75,35 @@ public class AG_UserController {
 	}
 
 	@RequestMapping("Contact")
-	public String Contact(HttpSession session,Model model) {
+	public String Contact(HttpSession session,Model model,@RequestParam(required=true,defaultValue="1")int page,String flag,String info,String note) {
 		Member member=(Member)session.getAttribute("member");
+		Map map=new HashMap();
+		pb.setSize(5);
+		pb.setPage(page);
+		map.put("flag",flag);
+		map.put("pb",pb);
+		map.put("info", info);
+		map.put("note", note);
 		if(member==null){
 			return "redirect:/item/Login";
 		}else{
 			//查询用户基本信息
 			MemberAccount MAccount=AG_ProductServiceImpl.UpdateMemberAccount(member.getId());
-			List<SubjectPurchaseRecord> subjectPurchaseRecorList=AG_ProductServiceImpl.GetSubjectPurchaseRecordByid(member.getId());	
-			List<MemberDepositRecord>  memberDepositRecord= AG_ProductServiceImpl.GetMemberDepositRecordByid(member.getId());
-			List<MembeWithdrawRecord> membeWithdrawRecord=AG_ProductServiceImpl.GetMembeWithdrawRecordByid(member.getId());
+			List<SubjectPurchaseRecord> subjectPurchaseRecorList=AG_ProductServiceImpl.GetSubjectPurchaseRecordByid(member.getId(),map);
+			List<MemberDepositRecord>  memberDepositRecord= AG_ProductServiceImpl.GetMemberDepositRecordByid(member.getId(),map);
+			List<MembeWithdrawRecord> membeWithdrawRecord=AG_ProductServiceImpl.GetMembeWithdrawRecordByid(member.getId(),map);
 			MemberBankcards  memberBankcards=AG_ProductServiceImpl.GetMemberBankcardsByid(member.getId());
 			//查询省市级联
 			List<SysRegion>  sysregion=AG_ProductServiceImpl.saveGetregion();
 			model.addAttribute("sysregion", sysregion);
 			model.addAttribute("MAccount", MAccount);
 			model.addAttribute("memberBankcards", memberBankcards);
+			model.addAttribute("pb",pb);
 		    model.addAttribute("subjectPurchaseRecor", subjectPurchaseRecorList);
 		    model.addAttribute("membeWithdrawRecord", membeWithdrawRecord);
+		    model.addAttribute("note",note);
 		    model.addAttribute("memberDepositRecord", memberDepositRecord);
+		    model.addAttribute("info",info);
 		}
 		return "Contact";
 	}
