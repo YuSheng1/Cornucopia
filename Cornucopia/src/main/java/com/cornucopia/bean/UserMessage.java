@@ -14,7 +14,7 @@ public class UserMessage {
 	           private int user_id;//用户id
 	           private String title;//消息标题
 	           private int business_type;//业务类别
-	           private int owner_id;//业务id
+	           private int owner_id;//业务id1
 	           private String content;//消息内容
 	           private int msg_status;//状态,(已读未读)
 	           private int del_flag;//删除标志

@@ -13,7 +13,7 @@ import javax.persistence.Table;
 @Entity
 public class Resources {
   
-	  //资源id
+	  //资源id1
 	private int Resources_id;
 	//资源名称
 	  private String Resources_name;
