@@ -26,17 +26,35 @@
 <link href="../assets/resources/css/common.css" rel="stylesheet">
 <link href="../assets/resources/css/jw.css" rel="stylesheet">
 <link href="../assets/resources/css/iconfont.css" rel="stylesheet">
-<script src="../assets/resources/js/echarts.js"></script>
 <script src="../BgAssets/js/bootstrapValidator.min.js"></script>
 <link href="../BgAssets/css/bootstrapValidator.min.css" rel="stylesheet" />
 <script type="text/javascript">
+$(function () { 
+	  $('#myTab a').click(function (e) {
+	        e.preventDefault()
+	        $(this).tab('show')
+	    })
+	var url = location.href; 
+	var c=url.substring(46,50);
+	  switch (c){
+      case 'flag':
+          $('#myTab a[href="#touzi"]').tab('show')
+          break;
+      case 'info':
+          $('#myTab a[href="#jine"]').tab('show')
+          break;
+      case 'tab3':
+          $('#myTab a[href="#tab3"]').tab('show')
+          break;
+   }     
+  }) 
 <%String datetime = new SimpleDateFormat("yyyyMMddHHmmss").format(Calendar.getInstance().getTime()); //获取系统时间%>
 <%String datetime1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()); //获取系统时间%>
 </script>
 </head>
 <body>
 	<div class="layout">
-		<!--===========layout-header================-->
+		<!--==   =========layout-header================-->
 		<div class="layout-header am-hide-sm-only">
 			<!--topbar start-->
 			<div class="topbar">
@@ -131,20 +149,10 @@
 					<div class="nav-inner">
 						<ul class="am-nav am-nav-pills am-nav-justify">
 							<li class=""><a href="/Cornucopia/item/Index">首页</a></li>
-							<li><a href="#">网上体验中心</a> <!-- sub-menu start-->
-								<ul class="sub-menu">
-									<li class="menu-item"><a href="/Cornucopia/item/Product1">产品展示1</a></li>
-									<li class="menu-item"><a href="/Cornucopia/item/Product2">产品展示2</a></li>
-									<li class="menu-item"><a href="/Cornucopia/item/Product3">产品展示3</a></li>
-								</ul> <!-- sub-menu end--></li>
 							<li><a href="/Cornucopia/AGSub/subject">产品中心</a></li>
 							<li><a href="/Cornucopia/item/Solution">下载中心</a></li>
 							<li><a href="/Cornucopia/item/News">新闻中心</a> <!-- sub-menu start-->
-								<ul class="sub-menu">
-									<li class="menu-item"><a href="/Cornucopia/item/NewsC">盈+商学院</a></li>
-									<li class="menu-item"><a href="html/404-dark.html">行业动态</a></li>
-									<li class="menu-item"><a href="html/404-light.html">精彩专题</a></li>
-								</ul> <!-- sub-menu end--></li>
+								 <!-- sub-menu end--></li>
 							<li><a href="/Cornucopia/item/About">盈+商学院</a></li>
 							<li><a href="/Cornucopia/item/Join">投研中心</a></li>
 							<li><a href="/Cornucopia/item/Contact">我的加法库</a></li>
@@ -240,8 +248,8 @@
 	<ul id="myTab" class="nav nav-pills nav-stacked"
 		style="width: 200px; margin-top: 30px; margin-left: 350px;">
 		<h4>我的投资</h4>
-		<li class="active"><a href="#touzi" data-toggle="tab"> 投资记录</a></li>
-		<li><a href="#yuyue" data-toggle="tab">预约记录</a></li>
+		<li ><a href="#touzi" data-toggle="tab"> 投资记录</a></li>
+		<li><a href="#yuyue" style="display: none;" data-toggle="tab">预约记录</a></li>
 		<li><a href="#jine" data-toggle="tab">充值记录 </a></li>
 		<li><a href="#shouyi" data-toggle="tab">收益记录 </a></li>
 		<li><a href="#tikuan" data-toggle="tab">提款记录 </a></li>
@@ -282,8 +290,15 @@
 					</c:forEach>
 				</tbody>
 			</table>
+			 <div class="pagin" style="text-align: center;">
+    <div class="message">共<i class="blue">${pb.total }</i>条记录，当前显示第&nbsp;<i class="blue">${pb.page }</i>页</div> 
+    	<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?flag=first&page=${pb.page }" onclick="fun1()">首页</a>
+		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?flag=up&page=${pb.page }" onclick="fun1()">上一页</a>
+		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?flag=next&page=${pb.page }" onclick="fun1()">下一页</a>
+		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?flag=last&page=${pb.page }" onclick="fun1()">末页</a>
+    </div>
 		</div>
-		<div class="tab-pane fade" id="yuyue"
+		<div class="tab-pane fade" id="yuyue" style="display: none;" 
 			style="margin-left: 600px; margin-top: -450px; width: 700px; height: 600px;">
 			<table class="table" width="700px" height="250px;">
 				<caption>
@@ -385,6 +400,13 @@
 					</c:forEach>
 				</tbody>
 			</table>
+			<div class="pagin" style="text-align: center;">
+    <div class="message">共<i class="blue">${pb.total }</i>条记录，当前显示第&nbsp;<i class="blue">${pb.page }</i>页</div> 
+    	<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?info=first&page=${pb.page }" onclick="fun1()">首页</a>
+		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?info=up&page=${pb.page }" onclick="fun1()">上一页</a>
+		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?info=next&page=${pb.page }" onclick="fun1()">下一页</a>
+		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?info=last&page=${pb.page }" onclick="fun1()">末页</a>
+    </div>
 		</div>
 		<div class="tab-pane fade" id="shouyi"
 			style="margin-left: 600px; margin-top: -450px; width: 700px; height: 600px;">
@@ -442,6 +464,13 @@
 					</c:forEach>
 				</tbody>
 			</table>
+			<div class="pagin" style="text-align: center;">
+    <div class="message">共<i class="blue">${pb.total }</i>条记录，当前显示第&nbsp;<i class="blue">${pb.page }</i>页</div> 
+    	<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?note=first&page=${pb.page }" onclick="fun1()">首页</a>
+		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?note=up&page=${pb.page }" onclick="fun1()">上一页</a>
+		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?note=next&page=${pb.page }" onclick="fun1()">下一页</a>
+		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?note=last&page=${pb.page }" onclick="fun1()">末页</a>
+    </div>
 		</div>
 		<div class="tab-pane fade" id="tiyan"
 			style="margin-left: 600px; margin-top: -450px; width: 700px; height: 600px;">
@@ -739,8 +768,7 @@
 									
 									<div class="form-group">
 										<div class="input-group">
-											<span class="input-group-addon">提款金额</span> <input
-												type="text" class="form-control" id="tkje" name="amount">
+											<span class="input-group-addon">提款金额</span> <input type="text" class="form-control" id="tkje" name="amount">
 										</div>
 									</div>
 									<c:if test="${member.withdraw_password==null}">
@@ -1122,6 +1150,26 @@
 		</div>
 	</div>
 	<script src="../assets/js/amazeui.js" charset="utf-8"></script>
+	<script type="text/javascript">
+$(function () { 
+	  $('#myTab a').click(function (e) {
+	        e.preventDefault()
+	        $(this).tab('show')
+	    })
+	var url = location.href; 
+	var c=url.substring(46,50);
+	  switch (c){
+      case 'flag':
+          $('#myTab a[href="#touzi"]').tab('show')
+          break;
+      case 'info':
+          $('#myTab a[href="#jine"]').tab('show')
+          break;
+      case 'note':
+          $('#myTab a[href="#tikuan"]').tab('show')
+          break;
+   }     
+  }) </script>
 </body>
 
 </html>

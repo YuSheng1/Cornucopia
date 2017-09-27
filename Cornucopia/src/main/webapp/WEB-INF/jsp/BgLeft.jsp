@@ -67,7 +67,6 @@ $(function(){
         <ul class="menuson">
         <li><cite></cite><a href="/Cornucopia/BgItem/BgUserPermission" target="rightFrame">用户管理</a><i></i></li>
         <li><cite></cite><a href="/Cornucopia/BgItem/BgUserRoles" target="rightFrame">角色管理</a><i></i></li>
-        <li><cite></cite><a href="#">权限管理</a><i></i></li>
         </ul>    
 
     <dd><div class="title"><span><img src="../BgAssets/images/leftico04.png" /></span>会员管理</div>
@@ -99,9 +98,8 @@ $(function(){
     
     <dd><div class="title"><span><img src="../BgAssets/images/leftico04.png" /></span>系统设置</div>
     <ul class="menuson">
-        <li><cite></cite><a href="#" target="rightFrame">账户设置</a><i></i></li>
-        <li><cite></cite><a href="#" target="rightFrame">角色设置</a><i></i></li>
-        <li><cite></cite><a href="#" target="rightFrame">密码设置</a><i></i></li>
+        <li><cite></cite><a href="/Cornucopia/BgItem/PsssWorld" target="rightFrame">密码设置</a><i></i></li>
+        <li><cite></cite><a href="/Cornucopia/BgItem/BgLogin" target="rightFrame">安全退出</a><i></i></li>
     </ul>
     
     </dd> 

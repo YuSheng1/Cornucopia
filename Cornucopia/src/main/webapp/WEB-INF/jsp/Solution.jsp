@@ -109,26 +109,12 @@
           <div class="nav-inner">
             <ul class="am-nav am-nav-pills am-nav-justify">
               <li class=""><a href="/Cornucopia/item/Index">首页</a></li>
-              <li>
-                <a href="#">网上体验中心</a>
-                <!-- sub-menu start-->
-                <ul class="sub-menu">
-                  <li class="menu-item"><a href="/Cornucopia/item/Product1">产品展示1</a></li>
-                  <li class="menu-item"><a href="/Cornucopia/item/Product2">产品展示2</a></li>
-                  <li class="menu-item"><a href="/Cornucopia/item/Product3">产品展示3</a></li>
-                </ul>
-                <!-- sub-menu end-->
-              </li>
               <li><a href="/Cornucopia/AGSub/subject">产品中心</a></li>
               <li><a href="/Cornucopia/item/Solution">下载中心</a></li>
               <li>
                 <a href="/Cornucopia/item/News">新闻中心</a>
                 <!-- sub-menu start-->
-                <ul class="sub-menu">
-                  <li class="menu-item"><a href="/Cornucopia/item/NewsC">盈+商学院</a></li>
-                  <li class="menu-item"><a href="html/404-dark.html">行业动态</a></li>
-                  <li class="menu-item"><a href="html/404-light.html">精彩专题</a></li>
-                </ul>
+                
                 <!-- sub-menu end-->
               </li>
               <li><a href="/Cornucopia/item/About">盈+商学院</a></li>
@@ -146,12 +132,12 @@
 
 
     <!--===========layout-container================-->
-    <div class="layout-container">
-      <div>
+    <div class="layout-container"  style="margin-left: 170px">
+      <div> 
       <table>
        <tr>
         <td class="container">
-        <div style="margin-left: 200px">
+        <div style="margin-left: 170px">
           <img alt="" src="../assets/images/solution/QQ截图20170907101215.png">
         </div>
         </td>
@@ -173,293 +159,9 @@
       </div>
     </div>
 
-    <div class="section">
-      <div class="container">
-        <div class="section--header">
-          <h2 class="section--title">解决方案案例展示</h2>
-          <p class="section--description">
-            全球独创专利技术：一行代码部署，帮助企业快速安全地将现有PC版网页适配成HTML5跨屏网页，跨平台的企业统一办公
-            <br>门户，快捷的移动适配开发能力，完备的数据安全保护
-          </p>
-        </div>
+    
 
-        <div class="solution-container">
-          <div data-am-widget="tabs"
-               class="am-tabs "
-                >
-              <ul class="am-tabs-nav am-cf">
-                  <li class="am-active"><a href="[data-tab-panel-0]">青春</a></li>
-                  <li class=""><a href="[data-tab-panel-1]">彩虹</a></li>
-                  <li class=""><a href="[data-tab-panel-2]">歌唱</a></li>
-                  <li class=""><a href="[data-tab-panel-3]">歌唱</a></li>
-              </ul>
-              <div class="am-tabs-bd">
-                  <div data-tab-panel-0 class="am-tab-panel am-active">
-                    <div class="am-g">
-                      <div class="am-u-md-4 am-u-sm-6">
-                        <a href="#"><img src="../assets/images/solution/solution-show-1.png" alt="" /></a>
-                      </div>
-                      <div class="am-u-md-4 am-u-sm-6">
-                        <a href="#"><img src="../assets/images/solution/solution-show-2.png" alt="" /></a>
-                      </div>
-                      <div class="am-u-md-4 am-u-sm-6">
-                        <a href="#"><img src="../assets/images/solution/solution-show-3.png" alt="" /></a>
-                      </div>
-                      <div class="am-u-md-4 am-u-sm-6">
-                        <a href="#"><img src="../assets/images/solution/solution-show-4.png" alt="" /></a>
-                      </div>
-                      <div class="am-u-md-4 am-u-sm-6">
-                        <a href="#"><img src="../assets/images/solution/solution-show-5.png" alt="" /></a>
-                      </div>
-                      <div class="am-u-md-4 am-u-sm-6">
-                        <a href="#"><img src="../assets/images/solution/solution-show-6.png" alt="" /></a>
-                      </div>
-                    </div>
-                  </div>
-                  <div data-tab-panel-1 class="am-tab-panel ">
-                    <div class="am-g">
-                      <div class="am-u-md-4 am-u-sm-6">
-                        <a href="#"><img src="../assets/images/solution/solution-show-1.png" alt="" /></a>
-                      </div>
-                      <div class="am-u-md-4 am-u-sm-6">
-                        <a href="#"><img src="../assets/images/solution/solution-show-2.png" alt="" /></a>
-                      </div>
-                      <div class="am-u-md-4 am-u-sm-6">
-                        <a href="#"><img src="../assets/images/solution/solution-show-3.png" alt="" /></a>
-                      </div>
-                      <div class="am-u-md-4 am-u-sm-6">
-                        <a href="#"><img src="../assets/images/solution/solution-show-4.png" alt="" /></a>
-                      </div>
-                      <div class="am-u-md-4 am-u-sm-6">
-                        <a href="#"><img src="../assets/images/solution/solution-show-5.png" alt="" /></a>
-                      </div>
-                      <div class="am-u-md-4 am-u-sm-6">
-                        <a href="#"><img src="../assets/images/solution/solution-show-6.png" alt="" /></a>
-                      </div>
-                    </div>
-                  </div>
-                  <div data-tab-panel-2 class="am-tab-panel ">
-                    <div class="am-g">
-                      <div class="am-u-md-4 am-u-sm-6">
-                        <a href="#"><img src="../assets/images/solution/solution-show-1.png" alt="" /></a>
-                      </div>
-                      <div class="am-u-md-4 am-u-sm-6">
-                        <a href="#"><img src="../assets/images/solution/solution-show-2.png" alt="" /></a>
-                      </div>
-                      <div class="am-u-md-4 am-u-sm-6">
-                        <a href="#"><img src="../assets/images/solution/solution-show-3.png" alt="" /></a>
-                      </div>
-                      <div class="am-u-md-4 am-u-sm-6">
-                        <a href="#"><img src="../assets/images/solution/solution-show-4.png" alt="" /></a>
-                      </div>
-                      <div class="am-u-md-4 am-u-sm-6">
-                        <a href="#"><img src="../assets/images/solution/solution-show-5.png" alt="" /></a>
-                      </div>
-                      <div class="am-u-md-4 am-u-sm-6">
-                        <a href="#"><img src="../assets/images/solution/solution-show-6.png" alt="" /></a>
-                      </div>
-                    </div>
-                  </div>
-                  <div data-tab-panel-3 class="am-tab-panel ">
-                    <div class="am-g">
-                      <div class="am-u-md-4 am-u-sm-6">
-                        <a href="#"><img src="../assets/images/solution/solution-show-1.png" alt="" /></a>
-                      </div>
-                      <div class="am-u-md-4 am-u-sm-6">
-                        <a href="#"><img src="../assets/images/solution/solution-show-2.png" alt="" /></a>
-                      </div>
-                      <div class="am-u-md-4 am-u-sm-6">
-                        <a href="#"><img src="../assets/images/solution/solution-show-3.png" alt="" /></a>
-                      </div>
-                      <div class="am-u-md-4 am-u-sm-6">
-                        <a href="#"><img src="../assets/images/solution/solution-show-4.png" alt="" /></a>
-                      </div>
-                      <div class="am-u-md-4 am-u-sm-6">
-                        <a href="#"><img src="../assets/images/solution/solution-show-5.png" alt="" /></a>
-                      </div>
-                      <div class="am-u-md-4 am-u-sm-6">
-                        <a href="#"><img src="../assets/images/solution/solution-show-6.png" alt="" /></a>
-                      </div>
-                    </div>
-                  </div>
-              </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-    <div class="section" style="background:#f3f4f4;">
-      <div class="container">
-        <div class="section--header">
-          <h2 class="section--title">O2O解决方案</h2>
-          <p class="section--description">
-            全球独创专利技术：一行代码部署，帮助企业快速安全地将现有PC版网页适配成HTML5跨屏网页，跨平台的企业统一办公
-            <br/>门户，快捷的移动适配开发能力，完备的数据安全保护
-          </p>
-        </div>
-
-        <div class="o2o-container">
-          <div class="am-g">
-            <div class="am-u-md-4">
-              <div class="o2o-box">
-                <img src="../assets/images/solution/o2o-img-1.png" alt="" />
-                <div class="o2o-content">
-                  <h3>遭遇黑客攻击</h3>
-                  <p>安全意识很重要，要提前做好预防工作，保障系统安全。推荐使用大禹分布式防御</p>
-                </div>
-              </div>
-            </div>
-            <div class="am-u-md-4">
-              <div class="o2o-box">
-                <img src="../assets/images/solution/o2o-img-2.png" alt="" />
-                <div class="o2o-content">
-                  <h3>UGC内容鉴别</h3>
-                  <p>安全意识很重要，要提前做好预防工作，保障系统安全。推荐使用大禹分布式防御</p>
-                </div>
-              </div>
-            </div>
-            <div class="am-u-md-4">
-              <div class="o2o-box">
-                <img src="../assets/images/solution/o2o-img-3.png" alt="" />
-                <div class="o2o-content">
-                  <h3>处理能力</h3>
-                  <p>安全意识很重要，要提前做好预防工作，保障系统安全。推荐使用大禹分布式防御</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-
-
-
-    <div class="section">
-      <div class="container">
-        <div class="section--header">
-          <h2 class="section--title">服务合作厂家</h2>
-          <p class="section--description">
-            全球独创专利技术：一行代码部署，帮助企业快速安全地将现有PC版网页适配成HTML5跨屏网页，跨平台的企业统一办公
-            <br/>门户，快捷的移动适配开发能力，完备的数据安全保护
-          </p>
-        </div>
-
-        <div class="cooperation-container">
-          <div data-am-widget="tabs"
-             class="am-tabs"
-              >
-            <ul class="am-tabs-nav am-cf">
-                <li class="am-active"><a href="[data-tab-panel-0]">营销推广</a></li>
-                <li class=""><a href="[data-tab-panel-1]">金融服务</a></li>
-                <li class=""><a href="[data-tab-panel-2]">行业软件</a></li>
-                <li class=""><a href="[data-tab-panel-3]">托管服务</a></li>
-            </ul>
-            <div class="am-tabs-bd">
-                <div data-tab-panel-0 class="am-tab-panel am-active">
-                  <ul class="am-avg-md-5 am-avg-sm-3 am-thumbnails">
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo1.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo2.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo3.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo4.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo5.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo6.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo7.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo8.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo9.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo10.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo11.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo12.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo13.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo14.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo15.jpg" /></a></li>
-                  </ul>
-                </div>
-                <div data-tab-panel-1 class="am-tab-panel ">
-                  <ul class="am-avg-md-5 am-avg-sm-3 am-thumbnails">
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo1.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo2.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo3.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo4.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo5.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo6.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo7.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo8.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo9.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo10.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo11.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo12.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo13.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo14.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo15.jpg" /></a></li>
-                  </ul>
-                </div>
-                <div data-tab-panel-2 class="am-tab-panel ">
-                  <ul class="am-avg-md-5 am-avg-sm-3 am-thumbnails">
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo1.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo2.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo3.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo4.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo5.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo6.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo7.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo8.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo9.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo10.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo11.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo12.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo13.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo14.jpg" /></a></li>
-                    <li><a href="#"><img class="am-thumbnail" src="../assets/images/solution/cooperation-logo15.jpg" /></a></li>
-                  </ul>
-                </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-
-
-    <div class="section" style="margin-top:0px;background-image: url('../assets/images/pattern-light.png');">
-      <div class="container">
-        <!--index-container start-->
-        <div class="index-container">
-          <div class="am-g">
-            <div class="am-u-md-4">
-              <div class="contact_card">
-  							<i style="color:#59bcdb" class="contact_card--icon am-icon-phone"></i>
-  							<strong class="contact_card--title">Contact Us</strong>
-  							<p class="contact_card--text">Feel free to call us on <br> <strong>0 (855) 233-5385</strong> <br> Monday - Friday, 8am - 7pm</p>
-                <button type="button" class="am-btn am-btn-secondary">Order a Call Back</button>
-  						</div>
-            </div>
-            <div class="am-u-md-4">
-              <div class="contact_card">
-  							<i style="color:#59bcdb" class="contact_card--icon am-icon-envelope-o"></i>
-  							<strong class="contact_card--title">Our Email</strong>
-  							<p class="contact_card--text">Drop us a line anytime at <br> <strong><a href="mailto:info@financed.com">info@financed.com</a>,</strong> <br> and we’ll get back soon.</p>
-                <button type="button" class="am-btn am-btn-secondary">Start Writing</button>
-  						</div>
-            </div>
-            <div class="am-u-md-4">
-              <div class="contact_card">
-  							<i style="color:#59bcdb" class="contact_card--icon am-icon-map-marker"></i>
-  							<strong class="contact_card--title">Our Address</strong>
-  							<p class="contact_card--text">Come visit us at <br> <strong>Stock Building, New York,</strong> <br> NY 93459</p>
-                <button type="button" class="am-btn am-btn-secondary">See the Map</button>
-  						</div>
-            </div>
-          </div>
-        </div>
-        <!--index-container end-->
-      </div>
-    </div>
-
+      
 
 
     <!--===========layout-footer================-->

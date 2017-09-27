@@ -40,10 +40,10 @@ $(document).ready(function(e) {
 </script>
 </head>
 <body>
-<table>
-<h1>
-查看公告
+<h1>查看公告
 </h1>
+<table>
+
 	<ul class="forminfo">
     	<li><label>标题：</label><input name="" type="text" class="dfinput" value="${pushNotice.title }"  style="width:518px;" readonly="readonly"/></li>
     </ul>

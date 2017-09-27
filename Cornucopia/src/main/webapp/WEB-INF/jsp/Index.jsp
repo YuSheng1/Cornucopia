@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,7 +14,78 @@
 <link href="../assets/css/bootstrap.css" rel="stylesheet">
 <script src="../assets/js/bootstrap.min.js"></script>
 <script src="../assets/js/jquery.min.js"></script>
+<style type="text/css">
+ *{list-style: none;margin:0;padding: 0;text-decoration: none;}
+    .box{
+        position: relative;
+        width: 20%;
+        height: 30px;
+        top:50px;
+        left:50px;
+        overflow-y: hidden;
+    }
+    #box-ul{
+        position: absolute;
+        top:0;
+        left:0;
+    }
+    #box-ul li{height:30px;line-height: 30px;}
+</style>
+<script type="text/javascript">
+window.onload = function () {
+
+    function getStyle(obj,styleName){           //获取元素当前style函数,currentStyle针对ie,getComputedStyle针对其他浏览器
+        if(obj.currentStyle){
+            return obj.currentStyle[styleName];
+        }else{
+            return getComputedStyle(obj,false)[styleName];
+        }
+    }
+
+    function timerFuc() {                       //定时器函数，五秒钟滚动一条数据
+        clearInterval(timer);
+        timer = setInterval(function () {
+            if(i == box.children.length-1) {
+                box.style.top = '0px';
+                i = 0;
+            }
+            animateTop(box,(++i)*(-30),30);     //此处第一个的30是li标签的高度,修改的时候这里得注意,第二个是speed
+        },2000);
+    }
+
+    function animateTop(obj,topEnd,speed) {      //滚动函数,object为对象,topEnd为top最终值,speed为滚动速度
+        clearInterval(obj.timer);
+        obj.timer = setInterval(function () {
+            var cur = parseInt(getStyle(obj,'top').slice(0,-2));
+            var curspeed = Math.ceil((cur - topEnd)/10);
+            obj.style.top = cur - curspeed +'px';
+            if(curspeed == 0){
+                clearInterval(obj.timer);
+            }
+        },speed)
+    }
+
+
+    var i = 0;
+    var timer;
+    var box = document.getElementById('box-ul');
+    var node = document.getElementById('box-ul').firstElementChild.cloneNode(true);     //此处需先克隆节点以便下一步的追加节点操作，类似于jq的clone操作，这地方需要注意，如果不克隆直接获取Element对象会有什么影响，请实践后进行思考。
+    box.appendChild(node);
+    timerFuc();                 //初始化需执行定时器函数
+
+    box.onmouseover = function () {
+        clearInterval(timer);
+    };
+    box.onmouseout = function () {
+        timerFuc();
+    }
+};
+function fun(id){
+	window.open("/Cornucopia/push/cha1?id="+id,"","width=400,height=400,top=300,left=1050")
+}
+</script>
 </head>
+
 <body>
 	<div class="layout">
 		<!--===========layout-header================-->
@@ -45,13 +116,14 @@
 								<i class="am-icon-google-plus"></i> <i class="am-icon-pinterest"></i>
 								<i class="am-icon-instagram"></i> <i class="am-icon-linkedin"></i>
 								<i class="am-icon-youtube-play"></i> <i class="am-icon-rss"></i>
-							<c:if test="${empty Lname}">  <a href="/Cornucopia/item/Login1">登录</a> <a
-									href="/Cornucopia/item/Register">注册</a></c:if>	
-									<c:if test="${not empty Lname}"> 欢迎您: ${Lname}
- <a
-									href="/Cornucopia/item/Login1">退出登陆</a>
-</c:if>
-								
+								<c:if test="${empty Lname}">
+									<a href="/Cornucopia/item/Login1">登录</a>
+									<a href="/Cornucopia/item/Register">注册</a>
+								</c:if>
+								<c:if test="${not empty Lname}"> 欢迎您: ${Lname}
+ 							<a href="/Cornucopia/item/Login1">退出登陆</a>
+								</c:if>
+
 							</div>
 						</div>
 					</div>
@@ -113,20 +185,10 @@
 					<div class="nav-inner">
 						<ul class="am-nav am-nav-pills am-nav-justify">
 							<li class=""><a href="/Cornucopia/item/Index">首页</a></li>
-							<li><a href="#">网上体验中心</a> <!-- sub-menu start-->
-								<ul class="sub-menu">
-									<li class="menu-item"><a href="/Cornucopia/item/Product1">产品展示1</a></li>
-									<li class="menu-item"><a href="/Cornucopia/item/Product2">产品展示2</a></li>
-									<li class="menu-item"><a href="/Cornucopia/item/Product3">产品展示3</a></li>
-								</ul> <!-- sub-menu end--></li>
 							<li><a href="/Cornucopia/AGSub/subject">产品中心</a></li>
 							<li><a href="/Cornucopia/item/Solution">下载中心</a></li>
 							<li><a href="/Cornucopia/item/News">新闻中心</a> <!-- sub-menu start-->
-								<ul class="sub-menu">
-									<li class="menu-item"><a href="/Cornucopia/item/NewsC">盈+商学院</a></li>
-									<li class="menu-item"><a href="html/404-dark.html">行业动态</a></li>
-									<li class="menu-item"><a href="html/404-light.html">精彩专题</a></li>
-								</ul> <!-- sub-menu end--></li>
+								<!-- sub-menu end--></li>
 							<li><a href="/Cornucopia/item/About">盈+商学院</a></li>
 							<li><a href="/Cornucopia/item/Join">投研中心</a></li>
 							<li><a href="/Cornucopia/item/Contact">我的加法库</a></li>
@@ -148,66 +210,9 @@
 								<div class="container">
 									<div class="am-g">
 										<div class="am-u-md-10 am-u-sm-centered">
-											<h1 class="slide_simple--title">企业移动化，首选云适配</h1>
+											<h1 class="slide_simple--title">盈+理财，让你的钱聪明起来</h1>
 											<p class="slide_simple--text am-text-left">
-												全球领先的HTML5企业移动化解决方案供应商，安全高效的帮助您的企业移动化。云适配企业浏览器Enterploer,让企业安全迈进移动办公时代！
-											</p>
-											<div class="slide_simple--buttons">
-												<button type="button" class="am-btn am-btn-danger">了解更多</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div data-tab-panel-1 class="am-tab-panel ">
-						<div class="index-banner">
-							<div class="index-mask">
-								<div class="container">
-									<div class="am-g">
-										<div class="am-u-md-10 am-u-sm-centered">
-											<h1 class="slide_simple--title">企业移动化，首选云适配</h1>
-											<p class="slide_simple--text am-text-left">
-												全球领先的HTML5企业移动化解决方案供应商，安全高效的帮助您的企业移动化。云适配企业浏览器Enterploer,让企业安全迈进移动办公时代！
-											</p>
-											<div class="slide_simple--buttons">
-												<button type="button" class="am-btn am-btn-danger">了解更多</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div data-tab-panel-2 class="am-tab-panel ">
-						<div class="index-banner">
-							<div class="index-mask">
-								<div class="container">
-									<div class="am-g">
-										<div class="am-u-md-10 am-u-sm-centered">
-											<h1 class="slide_simple--title">企业移动化，首选云适配</h1>
-											<p class="slide_simple--text am-text-left">
-												全球领先的HTML5企业移动化解决方案供应商，安全高效的帮助您的企业移动化。云适配企业浏览器Enterploer,让企业安全迈进移动办公时代！
-											</p>
-											<div class="slide_simple--buttons">
-												<button type="button" class="am-btn am-btn-danger">了解更多</button>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-					<div data-tab-panel-3 class="am-tab-panel ">
-						<div class="index-banner">
-							<div class="index-mask">
-								<div class="container">
-									<div class="am-g">
-										<div class="am-u-md-10 am-u-sm-centered">
-											<h1 class="slide_simple--title">企业移动化，首选云适配</h1>
-											<p class="slide_simple--text am-text-left">
-												全球领先的HTML5企业移动化解决方案供应商，安全高效的帮助您的企业移动化。云适配企业浏览器Enterploer,让企业安全迈进移动办公时代！
+											<h3>我们要求高收益的同时更注重资金的安全，月月钱滚钱，月月可提现!</h3>
 											</p>
 											<div class="slide_simple--buttons">
 												<button type="button" class="am-btn am-btn-danger">了解更多</button>
@@ -219,49 +224,6 @@
 						</div>
 					</div>
 				</div>
-
-				<ul class="am-tabs-nav am-cf index-tab">
-					<li class="am-active"><a href="[data-tab-panel-0] am-g">
-							<div class="am-u-md-3 am-u-sm-3 am-padding-right-0">
-								<i class="am-icon-cog"></i>
-							</div>
-							<div class="school-item-right am-u-md-9 am-u-sm-9 am-text-left">
-								<strong class="promo_slider_nav--item_title">办公移动化</strong>
-								<p class="promo_slider_nav--item_description">Enterplorer
-									企业浏览器</p>
-							</div>
-					</a></li>
-					<li class="a"><a href="[data-tab-panel-1] am-g">
-							<div class="am-u-md-3 am-u-sm-3 am-padding-right-0">
-								<i class="am-icon-lightbulb-o"></i>
-							</div>
-							<div class="school-item-right am-u-md-9 am-u-sm-9 am-text-left">
-								<strong class="promo_slider_nav--item_title">网站移动化</strong>
-								<p class="promo_slider_nav--item_description">Xcloud 网站跨屏云</p>
-							</div>
-					</a></li>
-					<li class=""><a href="[data-tab-panel-2] am-g">
-							<div class="am-u-md-3 am-u-sm-3 am-padding-right-0">
-								<i class="am-icon-line-chart"></i>
-							</div>
-							<div class="school-item-right am-u-md-9 am-u-sm-9 am-text-left">
-								<strong class="promo_slider_nav--item_title">HTML5移动开发</strong>
-								<p class="promo_slider_nav--item_description">Amaze UI
-									前端开发框架</p>
-							</div>
-					</a></li>
-					<li class=""><a href="[data-tab-panel-3] am-g">
-							<div class="am-u-md-3 am-u-sm-3 am-padding-right-0">
-								<i class="am-icon-hourglass-end"></i>
-							</div>
-							<div class="school-item-right am-u-md-9 am-u-sm-9 am-text-left">
-								<strong class="promo_slider_nav--item_title">How We
-									Work</strong>
-								<p class="promo_slider_nav--item_description">Lorem ipsum
-									asmo dolor</p>
-							</div>
-					</a></li>
-				</ul>
 			</div>
 
 		</div>
@@ -270,23 +232,29 @@
 	<div class="panel panel-primary"
 		style="margin-left: 502px; width: 700px; height: 30px; margin-top: 10px;">
 		<div style="margin-left: 20px; width: 100px; margin-top: 4px;">
-		<img alt="" src="../assets/images/gg.jpg" style="width: 20px;height: 20px;"><h3 class="panel-title" style="margin-left: 20px;margin-top: -18px;">最新公告:</h3>
+			<img alt="" src="../assets/images/gg.jpg"
+				style="width: 20px; height: 20px;">
+			<h3 class="panel-title" style="margin-left: 20px; margin-top: -18px;">最新公告:</h3>
 		</div>
-		<div class="panel-body"
-			style="margin-left: 150px; width: 400px; margin-top: -35px;">
-			这是一个神奇的公告栏，不信你点一点</div>
+		<div class="box" style="margin-left: 80px;margin-top: -73px;">
+    <ul id="box-ul">
+    <c:forEach items="${list}" var="s" varStatus="stat">
+        <li><a href="#" onclick="fun(${s.id})">${s.title}</a></li>
+        </c:forEach>
+    </ul>
+</div>
 	</div>
 
-	
 
-	
+
+
 
 	<div class="section" style="border-bottom: 1px solid #e9e9e9;">
 		<div class="container">
 			<div class="section--header">
 				<h2 class="section--title">我们的服务</h2>
 				<p class="section--description">
-					全球领先HTML5企业移动化解决方案供应商，由前微软美国总部IE浏览器核心研发团队成员及移动互联网行业专家在美国西雅图创立 <br>获得了微软创投的扶持以及晨兴资本、IDG资本、天创资本等国际顶级风投机构的投资。
+					来自三阳科技的实力最强颜值最高得的team为您倾心打造，让你用得放心用得开心。在线客服1号康熙二十四小时全心全意为您排忧解答，欢迎致电欢迎骚扰，联系方式15278733243。
 				</p>
 			</div>
 
@@ -300,8 +268,8 @@
 							<div class="service_item--text">
 								<p>标签栏可切换，不必为了新内容而被迫跳转界面，多项工作内容并行处理</p>
 							</div>
-							<footer class="service_item--footer">
-							<a href="#" class="link -blue_light">Learn More>></a></footer>
+							<footer class="service_item--footer"> <a href="#"
+								class="link -blue_light">Learn More>></a></footer>
 						</div>
 					</div>
 
@@ -312,8 +280,8 @@
 							<div class="service_item--text">
 								<p>集成企业内网所有资源，OA、CRM、ERP、邮件系统，单点登录，无需重复输入密码</p>
 							</div>
-							<footer class="service_item--footer">
-							<a href="#" class="link -blue_light">Learn More>></a></footer>
+							<footer class="service_item--footer"> <a href="#"
+								class="link -blue_light">Learn More>></a></footer>
 						</div>
 					</div>
 
@@ -324,8 +292,8 @@
 							<div class="service_item--text">
 								<p>办公流程太多，搜索框输入（或语音输入），可以快速找到核心内容</p>
 							</div>
-							<footer class="service_item--footer">
-							<a href="#" class="link -blue_light">Learn More>></a></footer>
+							<footer class="service_item--footer"> <a href="#"
+								class="link -blue_light">Learn More>></a></footer>
 						</div>
 					</div>
 
@@ -336,8 +304,8 @@
 							<div class="service_item--text">
 								<p>不方便打字时，可以直接用语音输入想要的内容，使您的双手得到解放</p>
 							</div>
-							<footer class="service_item--footer">
-							<a href="#" class="link -blue_light">Learn More>></a></footer>
+							<footer class="service_item--footer"> <a href="#"
+								class="link -blue_light">Learn More>></a></footer>
 						</div>
 					</div>
 				</div>
@@ -562,9 +530,9 @@
 	<script src="../assets/js/jquery-2.1.0.js" charset="utf-8"></script>
 	<script src="../assets/js/amazeui.js" charset="utf-8"></script>
 	<script src="../assets/js/common.js" charset="utf-8"></script>
-	
 
-	
+
+
 </body>
 
 </html>

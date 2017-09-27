@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,10 +26,14 @@ import com.cornucopia.bean.Resources;
 import com.cornucopia.bean.Subject;
 import com.cornucopia.bean.SubjectPurchaseRecord;
 import com.cornucopia.bean.UserRole;
+import com.cornucopia.bean.Users;
 import com.cornucopia.service.PM_NewsService;
 import com.cornucopia.service.PM_UserManagementService;
 import com.cornucopia.service.PM_UserService;
 import com.cornucopia.service.ValidateService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.passwordauthentification.MD5Aauthentification;
 
 @Controller
 @RequestMapping("BgItem")
@@ -36,7 +41,7 @@ public class BKjumpController {
 
 	@Resource
 	private PM_UserService PM_UserServiceImpl;
-
+	MD5Aauthentification mD5Aauthentification=new MD5Aauthentification();
 	@Resource
 	private PM_UserService PM_UserRoleServiceImpl;
 
@@ -56,7 +61,36 @@ public class BKjumpController {
 	public String BgMain() {
 		return "BgMain";
 	}
-
+	// 后台主页
+		@RequestMapping("PsssWorld")
+		public String PsssWorld(HttpSession session,Model model) {
+			String mname=(String) session.getAttribute("user_name");
+			Users users=PM_UserServiceImpl.getByName(mname);
+			model.addAttribute("users", users);
+			return "PsssWorld";
+		}
+		// 查询手机号是否已经注册
+		@ResponseBody
+		@RequestMapping("PsssWorldYZ")
+		public String booPhone(String ps1,HttpSession session) {
+			String mname=(String) session.getAttribute("user_name");
+			Users users=PM_UserServiceImpl.getByName(mname);
+			String password1=mD5Aauthentification.MD5Chains(users.getUser_name(),ps1);
+			boolean boo=false;
+			if(password1.equals(users.getPassword())){
+				boo=true;
+			}
+			Map<String, Boolean> map = new HashMap<>();
+			map.put("valid", boo);
+			ObjectMapper mapper = new ObjectMapper();
+			String resultString = "";
+			try {
+				resultString = mapper.writeValueAsString(map);
+			} catch (JsonProcessingException e) {
+				e.printStackTrace();
+			}
+			return resultString;
+		}
 	// // 后台提现
 	// @RequestMapping("BgwithdrawDeposit")
 	// public String BgwithdrawDeposit(HttpSession session) {
@@ -92,11 +126,11 @@ public class BKjumpController {
 	public String BgAMX(Model model, int memberId, String mname) {
 		Member memberslist = ValidateImpl.member(mname);
 		List<SubjectPurchaseRecord> subjectPurchaseRecorList = AG_ProductServiceImpl
-				.GetSubjectPurchaseRecordByid(memberslist.getId());
+				.GetSubjectPurchaseRecordByid1(memberslist.getId());
 		List<MemberDepositRecord> memberDepositRecord = AG_ProductServiceImpl
-				.GetMemberDepositRecordByid(memberslist.getId());
+				.GetMemberDepositRecordByid1(memberslist.getId());
 		List<MembeWithdrawRecord> membeWithdrawRecord = AG_ProductServiceImpl
-				.GetMembeWithdrawRecordByid(memberslist.getId());
+				.GetMembeWithdrawRecordByid1(memberslist.getId());
 		List<MemberTradeRecord> memberTradeRecord = AG_ProductServiceImpl.GetmemberTradeRecordByid(memberslist.getId());
 		MemberAccount MAccount = AG_ProductServiceImpl.UpdateMemberAccount(memberslist.getId());
 		List<AwardRecordsVo> AwardRecords = ValidateImpl.AwardRecordsListVo(memberId);
@@ -290,18 +324,18 @@ public class BKjumpController {
 		@RequestMapping("BgStade")
 		public String BgStade(Model model,String trade_no,String mobile_Phone,String trade_type,String trade_status,String create_date) {
 			Map map=new HashMap<>();
-//			map.put("trade_no", trade_no);
-//			map.put("mobile_Phone", mobile_Phone);
-//			map.put("trade_type", trade_type);
-//			map.put("trade_status", trade_status);
-//			map.put("create_date", create_date);
+			map.put("trade_no", trade_no);
+			map.put("mobile_Phone", mobile_Phone);
+			map.put("trade_type", trade_type);
+			map.put("trade_status", trade_status);
+			map.put("create_date", create_date);
 			List<MemberTradeRecord> list=ValidateImpl.MemberTradeRecordListAll(map);
 			model.addAttribute("list", list);
-//			model.addAttribute("trade_no", trade_no);
-//			model.addAttribute("mobile_Phone", mobile_Phone);
-//			model.addAttribute("trade_type", trade_type);
-//			model.addAttribute("trade_status", trade_status);
-//			model.addAttribute("create_date", create_date);
+			model.addAttribute("trade_no", trade_no);
+			model.addAttribute("mobile_Phone", mobile_Phone);
+			model.addAttribute("trade_type", trade_type);
+			model.addAttribute("trade_status", trade_status);
+			model.addAttribute("create_date", create_date);
 			return "BgStade";
 		}
 		

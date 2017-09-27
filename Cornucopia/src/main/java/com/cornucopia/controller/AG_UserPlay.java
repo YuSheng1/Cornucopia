@@ -128,7 +128,7 @@ public class AG_UserPlay {
 		// 标的购买表修改时间
 		subjectPurchaseRecord.setUpdate_date(memberTradeRecord.getCreate_date());
 		// 标的购买表添加利息 这个会动态改变
-		subjectPurchaseRecord.setInterset(amount+amount*(subject.getYear_rate()));
+		subjectPurchaseRecord.setInterset(((amount*(subject.getYear_rate()))/365)*subject.getPeriod());
 		// 标的购买表是否还款
 		subjectPurchaseRecord.setIspayment(0);
 		// 表的购买表次数 判断这个人是否买了这个标
@@ -156,6 +156,7 @@ public class AG_UserPlay {
 		memberProfitRecord.setCreate_date(memberTradeRecord.getCreate_date());
 		// 添加用户利润表修改时间
 		memberProfitRecord.setUpdate_date(memberTradeRecord.getCreate_date());
+		memberProfitRecord.setAmount(((amount*(subject.getYear_rate()))/365)*subject.getPeriod());
 		// 添加用户利润表备注
 		memberProfitRecord.setComment(subject.getName() + "收益");
 		// 添加用户利润表计息年

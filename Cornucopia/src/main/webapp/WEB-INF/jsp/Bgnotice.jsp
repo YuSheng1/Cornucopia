@@ -19,7 +19,6 @@
 <script src="../BgAssets/js/bootstrapValidator.min.js"></script>
 <link href="../assets/css/metroStyle.css" rel="stylesheet" />
 <link href="../BgAssets/css/bootstrapValidator.min.css" rel="stylesheet" />
- 
  <script type="text/javascript"  src="/Cornucopia/utf8-jsp/ueditor.config.js"></script>
     <script type="text/javascript"  src="/Cornucopia/utf8-jsp/ueditor.all.min.js"> </script>
     <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
@@ -30,7 +29,6 @@
 <%String datetime = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(Calendar.getInstance().getTime()); //获取系统时间%>
 
 </script>
-
 <script type="text/javascript">
 $(function () {
     $('#form').bootstrapValidator({message: 'This value is not valid',feedbackIcons: {valid: 'glyphicon glyphicon-ok',invalid: 'glyphicon glyphicon-remove',validating: 'glyphicon glyphicon-refresh' },
@@ -67,7 +65,7 @@ $(function () {
 
 </head>
 <body>
-
+<form method="post" id="form1	">
 	<div class="place">
     <span>公告管理</span>
     </div>
@@ -110,7 +108,7 @@ $(function () {
     </div>
     
     
-    <table class="imgtable">
+    <table class="imgtable ">
     
     <thead>
     <tr>
@@ -128,8 +126,9 @@ $(function () {
 		<td>${e.id }</td><td>公告</td><td>${e.title }</td><td>${e.create_date }</td>
 		<td>
 	<ul class="menuson">
-        <li><a href="/Cornucopia/push/cha?id=${e.id}" target="rightFrame">查看</a></li>
-        <li><a href="/Cornucopia/push/updatebyid?id=${e.id}" target="rightFrame">编辑</a></li>
+        <li><a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/push/cha?id=${e.id}" target="rightFrame">查看</a></li>
+        <li><a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/push/updatebyid?id=${e.id}" target="rightFrame">编辑</a></li>
+    
     </ul>
 		</td>
 		</tr>
@@ -186,24 +185,15 @@ $(function () {
 		<!-- /.modal -->
 	</div>
 	
-    <div class="pagin">
-    	<div class="message">共<i class="blue">1256</i>条记录，当前显示第&nbsp;<i class="blue">2&nbsp;</i>页</div>
-        <ul class="paginList">
-        <li class="paginItem"><a href="javascript:;"><span class="pagepre"></span></a></li>
-        <li class="paginItem"><a href="javascript:;">1</a></li>
-        <li class="paginItem current"><a href="javascript:;">2</a></li>
-        <li class="paginItem"><a href="javascript:;">3</a></li>
-        <li class="paginItem"><a href="javascript:;">4</a></li>
-        <li class="paginItem"><a href="javascript:;">5</a></li>
-        <li class="paginItem more"><a href="javascript:;">...</a></li>
-        <li class="paginItem"><a href="javascript:;">10</a></li>
-        <li class="paginItem"><a href="javascript:;"><span class="pagenxt"></span></a></li>
-        </ul>
+    <div class="pagin" style="text-align: center;">
+    <div class="message">共<i class="blue">${pb.total }</i>条记录，当前显示第&nbsp;<i class="blue">${pb.page }</i>页</div> 
+    	<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/push/list?flag=first&page=${pb.page }">首页</a>
+		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/push/list?flag=up&page=${pb.page }">上一页</a>
+		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/push/list?flag=next&page=${pb.page }">下一页</a>
+		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/push/list?flag=last&page=${pb.page }">末页</a>
     </div>
-
-    
     </div>
-
+</form>
      
     
 <script type="text/javascript">

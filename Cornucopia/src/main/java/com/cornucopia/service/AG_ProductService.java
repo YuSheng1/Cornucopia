@@ -1,14 +1,17 @@
 package com.cornucopia.service;
 
 import java.util.List;
+import java.util.Map;
 
 import com.cornucopia.bean.SysRegion;
 
 public interface AG_ProductService {
 	// 前台产品类操作
 	public <T> T getBySubjectId(int id);
+	public <T> T GetPushNotice();
 
 	public <T> T getBySubjectPurchaseRecordId(Object... object);
+
 
 	public void UpdateSubjectPurchaseRecord(Object... object);
 
@@ -29,6 +32,9 @@ public interface AG_ProductService {
 
 	// 往购买标的标添加数据
 	public void saveSubjectPurchaseRecord(Object... object);
+	// 往购买标的标添加数据
+		public void updateSubjectPurchaseRecord(Object... object);
+	
 
 	// 往成员利润记录表添加数据
 	public void saveMemberProfitRecord(Object... object);
@@ -54,16 +60,19 @@ public interface AG_ProductService {
 	public void updateAlipayTradePagePay(Object... object);
 
 	// 根据用户id查询SubjectPurchaseRecord
-	public <T> T GetSubjectPurchaseRecordByid(int mid);
+	public <T> T GetSubjectPurchaseRecordByid(int mid,Map map);
 
 	// 根据id查询充值记录表
-	public <T> T GetMemberDepositRecordByid(int mid);
-
+	public <T> T GetMemberDepositRecordByid(int mid,Map map);
+	public <T> T GetMemberDepositRecordByid1(int mid);
+	public <T> T GetSubjectPurchaseRecordByid1(int mid);
 	// 根据id查询充值记录表
 	public <T> T GetmemberTradeRecordByid(int mid);
 
 	// 根据id查询提款记录表
-	public <T> T GetMembeWithdrawRecordByid(int mid);
+	public <T> T GetMembeWithdrawRecordByid(int mid,Map map);
+	// 根据id查询提款记录表
+		public <T> T GetMembeWithdrawRecordByid1(int mid);
 
 	// 根据id查询英航卡绑定表
 	public <T> T GetMemberBankcardsByid(int mid);

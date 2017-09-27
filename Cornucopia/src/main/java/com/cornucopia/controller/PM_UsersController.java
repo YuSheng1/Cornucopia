@@ -73,7 +73,17 @@ public class PM_UsersController {
 		PM_UserServiceImpl.save(user);
 		return "redirect:/BgItem/BgUserPermission";
 	}
-
+	// 修改用户角色
+		@RequestMapping("updatePassworld")
+		public String updatePassworld(String ps2, String update_date,HttpSession session) {
+			String name=(String) session.getAttribute("user_name");
+			Users user = PM_UserServiceImpl.getByName(name);
+			String password1=mD5Aauthentification.MD5Chains(user.getUser_name(),ps2);
+			user.setPassword(password1);
+			PM_UserServiceImpl.save(user);
+			return "redirect:/BgItem/BgLogin";
+		}
+	
 	// 删除用户
 	@RequestMapping("del")
 	public String del(int delid, String delname) {

@@ -34,8 +34,8 @@ public class PM_PushNoticeServiceImpl<T> implements PM_PushNoticeService{
 
 	//≤È—Ø
 	@Override
-	public List<PushNotice> ListAll(Object...objects) {
-		List<PushNotice> plist=pushNoticeDao.ListAll(objects);
+	public List<PushNotice> ListPush(Map map) {
+		List<PushNotice> plist=pushNoticeDao.ListAll(map);
 		return plist;
 	}
 
@@ -52,6 +52,12 @@ public class PM_PushNoticeServiceImpl<T> implements PM_PushNoticeService{
 		System.out.println("qqq");
 		pushNoticeDao.update(object);
 		
+	}
+
+	@Override
+	public <T> List<T> ListAll(Object... obj) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

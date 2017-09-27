@@ -22,6 +22,15 @@
 <script src="../BgAssets/js/bootstrapValidator.min.js"></script>
 <link href="../assets/css/metroStyle.css" rel="stylesheet" />
 <link href="../BgAssets/css/bootstrapValidator.min.css" rel="stylesheet" />
+<style type="text/css">
+
+#cha {
+  position: absolute;
+  left: 650px;
+  top: 200px;
+  width: 50%
+}
+</style>
 </head>
 <script type="text/javascript">
 	$(function() {
@@ -145,20 +154,10 @@
 					<div class="nav-inner">
 						<ul class="am-nav am-nav-pills am-nav-justify">
 							<li class=""><a href="/Cornucopia/item/Index">首页</a></li>
-							<li><a href="#">网上体验中心</a> <!-- sub-menu start-->
-								<ul class="sub-menu">
-									<li class="menu-item"><a href="/Cornucopia/item/Product1">产品展示1</a></li>
-									<li class="menu-item"><a href="/Cornucopia/item/Product2">产品展示2</a></li>
-									<li class="menu-item"><a href="/Cornucopia/item/Product3">产品展示3</a></li>
-								</ul> <!-- sub-menu end--></li>
 							<li><a href="/Cornucopia/AGSub/subject">产品中心</a></li>
 							<li><a href="/Cornucopia/item/Solution">下载中心</a></li>
 							<li><a href="/Cornucopia/item/News">新闻中心</a> <!-- sub-menu start-->
-								<ul class="sub-menu">
-									<li class="menu-item"><a href="/Cornucopia/item/NewsC">盈+商学院</a></li>
-									<li class="menu-item"><a href="html/404-dark.html">行业动态</a></li>
-									<li class="menu-item"><a href="html/404-light.html">精彩专题</a></li>
-								</ul> <!-- sub-menu end--></li>
+								 <!-- sub-menu end--></li>
 							<li><a href="/Cornucopia/item/About">盈+商学院</a></li>
 							<li><a href="/Cornucopia/item/Join">投研中心</a></li>
 							<li><a href="/Cornucopia/item/Contact">我的加法库</a></li>
@@ -172,17 +171,17 @@
 
 		<!--mobile header end-->
 	</div>
-	<div class="section" style="margin-top: -151px;">
+	<div class="section" style="margin-top: -151px; ">
 		<div class="container">
 
 
-			<div class="section-container">
-				<div class="am-g">
+			<div class="section-container"  style="margin-top: 20px;width: 600px;height: 600px;margin-left: -20px;">
+				<div class="am-g" style="margin-top: 20px;width: 800px;height: 800px;margin-left: -20px;">
 					<!--contact-left start-->
-					<div class="am-u-md-5">
+					<div class="am-u-md-5" >
 						<ul class="contact-left">
 							<li class="contact-box-item">
-								<div class="contact_item">
+								<div class="contact_item"  >
 									<i class="contact_item--icon am-icon-phone"></i>
 									<h3 class="contact_item--title">联系我们</h3>
 									<p class="contact_item--text">
@@ -191,8 +190,8 @@
 									</p>
 								</div>
 							</li>
-							<li class="contact-item">
-								<div class="contact_item">
+							<li class="contact-item"> 
+								<div class="contact_item" >
 									<i class="contact_item--icon am-icon-envelope-o"></i>
 									<h3 class="contact_item--title">Drop a Line</h3>
 									<p class="contact_item--text">
@@ -219,22 +218,22 @@
 	</div>
 				<!-- 用户登陆 -->
 						<!--contact-right start-->
-							<div class="row" style="margin-top: -10px;margin-left: 130px;">
-            <div class="col-lg-4 col-lg-offset-4">
+							<div  style="width: 500px;height: 300px;margin-top: 100px;" id="cha" class="row">
+            <div class="col-lg-4 col-lg-offset-4" style="width: 400px;height: 300px;">
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">用户登录
           </h3>
                     </div>
-                    <div class="panel-body">
+                    <div class="panel-body" style="width: 400px;height: 270px;">
                        	<form id="formupdate" method="post"  action="/Cornucopia/AgUserItem/toMain">
-                            <div class="form-group">
+                            <div class="form-group" style="width: 300px;">
                                 <label>用户名:</label>
-                                 <input type="text" class="form-control"  name="Lname" id="Lname">
+                                 <input type="text" class="form-control"  name="Lname" id="Lname" style="width: 300px;" value="pangzi" >
                             </div>
-                            <div class="form-group">
-                                <label>角色备注:</label>
-                               <input  type="text" class="form-control"  name="Lpassworld" id="Lpassworld"/>
+                            <div class="form-group" style="width: 300px;">
+                                <label>密码:</label>
+                               <input  type="text" class="form-control"  name="Lpassworld" id="Lpassworld" style="width: 300px;" value="pang" />
                             </div>
 <font color="red" style="font-size: 15px">${message}</font>
                             <div class="form-group">

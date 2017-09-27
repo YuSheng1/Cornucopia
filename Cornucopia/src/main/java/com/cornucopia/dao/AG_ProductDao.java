@@ -1,6 +1,7 @@
 package com.cornucopia.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -13,6 +14,8 @@ import com.cornucopia.bean.MemberAccount;
 import com.cornucopia.bean.MemberBankcards;
 import com.cornucopia.bean.MemberDepositRecord;
 import com.cornucopia.bean.MemberTradeRecord;
+import com.cornucopia.bean.PageBean;
+import com.cornucopia.bean.PushNotice;
 import com.cornucopia.bean.Resources;
 import com.cornucopia.bean.Subject;
 import com.cornucopia.bean.SubjectPurchaseRecord;
@@ -33,6 +36,12 @@ public class AG_ProductDao {
 	public List<SysRegion> saveGetregion(Object... objects) {
 		Session session = getsession();
 		String sql = " from SysRegion p where p.region_level=1";
+		List list = session.createQuery(sql).list();
+		return list;
+	}
+	public List<PushNotice> GetPushNotice(Object... objects) {
+		Session session = getsession();
+		String sql = " from PushNotice";
 		List list = session.createQuery(sql).list();
 		return list;
 	}
@@ -64,26 +73,90 @@ public class AG_ProductDao {
 	public List<SubjectPurchaseRecord> GetSubjectPurchaseRecord(Object... objects) {
 		Session session = getsession();
 		String sql = " from SubjectPurchaseRecord p where p.subject.id=" + objects[0] + " and p.member.id="
-				+ objects[1];
+				+ objects[1] + " order by create_date desc ";
 		List list = session.createQuery(sql).list();
 		return list;
 	}
 
-	// 根据ID查询产品购买表操作
-	public List<SubjectPurchaseRecord> GetSubjectPurchaseRecordByid(int mid) {
-		Session session = getsession();
-		String sql = " from SubjectPurchaseRecord p where p.member.id=" + mid;
-		List list = session.createQuery(sql).list();
-		if (list.size() > 0) {
+//	// 根据ID查询产品购买表操作
+//	public List<SubjectPurchaseRecord> GetSubjectPurchaseRecordByid(int mid) {
+//		Session session = getsession();
+//		String sql = " from SubjectPurchaseRecord p where p.member.id=" + mid;
+//		List list = session.createQuery(sql).list();
+//		if (list.size() > 0) {
+//			return list;
+//		}
+//		return null;
+//	}
+	
+	//根据Id查询投资记录
+		public List<SubjectPurchaseRecord>  GetSubjectPurchaseRecordByid(Map map,int mid){
+			String hql="from SubjectPurchaseRecord p where p.member.id=" + mid;
+			PageBean pb=(PageBean)map.get("pb");
+			int page=pb.getPage();
+			int size=pb.getSize();
+			String flag=(String)map.get("flag");
+			int count=countNum(map, mid);
+			pb.setTotal(count);
+			
+			if(flag!=null){
+				if("next".equals(flag)){
+					if(page+1>pb.getTotalpage()){
+						page=pb.getTotalpage();
+					}else{
+						page=page+1;
+					}
+				}
+				if("up".equals(flag)){
+					if(page-1<1){
+						page=1;
+					}else{
+						page=page-1;
+					}
+				}
+				if("first".equals(flag)){
+					page=1;
+				}
+				if("last".equals(flag)){
+					page=pb.getTotalpage();
+				}
+			}
+			pb.setPage(page);
+			Session session=getsession();
+			System.out.println("sdfs");
+			List<SubjectPurchaseRecord> list=session.createQuery(hql).setFirstResult((page-1)*size).setMaxResults(size).list();
 			return list;
 		}
-		return null;
-	}
+		public List<SubjectPurchaseRecord>  GetSubjectPurchaseRecordByid1(int mid){
+			String hql="from SubjectPurchaseRecord p where p.member.id=" + mid;
+			Session session=getsession();
+			List<SubjectPurchaseRecord> list=session.createQuery(hql).list();
+			return list;
+		}
+		public List<MembeWithdrawRecord>  GetMembeWithdrawRecordByid1(int mid){
+			String hql="from MembeWithdrawRecord p where p.member.id=" + mid;
+			Session session=getsession();
+			List<MembeWithdrawRecord> list=session.createQuery(hql).list();
+			return list;
+		}
+		public List<MemberDepositRecord>  GetMemberDepositRecordByid1(int mid){
+			String hql="from MemberDepositRecord p where p.member.id=" + mid;
+			Session session=getsession();
+			List<MemberDepositRecord> list=session.createQuery(hql).list();
+			return list;
+		}
+		public int countNum(Map map,int mid){
+			String sql=" select count(*) from subject_purchase_record s ,member m where s.member_id=m.id and m.id="+mid;
+			Session session=getsession();
+			int count=Integer.valueOf(session.createSQLQuery(sql).uniqueResult().toString());
+			return count;
+		}
+	
 
 	// 根据ID查询产品购买表操作
 	public List<MemberTradeRecord> GetmemberTradeRecordByid(int mid) {
 		Session session = getsession();
-		String sql = " from MemberTradeRecord p where p.member.id=" + mid;
+		String sql = " from MemberTradeRecord p where p.member.id=" + mid+ " order by create_date desc ";
 		List list = session.createQuery(sql).list();
 		if (list.size() > 0) {
 			return list;
@@ -92,25 +165,96 @@ public class AG_ProductDao {
 	}
 
 	// 根据id查询充值记录表
-	public List<MemberDepositRecord> GetMemberDepositRecordByid(int mid) {
-		Session session = getsession();
+	public List<MemberDepositRecord> GetMemberDepositRecordByid(int mid,Map map) {
 		String sql = " from MemberDepositRecord m where m.member.id=" + mid + " order by create_date desc";
-		List list = session.createQuery(sql).list();
+		PageBean pb=(PageBean)map.get("pb");
+		int page=pb.getPage();
+		int size=pb.getSize();
+		String info=(String)map.get("info");
+		int count=countNum1(map, mid);
+		pb.setTotal(count);
+		
+		if(info!=null){
+			if("next".equals(info)){
+				if(page+1>pb.getTotalpage()){
+					page=pb.getTotalpage();
+				}else{
+					page=page+1;
+				}
+			}
+			if("up".equals(info)){
+				if(page-1<1){
+					page=1;
+				}else{
+					page=page-1;
+				}
+			}
+			if("first".equals(info)){
+				page=1;
+			}
+			if("last".equals(info)){
+				page=pb.getTotalpage();
+			}
+		}
+		pb.setPage(page);
+		Session session=getsession();
+		System.out.println("sdfs");
+		List<MemberDepositRecord> list=session.createQuery(sql).setFirstResult((page-1)*size).setMaxResults(size).list();
+		return list;
+	}
+	public int countNum1(Map map,int mid){
+		String sql=" select count(*) from member_deposit_record md ,member m where md.member_id=m.id and m.id="+mid;
+		Session session=getsession();
+		int count=Integer.valueOf(session.createSQLQuery(sql).uniqueResult().toString());
+		return count;
+	}
+
+	// 根据id查询提款记录表
+	public List<MembeWithdrawRecord> GetMembeWithdrawRecordByid(int mid,Map map) {
+		String sql = " from MembeWithdrawRecord m where m.member.id=" + mid + " order by create_date desc";
+		PageBean pb=(PageBean)map.get("pb");
+		int page=pb.getPage();
+		int size=pb.getSize();
+		String note=(String)map.get("note");
+		int count=countNum2(map, mid);
+		pb.setTotal(count);
+		
+		if(note!=null){
+			if("next".equals(note)){
+				if(page+1>pb.getTotalpage()){
+					page=pb.getTotalpage();
+				}else{
+					page=page+1;
+				}
+			}
+			if("up".equals(note)){
+				if(page-1<1){
+					page=1;
+				}else{
+					page=page-1;
+				}
+			}
+			if("first".equals(note)){
+				page=1;
+			}
+			if("last".equals(note)){
+				page=pb.getTotalpage();
+			}
+		}
+		pb.setPage(page);
+		Session session=getsession();
+		System.out.println("sdfs");
+		List<MembeWithdrawRecord> list=session.createQuery(sql).setFirstResult((page-1)*size).setMaxResults(size).list();
 		if (list.size() > 0) {
 			return list;
 		}
 		return null;
 	}
-
-	// 根据id查询提款记录表
-	public List<MembeWithdrawRecord> GetMembeWithdrawRecordByid(int mid) {
-		Session session = getsession();
-		String sql = " from MembeWithdrawRecord m where m.member.id=" + mid + " order by create_date desc";
-		List list = session.createQuery(sql).list();
-		if (list.size() > 0) {
-			return list;
-		}
-		return null;
+	public int countNum2(Map map,int mid){
+		String sql=" select count(*) from member_withdraw_record md ,member m where md.member_id=m.id and m.id="+mid;
+		Session session=getsession();
+		int count=Integer.valueOf(session.createSQLQuery(sql).uniqueResult().toString());
+		return count;
 	}
 
 	// 根据流水号查询提款记录表
@@ -242,7 +386,11 @@ public class AG_ProductDao {
 		Session session = getsession();
 		session.save(object[0]);
 	}
-
+	// 往购买标的标添加数据
+		public void updateSubjectPurchaseRecord(Object... object) {
+			Session session = getsession();
+			session.update(object[0]);
+		}
 	// 往购买标的标添加数据
 	public void saveMemberProfitRecord(Object... object) {
 		Session session = getsession();

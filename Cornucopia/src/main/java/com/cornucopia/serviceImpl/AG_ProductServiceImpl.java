@@ -1,16 +1,17 @@
 package com.cornucopia.serviceImpl;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import com.cornucopia.bean.FinanceProductFunds;
 import com.cornucopia.bean.MembeWithdrawRecord;
 import com.cornucopia.bean.MemberAccount;
 import com.cornucopia.bean.MemberBankcards;
 import com.cornucopia.bean.MemberDepositRecord;
 import com.cornucopia.bean.MemberTradeRecord;
+import com.cornucopia.bean.PushNotice;
 import com.cornucopia.bean.Subject;
 import com.cornucopia.bean.SubjectPurchaseRecord;
 import com.cornucopia.bean.SysRegion;
@@ -38,8 +39,8 @@ public class AG_ProductServiceImpl implements AG_ProductService {
 	}
 	//根据id查询充值记录表
 	@Override
-	public List<MemberDepositRecord> GetMemberDepositRecordByid(int id) {
-		List<MemberDepositRecord> memberDepositRecord = ag_ProductDao.GetMemberDepositRecordByid(id);
+	public List<MemberDepositRecord> GetMemberDepositRecordByid(int id,Map map) {
+		List<MemberDepositRecord> memberDepositRecord = ag_ProductDao.GetMemberDepositRecordByid(id,map);
 		return memberDepositRecord;
 	}
    //根据id查询银行卡绑定表
@@ -101,6 +102,13 @@ public class AG_ProductServiceImpl implements AG_ProductService {
 		ag_ProductDao.saveSubjectPurchaseRecord(object);
 
 	}
+	// 往购买标的标添加数据
+		@Override
+		public void updateSubjectPurchaseRecord(Object... object) {
+			ag_ProductDao.updateSubjectPurchaseRecord(object);
+
+		}
+	
 	@Override
 	public void saveAlipayTradePagePay(Object... object) {
 		ag_ProductDao.saveSubjectPurchaseRecord(object);
@@ -126,16 +134,27 @@ public class AG_ProductServiceImpl implements AG_ProductService {
 	}
 	@SuppressWarnings("unchecked")
 	@Override
-	public  List<SubjectPurchaseRecord> GetSubjectPurchaseRecordByid(int mid) {
-		List<SubjectPurchaseRecord> subjectPurchaseRecordlist=ag_ProductDao.GetSubjectPurchaseRecordByid(mid);
+	public  List<SubjectPurchaseRecord> GetSubjectPurchaseRecordByid(int mid,Map map) {
+		List<SubjectPurchaseRecord> subjectPurchaseRecordlist=ag_ProductDao.GetSubjectPurchaseRecordByid(map,mid);
 		return subjectPurchaseRecordlist;
 	}
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<MembeWithdrawRecord> GetMembeWithdrawRecordByid(int mid) {
-		List<MembeWithdrawRecord> membeWithdrawRecordlist=ag_ProductDao.GetMembeWithdrawRecordByid(mid);
+	public List<MembeWithdrawRecord> GetMembeWithdrawRecordByid(int mid,Map map) {
+		List<MembeWithdrawRecord> membeWithdrawRecordlist=ag_ProductDao.GetMembeWithdrawRecordByid(mid,map);
 		return membeWithdrawRecordlist;
 	}
+	@Override
+	public List<MembeWithdrawRecord> GetMembeWithdrawRecordByid1(int mid) {
+		List<MembeWithdrawRecord> membeWithdrawRecordlist=ag_ProductDao.GetMembeWithdrawRecordByid1(mid);
+		return membeWithdrawRecordlist;
+	}
+	@Override
+	public List<MemberDepositRecord> GetMemberDepositRecordByid1(int mid) {
+		List<MemberDepositRecord> membeWithdrawRecordlist=ag_ProductDao.GetMemberDepositRecordByid1(mid);
+		return membeWithdrawRecordlist;
+	}
+	
 	@Override
 	public void savesMemberAccount(Object... object) {
 		ag_ProductDao.savesMemberAccount(object);		
@@ -162,10 +181,21 @@ public class AG_ProductServiceImpl implements AG_ProductService {
 		List<MemberTradeRecord> memberTradeRecord=ag_ProductDao.GetmemberTradeRecordByid(mid);
 		return memberTradeRecord;
 	}
+	
 	@Override
 	public void saveAwardRecords(Object... object) {
 		ag_ProductDao.saveAwardRecords(object);
 		
+	}
+	@Override
+	public List<PushNotice> GetPushNotice() {
+		List<PushNotice> PushNotice=ag_ProductDao.GetPushNotice();
+		return PushNotice;
+	}
+	@Override
+	public List<SubjectPurchaseRecord> GetSubjectPurchaseRecordByid1(int mid) {
+		List<SubjectPurchaseRecord> subjectPurchaseRecordlist=ag_ProductDao.GetSubjectPurchaseRecordByid1(mid);
+		return subjectPurchaseRecordlist;
 	}
 	
 }

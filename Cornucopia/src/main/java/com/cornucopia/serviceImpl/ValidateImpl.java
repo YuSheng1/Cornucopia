@@ -168,4 +168,12 @@ public class ValidateImpl implements ValidateService {
 		}
 		return null;
 	}
+	@Override
+	public List<SubjectPurchaseRecord> SubjectPurchaseRecordListAll() {
+		List<SubjectPurchaseRecord> list=validateDao.SubjectPurchaseRecordListAll();
+		if (list.size()>0) {
+			return list;
+		}
+		return null;
+	}
 }

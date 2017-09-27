@@ -52,4 +52,10 @@ public class PM_FeedBackServiceImpl implements PM_PushNoticeService{
 		
 	}
 
+	@Override
+	public <T> T ListPush(Map map) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
