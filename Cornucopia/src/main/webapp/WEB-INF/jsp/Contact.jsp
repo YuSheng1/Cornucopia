@@ -26,6 +26,7 @@
 <link href="../assets/resources/css/common.css" rel="stylesheet">
 <link href="../assets/resources/css/jw.css" rel="stylesheet">
 <link href="../assets/resources/css/iconfont.css" rel="stylesheet">
+<script src="../BgAssets/js/bootstrapValidator.min.js"></script>
 <link href="../BgAssets/css/bootstrapValidator.min.css" rel="stylesheet" />
 <script type="text/javascript">
 $(function () { 
@@ -248,7 +249,7 @@ $(function () {
 		style="width: 200px; margin-top: 30px; margin-left: 350px;">
 		<h4>我的投资</h4>
 		<li ><a href="#touzi" data-toggle="tab"> 投资记录</a></li>
-		<li><a href="#yuyue" data-toggle="tab">预约记录</a></li>
+		<li><a href="#yuyue" style="display: none;" data-toggle="tab">预约记录</a></li>
 		<li><a href="#jine" data-toggle="tab">充值记录 </a></li>
 		<li><a href="#shouyi" data-toggle="tab">收益记录 </a></li>
 		<li><a href="#tikuan" data-toggle="tab">提款记录 </a></li>
@@ -297,7 +298,7 @@ $(function () {
 		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?flag=last&page=${pb.page }" onclick="fun1()">末页</a>
     </div>
 		</div>
-		<div class="tab-pane fade" id="yuyue"
+		<div class="tab-pane fade" id="yuyue" style="display: none;" 
 			style="margin-left: 600px; margin-top: -450px; width: 700px; height: 600px;">
 			<table class="table" width="700px" height="250px;">
 				<caption>
@@ -1149,6 +1150,26 @@ $(function () {
 		</div>
 	</div>
 	<script src="../assets/js/amazeui.js" charset="utf-8"></script>
+	<script type="text/javascript">
+$(function () { 
+	  $('#myTab a').click(function (e) {
+	        e.preventDefault()
+	        $(this).tab('show')
+	    })
+	var url = location.href; 
+	var c=url.substring(46,50);
+	  switch (c){
+      case 'flag':
+          $('#myTab a[href="#touzi"]').tab('show')
+          break;
+      case 'info':
+          $('#myTab a[href="#jine"]').tab('show')
+          break;
+      case 'tab3':
+          $('#myTab a[href="#tab3"]').tab('show')
+          break;
+   }     
+  }) </script>
 </body>
 
 </html>
