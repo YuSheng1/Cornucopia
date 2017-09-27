@@ -110,26 +110,12 @@
           <div class="nav-inner">
             <ul class="am-nav am-nav-pills am-nav-justify">
               <li class=""><a href="/Cornucopia/item/Index">首页</a></li>
-              <li>
-                 <a href="#">网上体验中心</a>
-                <!-- sub-menu start-->
-                <ul class="sub-menu">
-                  <li class="menu-item"><a href="/Cornucopia/item/Product1">产品展示1</a></li>
-                  <li class="menu-item"><a href="/Cornucopia/item/Product2">产品展示2</a></li>
-                  <li class="menu-item"><a href="/Cornucopia/item/Product3">产品展示3</a></li>
-                </ul>
-                <!-- sub-menu end-->
-              </li>
               <li><a href="/Cornucopia/AGSub/subject">产品中心</a></li>
               <li><a href="/Cornucopia/item/Solution">下载中心</a></li>
               <li>
                 <a href="/Cornucopia/item/News">新闻中心</a>
                 <!-- sub-menu start-->
-                <ul class="sub-menu">
-                  <li class="menu-item"><a href="/Cornucopia/item/NewsC">盈+商学院</a></li>
-                  <li class="menu-item"><a href="html/404-dark.html">行业动态</a></li>
-                  <li class="menu-item"><a href="html/404-light.html">精彩专题</a></li>
-                </ul>
+                
                 <!-- sub-menu end-->
               </li>
               <li><a href="/Cornucopia/item/About">盈+商学院</a></li>
