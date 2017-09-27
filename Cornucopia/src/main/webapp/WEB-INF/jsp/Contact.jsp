@@ -26,29 +26,26 @@
 <link href="../assets/resources/css/common.css" rel="stylesheet">
 <link href="../assets/resources/css/jw.css" rel="stylesheet">
 <link href="../assets/resources/css/iconfont.css" rel="stylesheet">
-<script src="../assets/resources/js/echarts.js"></script>
-<script src="../BgAssets/js/bootstrapValidator.min.js"></script>
 <link href="../BgAssets/css/bootstrapValidator.min.css" rel="stylesheet" />
 <script type="text/javascript">
 $(function () { 
+	  $('#myTab a').click(function (e) {
+	        e.preventDefault()
+	        $(this).tab('show')
+	    })
 	var url = location.href; 
 	var c=url.substring(46,50);
-	if(c=="flag"){
-    $('#touzi a:first').tab('show');//初始化显示哪个tab 
-  
-    $('#touzi a').click(function (e) { 
-      e.preventDefault();//阻止a链接的跳转行为 
-      $(this).tab('show');//显示当前选中的链接及关联的content 
-    })}
-	
-	if(c=="info"){
-	    $('#jine li:eq(3) a').tab('show');//初始化显示哪个tab 
-	  
-	    $('#jine a').click(function (e) { 
-	      e.preventDefault();//阻止a链接的跳转行为 
-	      $(this).tab('show');//显示当前选中的链接及关联的content 
-	    })}
-	
+	  switch (c){
+      case 'flag':
+          $('#myTab a[href="#touzi"]').tab('show')
+          break;
+      case 'info':
+          $('#myTab a[href="#jine"]').tab('show')
+          break;
+      case 'tab3':
+          $('#myTab a[href="#tab3"]').tab('show')
+          break;
+   }     
   }) 
 <%String datetime = new SimpleDateFormat("yyyyMMddHHmmss").format(Calendar.getInstance().getTime()); //获取系统时间%>
 <%String datetime1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()); //获取系统时间%>
