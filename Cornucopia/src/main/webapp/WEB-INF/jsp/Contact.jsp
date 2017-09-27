@@ -1165,8 +1165,8 @@ $(function () {
       case 'info':
           $('#myTab a[href="#jine"]').tab('show')
           break;
-      case 'tab3':
-          $('#myTab a[href="#tab3"]').tab('show')
+      case 'note':
+          $('#myTab a[href="#tikuan"]').tab('show')
           break;
    }     
   }) </script>
