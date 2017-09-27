@@ -124,14 +124,13 @@ public class BKjumpController {
 	// 后台会员详细
 	@RequestMapping("BgAMX")
 	public String BgAMX(Model model, int memberId, String mname) {
-		Map map=new HashMap();
 		Member memberslist = ValidateImpl.member(mname);
 		List<SubjectPurchaseRecord> subjectPurchaseRecorList = AG_ProductServiceImpl
-				.GetSubjectPurchaseRecordByid(memberslist.getId(),map);
+				.GetSubjectPurchaseRecordByid1(memberslist.getId());
 		List<MemberDepositRecord> memberDepositRecord = AG_ProductServiceImpl
-				.GetMemberDepositRecordByid(memberslist.getId(),map);
+				.GetMemberDepositRecordByid1(memberslist.getId());
 		List<MembeWithdrawRecord> membeWithdrawRecord = AG_ProductServiceImpl
-				.GetMembeWithdrawRecordByid(memberslist.getId(),map);
+				.GetMembeWithdrawRecordByid1(memberslist.getId());
 		List<MemberTradeRecord> memberTradeRecord = AG_ProductServiceImpl.GetmemberTradeRecordByid(memberslist.getId());
 		MemberAccount MAccount = AG_ProductServiceImpl.UpdateMemberAccount(memberslist.getId());
 		List<AwardRecordsVo> AwardRecords = ValidateImpl.AwardRecordsListVo(memberId);

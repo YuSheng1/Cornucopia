@@ -145,6 +145,17 @@ public class AG_ProductServiceImpl implements AG_ProductService {
 		return membeWithdrawRecordlist;
 	}
 	@Override
+	public List<MembeWithdrawRecord> GetMembeWithdrawRecordByid1(int mid) {
+		List<MembeWithdrawRecord> membeWithdrawRecordlist=ag_ProductDao.GetMembeWithdrawRecordByid1(mid);
+		return membeWithdrawRecordlist;
+	}
+	@Override
+	public List<MemberDepositRecord> GetMemberDepositRecordByid1(int mid) {
+		List<MemberDepositRecord> membeWithdrawRecordlist=ag_ProductDao.GetMemberDepositRecordByid1(mid);
+		return membeWithdrawRecordlist;
+	}
+	
+	@Override
 	public void savesMemberAccount(Object... object) {
 		ag_ProductDao.savesMemberAccount(object);		
 	}
@@ -170,6 +181,7 @@ public class AG_ProductServiceImpl implements AG_ProductService {
 		List<MemberTradeRecord> memberTradeRecord=ag_ProductDao.GetmemberTradeRecordByid(mid);
 		return memberTradeRecord;
 	}
+	
 	@Override
 	public void saveAwardRecords(Object... object) {
 		ag_ProductDao.saveAwardRecords(object);
@@ -179,6 +191,11 @@ public class AG_ProductServiceImpl implements AG_ProductService {
 	public List<PushNotice> GetPushNotice() {
 		List<PushNotice> PushNotice=ag_ProductDao.GetPushNotice();
 		return PushNotice;
+	}
+	@Override
+	public List<SubjectPurchaseRecord> GetSubjectPurchaseRecordByid1(int mid) {
+		List<SubjectPurchaseRecord> subjectPurchaseRecordlist=ag_ProductDao.GetSubjectPurchaseRecordByid1(mid);
+		return subjectPurchaseRecordlist;
 	}
 	
 }

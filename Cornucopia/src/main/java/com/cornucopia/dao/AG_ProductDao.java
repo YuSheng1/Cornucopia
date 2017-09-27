@@ -127,7 +127,24 @@ public class AG_ProductDao {
 			List<SubjectPurchaseRecord> list=session.createQuery(hql).setFirstResult((page-1)*size).setMaxResults(size).list();
 			return list;
 		}
-		
+		public List<SubjectPurchaseRecord>  GetSubjectPurchaseRecordByid1(int mid){
+			String hql="from SubjectPurchaseRecord p where p.member.id=" + mid;
+			Session session=getsession();
+			List<SubjectPurchaseRecord> list=session.createQuery(hql).list();
+			return list;
+		}
+		public List<MembeWithdrawRecord>  GetMembeWithdrawRecordByid1(int mid){
+			String hql="from MembeWithdrawRecord p where p.member.id=" + mid;
+			Session session=getsession();
+			List<MembeWithdrawRecord> list=session.createQuery(hql).list();
+			return list;
+		}
+		public List<MemberDepositRecord>  GetMemberDepositRecordByid1(int mid){
+			String hql="from MemberDepositRecord p where p.member.id=" + mid;
+			Session session=getsession();
+			List<MemberDepositRecord> list=session.createQuery(hql).list();
+			return list;
+		}
 		public int countNum(Map map,int mid){
 			String sql=" select count(*) from subject_purchase_record s ,member m where s.member_id=m.id and m.id="+mid;
 			Session session=getsession();

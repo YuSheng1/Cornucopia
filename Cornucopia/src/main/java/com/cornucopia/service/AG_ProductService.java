@@ -12,6 +12,7 @@ public interface AG_ProductService {
 
 	public <T> T getBySubjectPurchaseRecordId(Object... object);
 
+
 	public void UpdateSubjectPurchaseRecord(Object... object);
 
 	// 向交易记录表添加数据
@@ -63,12 +64,15 @@ public interface AG_ProductService {
 
 	// 根据id查询充值记录表
 	public <T> T GetMemberDepositRecordByid(int mid,Map map);
-
+	public <T> T GetMemberDepositRecordByid1(int mid);
+	public <T> T GetSubjectPurchaseRecordByid1(int mid);
 	// 根据id查询充值记录表
 	public <T> T GetmemberTradeRecordByid(int mid);
 
 	// 根据id查询提款记录表
 	public <T> T GetMembeWithdrawRecordByid(int mid,Map map);
+	// 根据id查询提款记录表
+		public <T> T GetMembeWithdrawRecordByid1(int mid);
 
 	// 根据id查询英航卡绑定表
 	public <T> T GetMemberBankcardsByid(int mid);
