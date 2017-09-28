@@ -113,7 +113,7 @@ $(document).ready(function(e) {
     </div>
     <br>
     <div>
-    <label>类型:<b>*</b></label>
+    <label>类型:</label>
     <div class="vocation">
     <select class="select1" name="type" value='${sub.type }'>
     <option value="0">固收类</option>
@@ -140,6 +140,7 @@ $(document).ready(function(e) {
     <label>保障方式:<b>*</b></label>
     <div class="vocation">
     <select class="select1" name="safeGuard_way" value='${sub.safeGuard_way }'>
+    
     <option value="1">企业担保</option>
     <option value="2">银行担保22</option>
     </select>
