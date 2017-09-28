@@ -237,7 +237,7 @@
 		<li><a href="#aqxx" data-toggle="tab">安全信息 </a></li>
 		<li><a href="#wytk" data-toggle="tab">我要提款 </a></li>
 	</ul>
-	<div id="myTabContent" class="tab-content">
+	<div id="myTabContent" class="tab-content" style="margin-top: 100px">
 		<div class="tab-pane fade in active" id="touzi"
 			style="margin-left: 600px; margin-top: -450px; width: 700px; height: 800px;">
 			<table class="table" width="700px" >
@@ -270,11 +270,11 @@
 				</tbody>
 			</table>
 			 <div class="pagin" style="text-align: center;">
-    <div  class="message">共<i class="blue">${pb.total }</i>条记录，当前显示第&nbsp;<i class="blue">${pb.page }</i>页</div> 
-    	<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?flag=first&page=${pb.page }" onclick="fun1()">首页</a>
-		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?flag=up&page=${pb.page }" onclick="fun1()">上一页</a>
-		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?flag=next&page=${pb.page }" onclick="fun1()">下一页</a>
-		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?flag=last&page=${pb.page }" onclick="fun1()">末页</a>
+    <div  class="message">共<i class="blue">${pb.total1 }</i>条记录，当前显示第&nbsp;<i class="blue">${pb.page1 }</i>页</div> 
+    	<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?flag=first&page1=${pb.page1 }&page2=1&page3=1" onclick="fun1()">首页</a>
+		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?flag=up&page1=${pb.page1 }&page2=1&page3=1" onclick="fun1()">上一页</a>
+		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?flag=next&page1=${pb.page1 }&page2=1&page3=1" onclick="fun1()">下一页</a>
+		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?flag=last&page1=${pb.page1 }&page2=1&page3=1" onclick="fun1()">末页</a>
     </div>
 		</div>
 		<div class="tab-pane fade" id="jine"
@@ -304,11 +304,11 @@
 				</tbody>
 			</table>
 			<div class="pagin" style="text-align: center;">
-    <div class="message">共<i class="blue">${pb.total }</i>条记录，当前显示第&nbsp;<i class="blue">${pb.page }</i>页</div> 
-    	<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?info=first&page=${pb.page }" onclick="fun1()">首页</a>
-		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?info=up&page=${pb.page }" onclick="fun1()">上一页</a>
-		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?info=next&page=${pb.page }" onclick="fun1()">下一页</a>
-		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?info=last&page=${pb.page }" onclick="fun1()">末页</a>
+    <div class="message">共<i class="blue">${pb.total2 }</i>条记录，当前显示第&nbsp;<i class="blue">${pb.page2 }</i>页</div> 
+    	<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?info=first&page2=${pb.page2 }&page1=1&page3=1" onclick="fun1()">首页</a>
+		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?info=up&page2=${pb.page2 }&page1=1&page3=1" onclick="fun1()">上一页</a>
+		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?info=next&page2=${pb.page2 }&page1=1&page3=1" onclick="fun1()">下一页</a>
+		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?info=last&page2=${pb.page2 }&page1=1&page3=1" onclick="fun1()">末页</a>
     </div>
 		</div>
 		<div class="tab-pane fade" id="shouyi"
@@ -383,11 +383,11 @@
 				</tbody>
 			</table>
 			<div class="pagin" style="text-align: center;">
-    <div class="message">共<i class="blue">${pb.total }</i>条记录，当前显示第&nbsp;<i class="blue">${pb.page }</i>页</div> 
-    	<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?note=first&page=${pb.page }" onclick="fun1()">首页</a>
-		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?note=up&page=${pb.page }" onclick="fun1()">上一页</a>
-		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?note=next&page=${pb.page }" onclick="fun1()">下一页</a>
-		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?note=last&page=${pb.page }" onclick="fun1()">末页</a>
+    <div class="message">共<i class="blue">${pb.total3 }</i>条记录，当前显示第&nbsp;<i class="blue">${pb.page3 }</i>页</div> 
+    	<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?note=first&page3=${pb.page3 }&page1=1&page2=1" onclick="fun1()">首页</a>
+		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?note=up&page3=${pb.page3 }&page1=1&page2=1" onclick="fun1()">上一页</a>
+		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?note=next&page3=${pb.page3 }&page1=1&page2=1" onclick="fun1()">下一页</a>
+		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?note=last&page3=${pb.page3 }&page1=1&page2=1" onclick="fun1()">末页</a>
     </div>
 		</div>
 		<div class="tab-pane fade" id="aqxx"
@@ -1094,6 +1094,7 @@
 	          break;
 	      case 'note':
 	          $('#myTab a[href="#tikuan"]').tab('show')
+	          document.getElementById("jine").style.display="none";
 	          break;
 	   }     
 	  }) 
