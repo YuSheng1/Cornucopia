@@ -36,15 +36,15 @@
 		<h4 class="glyphicon glyphicon-play">用户综合统计</h4>
 		<hr>
 		<form class="form-inline" role="form" method="post">
-			&nbsp;&nbsp;<span style="float: left">手机号码：</span> <input type="text"
+			&nbsp;&nbsp;<span style="float: left">手机号码：</span> <input type="number"
 				class="form-control" placeholder="号码11位"
 				style="width: 150px; float: left;" maxlength="11" id="phone"
-				name="phone" value="${phone }"> &nbsp;&nbsp; <span id="s"
-				style="display: none; color: red; float: left;"> 手机号码必须为11位</span> <br>
+				name="phone" value=""> &nbsp;&nbsp; <span id="s"
+				style="display: none; color: red; float: left;"> 手机号码必须为11位数字</span> <br>
 			<br> &nbsp;&nbsp;开始时间： <input type="date" class="form-control"
-				style="width: 120px" name="start" value="${start }">
+				style="width: 180px" name="start" value="">
 			&nbsp;&nbsp;结束时间： <input type="date" class="form-control"
-				style="width: 120px" name="end" value="${end }">
+				style="width: 180px" name="end" value="">
 			&nbsp;&nbsp;交易类型： <select class="form-control" name="qtrade_type">
 				<option value="-1">全部</option>
 				<option value="手机充值">手机充值</option>

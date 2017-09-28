@@ -49,16 +49,13 @@ public class BackYingJiaUsersCountDao {
 	public String deposit(Object obj){
 		Session session=getSession();
 		String phone=(String) obj;
-		if(phone!=null&&!phone.equals("")){
-		String sql="select sum(amount) as damount from member_deposit_record where member_id=(select id from member where mobile_Phone='"+phone+"')";
+		String sql="select COALESCE(sum(amount),0) as damount from member_deposit_record where member_id=(select id from member where mobile_Phone='"+phone+"')";
 		//String类型接收，因为只需一个字段
-		String damount=session.createSQLQuery(sql).uniqueResult().toString();
-		if(damount!=null||damount==""){
-			return damount;
+		if(session.createSQLQuery(sql).uniqueResult().toString()!="0"){
+			return session.createSQLQuery(sql).uniqueResult().toString();
 		}else{
-			return null;
+			return "0";
 		}
-	}return null;
 }
 	
 	/**
@@ -67,17 +64,14 @@ public class BackYingJiaUsersCountDao {
 	public String withdraw(Object obj){
 		Session session=getSession();
 		String phone=(String) obj;
-		if(phone!=null&&!phone.equals("")){
-		String sql="select sum(amount) as wamount from member_withdraw_record where member_id=(select id from member where mobile_Phone='"+phone+"')";
-		String wamount=session.createSQLQuery(sql).uniqueResult().toString();
-		if(wamount!=null||wamount==""){
-			return wamount;
+		String sql="select  COALESCE(sum(amount),0) as wamount from member_withdraw_record where member_id=(select id from member where mobile_Phone='"+phone+"')";
+		if(session.createSQLQuery(sql).uniqueResult().toString()!="0"){
+			return session.createSQLQuery(sql).uniqueResult().toString();
 		}else{
-			return null;
+			return "0";
 		}
-		}
-		return null;
 	}
+		
 	
 	/**
 	 * 资金信息-->账户各类金额
@@ -101,12 +95,11 @@ public class BackYingJiaUsersCountDao {
 	public String amount(Object obj){
 		Session session=getSession();
 		int phone=(int) obj;
-		String sql="select sum(amount) from award_records where invitingid='"+phone+"'";
-		String amount=session.createSQLQuery(sql).uniqueResult().toString();
-		if(amount!=null||amount==""){
-			return amount;
+		String sql="select  COALESCE(sum(amount),0) from award_records where invitingid='"+phone+"'";
+		if(session.createSQLQuery(sql).uniqueResult().toString()!="0"){
+			return session.createSQLQuery(sql).uniqueResult().toString();
 		}else{
-			return null;
+			return "0";
 		}
 	}
 	
