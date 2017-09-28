@@ -8,9 +8,9 @@
 <!--  获取系统时间必须导入的 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
+<link href="../assets/css/bootstrap.css" rel="stylesheet">
 <link href="../BgAssets/css/style.css" rel="stylesheet" type="text/css" />
 <link href="../BgAssets/css/select.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../BgAssets/js/jquery.js"></script>
@@ -114,27 +114,28 @@
 			
 				<ul class="forminfo">
 					<li><label>姓名：<b>*</b></label> <input name="name" type="text"
-						class="dfinput" style="width: 518px;" value="${sub.name }" readonly="true"/>
+						class="form-control" style="width: 518px;" value="${sub.name }" readonly="true"/>
 						<span><font style="color: red">不可修改</font></span>
 						</li>
 						
 					<li><label>身份证号：<b>*</b></label> <input name="identity"
-						type="text" class="dfinput" style="width: 518px;" value="${sub.member.identity }" readonly="true"/>
+						type="text"  class="form-control" style="width: 518px;" value="${sub.member.identity }" readonly="true"/>
 						<span><font style="color: red">不可修改</font></span>
 						</li>
 						
 						
 				   <form action="/Cornucopia/finance/updatesub" method="post">
 					<li><label>购买进额：<b>*</b></label> <input name="amount"
-						type="text" class="dfinput" style="width: 518px;" /></li>
+						type="text" class="form-control" style="width: 518px;" /></li>
 					<li><label>利息收益：<b>*</b></label> <input name="interest"
-						type="text" class="dfinput" style="width: 518px;" /></li>
+						type="text" class="form-control"  style="width: 518px;" /></li>
 					<li><label>开始时间</label><input name="start_date" type="date"
-						class="dfinput" style="width: 518px;" /></li>
+						class="form-control" style="width: 518px;" /></li>
 					<li><label>结束时间</label><input name="end_date" type="date"
-						class="dfinput" style="width: 518px;" /></li>
+						class="form-control" style="width: 518px;" /></li>
 					 <input style="display: none;" name="update_date" value="<%=datetime%>">	
-					<li><input type="submit" class="btn" value="签署合同" /></li>
+					 
+					<li><input type="submit" class="btn btn-primary" value="签署合同" /></li>
 					<li><input type="hidden" name="sid" value="${sub.id}" /></li>
 					</form>
 				</ul>

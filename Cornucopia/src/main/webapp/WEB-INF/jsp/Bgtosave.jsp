@@ -11,6 +11,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
+<head><meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="../assets/css/bootstrap.css" rel="stylesheet">
 <link href="../BgAssets/css/style.css" rel="stylesheet" type="text/css" />
 <link href="../BgAssets/css/select.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../BgAssets/js/jquery.js"></script>
@@ -95,18 +98,19 @@ $(document).ready(function(e) {
   	<div id="tab1" class="tabson">  
   	<form action="/Cornucopia/BgOver/save" method="post" >
     <ul class="forminfo">
-    <li><label>名称：<b>*</b></label><input name="title" type="text" class="dfinput"  style="width:518px;"/></li>
+    <li><label>名称：<b>*</b></label><input name="title" type="text" class="form-control"  style="width:518px;"/></li>
    
-    <li><label>子标题：<b>*</b></label><input name="child_title" type="text" class="dfinput"   style="width:518px;"/></li>
+    <li><label>子标题：<b>*</b></label><input name="child_title" type="text" class="form-control"" "   style="width:518px;"/></li>
    
     
-    <li><label>描述：<b>*</b></label><input name="description" type="text" class="dfinput"  style="width:518px;"/></li>
+    <li><label>描述：<b>*</b></label><input name="description" type="text" class="form-control"   style="width:518px;"/></li>
     
-    <li><label>用户群体：<b>*</b></label><input name="user_type" type="text" class="dfinput"  style="width:518px;"/></li>
+    <li><label>用户群体：<b>*</b></label><input name="user_type" type="text" class="form-control"  style="width:518px;"/></li>
     
-    <li><label>排序值：<b>*</b></label><input name="sortColum" type="text" class="dfinput"  style="width:518px;"/></li>
-     <li><label>状态:<b>*</b></label>
+    <li><label>排序值：<b>*</b></label><input name="sortColum" type="text" class="form-control"  style="width:518px;"/></li>
+     <li>
     <div class="vocation">
+    <label>状态:<b>*</b></label>
     <select class="select1" name="status">
     <option value="0">未发布</option>
     <option value="1">募集中</option>
@@ -114,19 +118,28 @@ $(document).ready(function(e) {
  
     </select>
     </div>
-    <li><label>开始时间：<b>*</b></label><input name="start_time" type="date" class="dfinput"   style="width:518px;"/></li>
+    </li>
+    <br><br><br><br>
+    <li><label>开始时间：<b>*</b></label><input name="start_time" type="date" class="form-control"    style="width:518px;"/></li>
     
-    <li><label>结束时间：<b>*</b></label><input name="end_time" type="date" class="dfinput"   style="width:518px;"/></li>
+    <li><label>结束时间：<b>*</b></label><input name="end_time" type="date" class="form-control"    style="width:518px;"/></li>
     
-    <li><label>图标<b>*</b></label><input name="oversea_icon" type="file"    style="width:518px;"/></li>
+    
     
     <input style="display: none;" name="addTime" value="<%=datetime%>">
     
+    <li><label>基金经理头像：<b>*</b></label> 
+                     <div>
+					<img  src="/Cornucopia/BgAssets/images/img06.png"><input type="radio" name="oversea_icon" value="/Cornucopia/BgAssets/images/img06.png">
+					<img  src="/Cornucopia/BgAssets/images/img07.png"><input type="radio" name="oversea_icon" value="/Cornucopia/BgAssets/images/img07.png">	
+					<img  src="/Cornucopia/BgAssets/images/img09.png"><input type="radio" name="oversea_icon" value="/Cornucopia/BgAssets/images/img09.png">		
+					</div>
+					</li>
 
     <li><label>通知内容<b>*</b></label>
     <textarea id="content7" name="content" style="width:700px;height:250px;visibility:hidden;"></textarea>
     </li>
-    <li><input  type="submit" class="btn" value="添    加"/></li>
+    <li><input  type="submit" class="btn btn-primary" value="添    加"/></li>
     </ul>
     </form>
     </div>     

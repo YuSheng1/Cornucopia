@@ -9,8 +9,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>无标题文档</title>
+<link href="../assets/css/bootstrap.css" rel="stylesheet">
 <link href="../BgAssets/css/style.css" rel="stylesheet" type="text/css" />
 <link href="../BgAssets/css/select.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../BgAssets/js/jquery.js"></script>
@@ -95,22 +97,23 @@ $(document).ready(function(e) {
   	<div id="tab1" class="tabson">  
   	<form action="/Cornucopia/BgOver/update1" method="post" >
     <ul class="forminfo">
-    <li><label>名称：<b>*</b></label><input name="title" type="text" class="dfinput" value='${overseaConfig.title }'style="width:518px;"/></li>
+    <li><label>名称：<b>*</b></label><input name="title" type="text" class="form-control"  value='${overseaConfig.title }'style="width:518px;"/></li>
    
-    <li><label>子标题：<b>*</b></label><input name="child_title" type="text" class="dfinput" value='${overseaConfig.child_title }'  style="width:518px;"/></li>
+    <li><label>子标题：<b>*</b></label><input name="child_title" type="text" class="form-control"  value='${overseaConfig.child_title }'  style="width:518px;"/></li>
    
     
-    <li><label>描述：<b>*</b></label><input name="description" type="text" class="dfinput"  value='${overseaConfig.description }'style="width:518px;"/></li>
+    <li><label>描述：<b>*</b></label><input name="description" type="text" class="form-control"  value='${overseaConfig.description }'style="width:518px;"/></li>
     
-    <li><label>用户群体：<b>*</b></label><input name="user_type" type="text" class="dfinput" value='${overseaConfig.user_type }' style="width:518px;"/></li>
+    <li><label>用户群体：<b>*</b></label><input name="user_type" type="text" class="form-control"  value='${overseaConfig.user_type }' style="width:518px;"/></li>
     
-    <li><label>排序值：<b>*</b></label><input name="sortColum" type="text" class="dfinput"  value='${overseaConfig.sortColum }' style="width:518px;"/></li>
+    <li><label>排序值：<b>*</b></label><input name="sortColum" type="text" class="form-control"   value='${overseaConfig.sortColum }' style="width:518px;"/></li>
     
-      <li><label>开始时间：<b>*</b></label><input name="start_time" type="date" class="dfinput"  ' style="width:518px;"/></li>
+      <li><label>开始时间：<b>*</b></label><input name="start_time" type="date" class="form-control"  style="width:518px;"/></li>
     
-    <li><label>结束时间：<b>*</b></label><input name="end_time" type="date" class="dfinput"   'style="width:518px;"/></li>
-     <li><label>状态:<b>*</b></label>
+    <li><label>结束时间：<b>*</b></label><input name="end_time" type="date" class="form-control"    'style="width:518px;"/></li>
+     <li>
     <div class="vocation">
+    <label>状态:<b>*</b></label>
     <select class="select1" name="status">
     <option value="0">未发布</option>
     <option value="1">募集中</option>
@@ -118,12 +121,14 @@ $(document).ready(function(e) {
  
    </select>
    </div> 
+   </li>
+   <br><br><br><br>
    <input style="display: none;" name="updTime" value="<%=datetime%>">
        <input type="hidden" name="sid" value="${overseaConfig.id }">
    <li><label>通知内容<b>*</b></label>
    <textarea id="content7" name="content"  style="width:700px;height:250px;visibility:hidden;"></textarea>
    </li>
-    <li><input  type="submit" class="btn" value="修      改"/></li>
+    <li><input  type="submit"  class="btn btn-primary"  value="修      改"/></li>
    </ul>
    </form>
     </div>     

@@ -15,13 +15,19 @@
 <script type="text/javascript" src="../BgAssets/js/select-ui.min.js"></script>
 <script type="text/javascript" src="../BgAssets/editor/kindeditor.js"></script>
 <script type="text/javascript" src="../BgAssets/js/jquery.js"></script>
+<script type="text/javascript" src="../BgAssets/js/jquery.idTabs.min.js"></script>
+<script type="text/javascript" src="../BgAssets/js/select-ui.min.js"></script>
+<script type="text/javascript" src="../BgAssets/editor/kindeditor.js"></script>
+<script src="../assets/js/jquery.ztree.all-3.5.js"></script>
+<script src="../BgAssets/js/bootstrapValidator.min.js"></script>
+<link href="../assets/css/metroStyle.css" rel="stylesheet" />
+<link href="../BgAssets/css/bootstrapValidator.min.css" rel="stylesheet" />
 <link href="../assets/css/bootstrap.css" rel="stylesheet">
 <script src="../assets/js/jquery.min.js"></script>
 <script src="../assets/js/bootstrap.min.js"></script>
 <script src="../assets/js/jquery.ztree.all-3.5.js"></script>
 <script src="../BgAssets/js/bootstrapValidator.min.js"></script>
 <link href="../assets/css/metroStyle.css" rel="stylesheet" />
-<link href="../BgAssets/css/bootstrapValidator.min.css" rel="stylesheet" />
 <script type="text/javascript">
 	function clean() {
 		$("#name").val(null);

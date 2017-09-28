@@ -9,8 +9,10 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>Insert title here</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="../assets/css/bootstrap.css" rel="stylesheet">
 <link href="../BgAssets/css/style.css" rel="stylesheet" type="text/css" />
 <link href="../BgAssets/css/select.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../BgAssets/js/jquery.js"></script>
@@ -21,6 +23,7 @@
 <script src="../BgAssets/js/bootstrapValidator.min.js"></script>
 <link href="../assets/css/metroStyle.css" rel="stylesheet" />
 <link href="../BgAssets/css/bootstrapValidator.min.css" rel="stylesheet" />
+
 <SCRIPT type="text/javascript">
 	
 <%String datetime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()); //获取系统时间%>
@@ -111,39 +114,42 @@
 				method="post">
 				<ul class="forminfo">
 					<li><label>名称：<b>*</b></label> <input name="name" type="text"
-						class="dfinput" style="width: 518px;" value="${financeProductFunds.name }"/></li>
-					<li><label>类型:<b>*</b></label>
+						class="form-control" style="width: 518px;" value="${financeProductFunds.name }"/></li>
+					<li>
 						<div class="vocation">
+						<label>类型:<b>*</b></label>
 							<select class="select1" name="type" value="${financeProductFunds.type }">
 								<option value="0">固收类</option>
 								<option value="1">P2P车贷</option>
 								<option value="2">P2P房贷</option>
 							</select>
 						</div></li>
+						<br><br><br><br>
 					<li><label>起投金额：<b>*</b></label> <input name="floor_amount"
-						type="text" class="dfinput" style="width: 518px;" value="${financeProductFunds.floor_amount }" /></li>
+						type="text" class="form-control" style="width: 518px;" value="${financeProductFunds.floor_amount }" /></li>
 
 					<li><label>年化收益：<b>*</b></label> <input name="year_rate"
-						type="text" class="dfinput" style="width: 518px;" value="${financeProductFunds.year_rate }"/></li>
+						type="text" class="form-control" style="width: 518px;" value="${financeProductFunds.year_rate }"/></li>
 
 					<li><label>开始时间</label><input name="start_date" type="date"
-						class="dfinput" style="width: 518px;" /></li>
+						class="form-control" style="width: 518px;" /></li>
 					<li><label>结束时间</label><input name="end_date" type="date"
-						class="dfinput" style="width: 518px;" /></li>
-					<li><label>状态:<b>*</b></label>
+						class="form-control" style="width: 518px;" /></li>
+					<li>
 						<div class="vocation">
+						<label>状态:<b>*</b></label>
 							<select class="select1" name="status" value="${financeProductFunds.status }">
 								<option value="0">未发布</option>
 								<option value="1">募集中</option>
 								<option value="2">已发布</option>
 							</select>
 						</div></li>
-
+      					<br><br><br><br>
 					<li><label>投资期限：<b>*</b></label> <input name="period"
-						type="text" class="dfinput" style="width: 518px;"value="${financeProductFunds.period }" /></li>
+						type="text" class="form-control" style="width: 518px;"value="${financeProductFunds.period }" /></li>
 
 					<li><label>投资方向：<b>*</b></label> <input name="invest_points"
-						type="text" class="dfinput" style="width: 518px;" value="${financeProductFunds.invest_points }" /></li>
+						type="text" class="form-control" style="width: 518px;" value="${financeProductFunds.invest_points }" /></li>
 
 					<input style="display: none;" name="update_date"
 						value="<%=datetime%>">
@@ -157,26 +163,26 @@
 							style="width: 700px; height: 250px; visibility: hidden;" value="${financeProductFunds.product_factor }"></textarea>
 					</li>
 					<li><label>基金经理名称：<b>*</b></label> <input
-						name="product_manager_name" type="text" class="dfinput"
+						name="product_manager_name" type="text" class="form-control"
 						style="width: 518px;" value="${financeProductFunds.product_manager_name }"/></li>
 					<li><label>基金经理头衔：<b>*</b></label> <input
-						name="product_manager_title" type="text" class="dfinput"
+						name="product_manager_title" type="text" class="form-control"
 						style="width: 518px;" value="${financeProductFunds.product_manager_title }"/></li>
 					<li><label>基金经理详情：<b>*</b></label> <input
-						name="product_manager_desc" type="text" class="dfinput"
+						name="product_manager_desc" type="text" class="form-control"
 						style="width: 518px;" value="${financeProductFunds.product_manager_desc }"/></li>
 					<li><label>基金经理头像：<b>*</b></label> 
                      <div>
-					<img  src="/Cornucopia/Upload/2017-09-22-3.bmp"><input type="radio" name="product_manager_pic" value="/Cornucopia/Upload/2017-09-22-3.bmp">
-					<img  src="/Cornucopia/Upload/1.bmp"><input type="radio" name="product_manager_pic" value="/Cornucopia/Upload/1.bmp">	
-					<img  src="/Cornucopia/Upload/2.bmp"><input type="radio" name="product_manager_pic" value="/Cornucopia/Upload/2.bmp">		
+					<img  src="/Cornucopia/BgAssets/images/img06.png"><input type="radio" name="product_manager_pic" value="/Cornucopia/BgAssets/images/img06.png">
+					<img  src="/Cornucopia/BgAssets/images/img07.png"><input type="radio" name="product_manager_pic" value="/Cornucopia/BgAssets/images/img07.png">	
+					<img  src="/Cornucopia/BgAssets/images/img09.png"><input type="radio" name="product_manager_pic" value="/Cornucopia/BgAssets/images/img09.png">		
 					</div>
 					</li>
 
 					<li><label>银行账户：<b>*</b></label> <input name="bank_account"
-						type="text" class="dfinput" style="width: 518px;" value="${financeProductFunds.bank_account }" /></li>
+						type="text" class="form-control" style="width: 518px;" value="${financeProductFunds.bank_account }" /></li>
 						<input type="hidden" name="wid" value="${financeProductFunds.id }">
-					<li><input type="submit" class="btn" value="修改" /></li>
+					<li><input type="submit"  class="btn btn-primary" value="修改" /></li>
 				</ul>
 			</form>
 
