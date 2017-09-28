@@ -27,16 +27,16 @@ public class PM_PushNoticeDao {
 	public List<PushNotice>  ListAll(Map map){
 		String hql="from PushNotice where 0=0";
 		PageBean pb=(PageBean)map.get("pb");
-		int page=pb.getPage();
+		int page=pb.getPage1();
 		int size=pb.getSize();
 		String flag=(String)map.get("flag");
 		int count=countNum(map);
-		pb.setTotal(count);
+		pb.setTotal1(count);
 		
 		if(flag!=null){
 			if("next".equals(flag)){
-				if(page+1>pb.getTotalpage()){
-					page=pb.getTotalpage();
+				if(page+1>pb.getTotalpage1()){
+					page=pb.getTotalpage1();
 				}else{
 					page=page+1;
 				}
@@ -52,10 +52,10 @@ public class PM_PushNoticeDao {
 				page=1;
 			}
 			if("last".equals(flag)){
-				page=pb.getTotalpage();
+				page=pb.getTotalpage1();
 			}
 		}
-		pb.setPage(page);
+		pb.setPage1(page);
 		Session session=getSession();
 		System.out.println("sdfs");
 		hql=listDataHql(hql, map);

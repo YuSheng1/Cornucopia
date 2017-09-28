@@ -75,11 +75,13 @@ public class AG_UserController {
 	}
 
 	@RequestMapping("Contact")
-	public String Contact(HttpSession session,Model model,@RequestParam(required=true,defaultValue="1")int page,String flag,String info,String note) {
+	public String Contact(HttpSession session,Model model,@RequestParam(required=true,defaultValue="1")int page1,@RequestParam(required=true,defaultValue="1")int page2,@RequestParam(required=true,defaultValue="1")int page3,String flag,String info,String note) {
 		Member member=(Member)session.getAttribute("member");
 		Map map=new HashMap();
 		pb.setSize(5);
-		pb.setPage(page);
+		pb.setPage1(page1);
+		pb.setPage2(page2);
+		pb.setPage3(page3);
 		map.put("flag",flag);
 		map.put("pb",pb);
 		map.put("info", info);

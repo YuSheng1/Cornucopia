@@ -93,38 +93,38 @@ public class AG_ProductDao {
 		public List<SubjectPurchaseRecord>  GetSubjectPurchaseRecordByid(Map map,int mid){
 			String hql="from SubjectPurchaseRecord p where p.member.id=" + mid;
 			PageBean pb=(PageBean)map.get("pb");
-			int page=pb.getPage();
+			int page1=pb.getPage1();
 			int size=pb.getSize();
 			String flag=(String)map.get("flag");
 			int count=countNum(map, mid);
-			pb.setTotal(count);
+			pb.setTotal1(count);
 			
 			if(flag!=null){
 				if("next".equals(flag)){
-					if(page+1>pb.getTotalpage()){
-						page=pb.getTotalpage();
+					if(page1+1>pb.getTotalpage1()){
+						page1=pb.getTotalpage1();
 					}else{
-						page=page+1;
+						page1=page1+1;
 					}
 				}
 				if("up".equals(flag)){
-					if(page-1<1){
-						page=1;
+					if(page1-1<1){
+						page1=1;
 					}else{
-						page=page-1;
+						page1=page1-1;
 					}
 				}
 				if("first".equals(flag)){
-					page=1;
+					page1=1;
 				}
 				if("last".equals(flag)){
-					page=pb.getTotalpage();
+					page1=pb.getTotalpage1();
 				}
 			}
-			pb.setPage(page);
+			pb.setPage1(page1);
 			Session session=getsession();
 			System.out.println("sdfs");
-			List<SubjectPurchaseRecord> list=session.createQuery(hql).setFirstResult((page-1)*size).setMaxResults(size).list();
+			List<SubjectPurchaseRecord> list=session.createQuery(hql).setFirstResult((page1-1)*size).setMaxResults(size).list();
 			return list;
 		}
 		public List<SubjectPurchaseRecord>  GetSubjectPurchaseRecordByid1(int mid){
@@ -168,38 +168,38 @@ public class AG_ProductDao {
 	public List<MemberDepositRecord> GetMemberDepositRecordByid(int mid,Map map) {
 		String sql = " from MemberDepositRecord m where m.member.id=" + mid + " order by create_date desc";
 		PageBean pb=(PageBean)map.get("pb");
-		int page=pb.getPage();
+		int page2=pb.getPage2();
 		int size=pb.getSize();
 		String info=(String)map.get("info");
 		int count=countNum1(map, mid);
-		pb.setTotal(count);
+		pb.setTotal2(count);
 		
 		if(info!=null){
 			if("next".equals(info)){
-				if(page+1>pb.getTotalpage()){
-					page=pb.getTotalpage();
+				if(page2+1>pb.getTotalpage2()){
+					page2=pb.getTotalpage2();
 				}else{
-					page=page+1;
+					page2=page2+1;
 				}
 			}
 			if("up".equals(info)){
-				if(page-1<1){
-					page=1;
+				if(page2-1<1){
+					page2=1;
 				}else{
-					page=page-1;
+					page2=page2-1;
 				}
 			}
 			if("first".equals(info)){
-				page=1;
+				page2=1;
 			}
 			if("last".equals(info)){
-				page=pb.getTotalpage();
+				page2=pb.getTotalpage1();
 			}
 		}
-		pb.setPage(page);
+		pb.setPage2(page2);
 		Session session=getsession();
 		System.out.println("sdfs");
-		List<MemberDepositRecord> list=session.createQuery(sql).setFirstResult((page-1)*size).setMaxResults(size).list();
+		List<MemberDepositRecord> list=session.createQuery(sql).setFirstResult((page2-1)*size).setMaxResults(size).list();
 		return list;
 	}
 	public int countNum1(Map map,int mid){
@@ -213,38 +213,39 @@ public class AG_ProductDao {
 	public List<MembeWithdrawRecord> GetMembeWithdrawRecordByid(int mid,Map map) {
 		String sql = " from MembeWithdrawRecord m where m.member.id=" + mid + " order by create_date desc";
 		PageBean pb=(PageBean)map.get("pb");
-		int page=pb.getPage();
+		int page3=pb.getPage3();
 		int size=pb.getSize();
 		String note=(String)map.get("note");
 		int count=countNum2(map, mid);
-		pb.setTotal(count);
+		System.out.println(count);
+		pb.setTotal3(count);
 		
 		if(note!=null){
 			if("next".equals(note)){
-				if(page+1>pb.getTotalpage()){
-					page=pb.getTotalpage();
+				if(page3+1>pb.getTotalpage3()){
+					page3=pb.getTotalpage3();
 				}else{
-					page=page+1;
+					page3=page3+1;
 				}
 			}
 			if("up".equals(note)){
-				if(page-1<1){
-					page=1;
+				if(page3-1<1){
+					page3=1;
 				}else{
-					page=page-1;
+					page3=page3-1;
 				}
 			}
 			if("first".equals(note)){
-				page=1;
+				page3=1;
 			}
 			if("last".equals(note)){
-				page=pb.getTotalpage();
+				page3=pb.getTotalpage2();
 			}
 		}
-		pb.setPage(page);
+		pb.setPage3(page3);
 		Session session=getsession();
 		System.out.println("sdfs");
-		List<MembeWithdrawRecord> list=session.createQuery(sql).setFirstResult((page-1)*size).setMaxResults(size).list();
+		List<MembeWithdrawRecord> list=session.createQuery(sql).setFirstResult((page3-1)*size).setMaxResults(size).list();
 		if (list.size() > 0) {
 			return list;
 		}

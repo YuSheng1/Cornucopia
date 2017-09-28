@@ -39,7 +39,7 @@ public class PM_PushNoticeController {
 	public String listAll(Model model,String title1,@RequestParam(required=true,defaultValue="1")int page,String flag){
 		Map map=new HashMap();
 		pb.setSize(5);
-		pb.setPage(page);
+		pb.setPage1(page);
 		map.put("title1",title1);
 		map.put("flag",flag);
 		map.put("pb",pb);
