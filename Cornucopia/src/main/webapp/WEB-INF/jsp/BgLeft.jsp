@@ -83,7 +83,7 @@ $(function(){
      <dd><div class="title"><span><img src="../BgAssets/images/leftico04.png" /></span>盈+统计</div>
     <ul class="menuson">
         <li><cite></cite><a href="#" target="rightFrame">财务统计</a><i></i></li>
-        <li><cite></cite><a href="#" target="rightFrame">用户综合统计</a><i></i></li>
+        <li><cite></cite><a href="/Cornucopia/backYingJiaUsersComprehensiveStatistics/login" target="rightFrame">用户综合统计</a><i></i></li>
     </ul>
     
     </dd>  
