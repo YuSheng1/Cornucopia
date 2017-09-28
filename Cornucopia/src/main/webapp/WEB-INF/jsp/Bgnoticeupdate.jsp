@@ -7,18 +7,22 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Insert title here</title>
 <link href="../BgAssets/css/style.css" rel="stylesheet" type="text/css" />
-<link href="../BgAssets/css/select.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../BgAssets/js/jquery.js"></script>
-<script type="text/javascript" src="../BgAssets/js/jquery.idTabs.min.js"></script>
-<script type="text/javascript" src="../BgAssets/js/select-ui.min.js"></script>
-<script type="text/javascript" src="../BgAssets/editor/kindeditor.js"></script>
+<link href="../assets/css/bootstrap.css" rel="stylesheet">
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/jquery.ztree.all-3.5.js"></script>
+<script src="../BgAssets/js/bootstrapValidator.min.js"></script>
+<link href="../assets/css/metroStyle.css" rel="stylesheet" />
+<link href="../BgAssets/css/bootstrapValidator.min.css" rel="stylesheet" />
 
 <script type="text/javascript"  src="/Cornucopia/utf8-jsp/ueditor.config.js"></script>
     <script type="text/javascript"  src="/Cornucopia/utf8-jsp/ueditor.all.min.js"> </script>
     <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
     <!--这里加载的语言文件会覆盖你在配置项目里添加的语言类型，比如你在配置项目里配置的是英文，这里加载的中文，那最后就是中文-->
     <script type="text/javascript"  src="/Cornucopia/utf8-jsp/lang/zh-cn/zh-cn.js"></script>
-    
+ 
+
 <script type="text/javascript">
     KE.show({
         id : 'content7',
