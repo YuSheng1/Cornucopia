@@ -1,7 +1,11 @@
 eclipse.preferences.version=1
+encoding//src/main/java/com/cornucopia/bean/BackYingJiaUsersCountVo.java=UTF-8
 encoding//src/main/java/com/cornucopia/bean/FinanceProductSubscribe.java=UTF-8
 encoding//src/main/java/com/cornucopia/controller=UTF-8
+encoding//src/main/java/com/cornucopia/dao/BackYingJiaUsersCountDao.java=UTF-8
 encoding//src/main/java/com/cornucopia/dao/PM_finance_product_fundsHouDao.java=UTF-8
+encoding//src/main/java/com/cornucopia/service/BackYingCountService.java=UTF-8
+encoding//src/main/java/com/cornucopia/serviceImpl/BackYingJiaUsersCountServiceImpl.java=UTF-8
 encoding//src/main/webapp/BgAssets/css/select.css=UTF-8
 encoding//src/main/webapp/WEB-INF/jsp/Bgoversaver.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/jsp/Product1.jsp=UTF-8

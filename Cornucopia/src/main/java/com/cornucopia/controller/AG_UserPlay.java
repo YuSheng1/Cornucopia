@@ -93,6 +93,7 @@ public class AG_UserPlay {
 		memberTradeRecord.setTrade_no(no.trim());
 		// 交易记录表添加交易流入
 		memberTradeRecord.setFund_flow(1);
+		memberTradeRecord.setTrade_type("投资记录");
 		// 交易记录表添加交易状态
 		memberTradeRecord.setTrade_status(0);
 		// 交易记录表添加member对象
