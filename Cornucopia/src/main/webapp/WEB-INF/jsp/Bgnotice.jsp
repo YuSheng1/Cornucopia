@@ -173,11 +173,11 @@ $(function () {
 	</div>
 	
     <div class="pagin" style="text-align: center;">
-    <div class="message">共<i class="blue">${pb.total }</i>条记录，当前显示第&nbsp;<i class="blue">${pb.page }</i>页</div> 
-    	<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/push/list?flag=first&page=${pb.page }">首页</a>
-		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/push/list?flag=up&page=${pb.page }">上一页</a>
-		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/push/list?flag=next&page=${pb.page }">下一页</a>
-		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/push/list?flag=last&page=${pb.page }">末页</a>
+    <div class="message">共<i class="blue">${pb.total1 }</i>条记录，当前显示第&nbsp;<i class="blue">${pb.page1 }</i>页</div> 
+    	<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/push/list?flag=first&page1=${pb.page1 }">首页</a>
+		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/push/list?flag=up&page1=${pb.page1 }">上一页</a>
+		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/push/list?flag=next&page1=${pb.page1 }">下一页</a>
+		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/push/list?flag=last&page1=${pb.page1 }">末页</a>
     </div>
     </div>
 </form>
