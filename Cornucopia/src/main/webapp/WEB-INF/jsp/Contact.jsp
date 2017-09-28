@@ -29,25 +29,6 @@
 <script src="../BgAssets/js/bootstrapValidator.min.js"></script>
 <link href="../BgAssets/css/bootstrapValidator.min.css" rel="stylesheet" />
 <script type="text/javascript">
-$(function () { 
-	  $('#myTab a').click(function (e) {
-	        e.preventDefault()
-	        $(this).tab('show')
-	    })
-	var url = location.href; 
-	var c=url.substring(46,50);
-	  switch (c){
-      case 'flag':
-          $('#myTab a[href="#touzi"]').tab('show')
-          break;
-      case 'info':
-          $('#myTab a[href="#jine"]').tab('show')
-          break;
-      case 'tab3':
-          $('#myTab a[href="#tab3"]').tab('show')
-          break;
-   }     
-  }) 
 <%String datetime = new SimpleDateFormat("yyyyMMddHHmmss").format(Calendar.getInstance().getTime()); //获取系统时间%>
 <%String datetime1 = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()); //获取系统时间%>
 </script>
@@ -249,11 +230,9 @@ $(function () {
 		style="width: 200px; margin-top: 30px; margin-left: 350px;">
 		<h4>我的投资</h4>
 		<li ><a href="#touzi" data-toggle="tab"> 投资记录</a></li>
-		<li><a href="#yuyue" style="display: none;" data-toggle="tab">预约记录</a></li>
-		<li><a href="#jine" data-toggle="tab">充值记录 </a></li>
+		<li><a href="#jine" data-toggle="tab" onclick="tex()">充值记录 </a></li>
 		<li><a href="#shouyi" data-toggle="tab">收益记录 </a></li>
 		<li><a href="#tikuan" data-toggle="tab">提款记录 </a></li>
-		<li><a href="#tiyan" data-toggle="tab">体验金记录 </a></li>
 		<h4>我的账户</h4>
 		<li><a href="#aqxx" data-toggle="tab">安全信息 </a></li>
 		<li><a href="#wytk" data-toggle="tab">我要提款 </a></li>
@@ -291,92 +270,16 @@ $(function () {
 				</tbody>
 			</table>
 			 <div class="pagin" style="text-align: center;">
-    <div class="message">共<i class="blue">${pb.total }</i>条记录，当前显示第&nbsp;<i class="blue">${pb.page }</i>页</div> 
+    <div  class="message">共<i class="blue">${pb.total }</i>条记录，当前显示第&nbsp;<i class="blue">${pb.page }</i>页</div> 
     	<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?flag=first&page=${pb.page }" onclick="fun1()">首页</a>
 		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?flag=up&page=${pb.page }" onclick="fun1()">上一页</a>
 		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?flag=next&page=${pb.page }" onclick="fun1()">下一页</a>
 		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?flag=last&page=${pb.page }" onclick="fun1()">末页</a>
     </div>
 		</div>
-		<div class="tab-pane fade" id="yuyue" style="display: none;" 
-			style="margin-left: 600px; margin-top: -450px; width: 700px; height: 600px;">
-			<table class="table" width="700px" height="250px;">
-				<caption>
-					<h4>预约记录</h4>
-				</caption>
-				<thead>
-					<tr>
-						<th>标的名称</th>
-						<th>金额</th>
-						<th>预期收益</th>
-						<th>状态</th>
-						<th>预约时间</th>
-						<th>下载</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr class="active">
-						<td>产品1</td>
-						<td>产品1</td>
-						<td>产品1</td>
-						<td>产品1</td>
-						<td>23/11/2013</td>
-						<td>待发货</td>
-					</tr>
-					<tr class="success">
-						<td>产品1</td>
-						<td>产品2</td>
-						<td>产品1</td>
-						<td>产品1</td>
-						<td>10/11/2013</td>
-						<td>发货中</td>
-					</tr>
-					<tr class="warning">
-						<td>产品1</td>
-						<td>产品3</td>
-						<td>产品1</td>
-						<td>产品1</td>
-						<td>20/10/2013</td>
-						<td>待确认</td>
-					</tr>
-					<tr class="danger">
-						<td>产品1</td>
-						<td>产品4</td>
-						<td>产品1</td>
-						<td>产品1</td>
-						<td>20/10/2013</td>
-						<td>已退货</td>
-					</tr>
-					<tr class="active">
-						<td>产品1</td>
-						<td>产品4</td>
-						<td>产品1</td>
-						<td>产品1</td>
-						<td>20/10/2013</td>
-						<td>已退货</td>
-					</tr>
-					<tr class="active">
-						<td>产品1</td>
-						<td>产品4</td>
-						<td>产品1</td>
-						<td>产品1</td>
-						<td>20/10/2013</td>
-						<td>已退货</td>
-					</tr>
-					<tr class="active">
-						<td>产品1</td>
-						<td>产品4</td>
-						<td>产品1</td>
-						<td>产品1</td>
-						<td>20/10/2013</td>
-						<td>已退货</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
 		<div class="tab-pane fade" id="jine"
 			style="margin-left: 600px; margin-top: -450px; width: 700px; height: 600px;">
-			<table class="table" width="700px">
+			<table class="table" width="700px" >
 				<caption>
 					<h4>充值记录</h4>
 				</caption>
@@ -410,7 +313,7 @@ $(function () {
 		</div>
 		<div class="tab-pane fade" id="shouyi"
 			style="margin-left: 600px; margin-top: -450px; width: 700px; height: 600px;">
-			<table class="table" width="700px">
+			<table class="table" width="700px" id="t_student">
 				<caption>
 					<h4>收益记录</h4>
 				</caption>
@@ -436,6 +339,21 @@ $(function () {
 					</c:forEach>
 				</tbody>
 			</table>
+			<div class="gridItem" style=" padding: 5px; width: 300px; float: left; text-align: left; height: 30px; line-height:30px; font-size: 15px;" > 
+			        共有 <span id="spanTotalInfor" style="color: red;font-weight: bold;"></span> 条记录 ,    
+			        当前第 <span id="spanPageNum" style="color: red;font-weight: bold;"></span> 页    , 
+			        共 <span id="spanTotalPage" style="color: red;font-weight: bold;"></span> 页
+		    </div>
+    		<div class="gridItem" style="margin-left:45px;  padding: 5px; width: 400px; float: left; text-align: center; height: 30px; line-height:30px; vertical-align: middle; font-size: 15px;">   
+	            <span id="spanFirst" >首页</span> 
+	            <span id="spanPre">上一页</span>
+	            <span id="spanInput" style="margin: 0px; padding: 0px 0px 4px 0px; height:100%; "> 
+                	第<input id="Text1" type="text" class="TextBox" onkeyup="changepage()"   style="height:20px; text-align: center;width:50px" />页 
+            	</span>
+	            <span id="spanNext">下一页</span> 
+	            <span  id="spanLast">尾页</span> 
+        	</div>
+			
 		</div>
 		<div class="tab-pane fade" id="tikuan"
 			style="margin-left: 600px; margin-top: -450px; width: 700px; height: 600px;">
@@ -471,43 +389,6 @@ $(function () {
 		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?note=next&page=${pb.page }" onclick="fun1()">下一页</a>
 		<a class="btn btn-primary" style="width: 80px;" href="/Cornucopia/item/Contact?note=last&page=${pb.page }" onclick="fun1()">末页</a>
     </div>
-		</div>
-		<div class="tab-pane fade" id="tiyan"
-			style="margin-left: 600px; margin-top: -450px; width: 700px; height: 600px;">
-			<table class="table" width="700px">
-				<caption>
-					<h4>体验金记录</h4>
-				</caption>
-				<thead>
-					<tr>
-						<th>产品</th>
-						<th>付款日期</th>
-						<th>状态</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr class="active">
-						<td>产品1</td>
-						<td>23/11/2013</td>
-						<td>待发货</td>
-					</tr>
-					<tr class="success">
-						<td>产品2</td>
-						<td>10/11/2013</td>
-						<td>发货中</td>
-					</tr>
-					<tr class="warning">
-						<td>产品3</td>
-						<td>20/10/2013</td>
-						<td>待确认</td>
-					</tr>
-					<tr class="danger">
-						<td>产品4</td>
-						<td>20/10/2013</td>
-						<td>已退货</td>
-					</tr>
-				</tbody>
-			</table>
 		</div>
 		<div class="tab-pane fade" id="aqxx"
 			style="margin-left: 600px; margin-top: -450px; width: 700px; height: 600px;">
@@ -1151,25 +1032,74 @@ $(function () {
 	</div>
 	<script src="../assets/js/amazeui.js" charset="utf-8"></script>
 	<script type="text/javascript">
-$(function () { 
-	  $('#myTab a').click(function (e) {
-	        e.preventDefault()
-	        $(this).tab('show')
-	    })
-	var url = location.href; 
-	var c=url.substring(46,50);
-	  switch (c){
-      case 'flag':
-          $('#myTab a[href="#touzi"]').tab('show')
-          break;
-      case 'info':
-          $('#myTab a[href="#jine"]').tab('show')
-          break;
-      case 'note':
-          $('#myTab a[href="#tikuan"]').tab('show')
-          break;
-   }     
-  }) </script>
+            var theTable = document.getElementById("t_student");
+            var txtValue = document.getElementById("Text1").value;
+            function changepage() {
+                var txtValue2 = document.getElementById("Text1").value;
+                if (txtValue != txtValue2) {
+                    if (txtValue2 > pageCount()) {
+
+                    }
+                    else if (txtValue2 <= 0) {
+
+                    }
+                    else if (txtValue2 == 1) {
+                        first();
+                    }
+                    else if (txtValue2 == pageCount()) {
+                        last();
+                    }
+                    else {
+                        hideTable();
+                        page = txtValue2;
+                        pageNum2.value = page;
+
+                        currentRow = pageSize * page;
+                        maxRow = currentRow - pageSize;
+                        if (currentRow > numberRowsInTable) currentRow = numberRowsInTable;
+                        for (var i = maxRow; i < currentRow; i++) {
+                            theTable.rows[i].style.display = '';
+                        }
+                        if (maxRow == 0) { preText(); firstText(); }
+                        showPage();
+                        nextLink();
+                        lastLink();
+                        preLink();
+                        firstLink();
+                   }
+
+                    txtValue = txtValue2;
+                }
+            }
+    </script>
+    <script src="../assets/js/Pagging.js" charset="utf-8"></script>
+	<script type="text/javascript">
+		 function tex(){
+				document.getElementById("jine").style.display=""; 
+		 }
+  	$(function () { 
+		  $('#myTab a').click(function (e) {
+		        e.preventDefault()
+		        $(this).tab('show')
+		    })
+		var url = location.href; 
+		var c=url.substring(46,50);
+		  switch (c){
+	      case 'flag':
+	          $('#myTab a[href="#touzi"]').tab('show')
+	          	document.getElementById("jine").style.display="none";
+	          break;
+	      case 'info':
+	          $('#myTab a[href="#jine"]').tab('show')
+	          break;
+	      case 'note':
+	          $('#myTab a[href="#tikuan"]').tab('show')
+	          break;
+	   }     
+	  }) 
+	  
+	  </script>
+  
 </body>
 
 </html>
