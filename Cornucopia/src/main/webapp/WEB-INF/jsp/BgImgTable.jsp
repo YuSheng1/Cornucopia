@@ -106,8 +106,13 @@
          <td>${f.period }</td>
          <td>${f.floor_amount }</td>
          <td>${f.create_date}</td>       
-         <td><input type="button" class="btn btn-primary" value="签署情况" onclick="finance_product_subscribe(${f.id})">
-             <input type="button" class="btn btn-primary" value="编辑/查看" onclick="updateFinance_product_funds(${f.id})">
+         <td>
+            <a href="/Cornucopia/finance/fpsList?id=${f.id }">
+             <input type="button" class="btn btn-primary" value="签署情况" >
+             </a>
+          <a href="/Cornucopia/finance/toUpdate?id=${f.id }">
+             <input type="button" class="btn btn-primary" value="编辑修改" >
+             </a>
         </td> 
       </tr>
    </tbody>

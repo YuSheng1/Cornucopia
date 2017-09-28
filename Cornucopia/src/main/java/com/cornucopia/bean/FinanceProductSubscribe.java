@@ -9,38 +9,28 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-@Table(name = "Finance_product_subscribe") // ����������ƷԤԼ��¼��
+@Table(name = "Finance_product_subscribe") // 锟斤拷锟斤拷锟斤拷锟斤拷品预约锟斤拷录锟斤拷
 @Entity
 public class FinanceProductSubscribe {
-	private int id;// ����
-	private String name;// ����
-	private String phone;// ��ϵ�绰
-    private String addr;// ���ڵ���
-	private int status;// �Ƿ���(0:ǩ������|1:��ǩԼ|2:�����|3:ǩ��ʧ��)
-	private String comment;// ����ǩ���ĵ���Ϣ
-	private String risk_reveal;// ���ս�ʾ��
-	private Date create_date;// ����ʱ��
-	private Date update_date;// �޸�ʱ��
-	private int amount;// ˽ļ������
-	private int interest;// ˽ļ��������
-	private Date start_date;// ��ʼʱ��
-	private Date end_date;// ����ʱ��
-	private String signed_photos;// ǩ������
-	private Member member;
+	private int id;// 锟斤拷锟斤拷
+	private String name;// 锟斤拷锟�
+	private String phone;// 锟斤拷系锟界话
+    private String addr;// 锟斤拷锟节碉拷锟斤拷
+	private int status;// 锟角凤拷锟斤拷(0:签锟斤拷锟斤拷锟斤拷|1:锟斤拷签约|2:锟斤拷锟斤拷锟絴3:签锟斤拷失锟斤拷)
+	private String comment;// 锟斤拷锟斤拷签锟斤拷锟侥碉拷锟斤拷息
+	private String risk_reveal;// 锟斤拷锟秸斤拷示锟斤拷
+	private String create_date;// 锟斤拷锟斤拷时锟斤拷
+	private String update_date;// 锟睫革拷时锟斤拷
+	private int amount;// 私募锟斤拷锟斤拷锟斤拷
+	private int interest;// 私募锟斤拷锟斤拷锟斤拷锟斤拷
+	private String start_date;// 锟斤拷始时锟斤拷
+	private String end_date;// 锟斤拷锟斤拷时锟斤拷
+	private String signed_photos;// 签锟斤拷锟斤拷锟斤拷
 	private FinanceProductFunds financeProductFunds;
+	private Member member;
 	
 	@ManyToOne
-	@JoinColumn(name = "product_id")
-	public Member getMember() {
-		return member;
-	}
-
-	public void setMember(Member member) {
-		this.member = member;
-	}
-	
-	@ManyToOne
-	@JoinColumn(name = "member_id")
+	@JoinColumn(name="product_id")
 	public FinanceProductFunds getFinanceProductFunds() {
 		return financeProductFunds;
 	}
@@ -49,6 +39,16 @@ public class FinanceProductSubscribe {
 		this.financeProductFunds = financeProductFunds;
 	}
 
+	@ManyToOne
+	@JoinColumn(name = "member_id")
+	public Member getMember() {
+		return member;
+	}
+	
+
+	public void setMember(Member member) {
+		this.member = member;
+	}
 	@Id
 	@GeneratedValue
 	public int getId() {
@@ -109,19 +109,19 @@ public class FinanceProductSubscribe {
 		this.risk_reveal = risk_reveal;
 	}
 
-	public Date getCreate_date() {
+	public String getCreate_date() {
 		return create_date;
 	}
 
-	public void setCreate_date(Date create_date) {
+	public void setCreate_date(String create_date) {
 		this.create_date = create_date;
 	}
 
-	public Date getUpdate_date() {
+	public String getUpdate_date() {
 		return update_date;
 	}
 
-	public void setUpdate_date(Date update_date) {
+	public void setUpdate_date(String update_date) {
 		this.update_date = update_date;
 	}
 
@@ -141,19 +141,19 @@ public class FinanceProductSubscribe {
 		this.interest = interest;
 	}
 
-	public Date getStart_date() {
+	public String getStart_date() {
 		return start_date;
 	}
 
-	public void setStart_date(Date start_date) {
+	public void setStart_date(String start_date) {
 		this.start_date = start_date;
 	}
 
-	public Date getEnd_date() {
+	public String getEnd_date() {
 		return end_date;
 	}
 
-	public void setEnd_date(Date end_date) {
+	public void setEnd_date(String end_date) {
 		this.end_date = end_date;
 	}
 
