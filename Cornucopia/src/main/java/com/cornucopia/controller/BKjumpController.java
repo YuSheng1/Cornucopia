@@ -241,7 +241,9 @@ public class BKjumpController {
 
 	// 后台登陆
 	@RequestMapping("BgLogin")
-	public String BgLogin() {
+	public String BgLogin(HttpSession session) {
+		session.setAttribute("user_name", null);
+		session.setAttribute("url", null);
 		return "BgLogin";
 	}
 

@@ -30,11 +30,11 @@ $(function(){
      
     
     <ul class="nav">
-    <li><a href="/Cornucopia/BgItem/BgDefault" target="rightFrame" class="selected"><img src="../BgAssets/images/icon01.png" title="工作台" /><h2>工作台</h2></a></li>
-    <li><a href="/Cornucopia/BgItem/BgImgTable" target="rightFrame"><img src="../BgAssets/images/icon02.png" title="模型管理" /><h2>模型管理</h2></a></li>
-    <li><a href="/Cornucopia/BgItem/BgImgList"  target="rightFrame"><img src="../BgAssets/images/icon03.png" title="模块设计" /><h2>模块设计</h2></a></li>
-    <li><a href="/Cornucopia/BgItem/BgTools"  target="rightFrame"><img src="../BgAssets/images/icon04.png" title="常用工具" /><h2>常用工具</h2></a></li>
-    <li><a href="/Cornucopia/BgItem/BgTab"  target="rightFrame"><img src="../BgAssets/images/icon06.png" title="系统设置" /><h2>系统设置</h2></a></li>
+        <li><a href="/Cornucopia/BgItem/BgImgTable" target="rightFrame"><img src="../BgAssets/images/icon02.png" title="财务统计" /><h2>财务统计</h2></a></li>
+    <li><a href="/Cornucopia/backYingJiaUsersComprehensiveStatistics/login"  target="rightFrame" class="selected"><img src="../BgAssets/images/icon01.png" title="财务统计" /><h2>用户统计</h2></a></li>
+    <li><a href="/Cornucopia/BgItem/BgServicePlan"  target="rightFrame"><img src="../BgAssets/images/icon03.png" title="付息计划" /><h2>付息计划</h2></a></li>
+    <li><a href="/Cornucopia/BgItem/BgStade"  target="rightFrame"><img src="../BgAssets/images/icon04.png" title="缴费记录" /><h2>缴费记录</h2></a></li>
+    <li><a href="/Cornucopia/BgItem/BgUserPermission"  target="rightFrame"><img src="../BgAssets/images/icon06.png" title="用户管理" /><h2>用户管理</h2></a></li>
     </ul>
  
             

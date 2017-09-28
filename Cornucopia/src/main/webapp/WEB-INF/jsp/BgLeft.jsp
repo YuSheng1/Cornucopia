@@ -99,11 +99,16 @@ $(function(){
     <dd><div class="title"><span><img src="../BgAssets/images/leftico04.png" /></span>系统设置</div>
     <ul class="menuson">
         <li><cite></cite><a href="/Cornucopia/BgItem/PsssWorld" target="rightFrame">密码设置</a><i></i></li>
-        <li><cite></cite><a href="/Cornucopia/BgItem/BgLogin" target="rightFrame">安全退出</a><i></i></li>
+        <li><cite></cite><a href="/Cornucopia/BgItem/BgLogin"  onclick="func()" target="rightFrame">安全退出</a><i></i></li>
     </ul>
     
     </dd> 
     
     </dl>
+    <script type="text/javascript">
+	function func(){
+		window.top.location.replace('/Cornucopia/BgItem/BgLogin');
+	}
+	</script>
 </body>
 </html>
