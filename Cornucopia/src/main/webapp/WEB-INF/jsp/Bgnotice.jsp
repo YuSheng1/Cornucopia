@@ -19,6 +19,7 @@
 <script src="../BgAssets/js/bootstrapValidator.min.js"></script>
 <link href="../assets/css/metroStyle.css" rel="stylesheet" />
 <link href="../BgAssets/css/bootstrapValidator.min.css" rel="stylesheet" />
+
  <script type="text/javascript"  src="/Cornucopia/utf8-jsp/ueditor.config.js"></script>
     <script type="text/javascript"  src="/Cornucopia/utf8-jsp/ueditor.all.min.js"> </script>
     <!--建议手动加在语言，避免在ie下有时因为加载语言失败导致编辑器加载失败-->
@@ -90,20 +91,6 @@ $(function () {
 	</div>
      </td>
      </tr>
-    <!-- 
-    	<ul class="toolbar">
-        <li class="click"><span><img src="../BgAssets/images/t01.png" /></span>添加</li>
-        <li class="click"><span><img src="../BgAssets/images/t02.png" /></span>修改</li>
-        <li><span><img src="../BgAssets/images/t03.png" /></span>删除</li>
-        <li><span><img src="../BgAssets/images/t04.png" /></span>统计</li>
-        </ul>
-         -->
-        
-        <!-- 
-        <ul class="toolbar1">
-        <li><span><img src="../BgAssets/images/t05.png" /></span>设置</li>
-        </ul>
-         -->
     
     </div>
     
