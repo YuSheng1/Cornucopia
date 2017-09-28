@@ -8,8 +8,16 @@
 <title>无标题文档</title>
 <link href="../BgAssets/css/style.css" rel="stylesheet" type="text/css" />
 <script type="text/javascript" src="../BgAssets/js/jquery.js"></script>
+<script type="text/javascript" src="../BgAssets/js/jquery.js"></script>
+<link href="../assets/css/bootstrap.css" rel="stylesheet">
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/jquery.ztree.all-3.5.js"></script>
+<script src="../BgAssets/js/bootstrapValidator.min.js"></script>
+<link href="../assets/css/metroStyle.css" rel="stylesheet" />
+<link href="../BgAssets/css/bootstrapValidator.min.css" rel="stylesheet" />
 </head>
-<body>
+<body  style="background:#f0f9fd;">
     <div class="place" style="color: blue;font-size: 20px">
     <span>位置：</span>
     <ul class="placeul">

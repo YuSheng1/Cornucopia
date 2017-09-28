@@ -29,7 +29,6 @@
   <ul class="toolbar1">
         <li class="click"><span><img src="../BgAssets/images/t01.png" /></span>新增</li>
         <li class="click"><span><img src="../BgAssets/images/t02.png" /></span>重置</li>
-        
         <li><span><img src="../BgAssets/images/t04.png" /></span>查询</li>
         
   </ul>  

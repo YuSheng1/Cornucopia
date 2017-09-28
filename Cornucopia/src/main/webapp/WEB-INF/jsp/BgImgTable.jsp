@@ -14,6 +14,14 @@
 <script type="text/javascript" src="../BgAssets/js/jquery.idTabs.min.js"></script>
 <script type="text/javascript" src="../BgAssets/js/select-ui.min.js"></script>
 <script type="text/javascript" src="../BgAssets/editor/kindeditor.js"></script>
+<script type="text/javascript" src="../BgAssets/js/jquery.js"></script>
+<link href="../assets/css/bootstrap.css" rel="stylesheet">
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/bootstrap.min.js"></script>
+<script src="../assets/js/jquery.ztree.all-3.5.js"></script>
+<script src="../BgAssets/js/bootstrapValidator.min.js"></script>
+<link href="../assets/css/metroStyle.css" rel="stylesheet" />
+<link href="../BgAssets/css/bootstrapValidator.min.css" rel="stylesheet" />
 <script type="text/javascript">
 	function clean() {
 		$("#name").val(null);
@@ -22,7 +30,7 @@
 	}
 </script>
 </head>
-<body>
+<body style="background:#f0f9fd;">
     <div class="place" style="color: blue;font-size: 20px">
     <span>位置：</span>
     <ul class="placeul">
@@ -49,8 +57,8 @@
 				         <option value="2" >已结束</option>
 						</select>
 						
-						
-				<input type="submit" class="btn btn-primary" value="查询">
+				<input type="submit"  class="btn btn-primary" value="查询">
+				
 
 				<button type="reset" class="btn btn-primary" onclick="clean();">
 				
