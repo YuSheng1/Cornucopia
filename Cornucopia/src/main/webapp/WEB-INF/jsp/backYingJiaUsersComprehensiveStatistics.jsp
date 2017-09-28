@@ -18,7 +18,6 @@
 <link href="../assets/css/font-awesome.css" rel="stylesheet" />
 <script src="../assets/js/jquery.metisMenu.js"></script>
 <script src="../assets/js/easypiechart.js"></script>
-<script src="../assets/js/custom-scripts.js"></script>
 </head>
 <body>
 	<script type="text/javascript">

@@ -30,7 +30,7 @@ $(function(){
      
     
     <ul class="nav">
-        <li><a href="/Cornucopia/BgItem/BgImgTable" target="rightFrame"><img src="../BgAssets/images/icon02.png" title="财务统计" /><h2>财务统计</h2></a></li>
+        <li><a href="/Cornucopia/backYingJiaFinanceStatistics/login" target="rightFrame"><img src="../BgAssets/images/icon02.png" title="财务统计" /><h2>财务统计</h2></a></li>
     <li><a href="/Cornucopia/backYingJiaUsersComprehensiveStatistics/login"  target="rightFrame" class="selected"><img src="../BgAssets/images/icon01.png" title="财务统计" /><h2>用户统计</h2></a></li>
     <li><a href="/Cornucopia/BgItem/BgServicePlan"  target="rightFrame"><img src="../BgAssets/images/icon03.png" title="付息计划" /><h2>付息计划</h2></a></li>
     <li><a href="/Cornucopia/BgItem/BgStade"  target="rightFrame"><img src="../BgAssets/images/icon04.png" title="缴费记录" /><h2>缴费记录</h2></a></li>
