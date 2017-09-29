@@ -55,7 +55,6 @@
 	});
 </script>
 <SCRIPT type="text/javascript">
-	
 <%String datetime = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(Calendar.getInstance().getTime()); //获取系统时间%>
 	var cid = 0;
 	function cc(id) {
@@ -99,6 +98,62 @@
 		$.fn.zTree.init($("#treeDemo"), setting);
 	}
 </SCRIPT>
+<script type="text/javascript">  
+$(function(){  
+    var flag = 0;  
+    $("#txt1").blur(function(){  
+        if(flag!=0 && flag!=1 ) return;  
+        if($.trim($("#txt1").val())==""){  
+            flag = 1;  
+            $("#msg1").html("名字不能为空！");  
+            $("#txt1").focus();  
+            return;  
+        }else{  
+            flag = 0;  
+        }  
+    });  
+    
+    $("#txt2").blur(function(){  
+        if(flag!=0 && flag!=2 ) return;  
+        if($.trim($("#txt2").val())==""){  
+            flag = 2;  
+            $("#msg2").html("2中不能为空！");  
+            $("#txt2").focus();  
+            return;  
+        }
+          else {  
+            flag = 0;  
+        }  
+    });   
+    $("#txt3").blur(function(){  
+        if(flag!=0 && flag!=3 ) return;  
+        if($.trim($("#txt3").val())==""){  
+            flag = 3;  
+            $("#msg3").html("3中不能为空！");  
+            $("#txt3").focus();  
+            return;  
+        }else{  
+            flag = 0;  
+        }  
+    });   
+    
+  
+    //优化后代码：  
+    $(".e").each(function(index, element) {  
+        $(this).change(function(){  
+            $(".f").html("");  
+        });  
+    });  
+});  
+function upperCase()
+{
+var phone = document.getElementById('phone').value;
+if(!(/^1[34578]\d{9}$/.test(phone))){ 
+	  $("#msg6").html("请输入数字！");
+    return false; 
+} 
+}
+</script>  
 </head>
 <body>
 	<div class="place">
@@ -114,8 +169,9 @@
 		<div id="tab1" class="tabson">
 			<form action="/Cornucopia/BgSubject/save" method="post">
 				<ul class="forminfo">
-					<li><label>名称：<b>*</b></label> <input name="name" type="text"
-						class="form-control" style="width: 518px;" /></li>
+					<li><label>名称：<b>*</b></label> <input name="name" type="text" id="txt1"
+						class="form-control" style="width: 518px;" />
+						<span id="msg1" class="f" style="color: red" class="e"></span></li>
 					<li>
 						<div class="vocation">
 						<label>类型:<b>*</b></label>
@@ -127,12 +183,16 @@
 						</div></li>
 						<br><br><br><br>
 					<li><label>合同编号：<b>*</b></label> <input name="serial_no"
-						type="text" class="form-control" style="width: 518px;" /></li>
+						type="text" class="form-control" style="width: 518px;" required="required"/></li>
 					<br>
 					<li><label>借款用途：<b>*</b></label> <input name="purpose"
-						type="text" class="form-control" style="width: 518px;" /></li>
+						type="text" class="form-control" style="width: 518px;" / required="required"></li>
 					<li><label>起投金额：<b>*</b></label> <input name="floor_amount"
-						type="text" class="form-control" style="width: 518px;" /></li>
+						type="text" class="form-control" style="width: 518px;" id="phone"
+						onblur="upperCase()"/>
+						<span id="msg6" class="f" style="color: red" class="e"></span>
+						</li>
+						</li>
 					<li>
 						<div class="vocation">
 						<label>保障方式:<b>*</b></label>
@@ -144,7 +204,11 @@
 						
 						<br><br><br><br><br>
 					<li><label>年化收益：<b>*</b></label> <input name="year_rate"
-						type="text" class="form-control" style="width: 518px;" /></li>
+						type="text" class="form-control" style="width: 518px;" id="phone"
+						onblur="upperCase()"
+				         />
+						<span id="msg6" class="f" style="color: red" class="e"></span>
+						</li>
 					<li>
 						<div class="vocation">
 						<label>是否可用:</label>
@@ -156,9 +220,9 @@
 						</li>
 						<br><br><br><br>	
 					<li><label>募集开始时间</label><input name="raise_start1"
-						type="date" class="form-control" style="width: 518px;" /></li>
+						type="date" class="form-control" style="width: 518px;" required="required"/></li>
 					<li><label>募集结束时间</label><input name="end_start1" type="date"
-						class="form-control" style="width: 518px;" /></li>
+						class="form-control" style="width: 518px;" required="required"/></li>
 					<li>
 						<div class="vocation">
 						<label>状态:<b>*</b></label>
@@ -172,30 +236,37 @@
 						
 						<br>
 					<li><label>以购人数：<b>*</b></label><input name="bought"
-						type="text" class="form-control" style="width: 518px;" /></li>
+						type="text" class="form-control" style="width: 518px;" onblur="upperCase()" id="phone"  />
+						<span id="msg6" class="f" style="color: red" class="e" required="required"></span>
+						</li>
 
 					</li>
 
 					<li>
 						<div>
 							<label>标开始时间：<b>*</b></label><input name="start_date1"
-								type="date" class="form-control" style="width: 518px;" />
+								type="date" class="form-control" style="width: 518px;"required="required" />
 						</div>
 					</li>
 
 					<li><label>借款人姓名：<b>*</b></label><input name="borrowername"
-						type="text" class="form-control" style="width: 518px;" /></li>
+						type="text" class="form-control" style="width: 518px;" id="txt1"/>
+						<span id="msg1" class="f" style="color: red" class="e" required="required"></span>
+						</li>
 					<li>
 						<div>
 
 							<li><label>标结束时间：<b>*</b></label> <input name="end_date1"
-								type="date" class="form-control" style="width: 518px;" /></li>
+								type="date" class="form-control" style="width: 518px;" required="required" /></li>
 						</div>
 					</li>
 					<li>
 						<div>
 							<label> 总金额：<b>*</b></label><input name="borrowername"
-								type="text" class="form-control" style="width: 518px;" />
+								type="text" class="form-control" style="width: 518px;"onblur="upperCase()" id="phone" 
+								required="required"
+								 />
+								 <span id="msg6" class="f" style="color: red" class="e"></span>
 						</div>
 					</li>
 					<input style="display: none;" name="create_date"
@@ -225,18 +296,18 @@
 					</div>
 
 					<li><label>责权编号：<b>*</b></label> <input name="child_title"
-						type="text" class="form-control" style="width: 518px;" /></li>
+						type="text" class="form-control" style="width: 518px;" required="required" /></li>
 
 
 					<li><label>企业认证：<b>*</b></label> <input name="child_title"
-						type="text" class="form-control" style="width: 518px;" /></li>
+						type="text" class="form-control" style="width: 518px;" required="required" /></li>
 
 
 					<li><label>责权人：<b>*</b></label> <input name="child_title"
-						type="text" class="form-control" style="width: 518px;" /></li>
+						type="text" class="form-control" style="width: 518px;"required="required" /></li>
 
 					<li><label>保障平台：<b>*</b></label> <input name="child_title"
-						type="text" class="form-control" style="width: 518px;" /></li>
+						type="text" class="form-control" style="width: 518px;"required="required" /></li>
 				    <li><label>图标：<b>*</b></label> 
                      <div>
 					<img  src="/Cornucopia/BgAssets/images/img06.png"><input type="radio" name="oversea_icon" value="/Cornucopia/BgAssets/images/img06.png">

@@ -101,6 +101,15 @@
 		});
 	});
 </script>
+<script type="text/javascript">
+   var regNumber = /\d+/;
+  var floor_amount=document.getElementById("floor_amount").value;
+  var  ratio=document.getElementById("ratio").value;
+  var year_rate=document.getElementById("year_rate").value;
+  if (!regNumber.test(floor_amount) && regString.test(floor_amount)) {
+	  $("#msg3").html("请填写数子"); 
+	}
+</script>
 
 </head>
 
@@ -115,7 +124,7 @@
 				method="post">
 				<ul class="forminfo">
 					<li><label>名称：<b>*</b></label> <input name="name" type="text"
-						class="form-control" style="width: 518px;" /></li>
+						class="form-control" style="width: 518px;" required="required" /></li>
 					<li>
 						<div class="vocation">
 						<label>类型:<b>*</b></label>
@@ -127,19 +136,25 @@
 						</div></li>
 						<br><br><br><br>
 					<li><label>起投金额：<b>*</b></label> <input name="floor_amount"
-						type="text" class="form-control" style="width: 518px;" /></li>
+						type="text" class="form-control" style="width: 518px;" required="required" id="floor_amount"/>
+						<span id="msg3" class="f" style="color: red" class="e"></span>
+						</li>
 						
 			      <li><label>反用比例：<b>*</b></label> <input name="ratio"
-						type="text" class="form-control" style="width: 518px;" /></li>
+						type="text" class="form-control" style="width: 518px;" required="required" id="ratio"/>
+						<span id="msg3" class="f" style="color: red" class="e"></span>
+						</li>
 						
 
 					<li><label>年化收益：<b>*</b></label> <input name="year_rate"
-						type="text" class="form-control"style="width: 518px;" /></li>
+						type="text" class="form-control"style="width: 518px;" required="required" id="year_rate"/>
+						<span id="msg3" class="f" style="color: red" class="e"></span>
+						</li>
 
 					<li><label>开始时间</label><input name="start_date" type="date"
-						class="form-control" style="width: 518px;" /></li>
+						class="form-control" style="width: 518px;" required="required" /></li>
 					<li><label>结束时间</label><input name="end_date" type="date"
-						class="form-control" style="width: 518px;" /></li>
+						class="form-control" style="width: 518px;" required="required" /></li>
 					<li>
 						<div class="vocation">
 						<label>状态:<b>*</b></label>
@@ -151,10 +166,10 @@
 						</div></li>
                           <br><br><br><br>
 					<li><label>投资期限：<b>*</b></label> <input name="period"
-						type="text" class="form-control" style="width: 518px;" /></li>
+						type="text" class="form-control" style="width: 518px;" required="required"/></li>
 
 					<li><label>投资方向：<b>*</b></label> <input name="invest_points"
-						type="text" class="form-control"  style="width: 518px;" /></li>
+						type="text" class="form-control"  style="width: 518px;" required="required"/></li>
 
 					<input style="display: none;" name="create_date"
 						value="<%=datetime%>">
@@ -169,13 +184,13 @@
 					</li>
 					<li><label>基金经理名称：<b>*</b></label> <input
 						name="product_manager_name" type="text" class="form-control" 
-						style="width: 518px;" /></li>
+						style="width: 518px;" required="required"/></li>
 					<li><label>基金经理头衔：<b>*</b></label> <input
 						name="product_manager_title" type="text" class="form-control" 
-						style="width: 518px;" /></li>
+						style="width: 518px;" required="required"/></li>
 					<li><label>基金经理详情：<b>*</b></label> <input
 						name="product_manager_desc" type="text" class="form-control" 
-						style="width: 518px;" /></li>
+						style="width: 518px;" required="required"/></li>
 					<li><label>基金经理头像：<b>*</b></label> 
                      <div>
 					<img  src="/Cornucopia/BgAssets/images/img08.png"><input type="radio" name="product_manager_pic" value="/Cornucopia/BgAssets/images/img08.png">
@@ -184,7 +199,7 @@
 					</div>
 					</li>
 					<li><label>银行账户：<b>*</b></label> <input name="bank_account"
-						type="text" class="dfinput" style="width: 518px;" /></li>
+						type="text" class="form-control"  style="width: 518px;" required="required"/></li>
 					<li><input type="submit" class="btn btn-primary" value="添    加" /></li>
 				</ul>
 			</form>

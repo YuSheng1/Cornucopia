@@ -98,6 +98,7 @@
 		$.fn.zTree.init($("#treeDemo"), setting);
 	}
 </SCRIPT>
+
 </head>
 <body>
 	<div class="place">
@@ -114,25 +115,29 @@
 			
 				<ul class="forminfo">
 					<li><label>姓名：<b>*</b></label> <input name="name" type="text"
-						class="form-control" style="width: 518px;" value="${sub.name }" readonly="true"/>
-						<span><font style="color: red">不可修改</font></span>
+						class="form-control" style="width: 518px;" value="${sub.name }" readonly="true" />
+						
 						</li>
 						
 					<li><label>身份证号：<b>*</b></label> <input name="identity"
 						type="text"  class="form-control" style="width: 518px;" value="${sub.member.identity }" readonly="true"/>
-						<span><font style="color: red">不可修改</font></span>
+						
 						</li>
 						
 						
 				   <form action="/Cornucopia/finance/updatesub" method="post">
 					<li><label>购买进额：<b>*</b></label> <input name="amount"
-						type="text" class="form-control" style="width: 518px;" /></li>
+						type="number" class="form-control" style="width: 518px;" required="required"/>
+						<span style="color: red">请输入数字</span>
+						</li>
 					<li><label>利息收益：<b>*</b></label> <input name="interest"
-						type="text" class="form-control"  style="width: 518px;" /></li>
+						type="number" class="form-control"  style="width: 518px;"required="required" />
+						<span style="color: red">请输入数字</span>
+						</li>
 					<li><label>开始时间</label><input name="start_date" type="date"
-						class="form-control" style="width: 518px;" /></li>
+						class="form-control" style="width: 518px;" required="required"/></li>
 					<li><label>结束时间</label><input name="end_date" type="date"
-						class="form-control" style="width: 518px;" /></li>
+						class="form-control" style="width: 518px;" required="required"/></li>
 					 <input style="display: none;" name="update_date" value="<%=datetime%>">	
 					 
 					<li><input type="submit" class="btn btn-primary" value="签署合同" /></li>

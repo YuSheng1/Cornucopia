@@ -98,16 +98,16 @@ $(document).ready(function(e) {
   	<div id="tab1" class="tabson">  
   	<form action="/Cornucopia/BgOver/save" method="post" >
     <ul class="forminfo">
-    <li><label>名称：<b>*</b></label><input name="title" type="text" class="form-control"  style="width:518px;"/></li>
+    <li><label>名称：<b>*</b></label><input name="title" type="text" class="form-control"  style="width:518px;" required="required"/></li>
    
-    <li><label>子标题：<b>*</b></label><input name="child_title" type="text" class="form-control"" "   style="width:518px;"/></li>
+    <li><label>子标题：<b>*</b></label><input name="child_title" type="text" class="form-control"" "   style="width:518px;" required="required"/></li>
    
     
-    <li><label>描述：<b>*</b></label><input name="description" type="text" class="form-control"   style="width:518px;"/></li>
+    <li><label>描述：<b>*</b></label><input name="description" type="text" class="form-control"   style="width:518px;" required="required"/></li>
     
-    <li><label>用户群体：<b>*</b></label><input name="user_type" type="text" class="form-control"  style="width:518px;"/></li>
+    <li><label>用户群体：<b>*</b></label><input name="user_type" type="text" class="form-control"  style="width:518px;" required="required"/></li>
     
-    <li><label>排序值：<b>*</b></label><input name="sortColum" type="text" class="form-control"  style="width:518px;"/></li>
+    <li><label>排序值：<b>*</b></label><input name="sortColum" type="text" class="form-control"  style="width:518px;" required="required"/></li>
      <li>
     <div class="vocation">
     <label>状态:<b>*</b></label>
@@ -120,9 +120,9 @@ $(document).ready(function(e) {
     </div>
     </li>
     <br><br><br><br>
-    <li><label>开始时间：<b>*</b></label><input name="start_time" type="date" class="form-control"    style="width:518px;"/></li>
+    <li><label>开始时间：<b>*</b></label><input name="start_time" type="date" class="form-control"    style="width:518px;" required="required"/></li>
     
-    <li><label>结束时间：<b>*</b></label><input name="end_time" type="date" class="form-control"    style="width:518px;"/></li>
+    <li><label>结束时间：<b>*</b></label><input name="end_time" type="date" class="form-control"    style="width:518px;" required="required"/></li>
     
     
     
