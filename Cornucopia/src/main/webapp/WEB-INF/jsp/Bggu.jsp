@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	  pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -29,8 +29,6 @@
 		$("#status").val("");
 	}
 </script>
-
-
 <body style="background:#f0f9fd;">
 	<div class="place" style="color: blue; font-size: 20px">
 		<span>位置：</span>
@@ -38,21 +36,17 @@
 			<li>固收类/P2P</li>
 		</ul>
 	</div>
-
 	<div class="tools">
 		<form action="/Cornucopia/BgSubject/list2" method="post" role="form">
 			<label>名称</label><input name="name" type="text" class="scinput" /> 
 				<label>类型<b>*</b></label>
-					
 						<select class="select2" name="type" id="type">
 							<option value="">全部</option>
 							<option value="0">固收类</option>
 							<option value="1">P2P车贷</option>
 							<option value="2">P2P房贷</option>
 						</select>
-					
-					     <label>状态<b>*</b></label>
-					     
+					     <label>状态<b>*</b></label> 
 						<select class="select2" name="status" id="status">
 							<option value="">全部</option>
 							<option value="0">募集中</option>
@@ -62,22 +56,21 @@
 						</select>
 						
 						
-				<input type="submit" class="btn btn-primary" value="查询">
-				
-				
-				<button type="reset" class="btn btn-primary" onclick="clean();">
-				
-					<span><img src="../BgAssets/images/t02.png" /></span>重置
+		 	 <input type="submit" class="btn btn-primary" value="查询">
+
+			 <button type="reset" class="btn btn-primary" onclick="clean();">
+			 
+			 <span><img src="../BgAssets/images/t02.png"/></span>重置,
 				</button>
 				<a href="/Cornucopia/BgSubject/togusave">
 				<button type="button" class="btn btn-primary" >
 					<span><img src="../BgAssets/images/t01.png" /></span>新增
 				</button>
 				</a>
-		</form>
+		    </form>
 
-	</div>
-
+	  </div>
+ 
 	<table class="tablelist">
 		<thead>
 			<tr>
